@@ -1,5 +1,5 @@
 # VibeTrack 
-> ![Example screenshot](https://i.imgur.com/1BNQ0NY.png) A nightclub tracker mobile app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
+> A nightclub tracker mobile app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
  <!-- > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
@@ -42,12 +42,13 @@
 
 <a name="screenshots"></a>
 ## Screenshots 
-![Example screenshot](IMG LINK)
+![Example screenshot](https://i.imgur.com/SoHE2tO.png)
+Example screenshot TBA...
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 <a name="project-status"></a>
 ## Project Status
-This project is currently _in progress_.
+This project is currently _in progress_. [Jira SCRUM Borad](https://cs3398f23romulans1.atlassian.net/jira/software/projects/SCRUM/boards/1) 
 
 <a name="room-for-improvement"></a>
 ## Room for Improvement <!-- Include areas you believe need improvement / could be improved. Also add TODOs for future development. -->
