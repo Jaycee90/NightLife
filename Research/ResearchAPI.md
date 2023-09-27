@@ -1,6 +1,6 @@
 ## Research API
 
-**Title**: Research API (September 22-25)
+**Title**: Research API
 
 **Why**: We're conducting this research to seamlessly integrate Google Maps API into our nightclub tracker app. This feature will provide accurate club locations on the listing page as well as enhance user safety by allowing them to share location with emergency contact.
 

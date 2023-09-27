@@ -1,6 +1,6 @@
 ## Research Web Scrapping
 
-**Title**: Research Web Scrapping (September 22-25) (September 22-25)
+**Title**: Research Web Scrapping
 
 **Why**: We're conducting this research to explore the feasibility and methodology of web scraping, specifically from platforms like Yelp. This will enable us to gather detailed information about clubs, enhancing our app's content and user experience.
 

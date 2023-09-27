@@ -1,6 +1,6 @@
 ## Research MongoDB
 
-**Title**: Research MongoDB (September 22-25)
+**Title**: Research MongoDB
 
 **Why**: We're conducting this research to understand how to integrate MongoDB into our Vibetrack as our primary database management system. MongoDB will be crucial for efficiently managing and querying the extensive club data and user information.
 
