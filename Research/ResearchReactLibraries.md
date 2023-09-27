@@ -1,6 +1,6 @@
 ## Research into React-Native libraries
 
-**Title**: Research into React-Native libraries
+**Title**: Research into React-Native libraries (September 22-25)
 
 **Why**: We are conducting this research to find suitable React Native libraries that will enhance the user experience of Vibetrack. Utilizing well-chosen libraries will save development time and improve the overall quality of the project.
 

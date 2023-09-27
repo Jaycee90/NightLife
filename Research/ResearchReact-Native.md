@@ -1,6 +1,6 @@
 ## Research React-Native
 
-**Title**: Research React-Native
+**Title**: Research React-Native (September 22-25)
 
 **Why**: Due to our team's limited experience with React-Native, this research is very important to the development of the project. Researching into React-Native beforehand would allow us to improve efficiency and make the app development process faster and easier.
 
