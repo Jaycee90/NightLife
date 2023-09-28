@@ -10,7 +10,7 @@ function Home() {
             </div>
             <br/>
             <div class ="container">
-                <p>Wow another container.</p>
+                <p>Wow another container. Edit to see if worked.</p>
             </div>
             <br/>
         </div>
