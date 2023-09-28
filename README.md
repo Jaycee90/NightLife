@@ -1,6 +1,8 @@
 # VibeTrack 
-> A nightclub tracker mobile app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
+> A nightclub tracker web app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
  <!-- > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+
+**Update**: As of September 28, 2023, we decided to change our project from a mobile app to a web-based app. This is because there has been some issues when it comes to configuring/compiling/deploying the starter app. We also take account of the factor that having a web-based app for our project would be more beneficial to our future resume as it is easier for employer or anyone to see it on public domain.
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -17,9 +19,9 @@
 
 <a name="general-information"></a>
 ## General Information 
-- We are creating a mobile app that aims to provide an enhanced experience for nightlife enthusiasts, helping them discover nearby clubs that cater to their preferences and interests within their vicinity.
-- Through our mobile app, our goal is to promote an elevated quality of the nightlife experience itself, providing a convenient way to discover and access nightlife venues while fostering a safe and responsible community.
-- Due to the nature of our mobile app, we are required to restrict access to individuals aged 18 and above, ensuring compliance with state laws regarding age requirements.
+- We are creating a web app that aims to provide an enhanced experience for nightlife enthusiasts, helping them discover nearby clubs that cater to their preferences and interests within their vicinity.
+- Through our web app, our goal is to promote an elevated quality of the nightlife experience itself, providing a convenient way to discover and access nightlife venues while fostering a safe and responsible community.
+- Due to the nature of our web app, we are required to restrict access to individuals aged 18 and above, ensuring compliance with state laws regarding age requirements.
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 <a name="technologies-used"></a>
@@ -52,7 +54,7 @@ This project is currently _in progress_. [Jira SCRUM Borad](https://cs3398f23rom
 
 <a name="room-for-improvement"></a>
 ## Room for Improvement <!-- Include areas you believe need improvement / could be improved. Also add TODOs for future development. -->
-- Given that this is a course project, we have limited time to develop it to our full vision. Nevertheless, our goal is to develop a functional, user-friendly mobile app that offers information about nightclubs in the Austin area. If we choose to pursue this project beyond the classroom, we aspire to broaden its reach, potentially extending the database across the country for a more expansive impact.
+- Given that this is a course project, we have limited time to develop it to our full vision. Nevertheless, our goal is to develop a functional, user-friendly web app that offers information about nightclubs in the Austin area. If we choose to pursue this project beyond the classroom, we aspire to broaden its reach, potentially extending the database across the country for a more expansive impact.
 - Additionally, if we were to continue working on this project beyond the classroom, we will try to find additional resources like more time, expertise in specific areas, and potentially additional developers could help in expanding its scope statewide.
 - User feedback and engagement would be crucial in fine-tuning and enhancing the app's features and functionalities. Therefore, we also would like to gather feedback from fellow Texas State students through beta testing. 
 
