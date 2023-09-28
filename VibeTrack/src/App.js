@@ -14,6 +14,7 @@ function App() {
         <Route path='/specialevent' element={<SpecialEvent/>} />
         <Route path='/calendar' element={<Calendar/>} />
         <Route path='/search' element={<Search/>} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </Router>
   );
