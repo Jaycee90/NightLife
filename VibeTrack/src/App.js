@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Home from './Routes/Home';
 import RouteOne from './Routes/RouteOne';
 import SpecialEvent from './Routes/Special';
+import Search from './Routes/Search';
 function App() {
   return (
     <Router>
@@ -10,6 +11,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/routeone' element={<RouteOne />} />
         <Route path='/specialevent' element={<SpecialEvent/>} />
+        <Route path='/search' element={<Search/>} />
       </Routes>
     </Router>
   );
