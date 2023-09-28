@@ -10,7 +10,7 @@ function Home() {
             </div>
             <br/>
             <div class ="container">
-                <p>Wow another container. Edit to see if worked.</p>
+                <p>Wow another container. Edit to see if worked. Edited again to see if new commit is in SCRUM 25 now.</p>
             </div>
             <br/>
         </div>
