@@ -5,6 +5,7 @@ import RouteOne from './Routes/RouteOne';
 import SpecialEvent from './Routes/Special';
 import Search from './Routes/Search';
 import Calendar from './Routes/Calendar';
+import Listing from './Routes/Listing';
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
         <Route path='/routeone' element={<RouteOne />} />
         <Route path='/specialevent' element={<SpecialEvent/>} />
         <Route path='/calendar' element={<Calendar/>} />
+        <Route path='/listing' element={<Listing/>} />
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
       </Routes>
