@@ -1,9 +1,10 @@
 import React from "react";
 import "leaflet/dist/leaflet.css";
-
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+
 function Listing() {
+    const locationCoord = [29.8833, 97.9414];
     
   return(
     <div style={{ display: "flex" }}>
@@ -12,18 +13,22 @@ function Listing() {
           height: "100vh",
           width: "100%",
         }}
-        center={[31.432026740690574, 120.8439179532812]}
+        center={[29.8833, 97.9414]}
         zoom={8}
       >
         {/* Add Google Maps tile URL */}
         <TileLayer
-          attribution="Google Maps"
-          url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <Marker position={[29.8833, 97.9414]}>
+            <Popup>
+            Your Location <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
+            </Popup>
+        </Marker>
       </MapContainer>
     </div>
   );
-
 };
 
 export default Listing;
