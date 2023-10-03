@@ -139,105 +139,6 @@ body { background: var(--white); }
 
 
 
-/*-----------------------------------*\
- * #POPULAR
-\*-----------------------------------*/
-
-.popular { padding-block: var(--section-padding); }
-
-.popular-list,
-.popular-list > li:not(:last-child) { margin-bottom: 30px; }
-
-.popular-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-25);
-  height: 430px;
-}
-
-.popular-card .card-img { height: 100%; }
-
-.popular-card .card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.popular-card .card-content {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: var(--white);
-  border-radius: var(--radius-25);
-  padding: 20px;
-}
-
-
-.popular-card .card-rating {
-  background: var(--white);
-  color: var(--white);
-  position: absolute;
-  top: 0;
-  right: 25px;
-  display: flex;
-  align-items: center;
-  gap: 1px;
-  transform: translateY(-50%);
-  padding: 6px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-}
-
-.popular-card .card-subtitle {
-  color: black;
-  font-size: var(--fs-6);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.popular-card .card-title { margin-bottom: 5px; color:black }
-
-.popular-card :is(.card-subtitle, .card-title) > a { color: inherit; }
-
-.popular .btn { margin-inline: auto; }
-
-
-
-  /**
-   * POPULAR
-   */
-
-  .popular-card .card-content { right: auto; }
-
-
-
-
-  /**
-   * POPULAR
-   */
-
-  .popular-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
-
-  .popular-list > li:not(:last-child) { margin-bottom: 0; }
-
-  .popular-card .card-content { right: 20px; }
-
-
-
-  /**
-   * POPULAR
-   */
-
-  .popular-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
   /**
    * PACKAGE
    */
@@ -339,15 +240,13 @@ body {
     padding:10px;
 }
 
-.about-us {
-  display: flex;
-  align-items: center;
-  background-color: #f3f3f3c0;
-  color: #000;
-  padding: 50px 30px;
-  display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 10px;
+.about-section {
+    display: flex;
+    align-items: center;
+    background-color: #f3f3f3c0;
+    color: #000;
+    font-size: 0.75em;
+    padding: 50px 30px;
 }
 
 .link {
@@ -401,7 +300,19 @@ a.link:hover {
     margin: auto;
     font-size: 1.8em;
 }
+.row-flex {
+  color:black;
+    display: flex;
+    flex-direction: row;
+}
 
+.flex-column-form {
+  color:black;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    margin: 30px 20px;
+}
 
 .btn.btn-primary {
     background-color: var(--spanish-gray);
@@ -416,40 +327,80 @@ a.link:hover {
 .btn.btn-primary:hover {
     background-color: #747474;
 }
+.opening-time,
+.contact-adress {
+    flex: 1;
+    color:black;
+    margin: 30px 20px;
+    font-size:1.25em;
+}
 
 .form-group p {
-    font-size: 20px;
-    padding-bottom:10px;
+    font-size: 1.2em;
+    padding-top:10px;
+}
+
+.opening-time p span,
+.contact-adress p span {
+    display: block;
 }
 
 
-.grid-contact {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
+
+.clublist { padding-block: var(--section-padding); }
+  
+.clublist-list,
+.clublist-list > li:not(:last-child) { margin-bottom: 30px; }
+
+.clublist-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-25);
+  height: 430px;
 }
 
-.grid-contact h3{
-  font-size:20px;
-}
-.grid-contact > div {
-  display: block;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-color: black;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 15px;
+.clublist-card .card-img { height: 100%; }
+
+.clublist-card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-input[type=text], input[type=email]{
-  background-color: #747474;
-  color: white;
-  height:30px;
-  justify-content: center;
+.clublist-card .card-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: var(--white);
+  border-radius: var(--radius-25);
+  padding: 20px;
+}
+
+
+.clublist-card .card-rating {
+  background: var(--spanish-gray);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 25px;
+  display: flex;
   align-items: center;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  font-size: 18px;
+  gap: 1px;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
 }
+
+.clublist-card .card-subtitle {
+  color: var(--spanish-gray);
+  font-size: var(--fs-6);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.grid-clublist {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    gap: 10px;
+  }
