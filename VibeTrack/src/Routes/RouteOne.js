@@ -1,15 +1,13 @@
-// src/components/RouteOne.js
-
 import React from 'react';
+import { useParams } from "react-router-dom";
 
 function RouteOne(props) {
-  const { name } = useParams();
 
-  return (
-    <div>
-      <h1 style={{'color':'747474'}}>Hello, {name}</h1>
-    </div>
+  let { name } = useParams();
+
+  return(
+    <div><h1 style={{'color':'#747474'}}>Hello {name ? name : "login"}</h1>;</div>
   );
-}
+};
 
 export default RouteOne;
