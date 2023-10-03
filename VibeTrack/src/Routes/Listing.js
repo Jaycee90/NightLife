@@ -16,7 +16,6 @@ import 'react-calendar/dist/Calendar.css';
   
 
 function Listing() {
-    <h1>This is the Vibetrack Listing yayy!!!</h1>
     const [date, setDate] = useState(new Date());
     
     const locationCoord = [29.8833, -97.9414];
