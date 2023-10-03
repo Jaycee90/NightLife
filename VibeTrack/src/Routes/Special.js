@@ -1,17 +1,29 @@
 import React from "react";
-import "./style_event.css";
-import image from "./image/time.png"; // Import the time image
+import "./Special.css";
 
 function SpecialEvent() {
     return (
-        <div class="event-container">
-      <h3 class="year">2023</h3>
+        <div>
+                        <h1>This is the special event!</h1>
+        <div class = "nav" style={{'padding-bottom':'100px'}}>
+            <ul class="nav-flex-row">
+                <li class="nav-item"><a href="discover">Discover</a></li>
+                <li class="nav-item"><a href="listing">List</a></li>
+                <li class="nav-item"><a href="search">Search</a></li>
+                <li class="nav-item"><a href="specialevent">Special Event</a></li>
+                <li class="nav-item"><a href="login">Login</a></li>
+            </ul>
+        </div>
+        
+       <div class="event-container">
+      <h3 class="year">This Week</h3>
+      
 
       <div class="event">
         <div class="event-left">
           <div class="event-date">
-            <div class="date">8</div>
-            <div class="month">Nov</div>
+            <div class="date">22</div>
+            <div class="month">Dec</div>
           </div>
         </div>
 
@@ -23,7 +35,7 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:00 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:45 am
           </div>
         </div>
       </div>
@@ -44,12 +56,12 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:45 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:45 am
           </div>
         </div>
       </div>
 
-      <h3 class="year">2024</h3>
+      <h3 class="year">Upcoming Weeks</h3>
 
       <div class="event">
         <div class="event-left">
@@ -67,7 +79,7 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:00 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:00 am
           </div>
         </div>
       </div>
@@ -88,7 +100,7 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:30 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:30 am
           </div>
         </div>
       </div>
@@ -109,7 +121,7 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:00 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:00 am
           </div>
         </div>
       </div>
@@ -130,11 +142,12 @@ function SpecialEvent() {
           </div>
 
           <div class="event-timing">
-            <img src="images/time.png" alt="" /> 10:00 am
+            <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> 10:00 am
           </div>
         </div>
       </div>
     </div>
+        </div>
     );
 };
 
