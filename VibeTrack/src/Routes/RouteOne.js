@@ -1,11 +1,15 @@
-import React from "react";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 
+import './Listing.css';
 function RouteOne() {
+    const { id } = useParams();
+    console.log(id);
     return (
-        <div>
-            <h1>Route One Test</h1>
+        <div >
+            <p> your expected id : {id}</p>
         </div>
     );
-};
+}
 
 export default RouteOne;

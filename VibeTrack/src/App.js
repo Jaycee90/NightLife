@@ -9,8 +9,6 @@ import Calendar from './Routes/Calendar';
 import Listing from './Routes/Listing';
 import Login from './Routes/Login';
 
-
-
 function App() {
   return (
     <Router>
