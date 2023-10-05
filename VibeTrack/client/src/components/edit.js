@@ -17,7 +17,7 @@ export default function Edit() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id.toString();
-      const response = await fetch(`http://localhost:5050/venues/${params.id.toString()}`);
+      const response = await fetch(`http://localhost:5050/record/${params.id.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -28,7 +28,7 @@ export default function Edit() {
       const venue = await response.json();
       if (!venue) {
         window.alert(`Venue with id ${id} not found`);
-        navigate("/venues");
+        navigate("/");
         return;
       }
 
@@ -57,7 +57,7 @@ export default function Edit() {
       image: form.image,
     };
 
-    await fetch(`http://localhost:5050/venues/${params.id}`, {
+    await fetch(`http://localhost:5050/record/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(editedVenue),
       headers: {
@@ -65,7 +65,7 @@ export default function Edit() {
       },
     });
 
-    navigate("/venues");
+    navigate("/recordList");
   }
 
   return (

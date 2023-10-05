@@ -24,7 +24,7 @@ export default function Create() {
 
     const newVenue = { ...form };
 
-    await fetch("http://localhost:5050/venues", {
+    await fetch("http://localhost:5050/record/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
