@@ -27,7 +27,8 @@ if __name__ == "__main__":
         #i will add addresses in this format after i get the mongoDB data
         "Nightclub Address 1, San Marcos, TX",
         "Nightclub Address 2, San Marcos, TX",
-        # Add more addresses here
+        # Add more addresses here (I will have to practice first)
+        #I could use MongoDB directly!:CHECKPOINT
     ]
 
     geocode_and_store_addresses(nightclub_addresses)
