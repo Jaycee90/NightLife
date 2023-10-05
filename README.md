@@ -25,9 +25,13 @@
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
 <a name="technologies-used"></a>
-## Technologies Used 
-* Kivy - version 2.2.1
-* Beeware - version 0.3.12
+## Technologies Used
+* React - version 18.2.0
+* MongoDB - version 7.0
+* Language
+	* JavaScript
+	* HTML, CSS
+	* Python
 * TBA
 
 <a name="features"></a>
@@ -40,7 +44,7 @@
 * **Special Events**: Consistently providing updates on upcoming special events such as music concerts, sporting games, festivals, etc., to nearby clubs and venues. (User Story 1, 2, 3 and 5)
 * **Location Sharing**: Provide users with exclusive access to 2 features: Invite Friends and Safety Alert (User Story 6 and 7)
 	* Invite Friends: Enable users to directly send event invitations via SMS to their friends.
-	* Safety Alert: Empower users to share their location and send an SOS alert to their emergency contacts or local police department.
+					* Safety Alert: Empower users to share their location and send an SOS alert to their emergency contacts or local police department.
 
 <a name="screenshots"></a>
 ## Screenshots 
@@ -63,11 +67,11 @@ To do: TBA...
 
 <a name="contact"></a>
 ## Contact Team
-- Isaiah Gage
-- Benu Liburd
-- Michelle Nguyen
-- Nilu Sah
-- Jayce Turambe
+- Isaiah Gage (frb32@txstate.edu)
+- Benu Liburd (bjl98@txstate.edu)
+- Michelle Nguyen (rnb90@txstate.edu)
+- Nilu Sah (zys5@txstate.edu)
+- Jayce Turambe (zys5@txstate.edu)
 
 <a name="acknowledgements"></a>
 ## Acknowledgements
