@@ -44,7 +44,7 @@ export default function Create() {
       website: "",
       image: "",
     });
-    navigate("/venues");
+    navigate("/recordList");
   }
 
   return (
