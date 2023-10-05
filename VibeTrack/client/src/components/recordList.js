@@ -65,8 +65,8 @@ export default function RecordList() {
         <thead>
           <tr>
             <th className="nameColumn">Name</th>
-            <th className="positionColumn">Position</th>
-            <th className="levelColumn">Level</th>
+            <th className="addressColumn">Address</th>
+            <th className="aboutColumn">About</th>
             <th className="phoneColumn">Phone</th>
             <th className="websiteColumn">Website</th>
             <th className="actionColumn">Action</th>
