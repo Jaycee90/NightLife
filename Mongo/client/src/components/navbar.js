@@ -1,41 +1,26 @@
 import React from "react";
-
-// We import bootstrap to make our application look better.
-import "bootstrap/dist/css/bootstrap.css";
-
-// We import NavLink to utilize the react router.
-import { NavLink } from "react-router-dom";
+import './navbar.css';
 
 // Here, we display our Navbar
 export default function Navbar() {
  return (
    <div>
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-       <NavLink className="navbar-brand" to="/">
-          <img alt="MongoDB logo" style={{"width" : 25 + '%'}} src="https://d3cy9zhslanhfa.cloudfront.net/media/3800C044-6298-4575-A05D5C6B7623EE37/4B45D0EC-3482-4759-82DA37D8EA07D229/webimage-8A27671A-8A53-45DC-89D7BF8537F15A0D.png"></img>
-       </NavLink>
-       <button
-         className="navbar-toggler"
-         type="button"
-         data-toggle="collapse"
-         data-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent"
-         aria-expanded="false"
-         aria-label="Toggle navigation"
-       >
-         <span className="navbar-toggler-icon"></span>
-       </button>
+       <div class = "nav" style={{'padding-bottom':'100px'}}>
+            <ul class="nav-flex-row">
+              <li class="nav-item"><a href="/">Home</a></li>
+              <li class="nav-item"><a href="discover">Discover</a></li>
+              <li class="nav-item"><a href="listing">List</a></li>
+              <li class="nav-item"><a href="recordList">Record</a></li>
+              <li class="nav-item"><a href="specialevent">Special Event</a></li>
 
-       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul className="navbar-nav ml-auto">
-           <li className="nav-item">
-             <NavLink className="nav-link" to="/create">
-               Create Record
-             </NavLink>
-           </li>
+              {/*
+              <li class="nav-item"><a href="login">Login</a></li>
+              <li class="nav-item"><a href="search">Search</a></li> 
+              */}
          </ul>
+
+         
        </div>
-     </nav>
    </div>
  );
 }

@@ -4,16 +4,6 @@ import './Home.css';
 function Home() {
     return (
       <div>
-        <div class = "nav">
-            <ul class="nav-flex-row">
-                <li class="nav-item"><a href="discover">Discover</a></li>
-                <li class="nav-item"><a href="listing">List</a></li>
-                <li class="nav-item"><a href="search">Search</a></li>
-                <li class="nav-item"><a href="specialevent">Special Event</a></li>
-                <li class="nav-item"><a href="login">Login</a></li>
-            </ul>
-        </div>
-            
   <div class="section-intro">
           <p class="section-subtitle">Uncover place</p>
           <h2 class="h2 section-title">VibeTrack</h2>

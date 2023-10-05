@@ -11,33 +11,35 @@ import Create from "./components/create";
 
 import Home from './Routes/Home';
 import Discover from './Routes/Discover';
-import RouteOne from './Routes/RouteOne'; 
+import Data from './Routes/Data'; 
 import SpecialEvent from './Routes/Special';
 import Search from './Routes/Search';
 import Calendar from './Routes/Calendar';
 import Listing from './Routes/Listing';
 import Login from './Routes/Login';
+import Safety from './Routes/Safety';
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <div style={{ margin: 20 }}>
       <Routes>
-        <Route exact path="/" element={<RecordList />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/create" element={<Create />} />
-        <Route path='/home' element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path='/discover' element={<Discover />} />
-        <Route path="/routeone/:name" element={<RouteOne />} />
+        <Route path="/data/:name" element={<Data />} />
         <Route path='/specialevent' element={<SpecialEvent/>} />
         <Route path='/calendar' element={<Calendar/>} />
         <Route path='/listing' element={<Listing/>} />
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
+        <Route path='/safety' element={<Safety />} />
+
+        
+        <Route path='/recordlist' element={<RecordList />} />
+        <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
       </div>
-    </div>
   );
 };
 

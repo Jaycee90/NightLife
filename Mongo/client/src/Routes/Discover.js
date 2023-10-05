@@ -4,16 +4,7 @@ import './Discover.css';
 function Discover() {
     return (
         <div>
-        <div class = "nav" style={{'padding-bottom':'50px'}}>
-            <ul class="nav-flex-row">
-                <li class="nav-item"><a href="discover">Discover</a></li>
-                <li class="nav-item"><a href="listing">List</a></li>
-                <li class="nav-item"><a href="search">Search</a></li>
-                <li class="nav-item"><a href="specialevent">Special Event</a></li>
-                <li class="nav-item"><a href="login">Login</a></li>
-            </ul>
-        </div>
-  <section class="clublist" id="destination">
+        <section class="clublist" id="destination">
         <div class="container" >
           <p class="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
           <h2 class="h2 section-title">Discover venues</h2>

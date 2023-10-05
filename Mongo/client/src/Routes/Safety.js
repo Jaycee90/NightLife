@@ -1,6 +1,6 @@
 import React from "react";
 
-function SafetyPage() {
+function Safety() {
     return (
         <div>
             <h1>SafetyPage</h1>
@@ -8,4 +8,4 @@ function SafetyPage() {
     );
 };
 
-export default SafetyPage;
+export default Safety;
