@@ -10,8 +10,9 @@ export default function Navbar() {
               <li class="nav-item"><a href="/">Home</a></li>
               <li class="nav-item"><a href="discover">Discover</a></li>
               <li class="nav-item"><a href="listing">List</a></li>
-              <li class="nav-item"><a href="recordList">Record</a></li>
               <li class="nav-item"><a href="specialevent">Special Event</a></li>
+              <li class="nav-item"><a href="recordList">Record</a></li>
+              <li class="nav-item"><a href="create">Create</a></li>
 
               {/*
               <li class="nav-item"><a href="login">Login</a></li>
