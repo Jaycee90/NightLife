@@ -3,78 +3,77 @@ import { Link } from "react-router-dom";
 import './recordList.css';
 
 const Record = (props) => (
- <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.position}</td>
-   <td>{props.record.level}</td>
-   <td >
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`} style={{'color':'#000000'}}>Edit</Link>
-    {/*  | <button className="btn btn-link" onClick={() => { props.deleteRecord(props.record._id);}} style={{'color':'#000000'}}> Delete </button> */}     
-   </td>
- </tr>
+  <tr>
+    <td>{props.record.name}</td>
+    <td>{props.record.address}</td>
+    <td>{props.record.about}</td>
+    <td>{props.record.phone}</td>
+    <td>{props.record.website}</td>
+    <td>
+      <Link className="btn btn-link" to={`/edit/${props.record._id}`} style={{ color: '#000000' }}>Edit</Link>
+    </td>
+  </tr>
 );
 
 export default function RecordList() {
- const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState([]);
 
- // This method fetches the records from the database.
- useEffect(() => {
-   async function getRecords() {
-     const response = await fetch(`http://localhost:5050/record/`);
+  useEffect(() => {
+    async function getRecords() {
+      const response = await fetch(`http://localhost:5050/record/`);
 
-     if (!response.ok) {
-       const message = `An error occurred: ${response.statusText}`;
-       window.alert(message);
-       return;
-     }
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
 
-     const records = await response.json();
-     setRecords(records);
-   }
+      const records = await response.json();
+      setRecords(records);
+    }
 
-   getRecords();
+    getRecords();
 
-   return;
- }, [records.length]);
+    return;
+  }, [records.length]);
 
- // This method will delete a record
- async function deleteRecord(id) {
-   await fetch(`http://localhost:5050/record/${id}`, {
-     method: "DELETE"
-   });
+  async function deleteRecord(id) {
+    await fetch(`http://localhost:5050/record/${id}`, {
+      method: "DELETE"
+    });
 
-   const newRecords = records.filter((el) => el._id !== id);
-   setRecords(newRecords);
- }
+    const newRecords = records.filter((el) => el._id !== id);
+    setRecords(newRecords);
+  }
 
- // This method will map out the records on the table
- function recordList() {
-   return records.map((record) => {
-     return (
-       <Record
-         record={record}
-         deleteRecord={() => deleteRecord(record._id)}
-         key={record._id}
-       />
-     );
-   });
- }
+  function recordList() {
+    return records.map((record) => {
+      return (
+        <Record
+          record={record}
+          deleteRecord={() => deleteRecord(record._id)}
+          key={record._id}
+        />
+      );
+    });
+  }
 
- // This following section will display the table with the records of individuals.
- return (
-   <div >
-     <h3>Record List</h3>
-     <table style={{ marginTop: 20, 'color':'#000000' }}>
-       <thead>
-         <tr>
-           <th class = "nameColumn">Name</th>
-           <th class = "positionColumn">Position</th>
-           <th class = "levelColumn">Level</th>
-           <th class = "actionColumn">Action</th>
-         </tr>
-       </thead>
-       <tbody>{recordList()}</tbody>
-     </table>
-   </div>
- );
+  return (
+    <div >
+      <h3>Record List</h3>
+      <table style={{ marginTop: 20, color: '#000000' }}>
+        <thead>
+          <tr>
+            <th className="nameColumn">Name</th>
+            <th className="positionColumn">Position</th>
+            <th className="levelColumn">Level</th>
+            <th className="phoneColumn">Phone</th>
+            <th className="websiteColumn">Website</th>
+            <th className="actionColumn">Action</th>
+          </tr>
+        </thead>
+        <tbody>{recordList()}</tbody>
+      </table>
+    </div>
+  );
 }

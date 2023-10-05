@@ -10,14 +10,18 @@ th, td {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
   .actionColumn {
-    width: 40%;
+    width: 5%;
   }
   
-  .nameColumn {
+  .addressColumn {
     width: 20%;
   }
 
-  .positionColumn, .levelColumn {
+  .aboutColumn {
+    width: 30%;
+  }
+
+  .nameColumn, .phoneColumn, .websiteColumn {
     width: 15%;
   }
   
