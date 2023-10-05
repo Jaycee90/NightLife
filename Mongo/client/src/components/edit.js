@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import './edit.css';
 
 export default function Edit() {
  const [form, setForm] = useState({
@@ -67,8 +68,8 @@ export default function Edit() {
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div>
-     <h3>Update Record</h3>
-     <form onSubmit={onSubmit}>
+     <h3 style={{'color':'#000000', 'padding-bottom':'10px'  }}>Update Record</h3>
+     <form onSubmit={onSubmit} style={{'color':'#000000' }}>
        <div className="form-group">
          <label htmlFor="name">Name: </label>
          <input

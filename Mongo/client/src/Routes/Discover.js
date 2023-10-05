@@ -1,9 +1,9 @@
 import React from "react";
-import './Discover.css';
+import styles from './Discover.css';
 
 function Discover() {
     return (
-        <div>
+        <div className={styles.discoverContainer}>
         <section class="clublist" id="destination">
         <div class="container" >
           <p class="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>

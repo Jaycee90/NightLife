@@ -1,4 +1,5 @@
 
+
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
 
 :root {
@@ -31,9 +32,6 @@
   --radius-25: 25px;
 
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -404,3 +402,5 @@ a.link:hover {
     grid-template-columns: 20% 80%;
     gap: 10px;
   }
+
+  

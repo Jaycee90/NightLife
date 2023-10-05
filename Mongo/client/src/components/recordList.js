@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './recordList.css';
 
 const Record = (props) => (
  <tr>
@@ -7,14 +8,8 @@ const Record = (props) => (
    <td>{props.record.position}</td>
    <td>{props.record.level}</td>
    <td >
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`} style={{'color':'#000000'}}>Edit</Link> |
-     <button className="btn btn-link"
-       onClick={() => {
-         props.deleteRecord(props.record._id);
-       }} style={{'color':'#000000'}}
-     >
-       Delete
-     </button>
+     <Link className="btn btn-link" to={`/edit/${props.record._id}`} style={{'color':'#000000'}}>Edit</Link>
+    {/*  | <button className="btn btn-link" onClick={() => { props.deleteRecord(props.record._id);}} style={{'color':'#000000'}}> Delete </button> */}     
    </td>
  </tr>
 );
@@ -67,15 +62,15 @@ export default function RecordList() {
 
  // This following section will display the table with the records of individuals.
  return (
-   <div>
+   <div >
      <h3>Record List</h3>
-     <table className="table table-striped" style={{ marginTop: 20, 'color':'#000000' }}>
+     <table style={{ marginTop: 20, 'color':'#000000' }}>
        <thead>
          <tr>
-           <th>Name</th>
-           <th>Position</th>
-           <th>Level</th>
-           <th>Action</th>
+           <th class = "nameColumn">Name</th>
+           <th class = "positionColumn">Position</th>
+           <th class = "levelColumn">Level</th>
+           <th class = "actionColumn">Action</th>
          </tr>
        </thead>
        <tbody>{recordList()}</tbody>
