@@ -19,8 +19,6 @@ import Listing from './Routes/Listing';
 import Login from './Routes/Login';
 import Safety from './Routes/Safety';
 
-import Test from './Routes/Test';
-
 const App = () => {
   return (
     <div>
@@ -28,14 +26,13 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path='/discover' element={<Discover />} />
-        <Route path="/data/:name" element={<Data />} />
+        <Route path="/data/:id" element={<Data />} />
         <Route path='/specialevent' element={<SpecialEvent/>} />
         <Route path='/calendar' element={<Calendar/>} />
         <Route path='/listing' element={<Listing/>} />
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/safety' element={<Safety />} />
-        <Route path='/test/:id' element={<Test />} />
 
         
         <Route path='/recordlist' element={<RecordList />} />
