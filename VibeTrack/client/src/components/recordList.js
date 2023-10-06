@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import './recordList.css';
+import '../css/recordList.css';
 
 const Record = (props) => (
   <tr>

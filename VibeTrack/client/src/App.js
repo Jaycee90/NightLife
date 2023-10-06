@@ -9,15 +9,15 @@ import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 
-import Home from './Routes/Home';
-import Discover from './Routes/Discover';
-import Data from './Routes/Data'; 
-import SpecialEvent from './Routes/Special';
-import Search from './Routes/Search';
-import Calendar from './Routes/Calendar';
-import Listing from './Routes/Listing';
-import Login from './Routes/Login';
-import Safety from './Routes/Safety';
+import Home from './routes/Home';
+import Discover from './routes/Discover';
+import Data from './routes/Data'; 
+import SpecialEvent from './routes/Special';
+import Search from './routes/Search';
+import Calendar from './routes/Calendar';
+import Listing from './routes/Listing';
+import Login from './routes/Login';
+import Safety from './routes/Safety';
 
 const App = () => {
   return (
