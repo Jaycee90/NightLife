@@ -1,5 +1,5 @@
 import React from 'react';
-import './Discover.css';
+import '../css/Discover.css';
 
 function Login() {
     return (

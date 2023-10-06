@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './Discover.css';
+import styles from '../css/Discover.css';
 
 function Discover() {
     return (

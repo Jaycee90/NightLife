@@ -1,5 +1,5 @@
 import React from "react";
-import "./Special.css";
+import "../css/Special.css";
 
 function SpecialEvent() {
     return (
