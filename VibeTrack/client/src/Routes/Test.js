@@ -80,6 +80,10 @@ function Test(props) {
           </div>
         </div>
       </div>
+
+      <div>
+        <h3>Current ID: {params.id}</h3>
+      </div>
     </div>
   );
 };
