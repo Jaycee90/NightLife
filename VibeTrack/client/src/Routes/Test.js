@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './Listing.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from "react-router-dom";
-import './Listing.css';
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,7 +60,7 @@ function Test(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Invite a Friend</button>
         </div>
-        <div className="item"><img src={venueData.image} width="600px" alt="Something" style={{ 'borderRadius': '30px' }} /></div>
+        <div className="item" ><img src={venueData.image} alt="Something" height='300px' width='600px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>
@@ -93,7 +92,7 @@ function Test(props) {
                   width: "100%",
                 }}
                 center={[29.8833, -97.9414]} //  {[{venueData.latitude}, {venueData.longitude}]} center somewhere else??
-                zoom={15}
+                zoom={16}
               >
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
