@@ -1,15 +1,29 @@
+import csv
 from geopy.geocoders import Nominatim
 import pymongo
+import os
+import dotenv
+
+# Load environment variables from .env file
+dotenv.load_dotenv()
+
+def read_addresses_from_csv(csv_file):
+    addresses = []
+    with open(csv_file, newline='', encoding='utf-8') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            addresses.append(row["Address"])
+    return addresses
 
 def geocode_and_store_addresses(addresses):
     # Initialize geolocator
-    geolocator = Nominatim(user_agent="nightclub_geocoding")
+    geolocator = Nominatim(user_agent="venue_geocoding")
 
     # MongoDB connection
-    #Waiting for the MongoDB connection details, including 
-    # the connection URL, and database name
-    client = pymongo.MongoClient("mongodb://localhost:27017/")#Will replace this after talking with Benu
-    db = client["nightclubs"]
+    # Use the URI from the .env file
+    mongo_uri = os.getenv("ATLAS_URI")
+    client = pymongo.MongoClient(mongo_uri)
+    db = client["Venues"]
     collection = db["coordinates"]
 
     for address in addresses:
@@ -23,12 +37,9 @@ def geocode_and_store_addresses(addresses):
             collection.insert_one(coordinates)
 
 if __name__ == "__main__":
-    nightclub_addresses = [
-        #i will add addresses in this format after i get the mongoDB data
-        "Nightclub Address 1, San Marcos, TX",
-        "Nightclub Address 2, San Marcos, TX",
-        # Add more addresses here (I will have to practice first)
-        #I could use MongoDB directly!:CHECKPOINT
-    ]
+    # Read addresses from the CSV file
+    csv_file = "Venues.csv"
+    venue_addresses = read_addresses_from_csv(csv_file)
 
-    geocode_and_store_addresses(nightclub_addresses)
+    # Geocode and store the addresses
+    geocode_and_store_addresses(venue_addresses)
