@@ -19,6 +19,8 @@ import Listing from './Routes/Listing';
 import Login from './Routes/Login';
 import Safety from './Routes/Safety';
 
+import Test from './Routes/Test';
+
 const App = () => {
   return (
     <div>
@@ -33,6 +35,7 @@ const App = () => {
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/safety' element={<Safety />} />
+        <Route path='/test/:name' element={<Test />} />
 
         
         <Route path='/recordlist' element={<RecordList />} />
