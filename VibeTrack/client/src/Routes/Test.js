@@ -38,7 +38,6 @@ function Test(props) {
 
     fetchData();
   }, [params.id]);
-
   return (
     <div>
       <div className="about-section">
@@ -81,7 +80,7 @@ function Test(props) {
         </div>
       </div>
 
-      <div>
+      <div style={{'color':'#000000'}}>
         <h3>Current ID: {params.id}</h3>
       </div>
     </div>
