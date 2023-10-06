@@ -14,6 +14,15 @@ import {
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
+function formatPhoneNumber(phone) {
+  const cleaned = ('' + phone).replace(/\D/g, '');
+  const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return '(' + match[1] + ')-' + match[2] + '-' + match[3];
+  }
+  return null;
+}
+
 function Data(props) {
   const [venueData, setVenueData] = useState({
     name: "",
@@ -21,6 +30,7 @@ function Data(props) {
     latitude: 0,
     longitude: 0,
     image: "",
+    phone: 0,
   });
 
   const params = useParams();
@@ -50,7 +60,7 @@ function Data(props) {
   
   const [date, setDate] = useState(new Date());
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
-
+  const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
   return (
     <div>
       <div className="about-section">
@@ -126,7 +136,7 @@ function Data(props) {
                           <a href="https://www.twitter.com/" className="twitter social"><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
                           <a href="https://www.instagram.com/"className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
                       </div>
-                      <span style={{'color':'black', 'font-size': '15px'}}>Or call us at (512) 757-8787 <br/>during our open hours.</span> 
+                      <span style={{'color':'black', 'font-size': '15px'}}>Or call us at {formattedPhoneNumber} <br/>during our open hours.</span> 
                   </div>
                   <div class="item5">
                       <h4 style={{'color':'black', 'font-size': '25px'}}>Upcoming Events</h4>
