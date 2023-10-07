@@ -5,14 +5,14 @@
 * Source-code editor of choice 
 
 # Set Up and Run
-Clone VibeTrack repo (branch: development) [BitBucket repo](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/)
+* Clone VibeTrack repo (branch: development) [BitBucket repo](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/)
 
-Create the file `/server/config.env` with your Atlas URI and the server port:
+* Create the file `/server/config.env` with your Atlas URI and the server port:*
 ```
 ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
 ```
 
-Start server (on a seperate terminal):
+* Start server (on a seperate terminal):
 ```
 cd VibeTrack/server
 npm install
@@ -20,7 +20,7 @@ npm start
 ```
 ![Output](https://i.imgur.com/zhlm4wW.png)
 
-Start Web server (on another seperate terminal):
+* Start Web server (on another seperate terminal):
 ```
 cd VibeTrack/client
 npm install
