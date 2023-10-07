@@ -1,28 +1,23 @@
-# mern-stack-example
-Mern Stack code for the [Mern Tutorial](https://www.mongodb.com/languages/mern-stack-tutorial)
-
-[![CI](https://github.com/mongodb-developer/mern-stack-example/actions/workflows/main.yaml/badge.svg)](https://github.com/mongodb-developer/mern-stack-example/actions/workflows/main.yaml)
+# How to Run
+Tutorial: Mern Stack code for the [Mern Tutorial](https://www.mongodb.com/languages/mern-stack-tutorial)
 
 ## How To Run
-Create the file `mern/server/config.env` with your Atlas URI and the server port:
+Create the file `/server/config.env` with your Atlas URI and the server port:
 ```
 ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
 ```
 
-Start server:
+Start server (on a seperate terminal):
 ```
-cd mern/server
+cd VibeTrack/server
 npm install
 npm start
 ```
 
-Start Web server
+Start Web server (on another seperate terminal):
 ```
-cd mern/client
+cd VibeTrack/client
 npm install
 npm start
 ```
 
-## Disclaimer
-
-Use at your own risk; not a supported MongoDB product
