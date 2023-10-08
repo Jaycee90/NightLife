@@ -70,7 +70,7 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Invite a Friend</button>
         </div>
-        <div className="item" ><img src={venueData.image} alt="Something" height='300px' width='600px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
+        <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>

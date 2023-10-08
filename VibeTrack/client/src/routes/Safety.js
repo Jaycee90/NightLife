@@ -16,7 +16,7 @@ function Safety() {
     }    
     console.log(clubs);
     return (
-        <div>
+        <div style={{'color':'#000000'}}>
             <h1>Whats to come in sprint 2!</h1>
             <div>
                 <h3>Coming soon!</h3>
