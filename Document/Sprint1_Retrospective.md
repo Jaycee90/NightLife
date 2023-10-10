@@ -27,4 +27,4 @@
 * __Benu__ : For me I know I need to improve my time management. I need to plan accordingly and find time to do research when I don’t understand stuff.
 * __Michelle__ : I have some prior experience working with SQL databases so moving to a non-relational approach was a bit difficult at first. I will conduct further research and practice within the project in order to familiarize myself with NoSQL database architecture.
 * __Nilu__ : Everything went pretty smoothly, however, at the beginning it was challenging for me to come up with the layout of the Special event page. After doing some research, I got a good idea of what the layout looks like. I think I need to improve on how to ask questions with team members instead of being stuck at something I do not know about. 
-* __Jayce Turambe__ :
+* __Jayce Turambe__ : To improve I will apply more time management in planning my tasks of the project and stick to the the schedule.
