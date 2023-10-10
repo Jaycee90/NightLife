@@ -10,6 +10,7 @@
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Project Status](#project-status)
+* [Sprint 1](#sprint-1)
 * [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
 <!-- * [Setup](#setup) -->
@@ -54,8 +55,37 @@ Example screenshot TBA...
 
 <a name="project-status"></a>
 ## Project Status
-This project is currently _in progress_. [Jira SCRUM Borad](https://cs3398f23romulans1.atlassian.net/jira/software/projects/SCRUM/boards/1) 
+This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23romulans1.atlassian.net/jira/software/projects/SCRUM/boards/1) 
+- - - -
+<a name="sprint-1"></a>
+## Sprint 1 Review
+### Contributions
+* __Isaiah__
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#isaiah) 
+* __Benu__
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#benu) 
+* __Michelle__: Stylize interface, create a client/server connection and integrate database from MongoDB into project.
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#michelle) 
+* __Nilu__:
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#nilu) 
+* __Jayce__:
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#jayce) 
 
+### Next Steps
+* __Isaiah__
+* __Benu__
+* __Michelle__: 
+	* Continue expanding and integrating database into application (opening hours, social Media, image gallery)
+	* Continue improving interface to be more user-friendly and easy-to-navigate 
+	* Research and implement user authenthication (sign-in/-up) along with Benu
+* __Nilu__:
+* __Jayce__:
+
+### Issues to Resolve
+* Data: Map's marker not display correctly: Wrong center even when assigned argument is coordinates retrieve from DB
+* Data: Need to resize images to be more uniform in dimension
+* Route: If on localhost:3000/data/ and then click on Record List/Create/etc. on navigation bar, route will redirect to localhost:3000/data/recordList, etc.
+- - - -
 <a name="room-for-improvement"></a>
 ## Room for Improvement <!-- Include areas you believe need improvement / could be improved. Also add TODOs for future development. -->
 - Given that this is a course project, we have limited time to develop it to our full vision. Nevertheless, our goal is to develop a functional, user-friendly web app that offers information about nightclubs in the Austin area. If we choose to pursue this project beyond the classroom, we aspire to broaden its reach, potentially extending the database across the country for a more expansive impact.
@@ -71,13 +101,13 @@ To do: TBA...
 - Benu Liburd (bjl98@txstate.edu)
 - Michelle Nguyen (rnb90@txstate.edu)
 - Nilu Sah (zys5@txstate.edu)
-- Jayce Turambe (zys5@txstate.edu)
+- Jayce Turambe (jnn56@txstate.edu)
 
-<a name="acknowledgements"></a>
-## Acknowledgements
-- This project was inspired by... Give credit here. TBA
+	<!--<a name="acknowledgements"></a> -->
+	<!--## Acknowledgements -->
+	<!--- This project was inspired by... Give credit here. TBA -->
 
-	<!-- <a name="setup"></a>
+	<!-- <a name="setup"></a> -->
 	<!-- ## Setup -->
 	<!-- What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?-->
 	<!-- Proceed to describe how to install / setup one's local environment / get started with the project. TBA....-->
