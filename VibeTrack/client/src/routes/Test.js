@@ -19,7 +19,11 @@ const Discover = () => {
       setVenueData(venueData);
     }
 
-    getVenues();
+    getVenues();    
+
+    if ('scrollRestoration' in window.history) { // Doesn't scroll to the top, due to browser scrolling history.
+      window.history.scrollRestoration = 'manual'
+    }
 
     return;
   }, []);
@@ -40,7 +44,7 @@ const Discover = () => {
                     <p className="card-subtitle">{venueData.address}</p>
                   </div>
                   <div className="item">
-                    <p className="card-text">{venueData.about}</p>
+                    <p className="card-text">{venueData.about.length > 200 ? venueData.about.slice(0, 200) + "..." : venueData.about}</p>
                   </div>
                 </div>
               </div>
