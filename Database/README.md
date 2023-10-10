@@ -15,7 +15,7 @@ _TBA..._
 
 ## Database Structure
 * Venues.Listing
-    * ___id__: Unique identifier for the venue
+    * __ _id __: Unique identifier for the venue
     * __id__: Key ID of the venue
     * __name__: Name of the venue
     * __address__: Address of the venue
