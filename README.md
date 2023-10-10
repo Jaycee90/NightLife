@@ -56,6 +56,34 @@ Example screenshot TBA...
 <a name="project-status"></a>
 ## Project Status
 This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23romulans1.atlassian.net/jira/software/projects/SCRUM/boards/1) 
+
+## Setup
+### Requirements
+* Node.js and npm [Donwload](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+* Java [Downoad](https://www.oracle.com/java/technologies/downloads/)
+* Source-code editor of choice 
+### How to Run
+* Clone VibeTrack repo (branch: development) [BitBucket repo](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/)
+* Create the file `/server/config.env` with your Atlas URI and the server port:
+```
+ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
+```
+* Start server (on a seperate terminal):
+```
+cd VibeTrack/server
+npm install
+npm start
+```
+![Output](https://i.imgur.com/zhlm4wW.png)
+* Start Web server (on another seperate terminal):
+```
+cd VibeTrack/client
+npm install
+npm start
+```
+![Output](https://i.imgur.com/Uznj5Rz.png)
+
+
 - - - -
 <a name="sprint-1"></a>
 ## Sprint 1 Review
