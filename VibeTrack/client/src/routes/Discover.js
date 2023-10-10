@@ -6,8 +6,8 @@ function Discover() {
         <div className={styles.discoverContainer}>
         <section class="clublist" id="destination">
         <div class="container" >
-          <p class="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
-          <h2 class="h2 section-title">Discover venues</h2>
+          <p class="discover-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
+          <h2 class="h2 discover-title">Discover venues</h2>
             <li>
               <div class="clublist-card" style={{'height':'130px', 'margin-bottom':'20px'}}>
                 <figure class="card-img">

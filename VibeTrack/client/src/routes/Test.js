@@ -26,21 +26,17 @@ const Discover = () => {
 
   return (
     <div>
+    <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
+    <h2 class="h2 section-title">Discover venues</h2>
       <section className="clublist" id="destination">
         <div className="container">
-          <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
-          <h2 className="h2 section-title">Discover venues</h2>
           {venueData.map((venueData) => (
-            <div className="clublist-card" style={{ height: '130px', marginBottom: '20px' }} key={venueData._id}>
-              <figure className="card-img">
-                <img src={venueData.image} alt={venueData.name} loading="lazy" />
-              </figure>
+            <div className="clublist-card" style={{marginBottom: '15px'}} key={venueData._id}>
+              <figure className="card-img"><img src={venueData.image} alt={venueData.name} loading="lazy" /></figure>
               <div className="card-content">
                 <div className="grid-clublist">
                   <div className="item">
-                    <h3 className="h3 card-title">
-                      <Link to={`/data/${venueData._id}`}>{venueData.name}</Link>
-                    </h3>
+                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
                     <p className="card-subtitle">{venueData.address}</p>
                   </div>
                   <div className="item">
