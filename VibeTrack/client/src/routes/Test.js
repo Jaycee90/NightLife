@@ -4,6 +4,8 @@ import '../css/Discover.css';
 
 const Test = () => {
   const [venueData, setVenueData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const venuesPerPage = 10;
 
   useEffect(() => {
     async function getVenues() {
@@ -19,22 +21,45 @@ const Test = () => {
       setVenueData(venueData);
     }
 
-    getVenues();    
+    getVenues();
 
-    if ('scrollRestoration' in window.history) { // Doesn't scroll to the top, due to browser scrolling history.
-      window.history.scrollRestoration = 'manual'
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
 
     return;
   }, []);
 
+  const indexOfLastVenue = currentPage * venuesPerPage;
+  const indexOfFirstVenue = indexOfLastVenue - venuesPerPage;
+  const currentVenues = venueData.slice(indexOfFirstVenue, indexOfLastVenue);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(venueData.length / venuesPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageClick = (event) => {
+    setCurrentPage(Number(event.target.id));
+  }
+
+  const renderPageNumbers = pageNumbers.map(number => (
+    <li
+      key={number}
+      id={number}
+      onClick={handlePageClick}
+    >
+      {number}
+    </li>
+  ));
+
   return (
     <div>
-    <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
-    <h2 class="h2 section-title">Discover venues</h2>
+      <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
+      <h2 className="h2 section-title">Discover venues</h2>
       <section className="clublist" id="destination">
         <div className="container">
-          {venueData.map((venueData) => (
+          {currentVenues.map((venueData) => (
             <div className="clublist-card" style={{marginBottom: '15px'}} key={venueData._id}>
               <figure className="card-img"><img src={venueData.image} alt={venueData.name} loading="lazy" /></figure>
               <div className="card-content">
@@ -51,6 +76,9 @@ const Test = () => {
             </div>
           ))}
           <button className="btn btn-primary">Discover More</button>
+          <ul class="pagination">
+            {renderPageNumbers}
+          </ul>
         </div>
       </section>
     </div>

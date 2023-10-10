@@ -41,7 +41,6 @@ body{
   height:100%;
 }
 
-
 .about-discover {
     display: flex;
     align-items: center;
@@ -181,3 +180,38 @@ a.link:hover {
   gap: 10px;
 }
 
+.page-numbers {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.page-numbers li {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.pagination li {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 20px 15px;
+}
+
+.pagination li a {
+    font-family: 'Big Shoulders Text', cursive;
+    color: black;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 300;
+}
