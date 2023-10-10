@@ -106,7 +106,8 @@ npm start
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#michelle) 
 * __Nilu__:
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#nilu) 
-* __Jayce__:
+* __Jayce__: Incorporated Map API into web app, customized and adjusted Map (marker, view, and default coordination),
+			Implemented function to convert address to coordinate.
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#jayce) 
 
 ### Next Steps
@@ -123,6 +124,9 @@ npm start
 	* Research and implement user authenthication (sign-in/-up) along with Benu
 * __Nilu__:
 * __Jayce__:
+	* Develop a search feature that allows users to find nightclubs by entering keywords 
+	* Integrate Location-Based Search
+	* Implement a feature to indicate whether a nightclub is currently open or closed.
 
 ### Issues to Resolve
 * Data: Map's marker not display correctly: Wrong center even when assigned argument is coordinates retrieve from DB
