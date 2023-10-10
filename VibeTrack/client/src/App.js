@@ -15,7 +15,7 @@ import Data from './routes/Data';
 import SpecialEvent from './routes/Special';
 import Search from './routes/Search';
 import Calendar from './routes/Calendar';
-import Listing from './routes/Listing';
+import Template from './routes/Template';
 import Login from './routes/Login';
 import Safety from './routes/Safety';
 
@@ -29,12 +29,10 @@ const App = () => {
         <Route path="/data/:id" element={<Data />} />
         <Route path='/specialevent' element={<SpecialEvent/>} />
         <Route path='/calendar' element={<Calendar/>} />
-        <Route path='/listing' element={<Listing/>} />
+        <Route path='/template' element={<Template/>} />
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/safety' element={<Safety />} />
-
-
         
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />

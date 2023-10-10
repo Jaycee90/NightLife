@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../css/Listing.css';
+import '../css/Template.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";

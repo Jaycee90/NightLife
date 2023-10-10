@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/Listing.css';
+import '../css/Template.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -17,7 +17,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
   
 
-function Listing() {
+function Template() {
     const [date, setDate] = useState(new Date());
     
     const locationCoord = [29.8833, -97.9414];
@@ -120,4 +120,4 @@ function Listing() {
     );
 };
 
-export default Listing;
+export default Template;
