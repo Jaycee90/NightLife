@@ -60,7 +60,7 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 <a name="sprint-1"></a>
 ## Sprint 1 Review
 ### Contributions
-* __Isaiah__
+* __Isaiah__: Designed basic app sketeton and web scraped data for special event page
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#isaiah) 
 * __Benu__
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#benu) 
@@ -72,7 +72,9 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#jayce) 
 
 ### Next Steps
-* __Isaiah__
+* __Isaiah__: 
+	* Create safety page with user options allowing them to choose what clubs they will visit that night
+	* Create option to add and invite friends to clubs that night
 * __Benu__
 * __Michelle__: 
 	* Continue expanding and integrating database into application (opening hours, social Media, image gallery)
