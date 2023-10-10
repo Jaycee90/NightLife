@@ -22,10 +22,7 @@ const Test = () => {
     }
 
     getVenues();
-
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Doesn't work like pageClick?
 
     return;
   }, []);
@@ -41,6 +38,7 @@ const Test = () => {
 
   const handlePageClick = (event) => {
     setCurrentPage(Number(event.target.id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   const renderPageNumbers = pageNumbers.map(number => (
@@ -76,9 +74,9 @@ const Test = () => {
             </div>
           ))}
           <button className="btn btn-primary">Discover More</button>
-          <ul class="pagination">
+          <ul className="pagination">
             {renderPageNumbers}
-          </ul>
+        </ul>
         </div>
       </section>
     </div>

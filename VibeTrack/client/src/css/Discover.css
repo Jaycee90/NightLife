@@ -215,3 +215,7 @@ a.link:hover {
     text-transform: uppercase;
     font-weight: 300;
 }
+
+.pagination li.active a {
+  background-color: #747474; 
+}
