@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
 function Safety() {
-    const [clubs, setClubs] = useState([]);
-    const [clubName, setClubName] = useState("");
+    // Instead of entering clubs might create a view where users can see all club names and click each
+    // club they are visiting tha night
+    const [clubs, setClubs] = useState([]); // Array of clunb names
+    // Hold club names and a fucntion to set the club name
+    const [clubName, setClubName] = useState(""); // temp holder for club name
 
     // Update the club entered
     const updateClubsEntered = (e) => {
@@ -17,9 +20,9 @@ function Safety() {
     console.log(clubs);
     return (
         <div style={{'color':'#000000'}}>
-            <h1>Whats to come in sprint 2!</h1>
+            <h1>Safety First</h1>
             <div>
-                <h3>Coming soon!</h3>
+                <h3>Current Date will go here</h3> 
                 <p>
                     Select the clubs you are going tonight, and our app will send a notification of the clubs you choose to a contact of your choosing
                 </p>
