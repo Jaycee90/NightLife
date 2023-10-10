@@ -18,7 +18,6 @@ import Calendar from './routes/Calendar';
 import Listing from './routes/Listing';
 import Login from './routes/Login';
 import Safety from './routes/Safety';
-import Test from './routes/Test';
 
 const App = () => {
   return (
@@ -35,7 +34,6 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/safety' element={<Safety />} />
 
-        <Route path='/test' element={<Test />} />
 
         
         <Route path='/recordlist' element={<RecordList />} />
