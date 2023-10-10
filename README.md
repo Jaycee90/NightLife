@@ -65,7 +65,7 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 ### Contributions
 * __Isaiah__: Designed basic app sketeton and web scraped data for special event page
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#isaiah) 
-* __Benu__: Research webscraping and how to make a MongoDB data base, created excel sheet data base.
+* __Benu__: Research webscraping and how to make a MongoDB database, created basic database for venues using Excel.
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#benu) 
 * __Michelle__: Stylize interface, create a client/server connection and integrate database from MongoDB into project.
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#michelle) 
