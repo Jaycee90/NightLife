@@ -59,9 +59,16 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 - - - -
 <a name="sprint-1"></a>
 ## Sprint 1 Review
-![Example screenshot](https://i.imgur.com/T4wKCAL.png)
-![Example screenshot](https://i.imgur.com/xyoETic.png)
-![Example screenshot](https://i.imgur.com/ZVCOVVj.png)
+### Review and Retrospective
+* For this sprint, our primary goal is to set up a web application for our nightclub tracker project with basic interface and features (Map, Calendar, Special Events). We are also working on the Database feature but will focus more onto that in Sprint 2.
+* [Sprint 1 Retrospective](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Retrospective.md)
+### Screenshots
+* __Homepage__ and __Discover__ (displaying all venue entries in our database)
+![Homepage and Discover](https://i.imgur.com/T4wKCAL.png)
+* __Record__ and __Data__ (displaying all venue entries in table form and displaying specific venue following a template)
+![Database record and specific venue listing](https://i.imgur.com/xyoETic.png)
+* __Special Event__ and __Create/Edit/Login/Safety__ (displaying upcoming events and prompting to edit/create new documents)
+![Special event and create/edit component](https://i.imgur.com/ZVCOVVj.png)
 ### Contributions
 * __Isaiah__: Designed basic app sketeton and web scraped data for special event page
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#isaiah) 
