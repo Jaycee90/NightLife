@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/Discover.css';
 
-const Discover = () => {
+const Test = () => {
   const [venueData, setVenueData] = useState([]);
 
   useEffect(() => {
@@ -57,4 +57,4 @@ const Discover = () => {
   );
 };
 
-export default Discover;
+export default Test;
