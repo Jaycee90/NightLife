@@ -4,6 +4,8 @@ import '../css/edit.css';
 
 export default function Edit() {
   const [form, setForm] = useState({
+    _id: "",
+    id: "",
     name: "",
     address: "",
     about: "",
@@ -49,7 +51,8 @@ export default function Edit() {
   async function onSubmit(e) {
     e.preventDefault();
     const editedVenue = {
-      name: form.name,
+      _id: form._id,
+      id: form.id,
       address: form.address,
       about: form.about,
       phone: form.phone,
@@ -72,6 +75,26 @@ export default function Edit() {
     <div>
       <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Update Venue</h3>
       <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+      <div className="form-group">
+          <label htmlFor="_id">_ID: (Read Only) </label>
+          <input
+            type="text"
+            className="form-control"
+            id="_id"
+            value={form._id}
+            readOnly // Add the readOnly attribute here
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="id">Key ID: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="id"
+            value={form.id}
+            onChange={(e) => updateForm({ name: e.target.value })}
+          />
+        </div>
         <div className="form-group">
           <label htmlFor="name">Name: </label>
           <input

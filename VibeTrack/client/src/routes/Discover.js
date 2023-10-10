@@ -1,90 +1,86 @@
-import React from "react";
-import styles from '../css/Discover.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import '../css/Discover.css';
 
-function Discover() {
-    return (
-        <div className={styles.discoverContainer}>
-        <section class="clublist" id="destination">
-        <div class="container" >
-          <p class="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
-          <h2 class="h2 section-title">Discover venues</h2>
-            <li>
-              <div class="clublist-card" style={{'height':'130px', 'margin-bottom':'20px'}}>
-                <figure class="card-img">
-                  <img src="https://i.imgur.com/ikuh0yR.jpg" alt="Zelicks" loading="lazy"/>
-                </figure>
-                <div class="card-content">
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
+const Test = () => {
+  const [venueData, setVenueData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const venuesPerPage = 10;
+
+  useEffect(() => {
+    async function getVenues() {
+      const response = await fetch(`http://localhost:5050/record/`);
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const venueData = await response.json();
+      setVenueData(venueData);
+    }
+
+    getVenues();
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Doesn't work like pageClick?
+
+    return;
+  }, []);
+
+  const indexOfLastVenue = currentPage * venuesPerPage;
+  const indexOfFirstVenue = indexOfLastVenue - venuesPerPage;
+  const currentVenues = venueData.slice(indexOfFirstVenue, indexOfLastVenue);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(venueData.length / venuesPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageClick = (event) => {
+    setCurrentPage(Number(event.target.id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  const renderPageNumbers = pageNumbers.map(number => (
+    <li
+      key={number}
+      id={number}
+      onClick={handlePageClick}
+    >
+      {number}
+    </li>
+  ));
+
+  return (
+    <div>
+      <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
+      <h2 className="h2 section-title">Discover venues</h2>
+      <section className="clublist" id="destination">
+        <div className="container">
+          {currentVenues.map((venueData) => (
+            <div className="clublist-card" style={{marginBottom: '15px'}} key={venueData._id}>
+              <figure className="card-img"><img src={venueData.image} alt={venueData.name} loading="lazy" /></figure>
+              <div className="card-content">
+                <div className="grid-clublist">
+                  <div className="item">
+                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
+                    <p className="card-subtitle">{venueData.address}</p>
                   </div>
-                  <div class="grid-clublist">
-                    <div class="item"><h3 class="h3 card-title"><a href="http://www.zelickssmtx.com/">Zelicks Icehouse</a></h3>
-                  <p class="card-subtitle">336 W Hopkins St</p></div>
-                  <div class="item"><p class="card-text">Welcome to the best little icehouse in Texas. Come out and see what the "Mystery Keg" is every Friday. Experience this new, unique establishment to the San Marcos bar scene. </p></div>
-                  
-                  </div>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="clublist-card"  style={{'height':'130px', 'margin-bottom':'20px'}}>
-                <figure class="card-img">
-                  <img src="https://i.imgur.com/u5W6rwg.jpg" alt="Patio Dolcetto" loading="lazy"/>
-                </figure>
-                <div class="card-content">
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                  <div class="grid-clublist" >
-                    <div class="item"><h3 class="h3 card-title"><a href="https://patiodolcetto.com/">Patio Dolcetto</a></h3>
-                  <p class="card-subtitle">322 Cheatham Street</p></div>
-                  <div class="item"><p class="card-text">Enjoy dining and imbibing at Patio Dolcetto. Treat yourself to great wines, craft ciders, cocktails, martinis, craft beers and good food on the romantic patio.  </p></div>
-                  </div>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="clublist-card"   style={{'height':'130px', 'margin-bottom':'20px'}}>
-                <figure class="card-img">
-                  <img src="https://i.imgur.com/gdesrlS.jpg" alt="The Taproom" loading="lazy"/>
-                </figure>
-
-                <div class="card-content">
-                  <div class="card-rating">
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                    <ion-icon name="star"></ion-icon>
-                  </div>
-                  <div class="grid-clublist">
-                    <div class="item"><h3 class="h3 card-title"><a href="https://www.taproomsanmarcos.com/">The Taproom</a></h3>
-                  <p class="card-subtitle">129 E. Hopkins St. Suite 120</p></div>
-                  <div class="item"><p class="card-text">Taproom Pub and Grub opened its door in 1994 with one goal in mind, to serve the best food and beer around, and over 20 years later that is exactly what their customers have come to expect.   </p></div>
+                  <div className="item">
+                    <p className="card-text">{venueData.about.length > 300 ? venueData.about.slice(0, 300) + "..." : venueData.about}</p>
                   </div>
                 </div>
-
               </div>
-            </li>
-
-          <button class="btn btn-primary">Discover More</button>
-
+            </div>
+          ))}
+          <button className="btn btn-primary">Discover More</button>
+          <ul className="pagination">
+            {renderPageNumbers}
+        </ul>
         </div>
       </section>
-        </div>
-    );
+    </div>
+  );
 };
 
-export default Discover;
+export default Test;
