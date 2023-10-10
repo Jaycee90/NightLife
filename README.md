@@ -59,23 +59,29 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 - - - -
 <a name="sprint-1"></a>
 ## Sprint 1 Review
+![Example screenshot](https://i.imgur.com/T4wKCAL.png)
+![Example screenshot](https://i.imgur.com/xyoETic.png)
+![Example screenshot](https://i.imgur.com/ZVCOVVj.png)
 ### Contributions
 * __Isaiah__: Designed basic app sketeton and web scraped data for special event page
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#isaiah) 
-* __Benu__
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#benu) 
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#isaiah) 
+* __Benu__: Research webscraping and how to make a MongoDB data base, created excel sheet data base.
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#benu) 
 * __Michelle__: Stylize interface, create a client/server connection and integrate database from MongoDB into project.
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#michelle) 
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#michelle) 
 * __Nilu__:
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#nilu) 
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#nilu) 
 * __Jayce__:
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint%201%20Jira.md#jayce) 
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#jayce) 
 
 ### Next Steps
 * __Isaiah__: 
 	* Create safety page with user options allowing them to choose what clubs they will visit that night
 	* Create option to add and invite friends to clubs that night
-* __Benu__
+* __Benu__:
+	* Create a database for the user information
+	* Possible favorite feature
+	* Possible review feature 
 * __Michelle__: 
 	* Continue expanding and integrating database into application (opening hours, social Media, image gallery)
 	* Continue improving interface to be more user-friendly and easy-to-navigate 
@@ -85,7 +91,7 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 
 ### Issues to Resolve
 * Data: Map's marker not display correctly: Wrong center even when assigned argument is coordinates retrieve from DB
-* Data: Need to resize images to be more uniform in dimension
+* Data: Need to resize images to be more uniform in dimension. Window.toScroll not working properly.
 * Route: If on localhost:3000/data/ and then click on Record List/Create/etc. on navigation bar, route will redirect to localhost:3000/data/recordList, etc.
 - - - -
 <a name="room-for-improvement"></a>
