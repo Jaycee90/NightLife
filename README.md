@@ -104,7 +104,7 @@ npm start
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#benu) 
 * __Michelle__: Stylize interface, create a client/server connection and integrate database from MongoDB into project.
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#michelle) 
-* __Nilu__:
+* __Nilu__:Designed Special Event Page using HTML, CSS & javascript & added it to our Vibetrack
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#nilu) 
 * __Jayce__:
 	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Jira.md#jayce) 
@@ -122,6 +122,7 @@ npm start
 	* Continue improving interface to be more user-friendly and easy-to-navigate 
 	* Research and implement user authenthication (sign-in/-up) along with Benu
 * __Nilu__:
+	* I will continue to integrate database to the special event & add some more style to my Special event page. 
 * __Jayce__:
 
 ### Issues to Resolve
