@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/Discover.css';
 
-const Test = () => {
+const Discover = () => {
   const [venueData, setVenueData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const venuesPerPage = 10;
@@ -83,4 +83,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Discover;

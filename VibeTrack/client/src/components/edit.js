@@ -3,9 +3,8 @@ import { useParams, useNavigate } from "react-router";
 import '../css/edit.css';
 
 export default function Edit() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
-    id: "",
     name: "",
     address: "",
     about: "",
@@ -13,28 +12,29 @@ export default function Edit() {
     website: "",
     image: "",
   });
-  const params = useParams();
-  const navigate = useNavigate();
+  const params = useParams(); // Get the parameters from the URL
+  const navigate = useNavigate(); // Navigate function from react-router-dom
 
-  useEffect(() => {
+  useEffect(() => { // Fetch venue data when component mounts or params.id changes
     async function fetchData() {
-      const id = params.id.toString();
+      // Send a GET request to the server with the 'id' parameter
+      const id = params.id.toString(); 
       const response = await fetch(`http://localhost:5050/record/${params.id.toString()}`);
 
-      if (!response.ok) {
+      if (!response.ok) { // Check if the response is successful
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
 
-      const venue = await response.json();
-      if (!venue) {
+      const venue = await response.json();  // Parse the response (object in database) as JSON
+      if (!venue) { // Check if a venue was found
         window.alert(`Venue with id ${id} not found`);
         navigate("/");
         return;
       }
 
-      setForm(venue);
+      setForm(venue); // Update the 'venueData' state with the fetched data
     }
 
     fetchData();
@@ -42,24 +42,27 @@ export default function Edit() {
     return;
   }, [params.id, navigate]);
 
-  function updateForm(value) {
+  function updateForm(value) { // Function to update form state
     return setForm((prev) => {
+      // Update multiple fields in the form state object without directly mutating it
+      // Create a new state object by merging the previous state with the new values provided in value
       return { ...prev, ...value };
     });
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e) { // Extract form fields for the request body
     e.preventDefault();
     const editedVenue = {
-      _id: form._id,
-      id: form.id,
+      _id : form._id,
+      name: form.name,
       address: form.address,
       about: form.about,
       phone: form.phone,
       website: form.website,
       image: form.image,
     };
-
+    
+    // Send a PATCH request to update the venue
     await fetch(`http://localhost:5050/record/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(editedVenue),

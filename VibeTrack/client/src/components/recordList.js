@@ -16,37 +16,40 @@ const Record = (props) => (
 );
 
 export default function RecordList() {
-  const [records, setRecords] = useState([]);
+  const [records, setRecords] = useState([]); // Define a state variable 'record'
 
-  useEffect(() => {
-    async function getRecords() {
+  useEffect(() => { 
+    async function getRecords() { // Define an function to fetch data
+      // Send a GET request to the server 
       const response = await fetch(`http://localhost:5050/record/`);
 
-      if (!response.ok) {
+      if (!response.ok) { // Check if the response is successful
         const message = `An error occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
 
-      const records = await response.json();
-      setRecords(records);
+      const records = await response.json(); // Parse the response (object in database) as JSON
+
+      setRecords(records);  // Update the 'record' state with the fetched data
     }
 
-    getRecords();
+    getRecords();  // Call fetchData function
 
     return;
   }, [records.length]);
 
-  async function deleteRecord(id) {
+  async function deleteRecord(id) { // Deletes a record by its ID
     await fetch(`http://localhost:5050/record/${id}`, {
       method: "DELETE"
     });
 
+    //  Create a new array that excludes the record with the matching _id.
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
   }
 
-  function recordList() {
+  function recordList() {   // Renders the list of records 
     return records.map((record) => {
       return (
         <Record
@@ -57,7 +60,6 @@ export default function RecordList() {
       );
     });
   }
-
   return (
     <div >
       <h3>Record List</h3>

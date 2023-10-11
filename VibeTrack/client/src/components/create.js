@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import '../css/create.css';
 
+
 export default function Create() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ // Define a state variable 'form'
     name: "",
     address: "",
     about: "",
@@ -13,18 +14,20 @@ export default function Create() {
   });
   const navigate = useNavigate();
 
-  function updateForm(value) {
+  function updateForm(value) {  // Function to update form state
     return setForm((prev) => {
+      // Update multiple fields in the form state object without directly mutating it
+      // Create a new state object by merging the previous state with the new values provided in value
       return { ...prev, ...value };
     });
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e) { // Function to handle form submission
     e.preventDefault();
 
-    const newVenue = { ...form };
+    const newVenue = { ...form }; // Create a new object with form data
 
-    await fetch("http://localhost:5050/record/", {
+    await fetch("http://localhost:5050/record/", { // Send a POST request to the server
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +39,7 @@ export default function Create() {
       return;
     });
 
-    setForm({
+    setForm({ // Reset form state after submission
       name: "",
       address: "",
       about: "",
@@ -44,10 +47,12 @@ export default function Create() {
       website: "",
       image: "",
     });
+
+    // Navigate to the record list page after successful submission
     navigate("/recordList");
   }
 
-  return (
+  return ( // Render form submission panel
     <div style={{ color: "#000000", paddingBottom: "10px" }}>
       <h3 style={{ color: "#000000" }}>Create New Venue</h3>
       <form onSubmit={onSubmit}>

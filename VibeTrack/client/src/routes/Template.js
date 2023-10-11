@@ -4,19 +4,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-//import Axios from 'axios';//axios library used to make http request
-import {
-    faYoutube,
-    faFacebook,
-    faTwitter,
-    faInstagram
-  } from "@fortawesome/free-brands-svg-icons";
+import { faYoutube, faFacebook, faTwitter, faInstagram} from "@fortawesome/free-brands-svg-icons";
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
   
-
 function Template() {
     const [date, setDate] = useState(new Date());
     
@@ -25,19 +17,16 @@ function Template() {
 
     return (
         <div>
-
             <div class="about-section" >
-                    <div class="item">
+                <div class="item">
                     <h2 class="h2 section-title" style={{'float':'left','text-align':'left'}}> Zelicks Ice House</h2>
-                        <p style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px', 'width':'90%'}} >  336 W. Hopkins St. San Marcos, TX 78666 | (512) 757-8787</p>
-                        <p style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px', 'width':'90%'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                        A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-                        Sit ornar mollitia tenetur, aptent.</p>
-                        <button style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '1.5em'}} class="btn btn-primary">Invite a Friend</button>
-
-                   </div>
-                    <div class="item"><img src="https://i.imgur.com/ikuh0yR.jpg" width="600px" alt="Something" style={{'border-radius':'30px'}}/></div>
-   
+                    <p style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px', 'width':'90%'}} >  336 W. Hopkins St. San Marcos, TX 78666 | (512) 757-8787</p>
+                    <p style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px', 'width':'90%'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
+                    Sit ornar mollitia tenetur, aptent.</p>
+                    <button style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '1.5em'}} class="btn btn-primary">Invite a Friend</button>
+                </div>
+                <div class="item"><img src="https://i.imgur.com/ikuh0yR.jpg" width="600px" alt="Something" style={{'border-radius':'30px'}}/></div>
             </div>
 
             <div class = "container" style={{'padding-top':'25px'}}>
@@ -109,10 +98,10 @@ function Template() {
                     <div class="item5">
                         <h4 style={{'color':'black', 'font-size': '25px'}}>Upcoming Events</h4>
                         <div className='app'>
-      <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px',}}>
-        <Calendar onChange={setDate} value={date} />
-      </div>
-    </div>
+                            <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px',}}>
+                                <Calendar onChange={setDate} value={date} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
