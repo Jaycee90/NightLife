@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faYoutube,faFacebook,faTwitter, faInstagramSquare} from "@fortawesome/free-brands-svg-icons";
+import {faYoutube,faFacebook,faTwitter, faInstagram} from "@fortawesome/free-brands-svg-icons";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
