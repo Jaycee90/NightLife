@@ -20,6 +20,9 @@ function formatPhoneNumber(phone) {
 }
 
 function convertHoursToMinutes(openingHours) {
+  // Replace U+2013 with "-" and U+202f with a regular space
+  openingHours = openingHours.replace(/\u2013/g, '-').replace(/\u202f/g, ' ');
+
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
   // Add 1440 minutes (24 hours) to closingTime
@@ -92,12 +95,11 @@ function Data(props) {
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
 
-  
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
   const currentTime = now.getHours() * 60 + now.getMinutes(); 
-  
-  const { openingTime, closingTime } = convertHoursToMinutes("11:00 AM – 12:00 AM");
+
+  const { openingTime, closingTime } = convertHoursToMinutes(venueData.monday);
 
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
@@ -108,8 +110,11 @@ function Data(props) {
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-          <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">isOpen ? "OPEN" : "CLOSED"</button>
-
+            {isOpen ? (
+            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab'}} className="btn btn-primary">OPEN NOW</button>
+          ) : (
+            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
+          )}
         </div>
         <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
