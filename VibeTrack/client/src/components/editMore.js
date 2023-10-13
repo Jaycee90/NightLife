@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import '../css/edit.css';
 
-export default function Edit() {
+export default function EditMore() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
     name: "",
@@ -14,8 +14,8 @@ export default function Edit() {
     saturday: "",
     sunday: "",
     facebook: "",
-    twitter: "",
     instagram: "",
+    yelp: "",
   });
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
@@ -68,8 +68,8 @@ export default function Edit() {
       saturday: form.saturday,
       sunday: form.sunday,
       facebook: form.facebook,
-      twitter: form.twitter,
       instagram: form.instagram,
+      yelp: form.yelp,
     };
     
     // Send a PATCH request to update the venue
@@ -109,103 +109,103 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="address">Monday: </label>
+          <label htmlFor="monday">Monday: </label>
           <input
             type="text"
             className="form-control"
-            id="address"
+            id="monday"
             value={form.monday}
-            onChange={(e) => updateForm({ address: e.target.value })}
+            onChange={(e) => updateForm({ monday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="about">Tuesday: </label>
+          <label htmlFor="tuesday">Tuesday: </label>
           <input
             type="text"
             className="form-control"
-            id="about"
+            id="tuesday"
             value={form.tuesday}
-            onChange={(e) => updateForm({ about: e.target.value })}
+            onChange={(e) => updateForm({ tuesday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Wednesday: </label>
+          <label htmlFor="wednesday">Wednesday: </label>
           <input
             type="text"
             className="form-control"
-            id="phone"
+            id="wednesday"
             value={form.wednesday}
-            onChange={(e) => updateForm({ phone: e.target.value })}
+            onChange={(e) => updateForm({ wednesday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="website">Thursday: </label>
+          <label htmlFor="thursday">Thursday: </label>
           <input
             type="text"
             className="form-control"
-            id="website"
+            id="thursday"
             value={form.thursday}
-            onChange={(e) => updateForm({ website: e.target.value })}
+            onChange={(e) => updateForm({ thursday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Friday: </label>
+          <label htmlFor="friday">Friday: </label>
           <input
             type="text"
             className="form-control"
-            id="image"
+            id="Monday"
             value={form.friday}
-            onChange={(e) => updateForm({ image: e.target.value })}
+            onChange={(e) => updateForm({ friday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Saturday: </label>
+          <label htmlFor="saturday">Saturday: </label>
           <input
             type="text"
             className="form-control"
-            id="image"
-            value={form.saturdya}
-            onChange={(e) => updateForm({ image: e.target.value })}
+            id="saturday"
+            value={form.saturday}
+            onChange={(e) => updateForm({ saturday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Sunday: </label>
+          <label htmlFor="sunday">Sunday: </label>
           <input
             type="text"
             className="form-control"
-            id="image"
+            id="sunday"
             value={form.sunday}
-            onChange={(e) => updateForm({ image: e.target.value })}
+            onChange={(e) => updateForm({ sunday: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Facebook: </label>
+          <label htmlFor="facebook">Facebook: </label>
           <input
             type="text"
             className="form-control"
-            id="image"
+            id="facebook"
             value={form.facebook}
-            onChange={(e) => updateForm({ image: e.target.value })}
+            onChange={(e) => updateForm({ facebook: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Twitter: </label>
+          <label htmlFor="instagram">Instagram: </label>
           <input
             type="text"
             className="form-control"
-            id="image"
-            value={form.twitter}
-            onChange={(e) => updateForm({ image: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Instagram: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="image"
+            id="instagram"
             value={form.instagram}
-            onChange={(e) => updateForm({ image: e.target.value })}
+            onChange={(e) => updateForm({ instagram: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="yelp">Yelp: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="yelp"
+            value={form.yelp}
+            onChange={(e) => updateForm({ yelp: e.target.value })}
           />
         </div>
         <div className="form-group">

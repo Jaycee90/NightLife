@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
+import EditMore from "./components/editMore";
 import Create from "./components/create";
 
 import Home from './routes/Home';
@@ -36,6 +37,7 @@ const App = () => {
         
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/editMore/:id" element={<EditMore />} />
         <Route path="/create" element={<Create />} />
       </Routes>
       </div>
