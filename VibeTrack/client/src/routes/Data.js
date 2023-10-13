@@ -20,13 +20,12 @@ function formatPhoneNumber(phone) {
 }
 
 function convertHoursToMinutes(openingHours) {
-  // Replace U+2013 with "-" and U+202f with a regular space
+  // Replace U+2013 with "-" and U+202f with a regular space (e.g. 11:00 AM – 12:00 AM)
   openingHours = openingHours.replace(/\u2013/g, '-').replace(/\u202f/g, ' ');
 
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
-  // Add 1440 minutes (24 hours) to closingTime if AM
-  if (closingTime < 720){
+  if (closingTime < 720){ // Add 1440 minutes (24 hours) to closingTime if AM
     closingTime += 1440;
   }
 
@@ -47,7 +46,6 @@ function timeStringToMinutes(timeString) {
   const totalMinutes = hours * 60 + minutes;
   return totalMinutes;
 }
-
 
 function Data(props) {
   const [venueData, setVenueData] = useState({
@@ -102,7 +100,7 @@ function Data(props) {
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
   const currentTime = now.getHours() * 60 + now.getMinutes(); 
   
-
+  // Assigns the openingTime and closingTime based on the current day of the week (unconventially, will fix eventually)
   let openingTime, closingTime;
   if (currentDay === 0) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.sunday));} 
   else if (currentDay === 1) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.monday));} 
@@ -121,7 +119,7 @@ function Data(props) {
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-            {isOpen ? (
+          {isOpen ? (
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab'}} className="btn btn-primary">OPEN NOW</button>
           ) : (
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
@@ -171,15 +169,30 @@ function Data(props) {
         </div>
           <div class="item3">
             <h4 style={{'color':'black', 'font-size': '25px','padding-bottom':'10px'}}> Opening Hours</h4>
-            <div style={{'margin-left':'150px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
-                <span style={{'padding-bottom':'10px'}}>Monday: &emsp;&emsp; {venueData.monday}<br></br></span> 
-                <span style={{'padding-bottom':'10px'}}>Tuesday: &emsp;&emsp; {venueData.tuesday}</span> 
-                <span style={{'padding-bottom':'10px'}}>Wednesday:&emsp;{venueData.wednesday}</span> 
-                <span style={{'padding-bottom':'10px'}}>Thursday:&emsp;&emsp;{venueData.thursday}</span> 
-                <span style={{'padding-bottom':'10px'}}>Friday: &emsp;&emsp;&nbsp;&ensp; {venueData.friday}</span> 
-                <span style={{'padding-bottom':'10px'}}>Saturday:  &nbsp;&emsp;&nbsp;&nbsp; {venueData.saturday}</span> 
-                <span style={{'padding-bottom':'10px'}}>Sunday: &nbsp;&emsp;&emsp; {venueData.sunday}</span> 
+            <div style={{ 'margin-left':'130px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Monday:</span>{venueData.monday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Tuesday:</span>{venueData.tuesday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Wednesday:</span>{venueData.wednesday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Thursday:</span>{venueData.thursday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Friday:</span>{venueData.friday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Saturday:</span>{venueData.saturday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Sunday:</span>{venueData.sunday}
+              </div>
             </div>
+
             </div>  
             <div class="item4"> 
                 <h4 style={{'color':'black', 'font-size': '25px'}}> Follow us on</h4>
