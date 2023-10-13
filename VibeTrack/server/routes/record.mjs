@@ -29,6 +29,16 @@ router.post("/", async (req, res) => {
     about: req.body.about,
     phone: req.body.phone,
     website: req.body.website,
+    monday: req.body.monday,
+    tuesday: req.body.tuesday,
+    wednesday: req.body.wednesday,
+    thursday: req.body.thursday,
+    friday: req.body.friday,
+    saturday: req.body.saturday,
+    sunday: req.body.sunday,
+    facebook: req.body.facebook,
+    instagram: req.body.instagram,
+    yelp: req.body.yelp,
   };
   let collection = await db.collection("Listing");
   let result = await collection.insertOne(newDocument);
@@ -45,6 +55,16 @@ router.patch("/:id", async (req, res) => {
       about: req.body.about,
       phone: req.body.phone,
       website: req.body.website,
+      monday: req.body.monday,
+      tuesday: req.body.tuesday,
+      wednesday: req.body.wednesday,
+      thursday: req.body.thursday,
+      friday: req.body.friday,
+      saturday: req.body.saturday,
+      sunday: req.body.sunday,
+      facebook: req.body.facebook,
+      instagram: req.body.instagram,
+      yelp: req.body.yelp,
     }
   };
 

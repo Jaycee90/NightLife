@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import '../css/edit.css';
 
-export default function Edit() {
+export default function EditExtra() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
     name: "",

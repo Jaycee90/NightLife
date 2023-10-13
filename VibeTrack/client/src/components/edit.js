@@ -109,7 +109,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="address">Monday: </label>
+          <label htmlFor="monday">Monday: </label>
           <input
             type="text"
             className="form-control"
@@ -119,7 +119,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="about">Tuesday: </label>
+          <label htmlFor="tuesday">Tuesday: </label>
           <input
             type="text"
             className="form-control"
@@ -129,7 +129,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Wednesday: </label>
+          <label htmlFor="wednesday">Wednesday: </label>
           <input
             type="text"
             className="form-control"
@@ -139,7 +139,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="website">Thursday: </label>
+          <label htmlFor="thursday">Thursday: </label>
           <input
             type="text"
             className="form-control"
@@ -149,7 +149,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Friday: </label>
+          <label htmlFor="friday">Friday: </label>
           <input
             type="text"
             className="form-control"
@@ -159,7 +159,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Saturday: </label>
+          <label htmlFor="saturday">Saturday: </label>
           <input
             type="text"
             className="form-control"
@@ -169,7 +169,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Sunday: </label>
+          <label htmlFor="sunday">Sunday: </label>
           <input
             type="text"
             className="form-control"
@@ -179,7 +179,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Facebook: </label>
+          <label htmlFor="facebook">Facebook: </label>
           <input
             type="text"
             className="form-control"
@@ -189,7 +189,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Instagram: </label>
+          <label htmlFor="instagram">Instagram: </label>
           <input
             type="text"
             className="form-control"
@@ -199,7 +199,7 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Yelp: </label>
+          <label htmlFor="yelp">Yelp: </label>
           <input
             type="text"
             className="form-control"
