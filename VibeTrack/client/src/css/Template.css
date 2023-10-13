@@ -192,16 +192,13 @@ a.social {
 a.social:hover {
   transform: translateY(-2px);
 }
-a.youtube {
+
+a.yelp {
   color: #eb3223;
 }
 
 a.facebook {
   color: #4968ad;
-}
-
-a.twitter {
-  color: #49a1eb;
 }
 
 a.instagram {

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faYoutube,faFacebook,faTwitter, faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
@@ -125,22 +125,22 @@ function Data(props) {
           <div class="item3">
             <h4 style={{'color':'black', 'font-size': '25px','padding-bottom':'10px'}}> Opening Hours</h4>
             <div style={{'margin-left':'150px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
-                <span style={{'padding-bottom':'10px'}}>Monday: &emsp;&emsp; 3PM - 2AM<br></br></span> 
-                <span style={{'padding-bottom':'10px'}}>Tuesday: &emsp;&emsp; 3PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Wednesday:&emsp;3PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Thursday:&emsp;&emsp;12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Friday: &emsp;&emsp;&nbsp;&ensp;  12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Saturday:  &nbsp;&emsp;&nbsp;&nbsp;12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Sunday: &nbsp;&emsp;&emsp; 12PM - 2AM</span> 
+                <span style={{'padding-bottom':'10px'}}>Monday: &emsp;&emsp; {venueData.monday}<br></br></span> 
+                <span style={{'padding-bottom':'10px'}}>Tuesday: &emsp;&emsp; {venueData.tuesday}</span> 
+                <span style={{'padding-bottom':'10px'}}>Wednesday:&emsp;{venueData.wednesday}</span> 
+                <span style={{'padding-bottom':'10px'}}>Thursday:&emsp;&emsp;{venueData.thursday}</span> 
+                <span style={{'padding-bottom':'10px'}}>Friday: &emsp;&emsp;&nbsp;&ensp; {venueData.friday}</span> 
+                <span style={{'padding-bottom':'10px'}}>Saturday:  &nbsp;&emsp;&nbsp;&nbsp; {venueData.saturday}</span> 
+                <span style={{'padding-bottom':'10px'}}>Sunday: &nbsp;&emsp;&emsp; {venueData.sunday}</span> 
             </div>
             </div>  
             <div class="item4"> 
                 <h4 style={{'color':'black', 'font-size': '25px'}}> Follow us on</h4>
                 <div class="social-container">
-                    <a href="https://www.youtube.com/" className="youtube social"><FontAwesomeIcon icon={faYoutube} size="1x" /></a>
-                    <a href="https://www.facebook.com/" className="facebook social"><FontAwesomeIcon icon={faFacebook} size="1x" /></a>
-                    <a href="https://www.twitter.com/" className="twitter social"><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
-                    <a href="https://www.instagram.com/"className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
+                    <a href={venueData.facebook} className="facebook social"><FontAwesomeIcon icon={faFacebook} size="1x" /></a>
+                    <a href={venueData.instagram} className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
+                    <a href={venueData.yelp} className="yelp social"><FontAwesomeIcon icon={faYelp} size="1x" /></a>
+
                 </div>
                 <span style={{'color':'black', 'font-size': '15px'}}>Or call us at {formattedPhoneNumber} <br/>during our open hours.</span> 
             </div>
