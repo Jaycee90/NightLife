@@ -6,6 +6,9 @@ export default function EditMore() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
     name: "",
+    about: "",
+    phone: "",
+    website: "",
     monday: "",
     tuesday: "",
     wednesday: "",
@@ -60,6 +63,9 @@ export default function EditMore() {
     const editedVenue = {
       _id : form._id,
       name: form.name,
+      address: form.address,
+      about: form.about,
+      phone: form.phone,
       monday: form.monday,
       tuesday: form.tuesday,
       wednesday: form.wednesday,
@@ -106,6 +112,46 @@ export default function EditMore() {
             id="name"
             value={form.name}
             readOnly // Add the readOnly attribute here
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">Address: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="address"
+            value={form.address}
+            readOnly
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="about">About: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="about"
+            value={form.about}
+            readOnly
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="phone"
+            value={form.phone}
+            readOnly
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="website">Website: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="website"
+            value={form.website}
+            readOnly
           />
         </div>
         <div className="form-group">
