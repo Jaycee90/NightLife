@@ -25,8 +25,10 @@ function convertHoursToMinutes(openingHours) {
 
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
-  // Add 1440 minutes (24 hours) to closingTime
-  closingTime += 1440;
+  // Add 1440 minutes (24 hours) to closingTime if AM
+  if (closingTime < 720){
+    closingTime += 1440;
+  }
 
   return { openingTime, closingTime };
 }
@@ -100,8 +102,16 @@ function Data(props) {
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
   const currentTime = now.getHours() * 60 + now.getMinutes(); 
   
-  const { openingTime, closingTime } = convertHoursToMinutes(venueData.monday);
 
+  let openingTime, closingTime;
+  if (currentDay === 0) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.sunday));} 
+  else if (currentDay === 1) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.monday));} 
+  else if (currentDay === 2) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.tuesday));} 
+  else if (currentDay === 3) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.wednesday));} 
+  else if (currentDay === 4) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.thursday));} 
+  else if (currentDay === 5) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.friday));} 
+  else if (currentDay === 6) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.saturday));}
+  
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
   return (
@@ -123,13 +133,6 @@ function Data(props) {
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Current day: {currentDay}</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Current time: {currentTime}</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Opening hours: 11:00 AM - 2:00 AM</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Opening time: {openingTime}</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Closing time: {closingTime}</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Open or Closed: {isOpen ? "OPEN" : "CLOSED"}</p>
-
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
