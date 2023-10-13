@@ -4,7 +4,11 @@ import "leaflet/dist/leaflet.css";
 import 'react-calendar/dist/Calendar.css';
 
 function convertHoursToMinutes(openingHours) {
-  const [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
+  let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
+
+  // Add 1440 minutes (24 hours) to closingTime
+  closingTime += 1440;
+
   return { openingTime, closingTime };
 }
 
@@ -29,7 +33,7 @@ function Test() {
   const currentTime = now.getHours() * 60 + now.getMinutes(); 
 
   //const [date, setDate] = useState(new Date());
-  const { openingTime, closingTime } = convertHoursToMinutes("11:00 AM - 2:00 PM");
+  const { openingTime, closingTime } = convertHoursToMinutes("11:00 AM - 2:00 AM");
 
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
@@ -40,7 +44,7 @@ function Test() {
         <div class="item1">
         <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Current day: {currentDay}</p>
         <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Current time: {currentTime}</p>
-        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Opening hours: 11:00 AM - 2:00 PM</p>
+        <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Opening hours: 11:00 AM - 2:00 AM</p>
         <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Opening time: {openingTime}</p>
         <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Closing time: {closingTime}</p>
         <p class="section-text" style={{'text-align':'left', 'color':'black', 'font-size': '15px'}}>Open or Closed: {isOpen ? "OPEN" : "CLOSED"}</p>
