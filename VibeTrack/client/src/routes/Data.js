@@ -27,6 +27,16 @@ function Data(props) {
     longitude: 0,
     image: "",
     phone: 0,
+    monday: "",
+    tuesday: "",
+    wednesday: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunday: "",
+    facebook: "",
+    instagram: "",
+    yelp: "",
   });
 
   const params = useParams();

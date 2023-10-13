@@ -10,7 +10,7 @@ const Record = (props) => (
     <td>{props.record.phone}</td>
     <td>{props.record.website}</td>
     <td>
-      <Link className="btn btn-link" to={`/editMore/${props.record._id}`} style={{ color: '#000000' }}>Edit</Link>
+      <Link className="btn btn-link" to={`/edit/${props.record._id}`} style={{ color: '#000000' }}>Edit</Link>
     </td>
   </tr>
 );
