@@ -20,6 +20,10 @@ function formatPhoneNumber(phone) {
 }
 
 function Data(props) {
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
+  const currentTime = now.getHours() * 60 + now.getMinutes(); 
+
   const [venueData, setVenueData] = useState({
     name: "",
     address: "",
