@@ -14,8 +14,8 @@ export default function Edit() {
     saturday: "",
     sunday: "",
     facebook: "",
+    twitter: "",
     instagram: "",
-    yelp: "",
   });
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
@@ -68,8 +68,8 @@ export default function Edit() {
       saturday: form.saturday,
       sunday: form.sunday,
       facebook: form.facebook,
+      twitter: form.twitter,
       instagram: form.instagram,
-      yelp: form.yelp,
     };
     
     // Send a PATCH request to update the venue
@@ -113,9 +113,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="monday"
+            id="address"
             value={form.monday}
-            onChange={(e) => updateForm({ monday: e.target.value })}
+            onChange={(e) => updateForm({ address: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -123,9 +123,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="tuesday"
+            id="about"
             value={form.tuesday}
-            onChange={(e) => updateForm({ tuesday: e.target.value })}
+            onChange={(e) => updateForm({ about: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -133,9 +133,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="wednesday"
+            id="phone"
             value={form.wednesday}
-            onChange={(e) => updateForm({ wednesday: e.target.value })}
+            onChange={(e) => updateForm({ phone: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -143,9 +143,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="thursday"
+            id="website"
             value={form.thursday}
-            onChange={(e) => updateForm({ thursday: e.target.value })}
+            onChange={(e) => updateForm({ website: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -153,9 +153,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="Monday"
+            id="image"
             value={form.friday}
-            onChange={(e) => updateForm({ friday: e.target.value })}
+            onChange={(e) => updateForm({ image: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -163,9 +163,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="saturday"
-            value={form.saturday}
-            onChange={(e) => updateForm({ saturday: e.target.value })}
+            id="image"
+            value={form.saturdya}
+            onChange={(e) => updateForm({ image: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -173,9 +173,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="sunday"
+            id="image"
             value={form.sunday}
-            onChange={(e) => updateForm({ sunday: e.target.value })}
+            onChange={(e) => updateForm({ image: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -183,9 +183,19 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="facebook"
+            id="image"
             value={form.facebook}
-            onChange={(e) => updateForm({ facebook: e.target.value })}
+            onChange={(e) => updateForm({ image: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="image">Twitter: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="image"
+            value={form.twitter}
+            onChange={(e) => updateForm({ image: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -193,19 +203,9 @@ export default function Edit() {
           <input
             type="text"
             className="form-control"
-            id="instagram"
+            id="image"
             value={form.instagram}
-            onChange={(e) => updateForm({ instagram: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="image">Yelp: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="yelp"
-            value={form.yelp}
-            onChange={(e) => updateForm({ yelp: e.target.value })}
+            onChange={(e) => updateForm({ image: e.target.value })}
           />
         </div>
         <div className="form-group">
