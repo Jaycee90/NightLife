@@ -19,6 +19,18 @@ function formatPhoneNumber(phone) {
   return null;
 }
 
+function convertHoursToMinutes(openingHours) {
+  const [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
+  
+  return { openingTime, closingTime };
+}
+
+function timeStringToMinutes(timeString) {
+  const [hours, minutes] = timeString.split(':').map(Number);
+  const totalMinutes = hours * 60 + minutes;
+  return totalMinutes;
+}
+
 function Data(props) {
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
@@ -71,6 +83,26 @@ function Data(props) {
   const [date, setDate] = useState(new Date());
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
+
+  let openingTime, closingTime;
+  if (currentDay === 0) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.sunday));
+  } else if (currentDay === 1) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.monday));
+  } else if (currentDay === 2) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.tuesday));
+  } else if (currentDay === 3) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.wednesday));
+  } else if (currentDay === 4) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.thursday));
+  } else if (currentDay === 5) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.friday));
+  } else if (currentDay === 6) {
+    ({ openingTime, closingTime } = convertHoursToMinutes(venueData.saturday));
+  }
+
+  const isOpen = currentTime >= openingTime && currentTime <= closingTime;
+
   return (
     <div>
       <div className="about-section">
@@ -78,7 +110,8 @@ function Data(props) {
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-          <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Invite a Friend</button>
+          <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">{isOpen ? "OPEN" : "CLOSED"}</button>
+
         </div>
         <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
