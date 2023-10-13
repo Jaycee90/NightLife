@@ -32,19 +32,20 @@ function convertHoursToMinutes(openingHours) {
 }
 
 function timeStringToMinutes(timeString) {
-  const [timePart, amPm] = timeString.split(' '); // Split the time and AM/PM part
+  const [timePart] = timeString.split(' '); // Split the time and AM/PM part
 
   let [hours, minutes] = timePart.split(':').map(Number);
 
-  if (amPm.toLowerCase() === 'pm' && hours !== 12) {
-    hours += 12; // If PM and not noon (12:00 PM), add 12 hours
-  } else if (amPm.toLowerCase() === 'am' && hours === 12) {
-    hours = 0; // Handle 12:00 AM (midnight)
+  if (hours === 12) {
+    // If it's 12:00 PM, set hours to 12 (no change)
+  } else if (timeString.toLowerCase().includes('pm')) {
+    hours += 12; // Add 12 hours for PM times (except 12:00 PM)
   }
 
   const totalMinutes = hours * 60 + minutes;
   return totalMinutes;
 }
+
 
 function Data(props) {
   const [venueData, setVenueData] = useState({
@@ -98,7 +99,7 @@ function Data(props) {
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
   const currentTime = now.getHours() * 60 + now.getMinutes(); 
-
+  
   const { openingTime, closingTime } = convertHoursToMinutes(venueData.monday);
 
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
