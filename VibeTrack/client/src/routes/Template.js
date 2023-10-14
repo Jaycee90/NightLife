@@ -75,15 +75,29 @@ function Template() {
                     </div>
                     <div class="item3">
                         <h4 style={{'color':'black', 'font-size': '25px','padding-bottom':'10px'}}> Opening Hours</h4>
-                        <div style={{'margin-left':'130px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
-                            <span style={{'padding-bottom':'10px'}}>Monday: &emsp;&emsp; 3PM - 2AM<br></br></span> 
-                            <span style={{'padding-bottom':'10px'}}>Tuesday: &emsp;&emsp; 3PM - 2AM</span> 
-                            <span style={{'padding-bottom':'10px'}}>Wednesday:&emsp;3PM - 2AM</span> 
-                            <span style={{'padding-bottom':'10px'}}>Thursday:&emsp;&emsp;12PM - 2AM</span> 
-                            <span style={{'padding-bottom':'10px'}}>Friday: &emsp;&emsp;&nbsp;&ensp;  12PM - 2AM</span> 
-                            <span style={{'padding-bottom':'10px'}}>Saturday:  &nbsp;&emsp;&nbsp;&nbsp;12PM - 2AM</span> 
-                            <span style={{'padding-bottom':'10px'}}>Sunday: &nbsp;&emsp;&emsp; 12PM - 2AM</span> 
-                        </div>
+                        <div style={{ 'margin-left':'130px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Monday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Tuesday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Wednesday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Thursday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Friday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Saturday:</span>11:00 AM - 2:00 AM
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Sunday:</span>11:00 AM - 2:00 AM
+              </div>
+            </div>
                     </div>  
                     <div class="item4"> 
                         <h4 style={{'color':'black', 'font-size': '25px'}}> Follow us on</h4>

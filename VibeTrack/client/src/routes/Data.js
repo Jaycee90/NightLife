@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faYoutube,faFacebook,faTwitter, faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
@@ -19,6 +19,34 @@ function formatPhoneNumber(phone) {
   return null;
 }
 
+function convertHoursToMinutes(openingHours) {
+  // Replace U+2013 with "-" and U+202f with a regular space (e.g. 11:00 AM – 12:00 AM)
+  openingHours = openingHours.replace(/\u2013/g, '-').replace(/\u202f/g, ' ');
+
+  let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
+
+  if (closingTime < 720){ // Add 1440 minutes (24 hours) to closingTime if AM
+    closingTime += 1440;
+  }
+
+  return { openingTime, closingTime };
+}
+
+function timeStringToMinutes(timeString) {
+  const [timePart] = timeString.split(' '); // Split the time and AM/PM part
+
+  let [hours, minutes] = timePart.split(':').map(Number);
+
+  if (hours === 12) {
+    // If it's 12:00 PM, set hours to 12 (no change)
+  } else if (timeString.toLowerCase().includes('pm')) {
+    hours += 12; // Add 12 hours for PM times (except 12:00 PM)
+  }
+
+  const totalMinutes = hours * 60 + minutes;
+  return totalMinutes;
+}
+
 function Data(props) {
   const [venueData, setVenueData] = useState({
     name: "",
@@ -27,6 +55,16 @@ function Data(props) {
     longitude: 0,
     image: "",
     phone: 0,
+    monday: "",
+    tuesday: "",
+    wednesday: "",
+    thursday: "",
+    friday: "",
+    saturday: "",
+    sunday: "",
+    facebook: "",
+    instagram: "",
+    yelp: "",
   });
 
   const params = useParams();
@@ -57,6 +95,23 @@ function Data(props) {
   const [date, setDate] = useState(new Date());
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
+
+  const now = new Date();
+  const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
+  const currentTime = now.getHours() * 60 + now.getMinutes(); 
+  
+  // Assigns the openingTime and closingTime based on the current day of the week (unconventially, will fix eventually)
+  let openingTime, closingTime;
+  if (currentDay === 0) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.sunday));} 
+  else if (currentDay === 1) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.monday));} 
+  else if (currentDay === 2) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.tuesday));} 
+  else if (currentDay === 3) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.wednesday));} 
+  else if (currentDay === 4) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.thursday));} 
+  else if (currentDay === 5) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.friday));} 
+  else if (currentDay === 6) {({ openingTime, closingTime } = convertHoursToMinutes(venueData.saturday));}
+  
+  const isOpen = currentTime >= openingTime && currentTime <= closingTime;
+
   return (
     <div>
       <div className="about-section">
@@ -64,7 +119,11 @@ function Data(props) {
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-          <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Invite a Friend</button>
+          {isOpen ? (
+            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab'}} className="btn btn-primary">OPEN NOW</button>
+          ) : (
+            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
+          )}
         </div>
         <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
@@ -72,10 +131,6 @@ function Data(props) {
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-          A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-          Sit ornar mollitia tenetur, aptent.</p>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
@@ -114,23 +169,38 @@ function Data(props) {
         </div>
           <div class="item3">
             <h4 style={{'color':'black', 'font-size': '25px','padding-bottom':'10px'}}> Opening Hours</h4>
-            <div style={{'margin-left':'150px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
-                <span style={{'padding-bottom':'10px'}}>Monday: &emsp;&emsp; 3PM - 2AM<br></br></span> 
-                <span style={{'padding-bottom':'10px'}}>Tuesday: &emsp;&emsp; 3PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Wednesday:&emsp;3PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Thursday:&emsp;&emsp;12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Friday: &emsp;&emsp;&nbsp;&ensp;  12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Saturday:  &nbsp;&emsp;&nbsp;&nbsp;12PM - 2AM</span> 
-                <span style={{'padding-bottom':'10px'}}>Sunday: &nbsp;&emsp;&emsp; 12PM - 2AM</span> 
+            <div style={{ 'margin-left':'130px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Monday:</span>{venueData.monday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Tuesday:</span>{venueData.tuesday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Wednesday:</span>{venueData.wednesday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Thursday:</span>{venueData.thursday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Friday:</span>{venueData.friday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Saturday:</span>{venueData.saturday}
+              </div>
+              <div style={{'padding-bottom':'10px'}}>
+                <span style={{'display': 'inline-block', 'width': '100px'}}>Sunday:</span>{venueData.sunday}
+              </div>
             </div>
+
             </div>  
             <div class="item4"> 
                 <h4 style={{'color':'black', 'font-size': '25px'}}> Follow us on</h4>
                 <div class="social-container">
-                    <a href="https://www.youtube.com/" className="youtube social"><FontAwesomeIcon icon={faYoutube} size="1x" /></a>
-                    <a href="https://www.facebook.com/" className="facebook social"><FontAwesomeIcon icon={faFacebook} size="1x" /></a>
-                    <a href="https://www.twitter.com/" className="twitter social"><FontAwesomeIcon icon={faTwitter} size="1x" /></a>
-                    <a href="https://www.instagram.com/"className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
+                    <a href={venueData.facebook} className="facebook social"><FontAwesomeIcon icon={faFacebook} size="1x" /></a>
+                    <a href={venueData.instagram} className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
+                    <a href={venueData.yelp} className="yelp social"><FontAwesomeIcon icon={faYelp} size="1x" /></a>
+
                 </div>
                 <span style={{'color':'black', 'font-size': '15px'}}>Or call us at {formattedPhoneNumber} <br/>during our open hours.</span> 
             </div>

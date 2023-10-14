@@ -19,6 +19,8 @@ import Template from './routes/Template';
 import Login from './routes/Login';
 import Safety from './routes/Safety';
 
+import Test from './routes/Test';
+
 const App = () => {
   return (
     <div>
@@ -33,6 +35,8 @@ const App = () => {
         <Route path='/search' element={<Search/>} />
         <Route path='/login' element={<Login />} />
         <Route path='/safety' element={<Safety />} />
+
+        <Route path='/test' element={<Test />} />
         
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
