@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import ImageGallery from "react-image-gallery";
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -47,13 +48,13 @@ function timeStringToMinutes(timeString) {
   return totalMinutes;
 }
 
-function Data(props) {
+function Test(props) {
   const [venueData, setVenueData] = useState({
     name: "",
     address: "",
     latitude: 0,
     longitude: 0,
-    image: "",
+    image: [],
     phone: 0,
     monday: "",
     tuesday: "",
@@ -112,6 +113,15 @@ function Data(props) {
   
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
+  const images = venueData.image
+  ? venueData.image.map((url, index) => ({
+      original: url,
+      thumbnail: url,
+      description: `Image ${index + 1}`
+    }))
+  : [];
+
+  
   return (
     <div>
       <div className="about-section">
@@ -125,7 +135,8 @@ function Data(props) {
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
           )}
         </div>
-        <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
+        <div className="item" >
+          <ImageGallery items={images} height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>
@@ -218,4 +229,4 @@ function Data(props) {
   );
 };
 
-export default Data;
+export default Test;
