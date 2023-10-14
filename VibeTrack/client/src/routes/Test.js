@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import '../css/Template.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
@@ -10,6 +9,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import '../css/Template.css';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -120,7 +120,6 @@ function Test(props) {
       thumbnail: url
     }))
   : [];
-
   
   return (
     <div>
@@ -136,7 +135,9 @@ function Test(props) {
           )}
         </div>
         <div className="item" >
-          <ImageGallery items={images}/></div>
+          <ImageGallery items={images}
+          showPlayButton={false} // Set to true or false based on your preference
+          showFullscreenButton={false}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>

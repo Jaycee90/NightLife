@@ -297,3 +297,8 @@ a.instagram {
   object-fit: contain; /* This ensures the image maintains its aspect ratio */
 }
 
+.image-gallery-thumbnail {
+  display: inline-block;
+  object-fit: contain;
+  background-size: cover;
+}
