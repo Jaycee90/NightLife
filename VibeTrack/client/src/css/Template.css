@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
 
-
 html { height: 100%; overflow:auto; }
 
 body {
@@ -291,3 +290,10 @@ a.instagram {
   background: black;
   color: white;
  }
+
+
+ .image-gallery-image {
+  height: 300px;
+  object-fit: contain; /* This ensures the image maintains its aspect ratio */
+}
+

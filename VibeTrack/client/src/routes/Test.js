@@ -9,6 +9,7 @@ import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -114,10 +115,9 @@ function Test(props) {
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
   const images = venueData.image
-  ? venueData.image.map((url, index) => ({
+  ? venueData.image.map((url) => ({
       original: url,
-      thumbnail: url,
-      description: `Image ${index + 1}`
+      thumbnail: url
     }))
   : [];
 
@@ -136,7 +136,7 @@ function Test(props) {
           )}
         </div>
         <div className="item" >
-          <ImageGallery items={images} height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
+          <ImageGallery items={images}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>
