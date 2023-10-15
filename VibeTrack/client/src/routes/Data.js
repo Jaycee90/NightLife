@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import '../css/Template.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
@@ -8,6 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import '../css/Template.css';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -23,6 +25,12 @@ function convertHoursToMinutes(openingHours) {
   // Replace U+2013 with "-" and U+202f with a regular space (e.g. 11:00 AM – 12:00 AM)
   openingHours = openingHours.replace(/\u2013/g, '-').replace(/\u202f/g, ' ');
 
+  if (openingHours === 'CLOSED') {
+    return { openingTime: 0, closingTime: 0 };
+  } else if (openingHours === 'Open 24 hours') {
+    return { openingTime: 0, closingTime: 1440 }; // 0 minutes to 24 hours
+  }
+
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
   if (closingTime < 720){ // Add 1440 minutes (24 hours) to closingTime if AM
@@ -31,6 +39,7 @@ function convertHoursToMinutes(openingHours) {
 
   return { openingTime, closingTime };
 }
+
 
 function timeStringToMinutes(timeString) {
   const [timePart] = timeString.split(' '); // Split the time and AM/PM part
@@ -53,7 +62,7 @@ function Data(props) {
     address: "",
     latitude: 0,
     longitude: 0,
-    image: "",
+    image: [],
     phone: 0,
     monday: "",
     tuesday: "",
@@ -112,6 +121,13 @@ function Data(props) {
   
   const isOpen = currentTime >= openingTime && currentTime <= closingTime;
 
+  const images = venueData.image
+  ? venueData.image.map((url) => ({
+      original: url,
+      thumbnail: url
+    }))
+  : [];
+  
   return (
     <div>
       <div className="about-section">
@@ -125,7 +141,10 @@ function Data(props) {
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
           )}
         </div>
-        <div className="item" ><img src={venueData.image} alt="Something" height='400px' width='800px' style={{ 'borderRadius': '30px', 'object-fit': 'contain'}}/></div>
+        <div className="item" >
+          <ImageGallery items={images}
+          showPlayButton={false} // Set to true or false based on your preference
+          showFullscreenButton={false}/></div>
       </div>
 
       <div className="container" style={{ 'paddingTop': '25px' }}>
