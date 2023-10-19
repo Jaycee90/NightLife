@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "65319e0121a2bb76fa418243"
+  },
+  "nameF": "Michelle",
+  "nameL": "Nguyen",
+  "email": "micnguyen2063@gmail.com",
+  "phone": "5129389071",
+  "gender": "F",
+  "birthdate": {
+    "$date": "2000-06-30T05:00:00.000Z"
+  },
+  "emergency1": "micnguyen2063@gmail.com",
+  "emergency2": "rnb90@txtstate.edu"
+}]
