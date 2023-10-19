@@ -167,9 +167,11 @@ function Data(props) {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
-            {formattedAmenities.map((amenity, index) => (<span key={index}>{amenity}<br /></span>))}
-          </p>
+          <div className="section-text" style={{ 'float': 'left', 'text-align': 'left', 'color': 'black', 'font-size': '15px', 'columnCount': '4', 'columnGap': '50px' }}>
+            {formattedAmenities.map((amenity, index) => (
+              <span key={index}>{amenity}<br /></span>
+            ))}
+          </div>
           <p></p>
       </div>
         <div className="item2">
