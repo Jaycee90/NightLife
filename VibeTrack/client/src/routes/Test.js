@@ -56,6 +56,12 @@ function timeStringToMinutes(timeString) {
   return totalMinutes;
 }
 
+function formatAmenities(amenitiesString) {
+  const amenitiesList = amenitiesString.split(',');
+  return amenitiesList;
+}
+
+
 function Data(props) {
   const [venueData, setVenueData] = useState({
     name: "",
@@ -128,8 +134,9 @@ function Data(props) {
     }))
   : [];
 
-  const amenitiesString = "No Reservations,Accepts Credit Cards,Divey,Moderate Noise,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,No Wi-Fi,Bike Parking";
-  
+  const amenitiesString = "No Reservations, Accepts Credit Cards, Divey, Moderate Noise, Good for Groups, Pool Table, Full Bar, TV, No Outdoor Seating, Not Good For Dancing, No Wi-Fi, Bike Parking";
+  const formattedAmenities = formatAmenities(amenitiesString);
+
   return (
     <div>
       <div className="about-section">
@@ -161,9 +168,8 @@ function Data(props) {
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-          A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-          Sit ornar mollitia tenetur, aptent.</p>
+            {formattedAmenities.map((amenity, index) => (<span key={index}>{amenity}<br /></span>))}
+          </p>
           <p></p>
       </div>
         <div className="item2">
