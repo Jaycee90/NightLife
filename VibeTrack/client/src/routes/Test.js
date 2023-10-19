@@ -127,6 +127,8 @@ function Data(props) {
       thumbnail: url
     }))
   : [];
+
+  const amenitiesString = "No Reservations,Accepts Credit Cards,Divey,Moderate Noise,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,No Wi-Fi,Bike Parking";
   
   return (
     <div>
