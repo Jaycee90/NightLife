@@ -80,6 +80,7 @@ function Data(props) {
     facebook: "",
     instagram: "",
     yelp: "",
+    amenities: "",
   });
 
   const params = useParams();
@@ -134,8 +135,7 @@ function Data(props) {
     }))
   : [];
 
-  const amenitiesString = "No Reservations, Accepts Credit Cards, Divey, Moderate Noise, Good for Groups, Pool Table, Full Bar, TV, No Outdoor Seating, Not Good For Dancing, No Wi-Fi, Bike Parking";
-  const formattedAmenities = formatAmenities(amenitiesString);
+  const formattedAmenities = formatAmenities(venueData.amenities);
 
   return (
     <div>

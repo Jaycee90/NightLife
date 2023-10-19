@@ -30,7 +30,8 @@
   "thursday": "11:00 AM – 2:00 AM",
   "tuesday": "11:00 AM – 12:00 AM",
   "wednesday": "11:00 AM – 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/blind-salamander-cantina-san-marcos"
+  "yelp": "https://www.yelp.com/biz/blind-salamander-cantina-san-marcos",
+  "amenities": "Accepts Credit Cards,Good for Groups,Happy Hour Specials,Full Bar,TV,Outdoor Seating"
 },
 {
   "_id": {
@@ -63,7 +64,8 @@
   "thursday": "2:00 PM – 2:00 AM",
   "tuesday": "5:30 PM – 2:00 AM",
   "wednesday": "2:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/cats-billards-san-marcos"
+  "yelp": "https://www.yelp.com/biz/cats-billards-san-marcos",
+  "amenities": "Accepts Credit Cards,Quiet,Good for Groups,Pool Table,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,Bike Parking\n"
 },
 {
   "_id": {
@@ -95,7 +97,8 @@
   "thursday": "3:00 PM – 2:00 AM",
   "tuesday": "3:00 PM – 2:00 AM",
   "wednesday": "3:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/chances-r-san-marcos"
+  "yelp": "https://www.yelp.com/biz/chances-r-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Divey,Moderate Noise,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,No Wi-Fi,Bike Parking"
 },
 {
   "_id": {
@@ -128,7 +131,8 @@
   "thursday": "3:00 PM – 2:00 AM",
   "tuesday": "3:00 PM – 2:00 AM",
   "wednesday": "3:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/cheatham-street-warehouse-san-marcos-2"
+  "yelp": "https://www.yelp.com/biz/cheatham-street-warehouse-san-marcos-2",
+  "amenities": "Accepts Credit Cards,Divey,Casual,Loud,Good for Groups,Good For Dancing,Live Music,Beer & Wine Only,TV,No Outdoor Seating,Not Good For Kids,Bike Parking,Street Parking,Private Lot Parking"
 },
 {
   "_id": {
@@ -162,7 +166,8 @@
   "thursday": "11:00 AM – 12:00 AM",
   "tuesday": "11:00 AM – 12:00 AM",
   "wednesday": "11:00 AM – 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/chimys-cerveceria-san-marcos"
+  "yelp": "https://www.yelp.com/biz/chimys-cerveceria-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Many Vegetarian Options,Accepts Credit Cards,Outdoor Seating,Casual, Trendy,Loud,Offers Catering,Good for Groups,Good for Lunch, Dinner, Late Night,Street Parking,Happy Hour Specials,Full Bar,TV,Not Good For Kids,No Wi-Fi,Bike Parking"
 },
 {
   "_id": {
@@ -196,7 +201,8 @@
   "thursday": "11:30 AM - 10:00 PM",
   "tuesday": "4:00 PM - 10:00 PM",
   "wednesday": "4:00 PM - 10:00 PM",
-  "yelp": "https://www.yelp.com/biz/codys-restaurant-bar-and-patio-san-marcos-3"
+  "yelp": "https://www.yelp.com/biz/codys-restaurant-bar-and-patio-san-marcos-3",
+  "amenities": "Accepts Android Pay,Accepts Apple Pay,Accepts Credit Cards,Best nights on Thursday, Friday, Saturday,Casual Dress,Covered Outdoor Seating,Dogs Not Allowed,Free Wi-Fi,Full Bar,Good For Kids,Good for Groups,Good for Lunch, Dinner,Happy Hour Specials,Heated Outdoor Seating,Intimate,Moderate Noise,Many Vegetarian Options,No Bike Parking,No Delivery,No Drive-Thru,No Pool Table,No Reservations,Offers Catering,Offers Takeout,Private Dining,Private Lot Parking,Smoking Outside Only,Takes Reservations,TV,Vegan Options,Waiter Service,Wheelchair Accessible"
 },
 {
   "_id": {
@@ -230,7 +236,8 @@
   "thursday": "11:00 AM - 12:00 AM",
   "tuesday": "11:00 AM - 12:00 AM",
   "wednesday": "11:00 AM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/crafthouse-san-marcos"
+  "yelp": "https://www.yelp.com/biz/crafthouse-san-marcos",
+  "amenities": "Accepts Credit Cards,Bike Parking,Casual,Not Accepts Apple Pay,Free Wi-Fi,Full Bar,Good For Brunch,Good For Groups,Good For Kids,Good For Lunch,Good For KidsDinner,Loud,No Reservations,Offers Catering,Offers Takeout,Outdoor Seating,Street Parking,Trendy,TV,Vegan Options,Waiter Service"
 },
 {
   "_id": {
@@ -262,7 +269,8 @@
   "thursday": "2:00 PM - 2:00 AM",
   "tuesday": "2:00 PM - 2:00 AM",
   "wednesday": "2:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-davenport-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-davenport-san-marcos",
+  "amenities": "Classy,Happy Hour Specials,Live Music,Offers Takeout,Outdoor Seating"
 },
 {
   "_id": {
@@ -294,7 +302,8 @@
   "thursday": "12:00 PM - 9:00 PM",
   "tuesday": "12:00 PM - 9:00 PM",
   "wednesday": "12:00 PM - 9:00 PM",
-  "yelp": "https://www.yelp.com/biz/evo-entertainment-springtown-san-marcos-2"
+  "yelp": "https://www.yelp.com/biz/evo-entertainment-springtown-san-marcos-2",
+  "amenities": "Accepts Credit Cards,Bike Parking,Dogs Not Allowed,Free Wi-Fi,Good For Kids,Private Lot Parking,Wheelchair Accessible"
 },
 {
   "_id": {
@@ -328,7 +337,8 @@
   "thursday": "5:00 PM – 2:00 AM",
   "tuesday": "5:00 PM – 2:00 AM",
   "wednesday": "5:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/black-rabbit-saloon-san-marcos"
+  "yelp": "https://www.yelp.com/biz/black-rabbit-saloon-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Casual,Very Loud,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,No Wi-Fi,No Smoking,Bike Parking"
 },
 {
   "_id": {
@@ -360,7 +370,8 @@
   "thursday": "6:00 PM - 2:00 AM",
   "tuesday": "6:00 PM - 2:00 AM",
   "wednesday": "6:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/axis-san-marcos"
+  "yelp": "https://www.yelp.com/biz/axis-san-marcos",
+  "amenities": "Accepts Credit Cards,Outdoor Seating,Trendy,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Bike Parking"
 },
 {
   "_id": {
@@ -390,7 +401,8 @@
   "thursday": "12:00 PM  - 2:00 AM",
   "tuesday": "3:00 PM  - 2:00 AM",
   "wednesday": "3:00 PM  - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/zelicks-san-marcos"
+  "yelp": "https://www.yelp.com/biz/zelicks-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Best nights on Tuesday, Friday, Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Open to All,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Dancing,Bike Parking"
 },
 {
   "_id": {
@@ -421,7 +433,8 @@
   "thursday": "4:00 PM - 11:00 PM",
   "tuesday": "4:00 PM - 11:00 PM",
   "wednesday": "4:00 PM - 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/patio-dolcetto-san-marcos"
+  "yelp": "https://www.yelp.com/biz/patio-dolcetto-san-marcos",
+  "amenities": "Takes Reservations,Offers Takeout,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Romantic, Intimate, Classy, Casual,Quiet,Casual Dress,Good for Groups,Good for Dinner,Street Parking, Private Lot Parking,Waiter Service,Free Wi-Fi,Best nights on Saturday,Happy Hour Specials,Beer & Wine Only,Smoking Outside Only,Wheelchair Accessible,Gender-neutral restrooms,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Kids,Not Good For Dancing,No Drive-Thru,Dogs Not Allowed,No TV,Bike Parking,Compostable containers available"
 },
 {
   "_id": {
@@ -455,7 +468,8 @@
   "thursday": "4:00 PM - 2:00 AM",
   "tuesday": "4:00 PM - 2:00 AM",
   "wednesday": "4:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/freddy-cs-lounge-san-marcos"
+  "yelp": "https://www.yelp.com/biz/freddy-cs-lounge-san-marcos",
+  "amenities": "Pool Table,TV"
 },
 {
   "_id": {
@@ -488,7 +502,8 @@
   "thursday": "4:00 PM - 12:00 AM",
   "tuesday": "4:00 PM - 12:00 AM",
   "wednesday": "4:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/full-moon-saloon-san-marcos"
+  "yelp": "https://www.yelp.com/biz/full-moon-saloon-san-marcos",
+  "amenities": "Good for Groups"
 },
 {
   "_id": {
@@ -521,7 +536,8 @@
   "thursday": "CLOSED",
   "tuesday": "CLOSED",
   "wednesday": "CLOSED",
-  "yelp": "https://www.yelp.com/biz/green-parrot-san-marcos"
+  "yelp": "https://www.yelp.com/biz/green-parrot-san-marcos",
+  "amenities": "No Takeout,Accepts Credit Cards,Loud,Good for Groups,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,No Outdoor Seating"
 },
 {
   "_id": {
@@ -554,7 +570,8 @@
   "thursday": "2:00 PM - 12:00 AM",
   "tuesday": "2:00 PM - 12:00 AM",
   "wednesday": "2:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-growling-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-growling-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Outdoor Seating,Divey,Hipster,Casual,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Thursday,Friday,Saturday,Beer & Wine Only,Wheelchair Accessible,TV,Not Good For Dancing,Bike Parking"
 },
 {
   "_id": {
@@ -587,7 +604,8 @@
   "thursday": "1:00 PM - 12:00 AM",
   "tuesday": "1:00 PM - 12:00 AM",
   "wednesday": "1:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/happy-cow-new-braunfels-2"
+  "yelp": "https://www.yelp.com/biz/happy-cow-new-braunfels-2",
+  "amenities": "Offers Takeout,No Reservations,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Divey,Casual,Moderate Noise,Good for Groups,Good for Lunch,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Happy Hour Specials,Full Bar,Smoking Allowed,Wheelchair Accessible,TV,Heated Outdoor Seating,No Catering,Not Good For Kids,No Covered Outdoor Seating,No Private Dining,Bike Parking"
 },
 {
   "_id": {
@@ -620,7 +638,8 @@
   "thursday": "7:00 PM - 1:30 AM",
   "tuesday": "CLOSED",
   "wednesday": "8:00 PM - 1:30 AM",
-  "yelp": "https://www.yelp.com/biz/harpers-brick-oven-san-marcos"
+  "yelp": "https://www.yelp.com/biz/harpers-brick-oven-san-marcos",
+  "amenities": "Offers Takeout,No Reservations,No Delivery,Accepts Credit Cards,Accepts Cryptocurrency,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Full Bar,TV,No Outdoor Seating,Not Good For Kids,Bike Parking"
 },
 {
   "_id": {
@@ -650,7 +669,8 @@
   "thursday": "12:00 PM - 2:00 AM",
   "tuesday": "12:00 PM - 2:00 AM",
   "wednesday": "12:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/i-dont-know-bar-san-marcos"
+  "yelp": "https://www.yelp.com/biz/i-dont-know-bar-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good For Dancing,Pool Table,Private Lot Parking,Paid Wi-Fi,DJ,Full Bar,Smoking Outside Only,TV,No Outdoor Seating,Not Good For Groups,No Bike Parking"
 },
 {
   "_id": {
@@ -683,7 +703,8 @@
   "thursday": "2:00 PM - 2:00 AM",
   "tuesday": "2:00 PM - 2:00 AM",
   "wednesday": "2:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/jacks-roadhouse-san-marcos"
+  "yelp": "https://www.yelp.com/biz/jacks-roadhouse-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Divey,Casual,Loud,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Monday,Best nights on Friday,Best nights on Saturday,Beer & Wine Only,Smoking Allowed,TV,Not Good For Dancing,Bike Parking"
 },
 {
   "_id": {
@@ -713,7 +734,8 @@
   "thursday": "Open 24 hours",
   "tuesday": "Open 24 hours",
   "wednesday": "Open 24 hours",
-  "yelp": null
+  "yelp": null,
+  "amenities": null
 },
 {
   "_id": {
@@ -747,7 +769,8 @@
   "thursday": "5:00 PM - 12:30 AM",
   "tuesday": "5:00 PM - 12:30 AM",
   "wednesday": "5:00 PM - 12:30 AM",
-  "yelp": "https://www.yelp.com/biz/lanikai-lounge-san-marcos"
+  "yelp": "https://www.yelp.com/biz/lanikai-lounge-san-marcos",
+  "amenities": "Outdoor Seating"
 },
 {
   "_id": {
@@ -780,7 +803,8 @@
   "thursday": "10:00 PM - 2:00 AM",
   "tuesday": "10:00 PM - 2:00 AM",
   "wednesday": "10:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-marc-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-marc-san-marcos",
+  "amenities": "Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,Live Music,Full Bar,TV,No Outdoor Seating,Not Good For Kids,No Bike Parking"
 },
 {
   "_id": {
@@ -813,7 +837,8 @@
   "thursday": "9:00 AM - 10:00 PM",
   "tuesday": "CLOSED",
   "wednesday": "CLOSED",
-  "yelp": "https://www.yelp.com/biz/martindale-river-cafe-and-mercantile-martindale-2"
+  "yelp": "https://www.yelp.com/biz/martindale-river-cafe-and-mercantile-martindale-2",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Outdoor Seating,Casual,Intimate,Good for Groups,Good For Kids,Good for Brunch,Free Wi-Fi,Beer & Wine Only"
 },
 {
   "_id": {
@@ -846,7 +871,8 @@
   "thursday": "7:00 PM - 2:00 AM",
   "tuesday": "7:00 PM - 2:00 AM",
   "wednesday": "7:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/mayloos-bar-san-marcos"
+  "yelp": "https://www.yelp.com/biz/mayloos-bar-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Divey,Loud,Good for Groups,Best nights on Thursday, Best nights on Friday,Best nights on Saturday,Full Bar,TV,Not Good For Dancing,No Pool Table,No Wi-Fi,No Smoking,Not Wheelchair Accessible,No Bike Parking"
 },
 {
   "_id": {
@@ -880,7 +906,8 @@
   "thursday": "2:00 PM - 10:00 PM",
   "tuesday": "CLOSED",
   "wednesday": "2:00 PM - 10:00 PM",
-  "yelp": "https://www.yelp.com/biz/middleton-brewing-san-marcos-3"
+  "yelp": "https://www.yelp.com/biz/middleton-brewing-san-marcos-3",
+  "amenities": "No Reservations,No Takeout,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Offers Catering,Not Good For Dancing,No Pool Table,No TV,Bike Parking"
 },
 {
   "_id": {
@@ -914,7 +941,8 @@
   "thursday": "9:00 PM -  2:00 AM",
   "tuesday": "9:00 PM -  2:00 AM",
   "wednesday": "9:00 PM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/nephews-san-marcos"
+  "yelp": "https://www.yelp.com/biz/nephews-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,DJ,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking"
 },
 {
   "_id": {
@@ -930,8 +958,7 @@
     "$numberLong": "5123929824"
   },
   "website": "https://www.taproomsanmarcos.com",
-  "image": "https://i.imgur.com/iGUBWI7.jpg",
-  "facebook": [
+  "image": [
     "https://i.imgur.com/iGUBWI7.jpg",
     "https://i.imgur.com/rdbjPeJ.jpg",
     "https://i.imgur.com/1McMlPR.jpg",
@@ -940,6 +967,7 @@
     "https://i.imgur.com/XcxkHD7.png",
     "https://i.imgur.com/zOCpuqJ.jpg"
   ],
+  "facebook": "https://www.facebook.com/theporchsmtx/",
   "friday": "4:00 PM - 2:00 AM",
   "instagram": "https://www.instagram.com/theporchsmtx/",
   "monday": "4:00 PM - 2:00 AM",
@@ -948,7 +976,8 @@
   "thursday": "4:00 PM - 2:00 AM",
   "tuesday": "4:00 PM - 2:00 AM",
   "wednesday": "4:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-porch-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-porch-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,Smoking Allowed,Wheelchair Accessible,TV,Covered Outdoor Seating,No Heated Outdoor Seating,No Bike Parking"
 },
 {
   "_id": {
@@ -981,7 +1010,8 @@
   "thursday": "3:00 PM - 12:00 AM",
   "tuesday": "3:00 PM - 12:00 AM",
   "wednesday": "3:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/putt-pub-san-marcos"
+  "yelp": "https://www.yelp.com/biz/putt-pub-san-marcos",
+  "amenities": "Outdoor Seating,Street Parking,Private Lot Parking,Happy Hour Specials"
 },
 {
   "_id": {
@@ -1013,7 +1043,8 @@
   "thursday": "CLOSED",
   "tuesday": "CLOSED",
   "wednesday": "CLOSED",
-  "yelp": null
+  "yelp": null,
+  "amenities": "Good for Groups,Free Wi-Fi,Live Music,Very Loud"
 },
 {
   "_id": {
@@ -1047,7 +1078,8 @@
   "thursday": "4:00 PM - 12:00 AM",
   "tuesday": "4:00 PM - 12:00 AM",
   "wednesday": "4:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/railyard-bar-and-grill-san-marcos"
+  "yelp": "https://www.yelp.com/biz/railyard-bar-and-grill-san-marcos",
+  "amenities": "Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Good For Kids,Good for Lunch, Dinner,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,TV,Offers Catering,Not Good For Dancing,No Drive-Thru,Bike Parking"
 },
 {
   "_id": {
@@ -1080,7 +1112,8 @@
   "thursday": "7:00 AM - 11:00 PM",
   "tuesday": "7:00 AM - 11:00 PM",
   "wednesday": "7:00 AM - 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/red-bus-food-park-and-bar-san-marcos"
+  "yelp": "https://www.yelp.com/biz/red-bus-food-park-and-bar-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,Pescatarian Options,Vegan Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Outdoor Seating,Good For Kids,Street Parking, Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Latinx-owned,Women-owned,Open to All,No Happy Hour,Bike Parking"
 },
 {
   "_id": {
@@ -1114,7 +1147,8 @@
   "thursday": "1:00 PM - 12:00 AM",
   "tuesday": "1:00 PM - 12:00 AM",
   "wednesday": "1:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/rileys-tavern-hunter"
+  "yelp": "https://www.yelp.com/biz/rileys-tavern-hunter",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Outdoor Seating,Divey, Casual,Very Loud,Good for Groups,Good For Dancing,Pool Table,Private Lot Parking,Juke Box,Live Music,Best nights on Friday, Saturday,Full Bar,Smoking Outside Only,TV,Not Good For Kids,No Wi-Fi,Bike Parking"
 },
 {
   "_id": {
@@ -1148,7 +1182,8 @@
   "thursday": "11:00 AM – 9:00 PM",
   "tuesday": "CLOSED",
   "wednesday": "CLOSED",
-  "yelp": "https://www.yelp.com/biz/roughhouse-brewing-san-marcos"
+  "yelp": "https://www.yelp.com/biz/roughhouse-brewing-san-marcos",
+  "amenities": "Offers Takeout,Walk-ins Welcome,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Private Lot Parking,Happy Hour Specials,Dogs Allowed,Wheelchair Accessible,Offers Military Discount,Covered Outdoor Seating,Offers Catering,No Drive-Thru,No Heated Outdoor Seating,No Bike Parking"
 },
 {
   "_id": {
@@ -1214,7 +1249,8 @@
   "thursday": "11:00 AM – 12:00 AM",
   "tuesday": "11:00 AM – 11:00 PM",
   "wednesday": "11:00 AM – 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/sean-patricks-irish-pub-texas-grub-san-marcos"
+  "yelp": "https://www.yelp.com/biz/sean-patricks-irish-pub-texas-grub-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good for Lunch,Good for Dinner,Pool Table,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,TV,Not Good For Kids,Bike Parking"
 },
 {
   "_id": {
@@ -1247,7 +1283,8 @@
   "thursday": "5:00 PM – 2:00 AM",
   "tuesday": "5:00 PM – 2:00 AM",
   "wednesday": "5:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/shade-rooftop-patio-san-marcos"
+  "yelp": "https://www.yelp.com/biz/shade-rooftop-patio-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Good For Dancing,Street Parking,Best nights on Saturday,Happy Hour Specials,Full Bar,TV,No Pool Table,No Wi-Fi,Bike Parking"
 },
 {
   "_id": {
@@ -1280,7 +1317,8 @@
   "thursday": "10:00 AM -  2:00 AM",
   "tuesday": "10:00 AM -  2:00 AM",
   "wednesday": "10:00 AM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/showdown-san-marcos"
+  "yelp": "https://www.yelp.com/biz/showdown-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Hipster,Divey,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking"
 },
 {
   "_id": {
@@ -1314,7 +1352,8 @@
   "thursday": "11:00 AM - 12:00 AM",
   "tuesday": "11:00 AM - 12:00 AM",
   "wednesday": "11:00 AM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-taproom-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-taproom-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Vegan Options,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Loud,Good for Groups,Good for Lunch,Good for Dinner,Good for Late Night,Pool Table,Street Parking,Private Lot Parking,Waiter Service,Free Wi-Fi,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,Wheelchair Accessible,TV,LGBTQ-owned,Women-owned,Offers Military Discount,Open to All,Offers Catering,Not Good For Kids,Not Good For Dancing,No Drive-Thru,No Heated Outdoor Seating,No Covered Outdoor Seating,No Private Dining,Bike Parking,Provides reusable tableware"
 },
 {
   "_id": {
@@ -1347,7 +1386,8 @@
   "thursday": "12:30 PM -  2:00 AM",
   "tuesday": "12:30 PM -  2:00 AM",
   "wednesday": "12:30 PM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/treffs-tavern-san-marcos"
+  "yelp": "https://www.yelp.com/biz/treffs-tavern-san-marcos",
+  "amenities": "Takes Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Loud,Good for Groups,Street Parking,Private Lot Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Pool Table,Bike Parking"
 },
 {
   "_id": {
@@ -1377,7 +1417,8 @@
   "thursday": "7:00 PM - 2:00 AM",
   "tuesday": "7:00 PM - 2:00 AM",
   "wednesday": "7:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-vault-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-vault-san-marcos",
+  "amenities": "Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,Full Bar,TV,No Outdoor Seating,Bike Parking"
 },
 {
   "_id": {
@@ -1406,7 +1447,8 @@
   "thursday": "3:00 PM – 12:00 AM",
   "tuesday": "3:00 PM – 12:00 AM",
   "wednesday": "3:00 PM – 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-veranda-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-veranda-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Loud,Good for Groups,Pool Table,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,Bike Parking"
 },
 {
   "_id": {
@@ -1440,7 +1482,8 @@
   "thursday": "8:00 AM - 9:00 PM",
   "tuesday": "8:00 AM - 9:00 PM",
   "wednesday": "8:00 AM - 9:00 PM",
-  "yelp": "https://www.yelp.com/biz/the-root-cellar-cafe-san-marcos"
+  "yelp": "https://www.yelp.com/biz/the-root-cellar-cafe-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good For Kids,Good for Breakfast,Good for Brunch,Good for Lunch,Dinner,Street Parking,Waiter Service,Full Bar,Dogs Allowed,Wheelchair Accessible,Gender-neutral restrooms,Offers Military Discount,Open to All,Covered Outdoor Seating,Private Dining,No Wi-Fi,No Happy Hour,No TV,No Heated Outdoor Seating,Bike Parking,Compostable containers available,Provides reusable tableware"
 },
 {
   "_id": {
@@ -1474,7 +1517,8 @@
   "thursday": "7:00 AM - 10:00 PM",
   "tuesday": "7:00 AM - 10:00 PM",
   "wednesday": "7:00 AM - 10:00 PM",
-  "yelp": "https://www.yelp.com/biz/wake-the-dead-coffee-house-san-marcos"
+  "yelp": "https://www.yelp.com/biz/wake-the-dead-coffee-house-san-marcos",
+  "amenities": "Offers Takeout,Vegan Options,Accepts Credit Cards,Outdoor Seating,Moderate Noise,Good for Working,Street Parking,Private Lot Parking,Free Wi-Fi,Dogs Allowed,Gender-neutral restrooms,Offers Catering,Bike Parking"
 },
 {
   "_id": {
@@ -1504,5 +1548,6 @@
   "thursday": "9:00 PM -  2:00 AM",
   "tuesday": "9:00 PM -  2:00 AM",
   "wednesday": "9:00 PM -  2:00 AM",
-  "yelp": null
+  "yelp": null,
+  "amenities": null
 }]
