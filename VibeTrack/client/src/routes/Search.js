@@ -1,6 +1,5 @@
 // Import React and useState hook from the 'react' library
 import React, { useState } from "react";
-
 // Import the CSS styles for the component
 import '../css/Discover.css';
 
@@ -43,7 +42,7 @@ function Search() {
             <button onClick={getUserLocation}>Get My Location</button>
             
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            <p id="locationResult">{locationResult}</p>
+            <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>
         </div>
     );
 }
