@@ -39,6 +39,7 @@ router.post("/", async (req, res) => {
     facebook: req.body.facebook,
     instagram: req.body.instagram,
     yelp: req.body.yelp,
+    amenities: req.body.amenities,
   };
   let collection = await db.collection("Listing");
   let result = await collection.insertOne(newDocument);
@@ -65,6 +66,7 @@ router.patch("/:id", async (req, res) => {
       facebook: req.body.facebook,
       instagram: req.body.instagram,
       yelp: req.body.yelp,
+      amenities: req.body.amenities,
     }
   };
 

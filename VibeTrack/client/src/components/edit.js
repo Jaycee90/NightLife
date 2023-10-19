@@ -20,6 +20,7 @@ export default function Edit() {
     facebook: "",
     instagram: "",
     yelp: "",
+    amenities: "",
   });
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
@@ -79,6 +80,7 @@ export default function Edit() {
       facebook: form.facebook,
       instagram: form.instagram,
       yelp: form.yelp,
+      amenities: form.amenities,
     };
     
     // Send a PATCH request to update the venue
@@ -148,16 +150,6 @@ export default function Edit() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="phone">Phone: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="phone"
-            value={form.phone}
-            onChange={(e) => updateForm({ phone: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
           <label htmlFor="website">Website: </label>
           <input
             type="text"
@@ -165,6 +157,26 @@ export default function Edit() {
             id="website"
             value={form.website}
             onChange={(e) => updateForm({ website: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="amenities">Amenities: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="amenities"
+            value={form.amenities}
+            onChange={(e) => updateForm({ amenities: e.target.value })}
+          />
+        </div>
+        {/*<div className="form-group">
+          <label htmlFor="phone">Phone: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="phone"
+            value={form.phone}
+            onChange={(e) => updateForm({ phone: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -256,7 +268,7 @@ export default function Edit() {
             value={form.instagram}
             onChange={(e) => updateForm({ instagram: e.target.value })}
           />
-        </div>
+        </div>*/}
         <div className="form-group">
           <label htmlFor="yelp">Yelp: </label>
           <input
