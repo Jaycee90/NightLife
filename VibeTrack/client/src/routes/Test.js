@@ -62,7 +62,7 @@ function formatAmenities(amenitiesString) {
 }
 
 
-function Data(props) {
+function Test(props) {
   const [venueData, setVenueData] = useState({
     name: "",
     address: "",
@@ -247,4 +247,4 @@ function Data(props) {
   );
 };
 
-export default Data;
+export default Test;

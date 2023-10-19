@@ -56,6 +56,16 @@ function timeStringToMinutes(timeString) {
   return totalMinutes;
 }
 
+function formatAmenities(amenitiesString) {
+  if (!amenitiesString) {
+    return []; // or you can return a default value, an empty array in this case
+  }
+  
+  const amenitiesList = amenitiesString.split(',');
+  return amenitiesList;
+}
+
+
 function Data(props) {
   const [venueData, setVenueData] = useState({
     name: "",
@@ -74,6 +84,7 @@ function Data(props) {
     facebook: "",
     instagram: "",
     yelp: "",
+    amenities: "",
   });
 
   const params = useParams();
@@ -127,7 +138,9 @@ function Data(props) {
       thumbnail: url
     }))
   : [];
-  
+
+  const formattedAmenities = formatAmenities(venueData.amenities);
+
   return (
     <div>
       <div className="about-section">
@@ -158,10 +171,11 @@ function Data(props) {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-          A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-          Sit ornar mollitia tenetur, aptent.</p>
+          <div className="section-text" style={{ 'float': 'left', 'text-align': 'left', 'color': 'black', 'font-size': '15px', 'columnCount': '4', 'columnGap': '50px' }}>
+            {formattedAmenities.map((amenity, index) => (
+              <span key={index}>{amenity}<br /></span>
+            ))}
+          </div>
           <p></p>
       </div>
         <div className="item2">
