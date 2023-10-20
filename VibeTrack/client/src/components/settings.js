@@ -5,8 +5,8 @@ import '../css/edit.css';
 export default function Settings() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
-    nameF: "",
-    nameL: "",
+    name: "",
+    lastName: "",
     phone: "",
     email: "",
     birthdate: "",
@@ -54,10 +54,10 @@ export default function Settings() {
 
   async function onSubmit(e) { // Extract form fields for the request body
     e.preventDefault();
-    const editedVenue = {
+    const editedUser = {
       _id : form._id,
-      nameF: form.nameF,
-      nameL: form.nameL,
+      name: form.name,
+      lastName: form.lastName,
       phone: form.phone,
       email: form.email,
       birthdate: form.birthdate,
@@ -69,7 +69,7 @@ export default function Settings() {
     // Send a PATCH request to update the user
     await fetch(`http://localhost:5050/user/${params.user}`, {
       method: "PATCH",
-      body: JSON.stringify(editedVenue),
+      body: JSON.stringify(editedUser),
       headers: {
         'Content-Type': 'application/json'
       },
@@ -93,23 +93,23 @@ export default function Settings() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="nameF">First Name: </label>
+          <label htmlFor="lastName">Last Name: </label>
           <input
             type="text"
             className="form-control"
-            id="nameF"
-            value={form.nameF}
-            onChange={(e) => updateForm({ nameF: e.target.value })}
+            id="lastName"
+            value={form.lastName}
+            onChange={(e) => updateForm({ lastName: e.target.value })}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="nameL">Last Name: </label>
+          <label htmlFor="name">First Name: </label>
           <input
             type="text"
             className="form-control"
-            id="nameL"
-            value={form.nameL}
-            onChange={(e) => updateForm({ nameL: e.target.value })}
+            id="name"
+            value={form.name}
+            onChange={(e) => updateForm({ name: e.target.value })}
           />
         </div>
         <div className="form-group">

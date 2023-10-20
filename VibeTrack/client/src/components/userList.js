@@ -4,8 +4,8 @@ import '../css/recordList.css';
 
 const User = (props) => (
   <tr>
-    <td>{props.user.nameF}</td>
-    <td>{props.user.nameL}</td>
+    <td>{props.user.name}</td>
+    <td>{props.user.lastName}</td>
     <td>{props.user.email}</td>
     <td>{props.user.phone}</td>
     <td>{props.user.gender}</td>
@@ -70,7 +70,7 @@ export default function UserList() {
         <thead>
           <tr>
             <th className="nameColumn">First Name</th>
-            <th className="nameColumn">Last Name</th>
+            <th className="lastNameColumn">Last Name</th>
             <th className="emailColumn">Email</th>
             <th className="phoneColumn">Phone</th>
             <th className="genderColumn">Gender</th>
