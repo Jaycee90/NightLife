@@ -70,7 +70,7 @@ export default function UserList() {
         <thead>
           <tr>
             <th className="nameColumn">First Name</th>
-            <th className="lastNameColumn">Last Name</th>
+            <th className="nameColumn">Last Name</th>
             <th className="emailColumn">Email</th>
             <th className="phoneColumn">Phone</th>
             <th className="genderColumn">Gender</th>
