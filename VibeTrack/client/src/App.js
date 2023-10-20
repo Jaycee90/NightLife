@@ -45,7 +45,7 @@ const App = () => {
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/create" element={<Create />} />
-        <Route path='/settings/:user' element={<Settings />} />
+        <Route path='/settings/user/:user' element={<Settings />} />
         <Route path='/userList/user' element={<UserList />} />
       </Routes>
       </div>

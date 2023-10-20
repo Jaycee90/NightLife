@@ -123,7 +123,7 @@ router.patch("/user/:user", async (req, res) => {
 });
 
 // This section will help you delete a record
-router.delete("/:user", async (req, res) => {
+router.delete("/user/:user", async (req, res) => {
   const query = { _id: new ObjectId(req.params.user) };
 
   const collection = db.collection("User");

@@ -21,7 +21,7 @@ export default function Settings() {
   useEffect(() => {
     async function fetchData() {
       const id = params.user.toString();
-      const response = await fetch(`http://localhost:5050/user/${params.user.toString()}`);
+      const response = await fetch(`http://localhost:5050/record/user/${params.user.toString()}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -64,7 +64,7 @@ export default function Settings() {
       emergency2: form.emergency2,
     };
 
-    await fetch(`http://localhost:5050/user/${params.user}`, {
+    await fetch(`http://localhost:5050/record/user/${params.user}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
