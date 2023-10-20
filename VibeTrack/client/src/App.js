@@ -8,6 +8,8 @@ import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
+import Settings from "./components/settings";
+import UserList from "./components/userList";
 
 import Home from './routes/Home';
 import Discover from './routes/Discover';
@@ -43,6 +45,8 @@ const App = () => {
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/create" element={<Create />} />
+        <Route path='/settings/:user' element={<Settings />} />
+        <Route path='/userList/user' element={<UserList />} />
       </Routes>
       </div>
   );
