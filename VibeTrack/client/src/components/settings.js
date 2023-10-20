@@ -3,40 +3,41 @@ import { useParams, useNavigate } from "react-router";
 import '../css/edit.css';
 
 export default function Settings() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
+    id: "",
     nameF: "",
     nameL: "",
     phone: "",
     email: "",
-    gender: "",
     birthdate: "",
+    gender: "",
     emergency1: "",
     emergency2: "",
   });
+  const params = useParams(); // Get the parameters from the URL
+  const navigate = useNavigate(); // Navigate function from react-router-dom
 
-  const params = useParams();
-  const navigate = useNavigate();
-
-  useEffect(() => {
+  useEffect(() => { // Fetch user data when component mounts or params.id changes
     async function fetchData() {
-      const id = params.user.toString();
-      const response = await fetch(`http://localhost:5050/record/user/${params.user.toString()}`);
+      // Send a GET request to the server with the 'id' parameter
+      const id = params.user.toString(); 
+      const response = await fetch(`http://localhost:5050/user/${params.user.toString()}`);
 
-      if (!response.ok) {
+      if (!response.ok) { // Check if the response is successful
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
 
-      const user = await response.json();
-      if (!user) {
+      const user = await response.json();  // Parse the response (object in database) as JSON
+      if (!user) { // Check if a user was found
         window.alert(`User with id ${id} not found`);
         navigate("/");
         return;
       }
 
-      setForm(user);
+      setForm(user); // Update the 'userData' state with the fetched data
     }
 
     fetchData();
@@ -44,13 +45,15 @@ export default function Settings() {
     return;
   }, [params.user, navigate]);
 
-  function updateForm(value) {
+  function updateForm(value) { // Function to update form state
     return setForm((prev) => {
+      // Update multiple fields in the form state object without directly mutating it
+      // Create a new state object by merging the previous state with the new values provided in value
       return { ...prev, ...value };
     });
   }
 
-  async function onSubmit(e) {
+  async function onSubmit(e) { // Extract form fields for the request body
     e.preventDefault();
     const editedUser = {
       _id : form._id,
@@ -58,13 +61,14 @@ export default function Settings() {
       nameL: form.nameL,
       phone: form.phone,
       email: form.email,
-      gender: form.gender,
       birthdate: form.birthdate,
+      gender: form.gender,
       emergency1: form.emergency1,
       emergency2: form.emergency2,
     };
-
-    await fetch(`http://localhost:5050/record/user/${params.user}`, {
+    
+    // Send a PATCH request to update the venue
+    await fetch(`http://localhost:5050/user/${params.user}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
@@ -72,7 +76,7 @@ export default function Settings() {
       },
     });
 
-    navigate("/profile");
+    navigate("/userList");
   }
 
   return (
@@ -86,7 +90,7 @@ export default function Settings() {
             className="form-control"
             id="_id"
             value={form._id}
-            readOnly
+            readOnly // Add the readOnly attribute here
           />
         </div>
         <div className="form-group">
@@ -110,6 +114,16 @@ export default function Settings() {
           />
         </div>
         <div className="form-group">
+          <label htmlFor="email">Email: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="email"
+            value={form.email}
+            onChange={(e) => updateForm({ email: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="phone">Phone: </label>
           <input
             type="text"
@@ -120,13 +134,13 @@ export default function Settings() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email: </label>
+          <label htmlFor="birthdate">Birthdate: </label>
           <input
             type="text"
             className="form-control"
-            id="email"
-            value={form.email}
-            onChange={(e) => updateForm({ email: e.target.value })}
+            id="birthdate"
+            value={form.birthdate}
+            onChange={(e) => updateForm({ birthdate: e.target.value })}
           />
         </div>
         <div className="form-group">
@@ -140,17 +154,7 @@ export default function Settings() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="amenities">Birthdate: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="Birthdate"
-            value={form.birthdate}
-            onChange={(e) => updateForm({ birthdate: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="emergency1">Emergency Contact 1: </label>
+          <label htmlFor="emergency1">Emergency Contact #1: </label>
           <input
             type="text"
             className="form-control"
@@ -160,7 +164,7 @@ export default function Settings() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="emergency2">Emergency Contact 2: </label>
+          <label htmlFor="emergency2">Emergency Contact #2: </label>
           <input
             type="text"
             className="form-control"

@@ -13,7 +13,7 @@ const User = (props) => (
     <td>{props.user.emergency1}</td>
     <td>{props.user.emergency2}</td>
     <td>
-      <Link className="btn btn-link" to={`/edit/${props.user._id}`} style={{ color: '#000000' }}>Edit</Link>
+      <Link className="btn btn-link" to={`/settings/${props.user._id}`} style={{ color: '#000000' }}>Edit</Link>
     </td>
   </tr>
 );
