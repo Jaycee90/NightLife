@@ -1,7 +1,5 @@
 // Import React and useState hook from the 'react' library
 import React, { useState, useEffect } from "react";
-// Import the CSS styles for the component
-//import '../css/Discover.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
@@ -29,6 +27,7 @@ function Search() {
                     setLocationResult(`Latitude: ${latitude}, Longitude: ${longitude}`);
                     // Set user's coordinates
                     setLocationCoord([latitude, longitude]);
+                    // Mark the map as ready
                     setMapReady(true);
                 },
                 // Error callback function, receiving an 'error' object
@@ -47,7 +46,7 @@ function Search() {
     // Custom icon for the marker
     const icon = new L.Icon({
         iconUrl: "https://i.imgur.com/yyb78tO.png", 
-        iconSize: [30, 30],
+        iconSize: [32, 32],
     });
     
     // Use useEffect to call getUserLocation when the component mounts
@@ -68,7 +67,7 @@ function Search() {
             {/* Render the map with a marker */}
             {mapReady && (
                 <MapContainer
-                    style={{ height: "70vh", width: "80%" }}
+                    style={{ height: "70vh", width: "100%" }}
                     center={locationCoord || [0, 0]} // Center the map at the user's geolocation or default to [0, 0]
                     zoom={15}
                 >
@@ -90,5 +89,5 @@ function Search() {
     );
 }
 
-// Export the 'Search' component to make it available for use in other parts of your application
+// Export the 'Search' component to make it available for use in other parts of our application
 export default Search;
