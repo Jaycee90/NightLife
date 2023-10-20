@@ -21,11 +21,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     width: 35%;
   }
 
-  .nameColumn{
+  .emailColumn, .emergencyColumn {
     width:15%;
   }
 
-  .phoneColumn, .websiteColumn{
+  .nameColumn, .lastNameColumn, .phoneColumn, .websiteColumn, .genderColumn {
     width: 10%;
   }
   
