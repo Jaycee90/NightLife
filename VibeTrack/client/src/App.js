@@ -18,6 +18,7 @@ import Calendar from './routes/Calendar';
 import Template from './routes/Template';
 import Login from './routes/Login';
 import Safety from './routes/Safety';
+import Profile from './routes/Profile';
 
 import Test from './routes/Test';
 
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/safety' element={<Safety />} />
 
         <Route path='/test/:id' element={<Test />} />
+        <Route path='/profile' element={<Profile />} />
         
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
