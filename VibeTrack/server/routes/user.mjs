@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 // This section will help you get a single record by id
 router.get("/:user", async (req, res) => {
   let collection = await db.collection("User");
-  let query = {_id: new ObjectId(req.params.id)};
+  let query = {_id: new ObjectId(req.params.user)};
   let result = await collection.findOne(query);
 
   if (!result) res.send("Not found").status(404);
@@ -24,7 +24,7 @@ router.get("/:user", async (req, res) => {
 // This section will help you create a new record.
 router.post("/", async (req, res) => {
   let newDocument = {
-    nameF: req.body.name,
+    nameF: req.body.nameF,
     nameL: req.body.nameL,
     phone: req.body.phone,
     email: req.body.email,
@@ -40,10 +40,10 @@ router.post("/", async (req, res) => {
 
 // This section will help you update a record by id.
 router.patch("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.id) };
+  const query = { _id: new ObjectId(req.params.user) };
   const updates =  {
     $set: {
-      nameF: req.body.name,
+      nameF: req.body.nameF,
       nameL: req.body.nameL,
       phone: req.body.phone,
       email: req.body.email,
@@ -61,7 +61,7 @@ router.patch("/:user", async (req, res) => {
 
 // This section will help you delete a record
 router.delete("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.id) };
+  const query = { _id: new ObjectId(req.params.user) };
 
   const collection = db.collection("User");
   let result = await collection.deleteOne(query);

@@ -44,9 +44,10 @@ const App = () => {
         <Route path='/profile' element={<Profile />} />
         
         <Route path='/recordlist' element={<RecordList />} />
-        <Route path='/userList' element={<UserList />} />
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/create" element={<Create />} />
+
+        <Route path='/userList' element={<UserList />} />
         <Route path="/settings/:user" element={<Settings />} />
       </Routes>
       </div>

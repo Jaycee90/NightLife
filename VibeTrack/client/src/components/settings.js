@@ -5,7 +5,6 @@ import '../css/edit.css';
 export default function Settings() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
-    id: "",
     nameF: "",
     nameL: "",
     phone: "",
@@ -18,7 +17,7 @@ export default function Settings() {
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
 
-  useEffect(() => { // Fetch user data when component mounts or params.id changes
+  useEffect(() => { // Fetch user data when component mounts or params.user changes
     async function fetchData() {
       // Send a GET request to the server with the 'id' parameter
       const id = params.user.toString(); 
@@ -55,7 +54,7 @@ export default function Settings() {
 
   async function onSubmit(e) { // Extract form fields for the request body
     e.preventDefault();
-    const editedUser = {
+    const editedVenue = {
       _id : form._id,
       nameF: form.nameF,
       nameL: form.nameL,
@@ -67,10 +66,10 @@ export default function Settings() {
       emergency2: form.emergency2,
     };
     
-    // Send a PATCH request to update the venue
+    // Send a PATCH request to update the user
     await fetch(`http://localhost:5050/user/${params.user}`, {
       method: "PATCH",
-      body: JSON.stringify(editedUser),
+      body: JSON.stringify(editedVenue),
       headers: {
         'Content-Type': 'application/json'
       },
