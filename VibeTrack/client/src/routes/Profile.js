@@ -4,7 +4,7 @@ import '../css/Discover.css';
 function Profile() {
     return (
         <div>
-            <h1 style={{'color':'#000000'}}>This is a test of the Profile</h1>
+            <h1 style={{'color':'#000000'}}>Profile Settings (TBA...)</h1>
         </div>
     );
 };
