@@ -1,0 +1,37 @@
+.form-group label {
+    color: black;
+}
+
+.form-group input {
+background-color: #747474;
+border-radius:25px;
+color: white;
+}
+
+.form-check-inline {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-check-inline input {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.grid-about {
+display: grid;
+grid-template-columns: 50% 50%;
+gap: 10px;
+padding: 10px;
+}
+
+.grid-profile > about {
+background-color: rgba(255, 255, 255, 0.8);
+border-color: #747474;
+text-align: left;
+padding: 20px 0;
+}
+
+  
+  
