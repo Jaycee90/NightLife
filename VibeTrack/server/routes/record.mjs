@@ -40,6 +40,10 @@ router.post("/", async (req, res) => {
     instagram: req.body.instagram,
     yelp: req.body.yelp,
     amenities: req.body.amenities,
+    tags: req.body.tags,
+    price: req.body.price,
+    rating: req.body.rating,
+    ratingNum: req.body.ratingNum,
   };
   let collection = await db.collection("Venues");
   let result = await collection.insertOne(newDocument);
@@ -67,6 +71,10 @@ router.patch("/:id", async (req, res) => {
       instagram: req.body.instagram,
       yelp: req.body.yelp,
       amenities: req.body.amenities,
+      tags: req.body.tags,
+      price: req.body.price,
+      rating: req.body.rating,
+      ratingNum: req.body.ratingNum,
     }
   };
 
@@ -80,53 +88,6 @@ router.delete("/:id", async (req, res) => {
   const query = { _id: new ObjectId(req.params.id) };
 
   const collection = db.collection("Venues");
-  let result = await collection.deleteOne(query);
-
-  res.send(result).status(200);
-});
-
-// For Users
-router.get("/user", async (req, res) => {
-  let collection = await db.collection("Users");
-  let results = await collection.find({}).toArray();
-  res.send(results).status(200);
-});
-
-// This section will help you get a single USER record by id
-router.get("/user/:user", async (req, res) => {
-  let collection = await db.collection("User");
-  let query = {_id: new ObjectId(req.params.user)};
-  let result = await collection.findOne(query);
-
-  if (!result) res.send("User not found").status(404);
-  else res.send(result).status(200);
-});
-
-// This section will help you update a USER record by id.
-router.patch("/user/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
-  const updates =  {
-    $set: {
-      nameF: req.body.nameF,
-      nameL: req.body.nameL,
-      phone: req.body.phone,
-      email: req.body.email,
-      gender: req.body.gender,
-      birthdate: req.body.birthdate,
-      emergency1: req.body.emergency1,
-      emergency2: req.body.emergency2,
-    }
-  };
-  let collection = await db.collection("User");
-  let result = await collection.updateOne(query, updates);
-  res.send(result).status(200);
-});
-
-// This section will help you delete a record
-router.delete("/user/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
-
-  const collection = db.collection("User");
   let result = await collection.deleteOne(query);
 
   res.send(result).status(200);
