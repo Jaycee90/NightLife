@@ -11,8 +11,6 @@ export default function Settings() {
     email: "",
     birthdate: "",
     gender: "",
-    emergency1: "",
-    emergency2: "",
   });
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
@@ -62,8 +60,6 @@ export default function Settings() {
       email: form.email,
       birthdate: form.birthdate,
       gender: form.gender,
-      emergency1: form.emergency1,
-      emergency2: form.emergency2,
     };
     
     // Send a PATCH request to update the user
@@ -150,26 +146,6 @@ export default function Settings() {
             id="gender"
             value={form.gender}
             onChange={(e) => updateForm({ gender: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="emergency1">Emergency Contact #1: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="emergency1"
-            value={form.emergency1}
-            onChange={(e) => updateForm({ emergency1: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="emergency2">Emergency Contact #2: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="emergency2"
-            value={form.emergency2}
-            onChange={(e) => updateForm({ emergency2: e.target.value })}
           />
         </div>
         <div className="form-group">
