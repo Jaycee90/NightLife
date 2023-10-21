@@ -10,6 +10,12 @@ import "react-pro-sidebar/dist/css/styles.css";
 export default function Contact() {
   const [form, setForm] = useState({
     _id: "",
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthdate: "",
+    gender: "",
     emergency1: ["", ""], // Initialize as an array with two empty strings
     emergency2: ["", ""], // Initialize as an array with two empty strings
   });
@@ -41,14 +47,21 @@ export default function Contact() {
   }, [params.user, navigate]);
 
   function updateForm(value) {
-    return setForm((prev) => {
+    return setForm(prev => {
       return { ...prev, ...value };
     });
   }
+  
   async function onSubmit(e) {
     e.preventDefault();
     const editedUser = {
       _id : form._id,
+      name: form.name,
+      lastName: form.lastName,
+      phone: form.phone,
+      email: form.email,
+      birthdate: form.birthdate,
+      gender: form.gender,
       emergency1: form.emergency1,
       emergency2: form.emergency2,
     };
@@ -64,7 +77,6 @@ export default function Contact() {
     // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
-  
 
   const [menuCollapse] = useState(false);
 
@@ -102,10 +114,10 @@ export default function Contact() {
                     className="form-control"
                     id={`emergency1Name${index}`}
                     value={value}
-                    onChange={(e) => {
+                    onChange={e => {
                       const updatedEmergency1 = [...form.emergency1];
                       updatedEmergency1[index] = e.target.value;
-                      updateForm({ emergency1: updatedEmergency1 });
+                      updateForm({ ...form, emergency1: updatedEmergency1 });
                     }}
                   />
                 </div>
@@ -119,10 +131,10 @@ export default function Contact() {
                     className="form-control"
                     id={`emergency2Name${index}`}
                     value={value}
-                    onChange={(e) => {
+                    onChange={e => {
                       const updatedEmergency2 = [...form.emergency2];
                       updatedEmergency2[index] = e.target.value;
-                      updateForm({ emergency2: updatedEmergency2 });
+                      updateForm({ ...form, emergency2: updatedEmergency2 });
                     }}
                   />
                 </div>
