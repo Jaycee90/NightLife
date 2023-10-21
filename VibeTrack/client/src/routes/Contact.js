@@ -45,7 +45,6 @@ export default function Contact() {
       return { ...prev, ...value };
     });
   }
-
   async function onSubmit(e) {
     e.preventDefault();
     const editedUser = {
@@ -61,9 +60,11 @@ export default function Contact() {
         'Content-Type': 'application/json'
       },
     });
-
-    navigate("/userList");
+  
+    // Optionally, you can show a message to indicate that the update was successful.
+    window.alert("Information updated successfully!");
   }
+  
 
   const [menuCollapse] = useState(false);
 
