@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-import '../css/edit.css';
-import Header from '../components/header';
+import '../css/settings.css';
+//import useState hook to create menu collapse state
+//import react pro sidebar components
+import {  ProSidebar,  Menu,  MenuItem,  SidebarFooter,  SidebarContent,} from "react-pro-sidebar";
+//import icons from react icons
+import { FaList, FaRegHeart } from "react-icons/fa";
+import { FiHome, FiLogOut } from "react-icons/fi";
+import { BiCog } from "react-icons/bi";
 
+//import sidebar css from react-pro-sidebar module and our custom css 
+import "react-pro-sidebar/dist/css/styles.css";
 export default function Profile() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     _id: "",
@@ -79,11 +87,33 @@ export default function Profile() {
     navigate("/userList");
   }
 
+  const [menuCollapse] = useState(false)
   return (
     <div>
-        
-      <Header />
-      <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
+        <div class="grid-settings">
+            <div class = "grid-settings-left">
+
+            <div id="header">
+          {/* collapsed props to change menu size using menucollapse state */}
+        <ProSidebar collapsed={menuCollapse}>
+          <SidebarContent>
+            <Menu iconShape="square">
+              <MenuItem active={true} icon={<FiHome />}>Profile</MenuItem>
+              <MenuItem icon={<BiCog />}>Security</MenuItem>
+              <MenuItem icon={<FaList />}>Contacts</MenuItem>
+              <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
+            </Menu>
+          </SidebarContent>
+          <SidebarFooter>
+            <Menu iconShape="square">
+              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+            </Menu>
+          </SidebarFooter>
+        </ProSidebar>
+      </div>
+            </div>
+            <div class = "grid-settings-right">
+            <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
       <form onSubmit={onSubmit} style={{ color: '#000000' }}>
         <div class="grid-about">
             <div class="item">
@@ -196,6 +226,9 @@ export default function Profile() {
             />
             </div>
       </form>
+            </div>
+        </div>
+      
     </div>
   );
 }
