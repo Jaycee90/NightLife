@@ -21,6 +21,7 @@ import Template from './routes/Template';
 import Login from './routes/Login';
 import Safety from './routes/Safety';
 import Profile from './routes/Profile';
+import Contact from './routes/Contact';
 
 import Test from './routes/Test';
 
@@ -40,9 +41,9 @@ const App = () => {
         <Route path='/safety' element={<Safety />} />
 
         <Route path='/profile/:user' element={<Profile />} />
+        <Route path='/contact/:user' element={<Contact />} />
 
         <Route path='/test/:id' element={<Test />} />
-        <Route path='/profile' element={<Profile />} />
         
         <Route path='/recordlist' element={<RecordList />} />
         <Route path="/edit/:id" element={<Edit />} />
