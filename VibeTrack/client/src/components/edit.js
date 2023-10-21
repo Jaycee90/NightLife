@@ -21,6 +21,10 @@ export default function Edit() {
     instagram: "",
     yelp: "",
     amenities: "",
+    tags: "",
+    price: "",
+    rating: "",
+    review: "",
   });
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
@@ -81,6 +85,10 @@ export default function Edit() {
       instagram: form.instagram,
       yelp: form.yelp,
       amenities: form.amenities,
+      tags: form.tags,
+      price: form.price,
+      rating: form.rating,
+      review: form.review,
     };
     
     // Send a PATCH request to update the venue
@@ -129,7 +137,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ name: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        {/*<div className="form-group">
           <label htmlFor="address">Address: </label>
           <input
             type="text"
@@ -169,7 +177,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ amenities: e.target.value })}
           />
         </div>
-        {/*<div className="form-group">
+        <div className="form-group">
           <label htmlFor="phone">Phone: </label>
           <input
             type="text"
@@ -277,6 +285,46 @@ export default function Edit() {
             id="yelp"
             value={form.yelp}
             onChange={(e) => updateForm({ yelp: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="tags">Tags: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="tags"
+            value={form.tags}
+            onChange={(e) => updateForm({ tags: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="price"
+            value={form.price}
+            onChange={(e) => updateForm({ price: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="rating">Rating: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="rating"
+            value={form.rating}
+            onChange={(e) => updateForm({ rating: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="review">Google Reviews: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="review"
+            value={form.review}
+            onChange={(e) => updateForm({ review: e.target.value })}
           />
         </div>
         <div className="form-group">

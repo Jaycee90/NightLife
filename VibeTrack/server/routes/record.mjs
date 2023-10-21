@@ -43,7 +43,7 @@ router.post("/", async (req, res) => {
     tags: req.body.tags,
     price: req.body.price,
     rating: req.body.rating,
-    ratingNum: req.body.ratingNum,
+    review: req.body.review,
   };
   let collection = await db.collection("Venues");
   let result = await collection.insertOne(newDocument);
@@ -74,7 +74,7 @@ router.patch("/:id", async (req, res) => {
       tags: req.body.tags,
       price: req.body.price,
       rating: req.body.rating,
-      ratingNum: req.body.ratingNum,
+      review: req.body.review,
     }
   };
 
