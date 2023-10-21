@@ -10,8 +10,6 @@ const User = (props) => (
     <td>{props.user.phone}</td>
     <td>{props.user.gender}</td>
     <td>{props.user.birthdate}</td>
-    <td>{props.user.emergency1}</td>
-    <td>{props.user.emergency2}</td>
     <td>
       <Link className="btn btn-link" to={`/settings/${props.user._id}`} style={{ color: '#000000' }}>Edit</Link>
     </td>
@@ -75,8 +73,6 @@ export default function UserList() {
             <th className="phoneColumn">Phone</th>
             <th className="genderColumn">Gender</th>
             <th className="birthdateColumn">Birthdate</th>
-            <th className="emergencyColumn">Emergency Contact #1</th>
-            <th className="emergencyColumn">Emergency Contact #2</th>
             <th className="actionColumn">Action</th>
           </tr>
         </thead>
