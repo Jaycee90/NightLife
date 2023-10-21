@@ -140,18 +140,24 @@ export default function Profile() {
                 />
                 </div>
             </div>
-            <div class="item">
+            <div className="item">
                 <div className="form-group">
-                <label htmlFor="gender">Gender: </label>
-                <input
-                    type="text"
+                <label htmlFor="gender" style={{ color: 'black' }}>Gender: </label>
+                <select
                     className="form-control"
                     id="gender"
                     value={form.gender}
                     onChange={(e) => updateForm({ gender: e.target.value })}
-                />
-                </div>
+                    style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft:'30px', width: '100%', fontSize:'17px'}}
+                >
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Rather not disclose">Rather not disclose</option>
+                </select>
             </div>
+
+            </div>
+
             <div class="item">
                 <div className="form-group">
                 <label htmlFor="phone">Phone: </label>
@@ -164,17 +170,19 @@ export default function Profile() {
                 />
                 </div>
             </div>
-            <div class="item">
+            <div className="item">
                 <div className="form-group">
-                <label htmlFor="birthdate">Birthdate: </label>
-                <input
-                    type="text"
-                    className="form-control"
-                    id="birthdate"
-                    value={form.birthdate}
-                    onChange={(e) => updateForm({ birthdate: e.target.value })}
-                />
-            </div></div>
+                    <label htmlFor="birthdate">Birthdate: </label>
+                    <input
+                        type="date"
+                        className="form-control"
+                        id="birthdate"
+                        value={form.birthdate}
+                        onChange={(e) => updateForm({ birthdate: e.target.value })}
+                        style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft:'30px', width: '100%', fontSize:'17px'}}
+                    />
+                </div>
+            </div>
             <div class="item">
                 <div className="form-group">
                 <label htmlFor="_id">ID (Read Only): </label>
@@ -221,7 +229,7 @@ export default function Profile() {
             <div className="form-group">
             <input
                 type="submit"
-                value="Update Venue"
+                value="Update Information"
                 className="btn btn-primary"
             />
             </div>
