@@ -2,14 +2,18 @@
   "_id": {
     "$oid": "6532c592d72f558fd3bdf8d5"
   },
-  "nameF": "Michelle",
-  "nameL": "Nguyen",
   "email": "micnguyen2063@gmail.com",
   "phone": "5129389071",
-  "gender": "F",
-  "birthdate": {
-    "$date": "2000-06-03T05:00:00.000Z"
-  },
-  "emergency1": "micnguyen2063@gmail.com",
-  "emergency2": "rnb90@txstate.edu"
+  "gender": "Female",
+  "birthdate": "2000-06-03",
+  "emergency1": [
+    "Michelle Nguyen",
+    []
+  ],
+  "emergency2": [
+    "Michele Nguyem",
+    "rnb90@txstate.edu"
+  ],
+  "name": "Michelle",
+  "lastName": "Nguyen"
 }]
