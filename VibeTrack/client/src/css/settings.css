@@ -1,0 +1,117 @@
+.form-group label {
+    color: black;
+}
+
+.form-group input {
+  background-color: #747474;
+  border-radius:25px;
+  color: white;
+  height: 40px;
+}
+
+.form-check-inline {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.form-check-inline input {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.grid-about {
+display: grid;
+grid-template-columns: 50% 50%;
+gap: 10px;
+padding: 10px;
+}
+
+.grid-profile > about {
+background-color: rgba(255, 255, 255, 0.8);
+border-color: #747474;
+text-align: left;
+padding: 20px 0;
+}
+
+
+
+.grid-settings {
+display: grid;
+grid-template-columns: 20% 80%;
+gap: 10px;
+padding: 10px;
+}
+
+.grid-settings left{
+    background-color: #747474;
+}
+
+.grid-settings right{
+    background-color: #fff;
+}
+
+/*Taken from: https://medium.com/how-to-react/create-a-sidebar-menu-in-react-js-3463b306ca9a*/
+#header {
+    position: absolute;
+    width: 220px;
+  }
+  #header .pro-sidebar {
+    height: 100vh;
+  }
+  #header .closemenu {
+    color: #000;
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    line-height: 20px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 22px;
+    top: 55px;
+    cursor: pointer;
+  }
+  #header .pro-sidebar {
+    width: 100%;
+    min-width: 100%;
+  }
+  #header .pro-sidebar.collapsed {
+    width: 80px;
+    min-width: 80px;
+  }
+  #header .pro-sidebar-inner {
+    background-color: white;
+    box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout {
+    overflow-y: hidden;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout .logotext p {
+    font-size: 20px;
+    padding: 0 20px;
+    color: #000;
+    font-weight: bold;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout ul {
+    padding: 0 5px;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
+    color: #000;
+    margin: 10px 0px;
+    font-weight: bold;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
+    background-color: #747474;
+    color: #000;
+    border-radius: 3px;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
+    color: #000;
+  }
+  #header .pro-sidebar-inner .pro-sidebar-layout .active {
+    background-image: #747474;
+    color: #fff;
+  }
+  #header .logo {
+    padding: 20px;
+  }  
