@@ -8,7 +8,6 @@ import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
-
 import UserList from "./components/userList";
 import Settings from "./components/settings";
 

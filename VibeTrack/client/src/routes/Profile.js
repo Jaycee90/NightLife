@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import '../css/edit.css';
+import Header from '../components/header';
 
 export default function Profile() {
   const [form, setForm] = useState({ // Define a state variable 'form'
@@ -80,6 +81,8 @@ export default function Profile() {
 
   return (
     <div>
+        
+      <Header />
       <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
       <form onSubmit={onSubmit} style={{ color: '#000000' }}>
         <div class="grid-about">
