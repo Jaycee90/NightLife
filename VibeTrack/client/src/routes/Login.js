@@ -4,7 +4,7 @@ import '../css/Discover.css';
 function Login() {
     return (
         <div>
-        <h2 style={{'color':'#000000'}}>Hello World I am the king of the world</h2>
+        <h2 style={{'color':'#000000'}}>This is a sign-in page.</h2>
         </div>
     );
 };
