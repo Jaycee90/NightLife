@@ -1,4 +1,4 @@
-## Research React-Native
+## Research Something Here
 
 **Title**: Title or name of research/training.
 
