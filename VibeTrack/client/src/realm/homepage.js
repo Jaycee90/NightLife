@@ -2,7 +2,7 @@ import { Button } from '@mui/material'
 import { useContext } from 'react';
 import { UserContext } from '../realm/user';
  
-export default function Home() {
+export default function Homepage() {
  const { logOutUser } = useContext(UserContext);
  
  const logOut = async () => {
