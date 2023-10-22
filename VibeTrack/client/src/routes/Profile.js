@@ -6,6 +6,8 @@ import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
 
+import { useContext } from 'react';
+import { UserContext } from '../realm/UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 export default function Profile() {
   const [form, setForm] = useState({
@@ -77,6 +79,20 @@ export default function Profile() {
   }
 
   const [menuCollapse] = useState(false)
+  
+ 
+  const { logOutUser } = useContext(UserContext);
+ const logOut = async () => {
+  try {
+    const loggedOut = await logOutUser();
+    if (loggedOut) {
+      window.location.reload(true);
+    }
+  } catch (error) {
+    alert(error)
+  }
+}
+
   return (
     <div>
       <div className="grid-settings">
@@ -89,11 +105,12 @@ export default function Profile() {
                   <MenuItem icon={<BiCog />}>Security</MenuItem>
                   <MenuItem icon={<FaList />}>Contacts</MenuItem>
                   <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
+                  
                 </Menu>
               </SidebarContent>
               <SidebarFooter>
                 <Menu iconShape="square">
-                  <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+                  <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
                 </Menu>
               </SidebarFooter>
             </ProSidebar>
