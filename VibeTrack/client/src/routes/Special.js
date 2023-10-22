@@ -1,9 +1,34 @@
-import React from "react";
 import "../css/Special.css";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function SpecialEvent() {
+  const [eventData, setEventData] = useState([]); // Hold events 
+  // When a user clicks on the special event link, this function will be the first thing that happens
+  // Making a request to out local host where our stored data is held then bring that data back here
+  useEffect(() => {
+    axios.get('http://localhost:5050/scrape') // Adjust the URL to match your server's address
+      .then((response) => {
+        setEventData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching event data', error);
+      });
+  }, []);
+
     return (
         <div>
+           <h1>Upcoming Events</h1>
+      <ul>
+        {eventData.map((event, index) => (
+          <li key={index}>
+            <strong>Date: {event.day}</strong>
+           
+            <p>Event: {event.divText}</p>
+          </li>
+        ))}
+      </ul>
+       
        <div class="event-container">
       <h3 class="year">This Week</h3>
       
@@ -135,7 +160,7 @@ function SpecialEvent() {
           </div>
         </div>
       </div>
-    </div>
+    </div> 
         </div>
     );
 };
