@@ -1,8 +1,8 @@
 import { Button } from '@mui/material'
 import { useContext } from 'react';
-import { UserContext } from '../realm/user';
+import { UserContext } from '../realm/user.context';
  
-export default function Homepage() {
+export default function Home() {
  const { logOutUser } = useContext(UserContext);
  
  const logOut = async () => {
@@ -18,7 +18,7 @@ export default function Homepage() {
  
  return (
    <>
-     <h1>Welcome to Vibetrack</h1>
+     <h1>Welcome to Expengo</h1>
      <Button variant="contained" onClick={logOut}>Logout</Button>
    </>
  )
