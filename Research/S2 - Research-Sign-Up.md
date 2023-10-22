@@ -5,6 +5,7 @@
 **Why**: Implementing a sign-up feature allows new users to register for the application, providing a secure way to create personalized accounts.
 
 **Expectations**:
+
 * Create a user interface for the sign-up page.
 
 * Validate user input for registration details (e.g., name, email, password).
@@ -14,6 +15,7 @@
 * Connect to MongoDB to store user account information.
 
 **Actions**:
+
 * Design an user-friednly sign-up form with fields for email, password and required informations.
 
 * Frontend validation to ensure all required fields are filled out correctly.
@@ -34,6 +36,7 @@
 **User Story**: [SCRUM-1: Sign-in - As a user, I would like to have a sign-in feature so I can gain access to exclusive features such as Invite Friends, Safety Alerts, Reviews, etc.](https://cs3398f23romulans1.atlassian.net/browse/SCRUM-1)
 
 **Reference**: 
+
 * [Signup Form Using Node.js and MongoDB](https://www.geeksforgeeks.org/signup-form-using-node-js-and-mongodb/)
 
 * [Register and Login System in MERN Stack](https://dev.to/crackingdemon/register-and-login-system-in-mern-stack-1n98)

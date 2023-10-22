@@ -5,11 +5,13 @@
 **Why**: Due to our team's limited experience with React-Native, this research is very important to the development of the project. Researching into React-Native beforehand would allow us to improve efficiency and make the app development process faster and easier.
 
 **Expectations**:
+
 * Grasp React-Native basics for creating the app's interface.
 
 * Incorporate key features like listing, searching, location sharing and user login.
 
 **Actions**:
+
 * Design user interface components with React-Native (include key information: hours, location, image gallery, etc.) 
 
 * Implement a search feature to show clubs based on user’s preferences

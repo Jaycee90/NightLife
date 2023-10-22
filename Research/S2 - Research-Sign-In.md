@@ -5,6 +5,7 @@
 **Why**: Implementing a sign-in feature is crucial for user authentication and authorization. It ensures that only authorized users can access certain parts of the application, providing a secure and personalized experience.
 
 **Expectations**:
+
 * Create a user interface for the sign-in page
 
 * Validate user input for email and password
@@ -14,6 +15,7 @@
 * Connect to MongoDB to verify user credentials
 
 **Actions**:
+
 * Design a user-friendly Sign-in form with fields for email and password.
 
 * Validate that email and password fields are filled out correctly
@@ -33,6 +35,7 @@
 **User Story**: [SCRUM-1: Sign-in - As a user, I would like to have a sign-in feature so I can gain access to exclusive features such as Invite Friends, Safety Alerts, Reviews, etc.](https://cs3398f23romulans1.atlassian.net/browse/SCRUM-1)
 
 **Reference**: 
+
 * [How To Add Login Authentication to React Applications](https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications)
 
 * [Implement Email/Password Authentication in React](https://www.mongodb.com/developer/products/atlas/email-password-authentication-react/)
