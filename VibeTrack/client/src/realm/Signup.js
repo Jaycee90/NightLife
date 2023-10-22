@@ -1,14 +1,13 @@
 import { Button, TextField } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserContext } from "../contexts/user.context";
+import { UserContext } from "./UserContext";
  
-const Login = () => {
+const Signup = () => {
  const navigate = useNavigate();
  const location = useLocation();
  
- const { user, fetchUser, emailPasswordLogin } = useContext(UserContext);
- 
+ const { emailPasswordSignup } = useContext(UserContext);
  const [form, setForm] = useState({
    email: "",
    password: ""
@@ -24,44 +23,26 @@ const Login = () => {
    navigate(redirectTo ? redirectTo : "/");
  }
  
- const loadUser = async () => {
-   if (!user) {
-     const fetchedUser = await fetchUser();
-     if (fetchedUser) {
-       redirectNow();
-     }
-   }
- }
- 
- useEffect(() => {
-   loadUser(); // eslint-disable-next-line react-hooks/exhaustive-deps
- }, []);
- 
- const onSubmit = async (event) => {
+ const onSubmit = async () => {
    try {
-     const user = await emailPasswordLogin(form.email, form.password);
+     const user = await emailPasswordSignup(form.email, form.password);
      if (user) {
        redirectNow();
      }
    } catch (error) {
-       if (error.statusCode === 401) {
-          alert("Invalid username/password. Try again!");
-      } else {
-          alert(error);
-      }
- 
+     alert(error);
    }
  };
  
  return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
-   <h1>Login</h1>
+   <h1>Signup</h1>
    <TextField
      label="Email"
      type="email"
      variant="outlined"
      name="email"
      value={form.email}
-     onChange={onFormInputChange}
+     onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
    />
    <TextField
@@ -70,14 +51,14 @@ const Login = () => {
      variant="outlined"
      name="password"
      value={form.password}
-     onChange={onFormInputChange}
+     onInput={onFormInputChange}
      style={{ marginBottom: "1rem" }}
    />
    <Button variant="contained" color="primary" onClick={onSubmit}>
-     Login
+     Signup
    </Button>
-   <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+   <p>Have an account already? <Link to="/login">Login</Link></p>
  </form>
 }
  
-export default Login;
+export default Signup;
