@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./realm/UserContext";
-import Home from "./realm/Homepage";
 import Login from "./realm/Login";
 import PrivateRoute from "./realm/Private";
 import Signup from "./realm/Signup";
@@ -23,9 +22,7 @@ import Safety from './routes/Safety';
 import Profile from './routes/Profile';
 import Contact from './routes/Contact';
 
-//import Home from './routes/Home';
-//import Test from './routes/Test';
-//import Login from './routes/Login';
+import Home from './routes/Home';
 import SearchLink from "./components/link_search"; 
 
 function App() {

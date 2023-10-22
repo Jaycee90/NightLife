@@ -2,6 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import '../css/login.css';
  
 const Signup = () => {
  const navigate = useNavigate();
@@ -34,8 +35,8 @@ const Signup = () => {
    }
  };
  
- return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto" }}>
-   <h1>Signup</h1>
+ return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:"#000", backgroundColor:"#fff"}}>
+ <h1 style={{marginBottom:"10px"}}>Signup</h1>
    <TextField
      label="Email"
      type="email"
@@ -43,7 +44,8 @@ const Signup = () => {
      name="email"
      value={form.email}
      onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
+     style={{ marginBottom: "1rem", backgroundColor:"#fff"}}
+     inputProps={{ style: { backgroundColor: "#fff" } }}
    />
    <TextField
      label="Password"
@@ -52,12 +54,15 @@ const Signup = () => {
      name="password"
      value={form.password}
      onInput={onFormInputChange}
-     style={{ marginBottom: "1rem" }}
+     style={{ marginBottom: "1rem", backgroundColor:"#fff"}}
+     inputProps={{ style: { backgroundColor: "#fff" } }}
    />
    <Button variant="contained" color="primary" onClick={onSubmit}>
      Signup
    </Button>
-   <p>Have an account already? <Link to="/login">Login</Link></p>
+   <p style={{color:"#000", marginTop:"10px", display: "flex", alignItems: "center"}}>
+   Have an account already? <Link to="/login" style={{ marginLeft: "5px" }}>Login</Link>
+</p>
  </form>
 }
  

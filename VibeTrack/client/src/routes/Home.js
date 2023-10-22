@@ -1,8 +1,10 @@
-import React from "react";
+import { Button } from '@mui/material'
+import { useNavigate } from "react-router-dom";
 import '../css/Home.css';
 
-function Home() {
-  return (
+export default function Home() {
+ const navigate = useNavigate();
+ return (
     <div>
       <div class="section-intro">
         <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{'padding-bottom':'25px'}}/>
@@ -11,10 +13,10 @@ function Home() {
                     
           <div class="row-flex">
             <div class="link-wrapper">
-              <a class="link" href="#reservations">Something</a>
+            <Button variant="contained" onClick={() => navigate("/login")}>Login</Button>
             </div>
             <div class="link-wrapper">
-              <a class="link" href="#reservations">Something</a>
+            <Button variant="contained" onClick={() => navigate("/signup")}>Signup</Button>
               </div>
             </div>
           </div>
@@ -146,5 +148,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
