@@ -18,8 +18,8 @@ function SpecialEvent() {
 
     return (
         <div>
-           <h1>Upcoming Events</h1>
-      <ul>
+           <h1 style={{color:'#000'}}>Upcoming Events</h1>
+      <ul style={{color:'#000'}}>
         {eventData.map((event, index) => (
           <li key={index}>
             <strong>Date: {event.day}</strong>
