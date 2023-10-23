@@ -11,12 +11,12 @@ export default function Home() {
           <p class="section-subtitle">Uncover places, Discover world</p>
           <h2 class="h2 section-title">VibeTrack</h2>
                     
-          <div class="row-flex">
+          <div class="row-flex" style={{marginBottom:"10px"}}>
             <div class="link-wrapper">
-            <Button variant="contained" onClick={() => navigate("/login")}>Login</Button>
+            <Button variant="contained" onClick={() => navigate("/login")} style={{backgroundColor:"#747474"}}>Login</Button>
             </div>
             <div class="link-wrapper">
-            <Button variant="contained" onClick={() => navigate("/signup")}>Signup</Button>
+            <Button variant="contained" onClick={() => navigate("/signup")} style={{backgroundColor:"#747474"}}>Signup</Button>
               </div>
             </div>
           </div>
