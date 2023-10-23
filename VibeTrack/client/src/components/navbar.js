@@ -8,12 +8,7 @@ export default function Navbar() {
             <ul class="nav-flex-row">
               <li class="nav-item"><a href="/">Home</a></li>
               <li class="nav-item"><a href="discover">Discover</a></li>
-              <li class="nav-item"><a href="template">Template</a></li>
               <li class="nav-item"><a href="specialevent">Special Event</a></li>
-              <li class="nav-item"><a href="recordList">Record</a></li>
-              <li class="nav-item"><a href="create">Create</a></li>
-
-              <li class="nav-item"><a href="login">Login</a></li>
               <li class="nav-item"><a href="search">Search</a></li> 
               <li class="nav-item"><a href="safety">Safety</a></li> 
          </ul>
