@@ -8,20 +8,29 @@
 
 * We expect to learn about modern search algorithms, techniques, and libraries that can improve the efficiency and accuracy of our search functionality.
 
-* Be specific by identifying what code/modules will be affected by the research/training.
+* Specifically, we aim to identify methods for      implementing features such as location-based search, keyword-based search, and filtering.
+
+* The research will impact the following modules of our app:
+    * The Search component responsible for executing search queries.
+    
+    * The User Interface (UI) components that display search results to users.
+    
+    * Backend services and APIs responsible for handling search requests.
 
 **Actions**:
 
-* What do you expect to do with it, including any code you expect to write.  
+* Research and analyze different search algorithms and techniques, such as text-based search, location-based search, and faceted search.
 
-* Be specific.  
+* Investigate the integration of search libraries for improved search performance.
 
-* For example, "Writing the UI" is not sufficient.   
+* Evaluate potential options for location data and geospatial search, including libraries and APIs.
 
-* "Writing the Login class" is.
+* Investigate techniques for implementing filters and refining search results based on user preferences.
+
+* Collaborate with the development team to prioritize and plan the implementation of search enhancements.
 
 
-**User Story**: [User Story](User story link here)
+**User Story**: [As a developer, I want to create a search and filter feature in the app that allows users to easily find nearby clubs with unique features or matching with their preferences.](https://cs3398f23romulans1.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?epics=visible&selectedIssue=SCRUM-18)
 
 **Reference**: 
 
