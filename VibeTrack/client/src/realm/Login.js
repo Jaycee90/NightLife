@@ -54,7 +54,7 @@ const Login = () => {
    }
  };
  
- return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:"#000", backgroundColor:"#fff"}}>
+ return <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:'#000', backgroundColor:"#fff"}}>
    <h1 style={{marginBottom:"10px"}}>Login</h1>
    <TextField
      label="Email"
@@ -63,8 +63,8 @@ const Login = () => {
      name="email"
      value={form.email}
      onChange={onFormInputChange}
-     style={{ marginBottom: "1rem", backgroundColor:"#fff"}}
-      inputProps={{ style: { backgroundColor: "#fff" } }}
+     style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
+      inputProps={{ style: { backgroundColor: "#fff", color:'#000' } }}
    />
    <TextField
      label="Password"
