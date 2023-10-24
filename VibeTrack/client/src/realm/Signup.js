@@ -30,6 +30,7 @@ const Signup = () => {
    try {
      const user = await emailPasswordSignup(form.email, form.password);
      if (user) {
+        alert(`Your user ID is: ${user.id}`);
        redirectNow();
      }
    } catch (error) {
