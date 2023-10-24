@@ -6,10 +6,17 @@ import "leaflet/dist/leaflet.css";
 
 // Define a functional component called 'Search'
 function Search() {
-    // Define a state variable 'locationResult' and a function to update it, 'setLocationResult'
+    // Define state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+
+    const handleSearch = () => {
+        // Call the geocoding function from geocoding.js with searchQuery as a parameter
+        geocode_and_store_addresses(searchQuery);
+    };
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -59,6 +66,22 @@ function Search() {
         <div>
             <input type="text" placeholder="Search for a nightclub" /> {/*allow user to search for venues*/}
             <p style={{ 'color': '#000000' }} id="locationResult">{locationResult}</p>
+            
+            <input
+                type="text"
+                placeholder="Search for a nightclub"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+            
+            {/* Display search results */}
+            <ul>
+                {searchResults.map((result, index) => (
+                    <li key={index}>{result.name}</li>)
+                )}
+            </ul>
+            
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
             {/*-<p id="locationResult">{locationResult}</p>*/}
