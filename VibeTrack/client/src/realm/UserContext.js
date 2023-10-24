@@ -21,12 +21,12 @@ export const UserProvider = ({ children }) => {
  };
  
  // Function to sign up user into our App Service app using their email & password
- const emailPasswordSignup = async (email, password, name, lastName) => {
+ const emailPasswordSignup = async (email, password) => {
    try {
-     await app.emailPasswordAuth.registerUser(email, password, name, lastName);
+     await app.emailPasswordAuth.registerUser(email, password);
      // Since we are automatically confirming our users, we are going to log in
      // the user using the same credentials once the signup is complete.
-     return emailPasswordLogin(email, password, name, lastName);
+     return emailPasswordLogin(email, password);
    } catch (error) {
      throw error;
    }

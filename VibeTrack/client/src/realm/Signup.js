@@ -28,7 +28,7 @@ const Signup = () => {
  
  const onSubmit = async () => {
    try {
-     const user = await emailPasswordSignup(form.email, form.password, form.name, form.lastName);
+     const user = await emailPasswordSignup(form.email, form.password);
      if (user) {
        redirectNow();
      }
