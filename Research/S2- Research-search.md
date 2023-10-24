@@ -34,10 +34,7 @@
 
 **Reference**: 
 
-* [Link](Link here)
+* [simplegmaps](https://github.com/SubZane/simplegmaps)
 
-* [Link](Link here)
+* [Google Maps native events](https://developers.google.com/maps/documentation/javascript/events)
 
-* [Link](Link here)
-
-* [Link](Link here)
