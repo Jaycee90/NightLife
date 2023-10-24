@@ -1,6 +1,6 @@
 ## Research on search components
 
-**Title**: Research on Search Functionality Enhancement.
+**Title**: Research on Search Functionality Enhancement
 
 **Why**: We are conducting this research to enhance the search functionality of our web-based app. This improvement is essential for helping customers discover nearby clubs that align with their preferences and interests, ultimately delivering a better user experience.
 
