@@ -57,9 +57,11 @@ function Search() {
     // Render the component's JSX content
     return (
         <div>
+            <input type="text" placeholder="Search for a nightclub" /> {/*allow user to search for venues*/}
+            <p style={{ 'color': '#000000' }} id="locationResult">{locationResult}</p>
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
-            <p id="locationResult">{locationResult}</p>
+            {/*-<p id="locationResult">{locationResult}</p>*/}
 
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
             <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>
