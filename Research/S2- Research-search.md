@@ -1,4 +1,4 @@
-## Research on search components
+## Research on Search component
 
 **Title**: Research on Search Functionality Enhancement
 

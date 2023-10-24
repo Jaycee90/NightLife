@@ -64,18 +64,24 @@ This project is currently _in progress_. [Jira SCRUM Board](https://cs3398f23rom
 * Source-code editor of choice 
 ### How to Run
 * Clone VibeTrack repo (branch: development) [BitBucket repo](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/)
+* Install all the necessary dependencies from the main package.json. Clean cache if needed.
+```
+cd VibeTrack
+npm cache clean --force
+npm install
+```
 * Create the file `/server/config.env` with your Atlas URI and the server port:
 ```
 ATLAS_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
 ```
-* Start server (on a seperate terminal):
+* Start Backend server (on a seperate terminal):
 ```
 cd VibeTrack/server
 npm install
 npm start
 ```
 ![Output](https://i.imgur.com/zhlm4wW.png)
-* Start Web server (on another seperate terminal):
+* Start Client server (on another seperate terminal):
 ```
 cd VibeTrack/client
 npm install
