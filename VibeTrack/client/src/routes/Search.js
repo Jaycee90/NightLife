@@ -14,9 +14,23 @@ function Search() {
     const [searchResults, setSearchResults] = useState([]);
 
     const handleSearch = () => {
-        // Call the geocoding function from geocoding.js with searchQuery as a parameter
-        geocode_and_store_addresses(searchQuery);
+        const addresses = [searchQuery]; // Assuming you're searching for a single address
+        fetch('http://localhost:5000/geocode',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ addresses }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response data (e.g., show a success message)
+        })
+        .catch(error => {
+            // Handle errors
+        });
     };
+    
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
