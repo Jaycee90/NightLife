@@ -4,15 +4,16 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-//import fetchVenues from './fetchDB';
+
 
 function Search() {
     // state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
-    // const [searchQuery, setSearchQuery] = useState(''); // State to store the user's search input
-    // const [searchResults, setSearchResults] = useState([]); // State to store search results
+    const [searchQuery, setSearchQuery] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -88,12 +89,12 @@ function Search() {
     // Render the component's JSX content
     return (
         <div>
-            {/* <input
+            <input
                 type="text"
                 placeholder="Search for a nightclub"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-            /> */}
+            />
             <button onClick={handleSearch}>Search</button>
 
             {/* Display search results */}
