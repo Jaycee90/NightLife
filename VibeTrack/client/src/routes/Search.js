@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
+import Data from './Data';
 
 
 function Search() {
@@ -58,6 +59,26 @@ function Search() {
         getUserLocation();
     }, []);
     
+    const fetchExistingVenues = async () => {
+        try {
+          const response = await fetch(`http://localhost:5050/record/${params.name}`);
+      
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+      
+          const venues = await response.json();
+      
+          // Update the searchResults state with the list of existing venues
+          setSearchResults(venues);
+        } catch (error) {
+          console.error('Error fetching venues:', error);
+        }
+      };
+      
+
     const handleSearch = async () => {
         try {
           const response = await fetch(`http://localhost:5050/search?query=${searchQuery}`);
@@ -88,7 +109,12 @@ function Search() {
             <button onClick={handleSearch}>Search</button>
 
             {/* Display search results */} 
-            {searchResults.length > 0 && (
+            {searchResults.length === 0 ? (
+                <div>
+                    <p>Not found. Here is available Nightclubs in San Marcos!</p>
+                    <button onClick={fetchExistingVenues}>Click to see all Nightclubs</button>
+                </div>
+            ) : (
             <ul>
                 {searchResults.map((result, index) => (
                 <li key={index}>{result.name}</li>
