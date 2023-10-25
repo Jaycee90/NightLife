@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
+import fetchVenues from './fetchDB';
 
 function Search() {
     // state variables
@@ -59,17 +60,11 @@ function Search() {
     const handleSearch = () => {
         setSearchResults([]);
 
-        fetch(`http://localhost:5050/search?location=${searchQuery}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response is not ok");
-                }
-                return response.json();
-            })
+        fetchVenues() //(`http://localhost:5050/search?location=${searchQuery}`)
             .then((venues) => {
                 if (venues.length > 0) {
                     setSearchResults(venues);
-                    
+
                     // Extract the latitude and longitude of the first result
                     const latitude = venues[0].latitude;
                     const longitude = venues[0].longitude;
