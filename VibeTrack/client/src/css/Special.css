@@ -24,3 +24,13 @@ ul {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a card-like effect */
 }
+
+.event-container h1 {
+  font-size: var(--fs-1);
+  color: var(--black);
+  margin-bottom: 20px;
+}
+
+.event-container ul {
+  color: var(--black);
+}
