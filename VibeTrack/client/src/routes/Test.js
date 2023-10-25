@@ -16,13 +16,13 @@ export default function Profile() {
           return;
         }
   
-        const userData = await response.json();
-        if (!userData) {
+        const user = await response.json();
+        if (!user) {
           alert(`User with code ${userInput} not found`);
           return;
         }
   
-        alert(`User found! ID: ${userData._id}`);
+        alert(`User found! Name: ${user.name}`);
       } catch (error) {
         alert(error);
       }
