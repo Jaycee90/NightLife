@@ -1,32 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import '../css/settings.css';
+
 import "react-pro-sidebar/dist/css/styles.css";
-import db from "./path/to/db"; // Make sure to replace this with the correct path
+export default function Profile() {
 
-export default function Test() {
-  const emailToFind = "rnb90@txstate.edu"; // Change this to the desired email
-
-  const findEmail = async () => {
-    try {
-      const user = await db.collection("User").findOne({ email: emailToFind });
-
-      if (!user) {
-        console.log('User not found');
-      } else {
-        console.log('User found:', user);
+  async function findUserByCode() {
+    const userInput = prompt("Enter the user code:");
+    
+    if (userInput) {
+      try {
+        const response = await fetch(`http://localhost:5050/user?code=${userInput}`);
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
+  
+        const userData = await response.json();
+        if (!userData) {
+          alert(`User with code ${userInput} not found`);
+          return;
+        }
+  
+        alert(`User found! ID: ${userData._id}`);
+      } catch (error) {
+        alert(error);
       }
-    } catch (error) {
-      console.error(error);
     }
   }
-
-  useEffect(() => {
-    findEmail(); // Call the function
-  }, []); // Empty dependency array to run the effect once when the component mounts
-
+  
   return (
     <div>
-      {/* Additional JSX content can go here */}
+    <button onClick={findUserByCode}>Find User by Code</button>
     </div>
   );
 }

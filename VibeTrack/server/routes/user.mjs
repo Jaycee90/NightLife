@@ -71,22 +71,4 @@ router.delete("/:user", async (req, res) => {
   res.send(result).status(200);
 });
 
-router.get("/findUserByEmail", async (req, res) => {
-  const emailToFind = "rnb90@txstate.edu"; // Change this to the desired email
-
-  try {
-    const user = await db.collection("User").findOne({ email: emailToFind });
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    return res.json({ name: user.name }); // Return the name of the user
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-
 export default router;
