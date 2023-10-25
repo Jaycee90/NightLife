@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
+import { fetchVenues } from './fetchDB';
 
 // Define a functional component called 'Search'
 function Search() {
@@ -11,6 +12,8 @@ function Search() {
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
+    const [searchQuery, setSearchQuery] = useState(''); // State to store the user's search input
+    const [searchResults, setSearchResults] = useState([]); // State to store search results
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -55,9 +58,36 @@ function Search() {
         getUserLocation();
     }, []);
 
+    const handleSearch = () => {
+        fetchVenues(searchQuery)
+          .then((venues) => {
+            // Set the search results in the state
+            setSearchResults(venues);
+          })
+          .catch((err) => {
+            console.error('Error fetching venues:', err);
+          });
+      };
+    
+
     // Render the component's JSX content
     return (
         <div>
+            <input
+                type="text"
+                placeholder="Search for a nightclub"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button onClick={handleSearch}>Search</button>
+
+            {/* Display search results */}
+            <ul>
+                {searchResults.map((result, index) => (
+                    <li key={index}>{result.name}</li>
+                ))}
+            </ul>        
+
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
             <p id="locationResult">{locationResult}</p>
