@@ -1,22 +1,23 @@
+const cs = "mongodb+srv://anh00:p5EwNCEkcOzqRiV8@venues.qwb5ogw.mongodb.net/?retryWrites=true&w=majority"
 const { MongoClient } = require('mongodb');
-
-// MongoDB Atlas connection string
-const uri = 'mongodb+srv://rnb90:iNKkqcIJu2kPGI57@venues.qwb5ogw.mongodb.net/';
 
 // Function to fetch all venues from MongoDB
 async function fetchVenues() {
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  const client = new MongoClient(cs);
+  //const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
   try {
+    console.log("Starting connection");
     await client.connect();
     console.log('Connected to MongoDB');
 
-    const database = client.db('Venues.Venues');
-    const collection = database.collection('Venues'); 
+    const database = client.db('Venues');
+    const collection = database.collection('Venues.Venues'); 
 
     // Fetch all venues without any filter
-    const venues = await collection.find({}).toArray();
-    return venues;
+    const name = await collection.find({}).toArray();
+
+    return name;
   } finally {
     client.close();
   }
