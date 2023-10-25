@@ -1,3 +1,4 @@
+
 // Import React and useState hook from the 'react' library
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -6,31 +7,10 @@ import "leaflet/dist/leaflet.css";
 
 // Define a functional component called 'Search'
 function Search() {
-    // Define state variables
+    // Define a state variable 'locationResult' and a function to update it, 'setLocationResult'
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
-
-    const handleSearch = () => {
-        const addresses = [searchQuery]; // Assuming you're searching for a single address
-        fetch('http://localhost:5000/geocode',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ addresses }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response data (e.g., show a success message)
-        })
-        .catch(error => {
-            // Handle errors
-        });
-    };
-    
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -78,27 +58,9 @@ function Search() {
     // Render the component's JSX content
     return (
         <div>
-            <input type="text" placeholder="Search for a nightclub" /> {/*allow user to search for venues*/}
-            <p style={{ 'color': '#000000' }} id="locationResult">{locationResult}</p>
-            
-            <input
-                type="text"
-                placeholder="Search for a nightclub"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button onClick={handleSearch}>Search</button>
-            
-            {/* Display search results */}
-            <ul>
-                {searchResults.map((result, index) => (
-                    <li key={index}>{result.name}</li>)
-                )}
-            </ul>
-            
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
-            {/*-<p id="locationResult">{locationResult}</p>*/}
+            <p id="locationResult">{locationResult}</p>
 
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
             <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>

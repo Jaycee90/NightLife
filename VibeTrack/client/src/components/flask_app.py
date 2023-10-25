@@ -3,7 +3,7 @@ from geocoding import geocode_and_store_addresses  # Import the geocoding functi
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/geocode": {"origins": "http://localhost:5000"}})
+CORS(app, resources={r"/geocode": {"origins": "http://localhost:5052"}})
 
 @app.route('/geocode', methods=['POST'])
 def geocode():
