@@ -4,15 +4,15 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import fetchVenues from './fetchDB';
+//import fetchVenues from './fetchDB';
 
 function Search() {
     // state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
-    const [searchQuery, setSearchQuery] = useState(''); // State to store the user's search input
-    const [searchResults, setSearchResults] = useState([]); // State to store search results
+    // const [searchQuery, setSearchQuery] = useState(''); // State to store the user's search input
+    // const [searchResults, setSearchResults] = useState([]); // State to store search results
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -58,50 +58,50 @@ function Search() {
     }, []);
     
     const handleSearch = () => {
-        setSearchResults([]);
+        //setSearchResults([]);
 
-        fetchVenues() //(`http://localhost:5050/search?location=${searchQuery}`)
-            .then((venues) => {
-                if (venues.length > 0) {
-                    setSearchResults(venues);
+        // fetchVenues() //(`http://localhost:5050/search?location=${searchQuery}`)
+        //     .then((venues) => {
+        //         if (venues.length > 0) {
+        //             setSearchResults(venues);
 
-                    // Extract the latitude and longitude of the first result
-                    const latitude = venues[0].latitude;
-                    const longitude = venues[0].longitude;
+        //             // Extract the latitude and longitude of the first result
+        //             const latitude = venues[0].latitude;
+        //             const longitude = venues[0].longitude;
     
-                    // Update the 'locationCoord' state with the new coordinates
-                    setLocationCoord([latitude, longitude]);
+        //             // Update the 'locationCoord' state with the new coordinates
+        //             setLocationCoord([latitude, longitude]);
     
-                    // Set map ready
-                    setMapReady(true);
-                } else {
-                    // Handle the case when no results are found
-                    setLocationResult('Venue not found');
-                }
-            })
-            .catch((err) => {
-                console.error('Error fetching venues:', err);
-            });
+        //             // Set map ready
+        //             setMapReady(true);
+        //         } else {
+        //             // Handle the case when no results are found
+        //             setLocationResult('Venue not found');
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         console.error('Error fetching venues:', err);
+        //     });
     };
     
 
     // Render the component's JSX content
     return (
         <div>
-            <input
+            {/* <input
                 type="text"
                 placeholder="Search for a nightclub"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            /> */}
             <button onClick={handleSearch}>Search</button>
 
             {/* Display search results */}
-            <ul>
+            {/* <ul>
                 {searchResults.map((result, index) => (
                     <li key={index}>{result.name}</li>
                 ))}
-            </ul>        
+            </ul>         */}
 
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
