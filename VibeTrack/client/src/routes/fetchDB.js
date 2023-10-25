@@ -21,14 +21,15 @@ async function fetchVenues() {
     client.close();
   }
 }
+module.exports = fetchVenues;
 
 // Example usage
-fetchVenues()
-  .then((venues) => {
-    console.log('Venues:', venues);
-  })
-  .catch((err) => {
-    console.error('Error fetching venues:', err);
-  });
+// fetchVenues()
+//   .then((venues) => {
+//     console.log('Venues:', venues);
+//   })
+//   .catch((err) => {
+//     console.error('Error fetching venues:', err);
+//   });
 
 

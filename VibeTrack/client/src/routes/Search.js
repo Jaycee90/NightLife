@@ -4,11 +4,9 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import { fetchVenues } from './fetchDB';
 
-// Define a functional component called 'Search'
 function Search() {
-    // Define state variables
+    // state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
@@ -57,17 +55,39 @@ function Search() {
     useEffect(() => {
         getUserLocation();
     }, []);
-
+    
     const handleSearch = () => {
-        fetchVenues(searchQuery)
-          .then((venues) => {
-            // Set the search results in the state
-            setSearchResults(venues);
-          })
-          .catch((err) => {
-            console.error('Error fetching venues:', err);
-          });
-      };
+        setSearchResults([]);
+
+        fetch(`http://localhost:5050/search?location=${searchQuery}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response is not ok");
+                }
+                return response.json();
+            })
+            .then((venues) => {
+                if (venues.length > 0) {
+                    setSearchResults(venues);
+                    
+                    // Extract the latitude and longitude of the first result
+                    const latitude = venues[0].latitude;
+                    const longitude = venues[0].longitude;
+    
+                    // Update the 'locationCoord' state with the new coordinates
+                    setLocationCoord([latitude, longitude]);
+    
+                    // Set map ready
+                    setMapReady(true);
+                } else {
+                    // Handle the case when no results are found
+                    setLocationResult('Venue not found');
+                }
+            })
+            .catch((err) => {
+                console.error('Error fetching venues:', err);
+            });
+    };
     
 
     // Render the component's JSX content
@@ -109,7 +129,7 @@ function Search() {
                     {locationCoord && (
                         <Marker position={locationCoord} icon={icon}>
                             <Popup>
-                                Zelicks <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
+                                Your Location <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
                             </Popup>
                         </Marker>
                     )}        
