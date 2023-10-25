@@ -15,6 +15,8 @@ import Discover from './routes/Discover';
 import Data from './routes/Data'; 
 import SpecialEvent from './routes/Special';
 import Search from './routes/Search'; 
+import Test from './routes/Test'; 
+
 
 import Calendar from './routes/Calendar';
 import Template from './routes/Template';
@@ -51,6 +53,7 @@ function App() {
                 <Route path='/profile/:user' element={<Profile />} />
                 <Route path='/contact/:user' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
+                <Route path='/test' element={<Test />} />
                 <Route path="/settings/:user" element={<Settings />} />
             </Route>
        </Routes>
