@@ -27,9 +27,6 @@ function SpecialEvent() {
               <h1>Date: {event.day}</h1>
               <p class="event-description">Event: {event.divText}</p>
             </div>
-            <div class="event-timing">
-            <img src="https://i.imgur.com/P0ajz6E.png" alt="" />
-            </div>
           </li>
         ))}
       </ul>
