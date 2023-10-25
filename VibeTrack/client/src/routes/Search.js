@@ -97,12 +97,14 @@ function Search() {
             />
             <button onClick={handleSearch}>Search</button>
 
-            {/* Display search results */}
-            {/* <ul>
+            {/* Display search results */} 
+            {searchResults.length > 0 && (
+            <ul>
                 {searchResults.map((result, index) => (
-                    <li key={index}>{result.name}</li>
+                <li key={index}>{result.name}</li>
                 ))}
-            </ul>         */}
+            </ul>
+            )}       
 
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <button onClick={getUserLocation}>Get My Location</button>
