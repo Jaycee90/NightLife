@@ -58,33 +58,23 @@ function Search() {
         getUserLocation();
     }, []);
     
-    const handleSearch = () => {
-        //setSearchResults([]);
-
-        // fetchVenues() //(`http://localhost:5050/search?location=${searchQuery}`)
-        //     .then((venues) => {
-        //         if (venues.length > 0) {
-        //             setSearchResults(venues);
-
-        //             // Extract the latitude and longitude of the first result
-        //             const latitude = venues[0].latitude;
-        //             const longitude = venues[0].longitude;
-    
-        //             // Update the 'locationCoord' state with the new coordinates
-        //             setLocationCoord([latitude, longitude]);
-    
-        //             // Set map ready
-        //             setMapReady(true);
-        //         } else {
-        //             // Handle the case when no results are found
-        //             setLocationResult('Venue not found');
-        //         }
-        //     })
-        //     .catch((err) => {
-        //         console.error('Error fetching venues:', err);
-        //     });
+    const handleSearch = async () => {
+        try {
+          const response = await fetch(`http://localhost:5050/search?query=${searchQuery}`);
+      
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+      
+          const venues = await response.json();
+          setSearchResults(venues);
+        } catch (error) {
+          console.error('Error fetching venues:', error);
+        }
     };
-    
+      
 
     // Render the component's JSX content
     return (
