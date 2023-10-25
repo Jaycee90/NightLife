@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 
 // Define a functional component called 'Search'
 function Search() {
-    // Define a state variable 'locationResult' and a function to update it, 'setLocationResult'
+    // Define state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
