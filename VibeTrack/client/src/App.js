@@ -46,6 +46,7 @@ function App() {
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />
+            <Route path='/test' element={<Test />} />
 
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
@@ -53,7 +54,6 @@ function App() {
                 <Route path='/profile/:user' element={<Profile />} />
                 <Route path='/contact/:user' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-                <Route path='/test' element={<Test />} />
                 <Route path="/settings/:user" element={<Settings />} />
             </Route>
        </Routes>
