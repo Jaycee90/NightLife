@@ -18,36 +18,39 @@ export default function Contact() {
     email: "",
     birthdate: "",
     gender: "",
-    emergency1: ["", ""], // Initialize as an array with two empty strings
-    emergency2: ["", ""], // Initialize as an array with two empty strings
+    emergency1: ["", ""], 
+    emergency2: ["", ""],
   });
+  
   const params = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     async function fetchData() {
       const code = params.code;
       const response = await fetch(`http://localhost:5050/user/${params.code}`);
-
+  
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
         window.alert(message);
         return;
       }
-
+  
       const user = await response.json();
       if (!user) {
         window.alert(`User with code ${code} not found`);
         navigate("/");
         return;
       }
-
+  
       setForm(user);
     }
-
+  
     fetchData();
-  }, [params.code, navigate]);
-
+  
+  }, [params.code, navigate]); // Add initializeEmergencyContacts here
+  
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
@@ -120,7 +123,7 @@ export default function Contact() {
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
             <div class="grid-about">
-              {form.emergency1.map((value, index) => (
+            {form.emergency1.map((value, index) => (
                 <div key={index} className="form-group">
                   <label htmlFor={`emergency1Name${index}`}>Emergency Contact 1 Name:</label>
                   <input
@@ -135,9 +138,9 @@ export default function Contact() {
                     }}
                   />
                 </div>
-              ))}
+            ))}
 
-              {form.emergency2.map((value, index) => (
+            {form.emergency2.map((value, index) => (
                 <div key={index} className="form-group">
                   <label htmlFor={`emergency2Name${index}`}>Emergency Contact 2 Name:</label>
                   <input
@@ -152,7 +155,7 @@ export default function Contact() {
                     }}
                   />
                 </div>
-              ))}
+            ))}
             </div>
             <div className="form-group">
               <input
