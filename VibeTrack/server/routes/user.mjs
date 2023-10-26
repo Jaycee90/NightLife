@@ -71,4 +71,14 @@ router.delete("/:user", async (req, res) => {
   res.send(result).status(200);
 });
 
+router.get("/profile/:code", async (req, res) => {
+  let collection = await db.collection("User");
+  let query = {code: req.params.code};
+  let result = await collection.findOne(query);
+
+  if (!result) res.send("Not found").status(404);
+  else res.send(result).status(200);
+});
+
+
 export default router;
