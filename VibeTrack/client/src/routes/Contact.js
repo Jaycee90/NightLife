@@ -26,8 +26,8 @@ export default function Contact() {
 
   useEffect(() => {
     async function fetchData() {
-      const id = params.user.toString();
-      const response = await fetch(`http://localhost:5050/user/${params.user.toString()}`);
+      const code = params.code;
+      const response = await fetch(`http://localhost:5050/user/${params.code}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -37,7 +37,7 @@ export default function Contact() {
 
       const user = await response.json();
       if (!user) {
-        window.alert(`User with id ${id} not found`);
+        window.alert(`User with code ${code} not found`);
         navigate("/");
         return;
       }
@@ -46,7 +46,7 @@ export default function Contact() {
     }
 
     fetchData();
-  }, [params.user, navigate]);
+  }, [params.code, navigate]);
 
   function updateForm(value) {
     return setForm(prev => {
@@ -58,6 +58,7 @@ export default function Contact() {
     e.preventDefault();
     const editedUser = {
       _id : form._id,
+      code: form.code,
       name: form.name,
       lastName: form.lastName,
       phone: form.phone,
@@ -68,7 +69,7 @@ export default function Contact() {
       emergency2: form.emergency2,
     };
     
-    await fetch(`http://localhost:5050/user/${params.user}`, {
+    await fetch(`http://localhost:5050/user/${params.code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {

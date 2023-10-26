@@ -15,11 +15,11 @@ export default function Settings() {
   const params = useParams(); // Get the parameters from the URL
   const navigate = useNavigate(); // Navigate function from react-router-dom
 
-  useEffect(() => { // Fetch user data when component mounts or params.user changes
+  useEffect(() => { // Fetch user data when component mounts or params.code changes
     async function fetchData() {
       // Send a GET request to the server with the 'id' parameter
-      const id = params.user.toString(); 
-      const response = await fetch(`http://localhost:5050/user/${params.user.toString()}`);
+      const code = params.code; 
+      const response = await fetch(`http://localhost:5050/user/${params.code}`);
 
       if (!response.ok) { // Check if the response is successful
         const message = `An error has occurred: ${response.statusText}`;
@@ -29,7 +29,7 @@ export default function Settings() {
 
       const user = await response.json();  // Parse the response (object in database) as JSON
       if (!user) { // Check if a user was found
-        window.alert(`User with id ${id} not found`);
+        window.alert(`User with code ${code} not found`);
         navigate("/");
         return;
       }
@@ -40,7 +40,7 @@ export default function Settings() {
     fetchData();
 
     return;
-  }, [params.user, navigate]);
+  }, [params.code, navigate]);
 
   function updateForm(value) { // Function to update form state
     return setForm((prev) => {
@@ -54,6 +54,7 @@ export default function Settings() {
     e.preventDefault();
     const editedUser = {
       _id : form._id,
+      code : form.code,
       name: form.name,
       lastName: form.lastName,
       phone: form.phone,
@@ -63,7 +64,7 @@ export default function Settings() {
     };
     
     // Send a PATCH request to update the user
-    await fetch(`http://localhost:5050/user/${params.user}`, {
+    await fetch(`http://localhost:5050/user/${params.code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
