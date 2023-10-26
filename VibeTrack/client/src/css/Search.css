@@ -5,6 +5,13 @@
     margin: 10px; 
     display: inline-block; 
     border-radius: 5px; 
-    background-color: rgb(56, 122, 198);
+    background-color: rgb(198, 56, 56);
   }
   
+.main-box{
+    border: 2px solid green;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgb(27, 8, 174);
+}

@@ -106,7 +106,7 @@ function Search() {
 
     // Render the component's JSX content
     return (
-        <div>
+        <div className="main-box">
             <input
                 type="text"
                 placeholder="Search for a nightclub"
@@ -114,13 +114,13 @@ function Search() {
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
             <div className="action-box">
-            <button onClick={handleSearch}>Club Search</button>
+            <button onClick={handleSearch}>Click to Search</button>
             </div>
 
             {/* Display search results */} 
             {searchResults.length === 0 ? (
                 <div>
-                    <p>Not found. Here is available Nightclubs in San Marcos!</p>
+                    <p>No result. Check for available Nightclubs in San Marcos!</p>
                     <div className="action-box">
                     <button onClick={fetchExistingVenues}>Click to see all Clubs</button>
                     </div>
