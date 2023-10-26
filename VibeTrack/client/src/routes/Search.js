@@ -1,10 +1,11 @@
 
 // Import React and useState hook from the 'react' library
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import Data from './Data';
+//import Data from './Data';
+import { useParams } from "react-router-dom";
 
 
 function Search() {
@@ -53,15 +54,13 @@ function Search() {
         iconUrl: "https://i.imgur.com/yyb78tO.png", 
         iconSize: [32, 32],
     });
-    
-    // Use useEffect to call getUserLocation when the component mounts
-    useEffect(() => {
-        getUserLocation();
-    }, []);
-    
-    const fetchExistingVenues = async () => {
+
+    // Use the useParams hook to get the route parameters
+    const params = useParams();
+   
+    const fetchExistingVenues = useCallback(async () => {
         try {
-          const response = await fetch(`http://localhost:5050/record/${params.name}`);
+          const response = await fetch(`http://localhost:5050/record/${params.id}`);
       
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -76,7 +75,15 @@ function Search() {
         } catch (error) {
           console.error('Error fetching venues:', error);
         }
-      };
+      }, [params.id]);
+
+
+
+    // Use useEffect to call getUserLocation when the component mounts
+    useEffect(() => {
+        getUserLocation();
+        fetchExistingVenues();
+    }, [fetchExistingVenues]);
       
 
     const handleSearch = async () => {
@@ -95,7 +102,6 @@ function Search() {
           console.error('Error fetching venues:', error);
         }
     };
-      
 
     // Render the component's JSX content
     return (
@@ -106,13 +112,17 @@ function Search() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
-            <button onClick={handleSearch}>Search</button>
+            <div className="action-box">
+            <button onClick={handleSearch}>Club Search</button>
+            </div>
 
             {/* Display search results */} 
             {searchResults.length === 0 ? (
                 <div>
                     <p>Not found. Here is available Nightclubs in San Marcos!</p>
-                    <button onClick={fetchExistingVenues}>Click to see all Nightclubs</button>
+                    <div className="action-box">
+                    <button onClick={fetchExistingVenues}>Click to see all Clubs</button>
+                    </div>
                 </div>
             ) : (
             <ul>
@@ -123,8 +133,10 @@ function Search() {
             )}       
 
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
+            <div className="action-box">
             <button onClick={getUserLocation}>Get My Location</button>
             <p id="locationResult">{locationResult}</p>
+            </div>
 
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
             <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>
