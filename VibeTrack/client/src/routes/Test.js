@@ -12,6 +12,7 @@ import "react-pro-sidebar/dist/css/styles.css";
 export default function Profile() {
   const [form, setForm] = useState({
     _id: "",
+    code: "",
     name: "",
     lastName: "",
     phone: "",
@@ -27,7 +28,7 @@ export default function Profile() {
   useEffect(() => {
     async function fetchData() {
       const code = params.code.toString();
-      const response = await fetch(`http://localhost:5050/user/profile/${params.code}`);
+      const response = await fetch(`http://localhost:5050/user/${params.code}`);
 
       if (!response.ok) {
         const message = `An error has occurred: ${response.statusText}`;
@@ -58,6 +59,7 @@ export default function Profile() {
     e.preventDefault();
     const editedUser = {
       _id: form._id,
+      code: form.code,
       name: form.name,
       lastName: form.lastName,
       phone: form.phone,
@@ -68,7 +70,7 @@ export default function Profile() {
       emergency2: form.emergency2,
     };
 
-    await fetch(`http://localhost:5050/user/profile/${params.code}`, {
+    await fetch(`http://localhost:5050/user/${params.code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {

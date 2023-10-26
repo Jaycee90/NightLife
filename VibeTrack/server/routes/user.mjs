@@ -12,9 +12,9 @@ router.get("/", async (req, res) => {
 });
 
 // This section will help you get a single record by id
-router.get("/:user", async (req, res) => {
+router.get("/:code", async (req, res) => {
   let collection = await db.collection("User");
-  let query = {_id: new ObjectId(req.params.user)};
+  let query = {code: req.params.code};
   let result = await collection.findOne(query);
 
   if (!result) res.send("Not found").status(404);
@@ -40,8 +40,8 @@ router.post("/", async (req, res) => {
 });
 
 // This section will help you update a record by id.
-router.patch("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
+router.patch("/:code", async (req, res) => {
+  let query = {code: req.params.code};
   const updates =  {
     $set: {
       code: req.body.code,
@@ -62,23 +62,13 @@ router.patch("/:user", async (req, res) => {
 });
 
 // This section will help you delete a record
-router.delete("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
+router.delete("/:code", async (req, res) => {
+  let query = {code: req.params.code};
 
   const collection = db.collection("User");
   let result = await collection.deleteOne(query);
 
   res.send(result).status(200);
 });
-
-router.get("/profile/:code", async (req, res) => {
-  let collection = await db.collection("User");
-  let query = {code: req.params.code};
-  let result = await collection.findOne(query);
-
-  if (!result) res.send("Not found").status(404);
-  else res.send(result).status(200);
-});
-
 
 export default router;

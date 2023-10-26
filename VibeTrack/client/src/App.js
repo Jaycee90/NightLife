@@ -45,15 +45,15 @@ function App() {
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />
-            <Route path='/test/profile/:code' element={<Test />} />
+            <Route path='/test/:code' element={<Test />} />
 
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route element={<PrivateRoute />}>
-                <Route path='/profile/:user' element={<Profile />} />
-                <Route path='/contact/:user' element={<Contact />} />
+                <Route path='/profile/:code' element={<Profile />} />
+                <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-                <Route path="/settings/:user" element={<Settings />} />
+                <Route path="/settings/:code" element={<Settings />} />
             </Route>
        </Routes>
      </UserProvider>
