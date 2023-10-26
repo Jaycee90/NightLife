@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function SpecialEvent() {
-  const [eventData, setEventData] = useState([]); // Hold events 
+  const [eventData, setEventData] = useState([]); // Hold events while live scrapping
   // When a user clicks on the special event link, this function will be the first thing that happens
   // Making a request to out local host where our stored data is held then bring that data back here
   useEffect(() => {
