@@ -1,5 +1,5 @@
 
-// Import React and useState hook from the 'react' library
+// Import React and useState hook from the 'react' library.
 import React, { useState, useEffect, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
