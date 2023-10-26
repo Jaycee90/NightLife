@@ -31,8 +31,10 @@ router.post("/", async (req, res) => {
     email: req.body.email,
     gender: req.body.gender,
     birthdate: req.body.birthdate,
-    emergency1: req.body.emergency1,
-    emergency2: req.body.emergency2,
+    emergencyName1: req.body.emergencyName1,
+    emergencyEmail1: req.body.emergencyEmail1,
+    emergencyName2: req.body.emergencyName2,
+    emergencyEmail2: req.body.emergencyEmail2,
   };
   let collection = await db.collection("User");
   let result = await collection.insertOne(newDocument);
@@ -51,8 +53,10 @@ router.patch("/:code", async (req, res) => {
       email: req.body.email,
       gender: req.body.gender,
       birthdate: req.body.birthdate,
-      emergency1: req.body.emergency1,
-      emergency2: req.body.emergency2,
+      emergencyName1: req.body.emergencyName1,
+      emergencyEmail1: req.body.emergencyEmail1,
+      emergencyName2: req.body.emergencyName2,
+      emergencyEmail2: req.body.emergencyEmail2,
     }
   };
 

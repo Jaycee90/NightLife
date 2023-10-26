@@ -19,8 +19,10 @@ export default function Profile() {
     email: "",
     birthdate: "",
     gender: "",
-    emergency1: ["", ""], // Initialize as an array with two empty strings
-    emergency2: ["", ""], // Initialize as an array with two empty strings
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
   });
 
   const params = useParams();
@@ -66,8 +68,10 @@ export default function Profile() {
       email: form.email,
       birthdate: form.birthdate,
       gender: form.gender,
-      emergency1: form.emergency1,
-      emergency2: form.emergency2,
+      emergencyName1: form.emergencyName1,
+      emergencyEmail1: form.emergencyEmail1,
+      emergencyName2: form.emergencyName2,
+      emergencyEmail2: form.emergencyEmail2,
     };
 
     await fetch(`http://localhost:5050/user/${params.code}`, {
@@ -162,7 +166,6 @@ export default function Profile() {
                 </select>
               </div>
             </div>
-
             <div className="item">
               <div className="form-group">
                 <label htmlFor="phone">Phone: </label>

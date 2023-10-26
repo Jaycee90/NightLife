@@ -18,8 +18,10 @@ export default function Contact() {
     email: "",
     birthdate: "",
     gender: "",
-    emergency1: ["", ""], 
-    emergency2: ["", ""],
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
   });
   
   const params = useParams();
@@ -50,7 +52,7 @@ export default function Contact() {
     fetchData();
   
   }, [params.code, navigate]); // Add initializeEmergencyContacts here
-  
+
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
@@ -68,8 +70,10 @@ export default function Contact() {
       email: form.email,
       birthdate: form.birthdate,
       gender: form.gender,
-      emergency1: form.emergency1,
-      emergency2: form.emergency2,
+      emergencyName1: form.emergencyName1,
+      emergencyEmail1: form.emergencyEmail1,
+      emergencyName2: form.emergencyName2,
+      emergencyEmail2: form.emergencyEmail2,
     };
     
     await fetch(`http://localhost:5050/user/${params.code}`, {
@@ -122,40 +126,55 @@ export default function Contact() {
         <div class="grid-settings-right">
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-            <div class="grid-about">
-            {form.emergency1.map((value, index) => (
-                <div key={index} className="form-group">
-                  <label htmlFor={`emergency1Name${index}`}>Emergency Contact 1 Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id={`emergency1Name${index}`}
-                    value={value}
-                    onChange={e => {
-                      const updatedEmergency1 = [...form.emergency1];
-                      updatedEmergency1[index] = e.target.value;
-                      updateForm({ ...form, emergency1: updatedEmergency1 });
-                    }}
-                  />
-                </div>
-            ))}
-
-            {form.emergency2.map((value, index) => (
-                <div key={index} className="form-group">
-                  <label htmlFor={`emergency2Name${index}`}>Emergency Contact 2 Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id={`emergency2Name${index}`}
-                    value={value}
-                    onChange={e => {
-                      const updatedEmergency2 = [...form.emergency2];
-                      updatedEmergency2[index] = e.target.value;
-                      updateForm({ ...form, emergency2: updatedEmergency2 });
-                    }}
-                  />
-                </div>
-            ))}
+          <div className="grid-about">
+            <div className="item">
+              <div className="form-group">
+                <label htmlFor="emergencyName1">Name: </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="emergencyName1"
+                  value={form.emergencyName1}
+                  onChange={(e) => updateForm({ emergencyName1: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="item">
+              <div className="form-group">
+                <label htmlFor="emergencyEmail1">Email: </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="emergencyEmail1"
+                  value={form.emergencyEmail1}
+                  onChange={(e) => updateForm({ emergencyEmail1: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="item">
+            <div className="form-group">
+                <label htmlFor="emergencyName2">Name: </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="emergencyName2"
+                  value={form.emergencyName2}
+                  onChange={(e) => updateForm({ emergencyName2: e.target.value })}
+                />
+              </div>
+            </div>
+            <div className="item">
+              <div className="form-group">
+                <label htmlFor="emergencyEmail2">Email: </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="emergencyEmail2"
+                  value={form.emergencyEmail2}
+                  onChange={(e) => updateForm({ emergencyEmail2: e.target.value })}
+                />
+              </div>
+            </div>
             </div>
             <div className="form-group">
               <input
