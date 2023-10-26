@@ -9,7 +9,6 @@ import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import UserList from "./components/userList";
-import Settings from "./components/settings";
 
 import Discover from './routes/Discover';
 import Data from './routes/Data'; 
@@ -51,7 +50,6 @@ function App() {
                 <Route path='/profile/:code' element={<Profile />} />
                 <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-                <Route path="/settings/:code" element={<Settings />} />
             </Route>
        </Routes>
      </UserProvider>
