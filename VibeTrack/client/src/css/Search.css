@@ -1,9 +1,10 @@
-/* In your component's CSS or a separate CSS file */
+
 .action-box {
-    border: 1px solid #ccc; /* Add a border */
-    padding: 10px; /* Add padding around the buttons */
-    margin: 10px; /* Add margin to separate the boxes */
-    display: inline-block; /* Display the boxes side by side */
-    border-radius: 5px; /* Add rounded corners */
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px; 
+    display: inline-block; 
+    border-radius: 5px; 
+    background-color: rgb(56, 122, 198);
   }
   

@@ -6,6 +6,7 @@ import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 //import Data from './Data';
 import { useParams } from "react-router-dom";
+import '../css/Search.css';
 
 
 function Search() {
@@ -134,12 +135,12 @@ function Search() {
 
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
-            <button onClick={getUserLocation}>Get My Location</button>
+            <button onClick={getUserLocation}>Your Location:</button>
             <p id="locationResult">{locationResult}</p>
             </div>
 
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>
+            {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
             {/* Render the map with a marker */}
             {mapReady && (
