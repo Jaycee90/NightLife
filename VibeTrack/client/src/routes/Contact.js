@@ -124,12 +124,12 @@ export default function Contact() {
           </div>
         </div>
         <div class="grid-settings-right">
-          <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
+          <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyName1">Name: </label>
+                <label htmlFor="emergencyName1"><b>Emergency Contact #1</b> - Name: </label>
                 <input
                   type="text"
                   className="form-control"
@@ -141,7 +141,7 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail1">Email: </label>
+                <label htmlFor="emergencyEmail1"><b>Emergency Contact #1</b> - Email: </label>
                 <input
                   type="text"
                   className="form-control"
@@ -153,7 +153,7 @@ export default function Contact() {
             </div>
             <div className="item">
             <div className="form-group">
-                <label htmlFor="emergencyName2">Name: </label>
+                <label htmlFor="emergencyName2"><b>Emergency Contact #2</b> - Name: </label>
                 <input
                   type="text"
                   className="form-control"
@@ -165,7 +165,7 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail2">Email: </label>
+                <label htmlFor="emergencyEmail2"><b>Emergency Contact #2</b> - Email: </label>
                 <input
                   type="text"
                   className="form-control"
