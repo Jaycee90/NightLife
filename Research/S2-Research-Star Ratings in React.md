@@ -10,13 +10,10 @@
 
 **Actions**:
 
-* Initially it will only be a new page the next step would be to get the ratings of the 
+* Initially it will only be a new page the next step would be to get the ratings of the venues and link them together 
+* or not link them but have the users be able to update the ratings of the venues on our website... 
+* unsure if updating google ratings is possible
 
-* Be specific.  
-
-* For example, "Writing the UI" is not sufficient.   
-
-* "Writing the Login class" is.
 
 
 **User Story**: [User Story 8](https://cs3398f23romulans1.atlassian.net/browse/SCRUM-8)
