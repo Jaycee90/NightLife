@@ -59,3 +59,12 @@ ul {
   border-radius: 8px 0 0 8px;
   margin-right: 20px;
 }
+.event-container .event-left h1 {
+  font-size: 28px;
+}
+
+.event-container .event-left p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
