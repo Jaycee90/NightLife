@@ -8,6 +8,15 @@ import "leaflet/dist/leaflet.css";
 //import { useParams } from "react-router-dom";
 import '../css/Search.css';
 
+const Record = (props) => (
+  <tr>
+    <td>{props.record.name}</td>
+    <td>{props.record.address}</td>
+    <td>{props.record.latitude}</td>
+    <td>{props.record.longitude}</td>
+    
+  </tr>
+);
 
 function Search() {
     // state variables
@@ -16,7 +25,40 @@ function Search() {
     const [mapReady, setMapReady] = useState(false);
     // const [searchQuery, setSearchQuery] = useState("");
     // const [searchResults, setSearchResults] = useState([]);
+    const [records, setRecords] = useState([]); // Define a state variable 'record'
 
+    useEffect(() => { 
+      async function getRecords() { // Define an function to fetch data
+        // Send a GET request to the server 
+        const response = await fetch(`http://localhost:5050/record/`);
+  
+        if (!response.ok) { // Check if the response is successful
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
+  
+        const records = await response.json(); // Parse the response (object in database) as JSON
+  
+        setRecords(records);  // Update the 'record' state with the fetched data
+      }
+  
+      getRecords();  // Call fetchData function
+  
+      return;
+    }, [records.length]);
+
+    function recordList() {   // Renders the list of records 
+        return records.map((record) => {
+          return (
+            <Record
+              record={record}
+              
+              key={record._id}
+            />
+          );
+        });
+      }
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -138,7 +180,17 @@ function Search() {
                     )}        
                 </MapContainer>
             )}
-
+        <table style={{ marginTop: 20, color: '#000000' }}>
+        <thead>
+          <tr>
+            <th className="nameColumn">Name</th>
+            <th className="addressColumn">Address</th>
+            <th className="nameColumn">Latitude</th>
+            <th className="nameColumn">Longitude</th>
+          </tr>
+        </thead>
+        <tbody>{recordList()}</tbody>
+      </table>
         </div>
     );
 }
