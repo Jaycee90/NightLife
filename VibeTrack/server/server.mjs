@@ -1,18 +1,15 @@
 import express from "express";
 import cors from "cors";
 import "./loadEnvironment.mjs";
-import record from "./routes/record.mjs";
-import user from "./routes/user.mjs";
-import { scrapeData } from "./routes/scrape.mjs"; // Import the scrapeData function
+import records from "./routes/record.mjs";
+import users from "./routes/user.mjs";
+import nodemailer from 'nodemailer';
 
 const PORT = 5050;
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-
-app.use("/record", record);
-app.use("/user", user);
 
 app.get('/scrape', async (req, res) => {
   try {
@@ -23,6 +20,7 @@ app.get('/scrape', async (req, res) => {
   }
 });
 
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 app.post('/send-email', (req, res) => {
   const { to, subject, text } = req.body;
 
@@ -51,6 +49,9 @@ app.post('/send-email', (req, res) => {
     }
   });
 });
+app.use("/record", records);
+app.use("/user", users);
+
 
 // start the Express server
 app.listen(PORT, () => {
