@@ -4,8 +4,6 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-//import Data from './Data';
-//import { useParams } from "react-router-dom";
 import '../css/Search.css';
 
 const Record = (props) => (
@@ -23,9 +21,7 @@ function Search() {
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
-    // const [searchQuery, setSearchQuery] = useState("");
-    // const [searchResults, setSearchResults] = useState([]);
-    const [records, setRecords] = useState([]); // Define a state variable 'record'
+    const [records, setRecords] = useState([]); 
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -93,23 +89,6 @@ function Search() {
     }, []);
       
 
-    // const handleSearch = async () => {
-    //     try {
-    //       const response = await fetch(`http://localhost:5050/search?query=${searchQuery}`);
-      
-    //       if (!response.ok) {
-    //         const message = `An error has occurred: ${response.statusText}`;
-    //         window.alert(message);
-    //         return;
-    //       }
-      
-    //       const venues = await response.json();
-    //       setSearchResults(venues);
-    //     } catch (error) {
-    //       console.error('Error fetching venues:', error);
-    //     }
-    // };
-
     // Render the component's JSX content
     function findNearestClubs(userLatitude, userLongitude, numClubs = 10) {
         const distances = records.map((record) => {
@@ -125,32 +104,6 @@ function Search() {
 
     return (
         <div className="main-box">
-            {/* <input
-                type="text"
-                placeholder="Search for a nightclub"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <div className="action-box">
-            <button onClick={handleSearch}>Click to Search</button>
-            </div> */}
-
-            {/* Display search results */} 
-            {/* {searchResults.length === 0 ? (
-                <div>
-                    <p>No result. Check for available Nightclubs in San Marcos!</p>
-                    <div className="action-box">
-                    <button onClick={fetchExistingVenues}>Click to see all Clubs</button>
-                    </div>
-                </div>
-            ) : (
-            <ul>
-                {searchResults.map((result, index) => (
-                <li key={index}>{result.name}</li>
-                ))}
-            </ul>
-            )}        */}
-
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
             <button onClick={getUserLocation}>Your Location:</button>
@@ -211,5 +164,4 @@ function Search() {
     );
 }
 
-// Export the 'Search' component to make it available for use in other parts of our application
 export default Search;
