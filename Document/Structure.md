@@ -52,7 +52,7 @@
 * Establishes a connection to a MongoDB database using the provided ATLAS_URI environment variable. 
 
 * Uses the MongoClient from the mongodb package to connect to a MongoDB Atlas cluster, and upon successful connection, it selects "Venues" database and exports it for use in the project application.
-```
+```javascript
     import { MongoClient } from "mongodb";
     const connectionString = process.env.ATLAS_URI || "";
 
@@ -60,10 +60,10 @@
 
     let conn;
     try {
-    console.log("Connecting to MongoDB Atlas...");
-    conn = await client.connect();
+        console.log("Connecting to MongoDB Atlas...");
+        conn = await client.connect();
     } catch(e) {
-    console.error(e);
+        console.error(e);
     }
 
     let db = conn.db("Venues");
@@ -80,7 +80,7 @@
     * updating an existing record by ID
     * deleting a record by ID.
 
-```
+```javascript
     import express from "express";
     import db from "../db/conn.mjs";
     import { ObjectId } from "mongodb";
@@ -149,28 +149,48 @@
     export default router;
 ```
 
-* Note: This function helps retrieve a single record by searching for the corresponding _id (ObjectID) in the "Venues" (Venues.Venues) collection.
+Note: This function helps retrieve a single record by searching for the corresponding _id (ObjectID) in the "Venues" (Venues.Venues) collection.
 
-```
-router.get("/:id", async (req, res) => {
-let collection = await db.collection("Venues");
-let query = {_id: new ObjectId(req.params.id)};
-let result = await collection.findOne(query);
+```javascript
+    router.get("/:id", async (req, res) => {
+    let collection = await db.collection("Venues");
+    let query = {_id: new ObjectId(req.params.id)};
+    let result = await collection.findOne(query);
 
-if (!result) res.send("Not found").status(404);
-else res.send(result).status(200);
-});
+    if (!result) res.send("Not found").status(404);
+    else res.send(result).status(200);
+    });
 ```
 
 Similarly, you can query another record that contain the matching keyname by changing the query statement: ```let query = {key: req.params.key};```
 
-```
-router.get("/:key", async (req, res) => {
-let collection = await db.collection("Venues");
-let query = {key: req.params.key};
-let result = await collection.findOne(query);
+```javascript
+    router.get("/:key", async (req, res) => {
+    let collection = await db.collection("Venues");
+    let query = {key: req.params.key};
+    let result = await collection.findOne(query);
 
-if (!result) res.send("Not found").status(404);
-else res.send(result).status(200);
-});
+    if (!result) res.send("Not found").status(404);
+    else res.send(result).status(200);
+    });
 ```
+
+```user.mjs``` also works in a similar fashion. However, instead of parsing by ```"/:id"```, it uses ```"/:code"``` to find and fetch user records. 
+```
+    let query = {code: req.params.code};
+```
+In this case, ```"/:id"``` and ```"/:code"``` act as placeholders that can be filled with actual values when certain route paths are accessed. For example, in ```App.js``` (/client/src/App.js), we have:
+
+```javascript
+<Route path="/data/:id" element={<Data />} />
+``` 
+which specified that it wants to access a record in the "Venues" collection using ```:id``` as parameter. While:
+
+```javascript
+<Route path="/profile/:user" element={<Profile />} />
+```
+indicates that it will parse the ```:code``` to find the corresponding user record in "User" collection.
+
+This way, you can use these parameters to identify which specific record you want to retrieve from the respective collections ("User" or "Venues" or etc.). 
+
+It's a common pattern in routing to use dynamic segments like ```:id``` or ```:user``` to handle different resources or entities in a RESTful API.
