@@ -6,6 +6,7 @@ function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
   // When a user clicks on the special event link, this function will be the first thing that happens
   // Making a request to out local host where our stored data is held then bring that data back here
+  
   useEffect(() => {
     axios.get('http://localhost:5050/scrape') // Adjust the URL to match your server's address
       .then((response) => {
@@ -15,6 +16,7 @@ function SpecialEvent() {
         console.error('Error fetching event data', error);
       });
   }, []);
+
     return (
         <div class="event-container">
            <h1 style={{color:'#000'}}>Upcoming Events</h1>
