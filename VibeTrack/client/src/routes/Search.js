@@ -48,18 +48,6 @@ function Search() {
       return;
     }, [records.length]);
 
-    function recordList() {   // Renders the list of records 
-        return records.map((record) => {
-          return (
-            <Record
-              record={record}
-              
-              key={record._id}
-            />
-          );
-        });
-      }
-
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
         // Check if the browser supports the Geolocation API
@@ -123,6 +111,18 @@ function Search() {
     // };
 
     // Render the component's JSX content
+    function findNearestClubs(userLatitude, userLongitude, numClubs = 10) {
+        const distances = records.map((record) => {
+            const latDiff = userLatitude - record.latitude;
+            const lonDiff = userLongitude - record.longitude;
+            const distance = Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
+            return { record, distance };
+        });
+
+        const sortedRecords = distances.sort((a, b) => a.distance - b.distance).slice(0, numClubs);
+        return sortedRecords.map((entry) => entry.record);
+    }
+
     return (
         <div className="main-box">
             {/* <input
@@ -157,6 +157,30 @@ function Search() {
             <p id="locationResult">{locationResult}</p>
             </div>
 
+                        {/* Display the top 10 closest clubs */}
+                        {locationCoord && (
+                <div>
+                    <h2>Top 10 Closest Clubs</h2>
+                    <table style={{ marginTop: 20, color: '#000000' }}>
+                        <thead>
+                            <tr>
+            <th className="nameColumn">Name</th>
+            <th className="addressColumn">Address</th>
+            <th className="nameColumn">Latitude</th>
+            <th className="nameColumn">Longitude</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
+                                <Record
+                                    record={record}
+                                    key={record._id}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
             {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
@@ -180,17 +204,9 @@ function Search() {
                     )}        
                 </MapContainer>
             )}
-        <table style={{ marginTop: 20, color: '#000000' }}>
-        <thead>
-          <tr>
-            <th className="nameColumn">Name</th>
-            <th className="addressColumn">Address</th>
-            <th className="nameColumn">Latitude</th>
-            <th className="nameColumn">Longitude</th>
-          </tr>
-        </thead>
-        <tbody>{recordList()}</tbody>
-      </table>
+
+
+
         </div>
     );
 }
