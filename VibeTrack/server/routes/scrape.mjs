@@ -1,7 +1,7 @@
 import cheerio from "cheerio";
 import axios from "axios";
 
-export const scrapeData = async () => {
+export const scrape = async () => {
   try {
     const response = await axios.get('https://www.visitsanmarcos.com/listen-san-marcos/live-this-week/'); // Replace with your target URL
     const $ = cheerio.load(response.data); // Creates HTML response an an object
