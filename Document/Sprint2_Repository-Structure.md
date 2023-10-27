@@ -3,10 +3,10 @@
 ### Directory Structure:
 * server
     * db
-        * conn.mjs
+        * [conn.mjs](#conn-mjs)
     * routes
-        * record.mjs
-        * user.mjs
+        * [record.mjs](#record-mjs)
+        * [user.mjs](#user-mjs)
     * config.env
     * loadEnvironment.mjs
     * server.mjs
@@ -48,7 +48,7 @@
 * package.json
 
 ## Server
-### /db/conn.mjs
+### /db/conn.mjs (#conn-mjs)
 * Establishes a connection to a MongoDB database using the provided ATLAS_URI environment variable. 
 
 * Uses the MongoClient from the mongodb package to connect to a MongoDB Atlas cluster, and upon successful connection, it selects "Venues" database and exports it for use in the project application.
@@ -71,7 +71,7 @@
     export default db;
 ```
 
-### /db/routes.mjs & /db/user.mjs (& etc.)
+### /db/routes.mjs & /db/user.mjs (& etc.) (#record-mjs)
 * Defines an Express.js router that handles various HTTP  for the "Venues" database. 
 * Uses MongoDB operations for data manipulation and includes routes for:
     * retrieving all records
@@ -174,7 +174,7 @@ Similarly, you can query another record that contain the matching keyname by cha
     else res.send(result).status(200);
     });
 ```
-
+(#user-mjs)
 ```user.mjs``` also works in a similar fashion. However, instead of parsing by ```"/:id"```, it uses ```"/:code"``` to find and fetch user records. 
 ```
     let query = {code: req.params.code};
@@ -182,12 +182,12 @@ Similarly, you can query another record that contain the matching keyname by cha
 In this case, ```"/:id"``` and ```"/:code"``` act as placeholders that can be filled with actual values when certain route paths are accessed. For example, in ```App.js``` (/client/src/App.js), we have:
 
 ```javascript
-<Route path="/data/:id" element={<Data />} />
+    <Route path="/data/:id" element={<Data />} />
 ``` 
 which specified that it wants to access a record in the "Venues" collection using ```:id``` as parameter. While:
 
 ```javascript
-<Route path="/profile/:user" element={<Profile />} />
+    <Route path="/profile/:user" element={<Profile />} />
 ```
 indicates that it will parse the ```:code``` to find the corresponding user record in "User" collection.
 
