@@ -1,4 +1,5 @@
 ## VibeTrack - Strucutre and Functionality
+> Incomplete, will finish up the rest after Sprint 2 is done. As of right now I have only included the components that are related to connecting the MongoDB -> server -> client end.
 
 ### Directory Structure:
 * server
@@ -186,7 +187,7 @@ Similarly, you can query another record that contain the matching keyname by cha
 ```
 - - - -
 <a name="user-mjs"></a>
-### /routes/scrape.mjs
+### /routes/user.mjs
 * ```user.mjs``` also works in a similar fashion. However, instead of parsing by ```"/:id"```, it uses ```"/:code"``` to find and fetch user records. 
 
 ```javascript
@@ -801,7 +802,7 @@ Similarly, you can query another record that contain the matching keyname by cha
 * Which we can then access and use in the return function such as ```{venueData.name}```, ```{venueData.about}```, etc.
 
 - - - -
-<a name="venues-venues-venues"></a>
+<a name="venues-venues-json"></a>
 ### /Database/Venues.Venues.json
 * Example: JSON structure of an club entry in "Venues" collection: 
 ``` json
