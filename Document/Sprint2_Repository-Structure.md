@@ -48,7 +48,8 @@
 * package.json
 
 ## Server
-### /db/conn.mjs (#conn-mjs)
+<a name="conn-mjs"></a>
+### /db/conn.mjs 
 * Establishes a connection to a MongoDB database using the provided ATLAS_URI environment variable. 
 
 * Uses the MongoClient from the mongodb package to connect to a MongoDB Atlas cluster, and upon successful connection, it selects "Venues" database and exports it for use in the project application.
@@ -71,7 +72,8 @@
     export default db;
 ```
 
-### /db/routes.mjs & /db/user.mjs (& etc.) (#record-mjs)
+<a name="record-mjs"></a>
+### /db/record.mjs & /db/user.mjs (& etc.) 
 * Defines an Express.js router that handles various HTTP  for the "Venues" database. 
 * Uses MongoDB operations for data manipulation and includes routes for:
     * retrieving all records
@@ -174,7 +176,8 @@ Similarly, you can query another record that contain the matching keyname by cha
     else res.send(result).status(200);
     });
 ```
-(#user-mjs)
+
+<a name="user-mjs"></a>
 ```user.mjs``` also works in a similar fashion. However, instead of parsing by ```"/:id"```, it uses ```"/:code"``` to find and fetch user records. 
 ```
     let query = {code: req.params.code};
