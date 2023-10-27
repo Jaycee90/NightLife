@@ -1,0 +1,50 @@
+## VibeTrack - Strucutre and Functionality
+
+### Something: 
+### Directory Structure:
+* server
+    * db
+        * conn.mjs
+    * routes
+        * record.mjs
+        * user.mjs
+    * config.env
+    * loadEnvironment.mjs
+    * server.mjs
+    * package.json
+    * package-lock.json
+* client
+    * public
+    * src
+        * css
+            * ...
+        * components
+            * create.js
+            * edit.js
+            * navbar.js
+            * recordList.js
+            * userList.js
+            * specialEventScraper.js
+            * geocoding.py
+        * realm
+            * constant.js
+            * Login.js
+            * Private.js
+            * Signup.js
+            * UserContext.js
+        * routes
+            * Contact.js
+            * Data.js
+            * Discover.js
+            * Home.js
+            * Profile.js
+            * Safety.js
+            * Search.js
+            * Special.js
+            * Template.js
+            * Test.js
+    * App.js
+    * index.js
+* package-kock.json
+* package.json
+
