@@ -1,32 +1,39 @@
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
-import { UserContext } from "./UserContext"; // Import the app instance
+import { UserContext } from "./UserContext";
 import '../css/login.css';
 
 const Security = () => {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState({ // State to manage the form input
     email: "",
   });
 
+  // Retrieve the emailPasswordReset function from the UserContext
   const { emailPasswordReset } = useContext(UserContext);
 
+  // Handle changes in the form input fields
   const onFormInputChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
 
+  // Handle the submission of the reset email form
   const sendResetEmail = async () => {
     try {
+      // Call the emailPasswordReset function with the provided email
       const user = await emailPasswordReset(form.email);
+
+      // If no user is returned, display an alert and do not proceed
       if (!user) {
         alert("Please provide an email address.");
         return;
       }
 
-
+      // Display a success message and reset the form
       alert("Password reset email sent successfully!");
       setForm({ email: "" });
     } catch (error) {
+      // Handle any errors that may occur during the process
       alert(error.message);
     }
   };
