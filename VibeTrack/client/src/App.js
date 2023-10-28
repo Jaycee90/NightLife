@@ -3,6 +3,8 @@ import { UserProvider } from "./realm/UserContext";
 import Login from "./realm/Login";
 import PrivateRoute from "./realm/Private";
 import Signup from "./realm/Signup";
+import Security from "./realm/Security";
+
 
 import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
@@ -50,6 +52,7 @@ function App() {
                 <Route path='/profile/:code' element={<Profile />} />
                 <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
+                <Route path='/security' element={<Security />} />
             </Route>
        </Routes>
      </UserProvider>
