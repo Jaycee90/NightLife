@@ -108,19 +108,19 @@ function Search() {
             <div className="action-box">
             <button onClick={getUserLocation}>Your Location:</button>
             <p id="locationResult">{locationResult}</p>
-            </div>
+        </div>
 
-                        {/* Display the top 10 closest clubs */}
-                        {locationCoord && (
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
                 <div>
                     <h2>Top 10 Closest Clubs</h2>
-                    <table style={{ marginTop: 20, color: '#000000' }}>
+                <   table style={{ marginTop: 20, color: '#000000' }}>
                         <thead>
                             <tr>
-            <th className="nameColumn">Name</th>
-            <th className="addressColumn">Address</th>
-            <th className="nameColumn">Latitude</th>
-            <th className="nameColumn">Longitude</th>
+                                <th className="nameColumn">Name</th>
+                                <th className="addressColumn">Address</th>
+                                <th className="nameColumn">Latitude</th>
+                                <th className="nameColumn">Longitude</th>
                             </tr>
                         </thead>
                         <tbody>
