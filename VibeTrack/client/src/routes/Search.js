@@ -1,15 +1,48 @@
-// Import React and useState hook from the 'react' library
+
+// Import React and useState hook from the 'react' library.
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
+import '../css/Search.css';
 
-// Define a functional component called 'Search'
+const Record = (props) => (
+  <tr>
+    <td>{props.record.name}</td>
+    <td>{props.record.address}</td>
+    <td>{props.record.latitude}</td>
+    <td>{props.record.longitude}</td>
+    
+  </tr>
+);
+
 function Search() {
-    // Define a state variable 'locationResult' and a function to update it, 'setLocationResult'
+    // state variables
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
+    const [records, setRecords] = useState([]); 
+
+    useEffect(() => { 
+      async function getRecords() { // Define an function to fetch data
+        // Send a GET request to the server 
+        const response = await fetch(`http://localhost:5050/record/`);
+  
+        if (!response.ok) { // Check if the response is successful
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
+  
+        const records = await response.json(); // Parse the response (object in database) as JSON
+  
+        setRecords(records);  // Update the 'record' state with the fetched data
+      }
+  
+      getRecords();  // Call fetchData function
+  
+      return;
+    }, [records.length]);
 
     // Define a function to retrieve the user's geolocation
     const getUserLocation = () => {
@@ -48,21 +81,61 @@ function Search() {
         iconUrl: "https://i.imgur.com/yyb78tO.png", 
         iconSize: [32, 32],
     });
-    
+
     // Use useEffect to call getUserLocation when the component mounts
     useEffect(() => {
         getUserLocation();
+        //fetchExistingVenues();
     }, []);
+      
 
     // Render the component's JSX content
-    return (
-        <div>
-            {/* Create a button that triggers the 'getUserLocation' function when clicked */}
-            <button onClick={getUserLocation}>Get My Location</button>
-            <p id="locationResult">{locationResult}</p>
+    function findNearestClubs(userLatitude, userLongitude, numClubs = 10) {
+        const distances = records.map((record) => {
+            const latDiff = userLatitude - record.latitude;
+            const lonDiff = userLongitude - record.longitude;
+            const distance = Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
+            return { record, distance };
+        });
 
+        const sortedRecords = distances.sort((a, b) => a.distance - b.distance).slice(0, numClubs);
+        return sortedRecords.map((entry) => entry.record);
+    }
+
+    return (
+        <div className="main-box">
+            {/* Create a button that triggers the 'getUserLocation' function when clicked */}
+            <div className="action-box">
+            <button onClick={getUserLocation}>Your Location:</button>
+            <p id="locationResult">{locationResult}</p>
+            </div>
+
+                        {/* Display the top 10 closest clubs */}
+                        {locationCoord && (
+                <div>
+                    <h2>Top 10 Closest Clubs</h2>
+                    <table style={{ marginTop: 20, color: '#000000' }}>
+                        <thead>
+                            <tr>
+            <th className="nameColumn">Name</th>
+            <th className="addressColumn">Address</th>
+            <th className="nameColumn">Latitude</th>
+            <th className="nameColumn">Longitude</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
+                                <Record
+                                    record={record}
+                                    key={record._id}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
             {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            <p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>
+            {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
             {/* Render the map with a marker */}
             {mapReady && (
@@ -78,16 +151,17 @@ function Search() {
                     {locationCoord && (
                         <Marker position={locationCoord} icon={icon}>
                             <Popup>
-                                Zelicks <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
+                                Your Location <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
                             </Popup>
                         </Marker>
                     )}        
                 </MapContainer>
             )}
 
+
+
         </div>
     );
 }
 
-// Export the 'Search' component to make it available for use in other parts of our application
 export default Search;

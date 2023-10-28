@@ -1,0 +1,41 @@
+
+.action-box {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin: 10px; 
+    display: inline-block; 
+    border-radius: 5px; 
+    background-color: rgb(198, 56, 56);
+  }
+  
+.main-box{
+    border: 2px solid green;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: rgb(207, 205, 223);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+  
+  .addressColumn {
+    width: 25%;
+  }
+
+  .nameColumn{
+    width:15%;
+  }
+
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}

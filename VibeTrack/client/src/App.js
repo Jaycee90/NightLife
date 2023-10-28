@@ -42,7 +42,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/safety' element={<Safety />} />
             <Route path='/recordlist' element={<RecordList />} />
-            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
 
             <Route exact path="/login" element={<Login />} />

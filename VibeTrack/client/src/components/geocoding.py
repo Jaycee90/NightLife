@@ -24,7 +24,7 @@ def geocode_and_store_addresses(addresses):
     mongo_uri = os.getenv("ATLAS_URI")
     client = pymongo.MongoClient(mongo_uri)
     db = client["Venues"]
-    collection = db["coordinates"]
+    collection = db["Venues"]
 
     for address in addresses:
         location = geolocator.geocode(address)
@@ -38,7 +38,7 @@ def geocode_and_store_addresses(addresses):
 
 if __name__ == "__main__":
     # Read addresses from the CSV file
-    csv_file = "Venues.csv"
+    csv_file = "Venues.Venues.csv"
     venue_addresses = read_addresses_from_csv(csv_file)
 
     # Geocode and store the addresses
