@@ -37,19 +37,17 @@ export const UserProvider = ({ children }) => {
  };
  
  
- // Function to sign up user into our App Service app using their email & password
- const emailPasswordReset = async (email, password) => {
-  try {
-    await app.emailPasswordAuth.sendResetPasswordEmail(email, password);
-     // Since we are automatically confirming our users, we are going to log in
-     // the user using the same credentials once the signup is complete.
-     // return emailPasswordLogin(email, password);
+ // Function to prompt user to reset their password
 
-     return authenticatedUser;
+ const emailPasswordReset = async (email) => {
+  try {
+    await app.emailPasswordAuth.sendResetPasswordEmail({ email });
+    return true;
   } catch (error) {
     throw error;
   }
 };
+
 
 
  // Function to fetch the user (if the user is already logged in) from local storage

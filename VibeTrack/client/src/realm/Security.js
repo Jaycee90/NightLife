@@ -1,30 +1,31 @@
 import { Button, TextField } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "./UserContext"; // Import the app instance
 import '../css/login.css';
-import { app } from "./UserContext"; // Import the app instance
 
 const Security = () => {
   const [form, setForm] = useState({
-    currentPassword: "",
-    newPassword: "",
+    email: "",
   });
+
+  const { emailPasswordReset } = useContext(UserContext);
 
   const onFormInputChange = (event) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
 
-  const changePassword = async () => {
+  const sendResetEmail = async () => {
     try {
-      if (!form.currentPassword || !form.newPassword) {
-        alert("Please provide both current and new passwords.");
+      const user = await emailPasswordReset(form.email);
+      if (!user) {
+        alert("Please provide an email address.");
         return;
       }
 
-      await app.currentUser.changePassword(form.currentPassword, form.newPassword);
 
-      alert("Password changed successfully!");
-      setForm({ currentPassword: "", newPassword: "" });
+      alert("Password reset email sent successfully!");
+      setForm({ email: "" });
     } catch (error) {
       alert(error.message);
     }
@@ -41,29 +42,19 @@ const Security = () => {
         backgroundColor: "#fff"
       }}
     >
-      <h1 style={{ marginBottom: "10px" }}>Change Password</h1>
+      <h1 style={{ marginBottom: "10px" }}>Reset Password</h1>
       <TextField
-        label="Current Password"
-        type="password"
+        label="Email"
+        type="email"
         variant="outlined"
-        name="currentPassword"
-        value={form.currentPassword}
+        name="email"
+        value={form.email}
         onInput={onFormInputChange}
         style={{ marginBottom: "1rem", backgroundColor: "#fff", color: '#000' }}
         inputProps={{ style: { backgroundColor: "#fff", color: '#000' } }}
       />
-      <TextField
-        label="New Password"
-        type="password"
-        variant="outlined"
-        name="newPassword"
-        value={form.newPassword}
-        onInput={onFormInputChange}
-        style={{ marginBottom: "1rem", backgroundColor: "#fff", color: '#000' }}
-        inputProps={{ style: { backgroundColor: "#fff", color: '#000' } }}
-      />
-      <Button variant="contained" color="primary" onClick={changePassword}>
-        Change Password
+      <Button variant="contained" color="primary" onClick={sendResetEmail}>
+        Send Reset Email
       </Button>
     </form>
   );
