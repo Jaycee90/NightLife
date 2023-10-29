@@ -7,3 +7,22 @@ const colors = {
     grey: "#a9a9a9"
     
 };
+
+
+function StarRating() {
+    const [currentValue, setCurrentValue] = useState(0);
+    const [hoverValue, setHoverValue] = useState(undefined);
+    const stars = Array(5).fill(0)
+  
+    const handleClick = value => {
+      setCurrentValue(value)
+    }
+  
+    const handleMouseOver = newHoverValue => {
+      setHoverValue(newHoverValue)
+    };
+  
+    const handleMouseLeave = () => {
+      setHoverValue(undefined)
+    }
+}
