@@ -48,7 +48,13 @@ export const UserProvider = ({ children }) => {
   }
 };
 
-
+const passwordReset = async (password, token, id) => {
+  try {
+    await app.emailPasswordAuth.resetPassword(password, token, id);
+  } catch (error) {
+    throw error;
+  }
+};
 
  // Function to fetch the user (if the user is already logged in) from local storage
  const fetchUser = async () => {
