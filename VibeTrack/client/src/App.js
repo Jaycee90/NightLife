@@ -46,14 +46,14 @@ function App() {
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />
 
+            <Route path='/security' element={<Security />} />
+            <Route path='/reset' element={<Reset />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/profile/:code' element={<Profile />} />
                 <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-                <Route path='/security' element={<Security />} />
-                <Route path='/reset' element={<Reset />} />
             </Route>
        </Routes>
      </UserProvider>

@@ -6,8 +6,8 @@ import '../css/login.css';
 const Reset = () => {
     const [form, setForm] = useState({ 
         password: "",
-        token: "", // New input field for token
-        tokenId: "" // New input field for tokenId
+        //token: "", // New input field for token
+        //tokenId: "" // New input field for tokenId
     });
 
     const { passwordReset } = useContext(UserContext);
@@ -18,20 +18,20 @@ const Reset = () => {
     };
 
     const resetPasswordWithToken = async () => {
-        //const urlParams = new URLSearchParams(window.location.search);
-        //const token = urlParams.get('token');
-        //const tokenId = urlParams.get('tokenId');
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        const tokenId = urlParams.get('tokenId');
 
         try {
-            const { password, token, tokenId } = form; // Destructure form values
+            //const { password, token, tokenId } = form; // Destructure form values
 
             // Validate that password, token, and tokenId are provided
-            if (!password || !token || !tokenId) {
-                alert("Please provide all required information.");
-                return;
-            }
+            //if (!password || !token || !tokenId) {
+            //    alert("Please provide all required information.");
+            //    return;
+            //}
 
-            await passwordReset(password, token, tokenId);
+            await passwordReset(form.password, token, tokenId);
 
             alert("Password reset successfully!");
         } catch (error) {
@@ -52,6 +52,7 @@ const Reset = () => {
                 style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
                 inputProps={{ style: { backgroundColor: "#fff" } }}
             />
+            {/*
             <TextField
                 label="Token"
                 variant="outlined"
@@ -69,7 +70,7 @@ const Reset = () => {
                 onChange={onFormInputChange}
                 style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
                 inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
-            />
+            />*/}
             <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
                 Reset Password
             </Button>
