@@ -4,42 +4,44 @@ import { UserContext } from "./UserContext";
 import '../css/login.css';
 
 const Reset = () => {
-    // State to manage the form input
     const [form, setForm] = useState({ 
         password: "",
+        token: "", // New input field for token
+        tokenId: "" // New input field for tokenId
     });
 
-    // Accessing the passwordReset function from the context
     const { passwordReset } = useContext(UserContext);
 
-    // Handler for form input changes
     const onFormInputChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
     };
 
-    // Function to reset password with the provided token and tokenId
     const resetPasswordWithToken = async () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
-        const tokenId = urlParams.get('tokenId');
+        //const urlParams = new URLSearchParams(window.location.search);
+        //const token = urlParams.get('token');
+        //const tokenId = urlParams.get('tokenId');
 
         try {
-            // Call the passwordReset function with the provided password, token, and tokenId
-            await passwordReset(form.password, token, tokenId);
+            const { password, token, tokenId } = form; // Destructure form values
 
-            // Display a success message
+            // Validate that password, token, and tokenId are provided
+            if (!password || !token || !tokenId) {
+                alert("Please provide all required information.");
+                return;
+            }
+
+            await passwordReset(password, token, tokenId);
+
             alert("Password reset successfully!");
         } catch (error) {
-            // Handle any errors that may occur during the process
-            alert(error.message);
+            alert(`Error resetting password:\n\nPassword: ${form.password}\nToken: ${form.token}\nToken ID: ${form.tokenId}\n\n${error.message}`);
         }
     };
 
     return (
-        <form>
-            <h1>Reset Password</h1>
-            {/* Input field for the new password */}
+        <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:'#000', backgroundColor:"#fff"}}>
+            <h1 style={{marginBottom:"10px"}}>Reset Password</h1>
             <TextField
                 label="New Password"
                 type="password"
@@ -47,8 +49,27 @@ const Reset = () => {
                 name="password"
                 value={form.password}
                 onChange={onFormInputChange}
+                style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
+                inputProps={{ style: { backgroundColor: "#fff" } }}
             />
-            {/* Button to trigger the password reset */}
+            <TextField
+                label="Token"
+                variant="outlined"
+                name="token"
+                value={form.token}
+                onChange={onFormInputChange}
+                style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
+                inputProps={{ style: { backgroundColor: "#fff", color: "#000"} }}
+            />
+            <TextField
+                label="Token ID"
+                variant="outlined"
+                name="tokenId"
+                value={form.tokenId}
+                onChange={onFormInputChange}
+                style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
+                inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
+            />
             <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
                 Reset Password
             </Button>
