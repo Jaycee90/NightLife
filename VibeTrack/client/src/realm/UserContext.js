@@ -37,7 +37,7 @@ export const UserProvider = ({ children }) => {
  };
  
  
- // Function to prompt user to input email to reset their password
+ // Function to prompt user to enter email for reset password link (with token and tokenID)
  const emailPasswordReset = async (email) => {
   try {
     await app.emailPasswordAuth.sendResetPasswordEmail({ email });
