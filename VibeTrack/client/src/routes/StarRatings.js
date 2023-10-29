@@ -25,4 +25,9 @@ function StarRating() {
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
-}
+    return (
+        <div>
+            <h1>This is our VibeTRACK Rating system</h1>
+        </div>
+    );
+};
