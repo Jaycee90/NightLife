@@ -26,8 +26,37 @@ function StarRating() {
       setHoverValue(undefined)
     }
     return (
-        <div>
-            <h1>This is our VibeTRACK Rating system</h1>
-        </div>
+        <div style={styles.container}>
+      <h2> VibeTrack Ratings </h2>
+      <div style={styles.stars}>
+        {stars.map((_, index) => {
+          return (
+            <FaStar
+              key={index}
+              size={24}
+              onClick={() => handleClick(index + 1)}
+              onMouseOver={() => handleMouseOver(index + 1)}
+              onMouseLeave={handleMouseLeave}
+              color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+              style={{
+                marginRight: 10,
+                cursor: "pointer"
+              }}
+            />
+          )
+        })}
+      </div>
+      <textarea
+        placeholder="This is the ratings page"
+        style={styles.textarea}
+      />
+
+      <button
+        style={styles.button}
+      >
+        Submit
+      </button>
+      
+    </div>
     );
 };
