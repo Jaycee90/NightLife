@@ -23,7 +23,7 @@ const Reset = () => {
         //const tokenId = urlParams.get('tokenId');
 
         try {
-            const { password, token, tokenId } = form; // Destructure form values
+            const { token, tokenId, password} = form; // Destructure form values
 
             // Validate that password, token, and tokenId are provided
             if (!password || !token || !tokenId) {
@@ -31,7 +31,7 @@ const Reset = () => {
                 return;
             }
 
-            await passwordReset(form.password, form.token, form.tokenId);
+            await passwordReset(form.token, form.tokenId, form.password);
 
             alert("Password reset successfully!");
         } catch (error) {

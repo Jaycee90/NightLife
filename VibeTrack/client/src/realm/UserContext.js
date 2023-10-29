@@ -48,9 +48,9 @@ export const UserProvider = ({ children }) => {
 };
 
 // Function to prompt user to reset their password
-const passwordReset = async (password, token, id) => {
+const passwordReset = async (token, tokenId, password) => {
   try {
-    await app.emailPasswordAuth.resetPassword(password, token, id);
+    await app.emailPasswordAuth.resetPassword(token, tokenId, password);
   } catch (error) {
     throw error;
   }
