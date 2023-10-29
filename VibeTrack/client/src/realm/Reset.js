@@ -8,7 +8,7 @@ const Reset = () => {
         password: "",
     });
 
-    const { resetPassword } = useContext(UserContext);
+    const { passwordReset } = useContext(UserContext);
 
     const onFormInputChange = (event) => {
         const { name, value } = event.target;
@@ -21,7 +21,7 @@ const Reset = () => {
         const tokenId = urlParams.get('tokenId');
 
         try {
-            await resetPassword(form.password, token, tokenId);
+            await passwordReset(form.password, token, tokenId);
             alert("Password reset successfully!");
         } catch (error) {
             alert(error.message);

@@ -83,7 +83,7 @@ const passwordReset = async (password, token, id) => {
    }
  }
  
- return <UserContext.Provider value={{ user, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser, emailPasswordReset  }}>
+ return <UserContext.Provider value={{ user, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser, emailPasswordReset, passwordReset  }}>
    {children}
  </UserContext.Provider>;
 }
