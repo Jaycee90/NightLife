@@ -88,3 +88,6 @@ const styles = {
     }
   
   };
+
+
+  export default    StarRating;
