@@ -22,6 +22,7 @@ function Search() {
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
     const [records, setRecords] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -33,13 +34,16 @@ function Search() {
           window.alert(message);
           return;
         }
+
+        // Parse the response (object in database) as JSON
+        const records = await response.json(); 
   
-        const records = await response.json(); // Parse the response (object in database) as JSON
-  
-        setRecords(records);  // Update the 'record' state with the fetched data
+        // Update the 'record' state with the fetched data
+        setRecords(records);  
       }
   
-      getRecords();  // Call fetchData function
+      // Call fetchData function
+      getRecords();  
   
       return;
     }, [records.length]);
@@ -106,21 +110,21 @@ function Search() {
         <div className="main-box">
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
-            <button onClick={getUserLocation}>Your Location:</button>
+            <button onClick={getUserLocation}>My Location:</button>
             <p id="locationResult">{locationResult}</p>
-            </div>
+        </div>
 
-                        {/* Display the top 10 closest clubs */}
-                        {locationCoord && (
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
                 <div>
                     <h2>Top 10 Closest Clubs</h2>
-                    <table style={{ marginTop: 20, color: '#000000' }}>
+                <   table style={{ marginTop: 20, color: '#000000' }}>
                         <thead>
                             <tr>
-            <th className="nameColumn">Name</th>
-            <th className="addressColumn">Address</th>
-            <th className="nameColumn">Latitude</th>
-            <th className="nameColumn">Longitude</th>
+                                <th className="nameColumn">Name</th>
+                                <th className="addressColumn">Address</th>
+                                <th className="nameColumn">Latitude</th>
+                                <th className="nameColumn">Longitude</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -134,8 +138,6 @@ function Search() {
                     </table>
                 </div>
             )}
-            {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
             {/* Render the map with a marker */}
             {mapReady && (
