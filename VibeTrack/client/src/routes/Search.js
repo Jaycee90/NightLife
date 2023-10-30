@@ -22,6 +22,7 @@ function Search() {
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
     const [records, setRecords] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
