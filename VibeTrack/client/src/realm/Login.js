@@ -1,30 +1,35 @@
 import { Button, TextField } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./UserContext"; // Import the app instance
 import '../css/login.css';
  
 const Login = () => {
  const navigate = useNavigate();
  const location = useLocation();
  
+ // Retrieve user, fetchUser, and emailPasswordLogin functions from UserContext
  const { user, fetchUser, emailPasswordLogin } = useContext(UserContext);
  
+ // State to manage form input
  const [form, setForm] = useState({
    email: "",
    password: ""
  });
  
+ // Handle changes in form input fields
  const onFormInputChange = (event) => {
    const { name, value } = event.target;
    setForm({ ...form, [name]: value });
  };
  
+ // Redirect user to a specified location (default to home)
  const redirectNow = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
    navigate(redirectTo ? redirectTo : "/");
  }
  
+ // Load user data if user is not already logged in
  const loadUser = async () => {
    if (!user) {
      const fetchedUser = await fetchUser();
@@ -34,10 +39,12 @@ const Login = () => {
    }
  }
  
+ // Load user data on component mount
  useEffect(() => {
    loadUser(); // eslint-disable-next-line react-hooks/exhaustive-deps
  }, []);
  
+ // Handle form submission for login
  const onSubmit = async (event) => {
    try {
      const user = await emailPasswordLogin(form.email, form.password);
@@ -50,7 +57,6 @@ const Login = () => {
       } else {
           alert(error);
       }
- 
    }
  };
  

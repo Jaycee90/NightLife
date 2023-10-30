@@ -3,12 +3,13 @@
     "$oid": "6532c592d72f558fd3bdf8d5"
   },
   "email": "micnguyen2063@gmail.com",
+  "code": "653826c59747e09f56ad579f",
   "phone": "5129389071",
   "gender": "Female",
   "birthdate": "2000-06-03",
   "emergency1": [
     "Michelle Nguyen",
-    []
+    "micnguyen2063@gmail.com"
   ],
   "emergency2": [
     "Michele Nguyem",
@@ -16,4 +17,64 @@
   ],
   "name": "Michelle",
   "lastName": "Nguyen"
+},
+{
+  "_id": {
+    "$oid": "653826c69747e09f56ad57b0"
+  },
+  "email": "rnb90@txstate.edu",
+  "name": "Michelle",
+  "lastName": "Nguyen",
+  "phone": "5129389070",
+  "gender": "Female",
+  "birthdate": "2000-06-02",
+  "emergency1": [
+    "Michelle Nguyen",
+    "micnguyen2063@gmail.com"
+  ],
+  "emergency2": [
+    "Michele Nguyem",
+    "rnb90@txstate.edu"
+  ],
+  "code": "653826c59747e09f56ad579a"
+},
+{
+  "_id": {
+    "$oid": "653846b6b06824d024339579"
+  },
+  "code": "653846b6b06824d02433955d",
+  "email": "sahnilu898!@gmail.com",
+  "name": "Nilu ",
+  "lastName": "Sah",
+  "phone": "51267783456",
+  "gender": null,
+  "birthdate": "1999-09-08",
+  "emergency1": [
+    "Nilu Sahm",
+    "sahnilu898!@gmail.com"
+  ],
+  "emergency2": [
+    "Nilu Sahn",
+    "sahnilu899!@gmail.com"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65384c140c0460744f6b5b1f"
+  },
+  "code": "65384c140c0460744f6b5b01",
+  "email": "jnn55@txstate.edu",
+  "name": "Jayce",
+  "lastName": "Turam",
+  "phone": "512789725",
+  "gender": "Male",
+  "birthdate": "2016-01-29",
+  "emergency1": [
+    "Jayce Tura",
+    "jnn55@txstate.edu"
+  ],
+  "emergency2": [
+    "Jayce Turamb",
+    "jnn55@txstate.edu"
+  ]
 }]

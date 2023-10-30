@@ -19,19 +19,43 @@ export const UserProvider = ({ children }) => {
    setUser(authenticatedUser);
    return authenticatedUser;
  };
- 
+
  // Function to sign up user into our App Service app using their email & password
  const emailPasswordSignup = async (email, password) => {
    try {
      await app.emailPasswordAuth.registerUser(email, password);
-     // Since we are automatically confirming our users, we are going to log in
-     // the user using the same credentials once the signup is complete.
-     return emailPasswordLogin(email, password);
+      // Since we are automatically confirming our users, we are going to log in
+      // the user using the same credentials once the signup is complete.
+      // return emailPasswordLogin(email, password);
+
+      // The user is automatically confirmed, no need to manually confirm.
+      const authenticatedUser = await emailPasswordLogin(email, password);
+      return authenticatedUser;
    } catch (error) {
      throw error;
    }
  };
  
+ 
+ // Function to prompt user to enter email for reset password link (with token and tokenID)
+ const emailPasswordReset = async (email) => {
+  try {
+    await app.emailPasswordAuth.sendResetPasswordEmail({ email });
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// Function to prompt user to reset their password
+const passwordReset = async (token, tokenId, password) => {
+  try {
+    await app.emailPasswordAuth.resetPassword(token, tokenId, password);
+  } catch (error) {
+    throw error;
+  }
+};
+
  // Function to fetch the user (if the user is already logged in) from local storage
  const fetchUser = async () => {
    if (!app.currentUser) return false;
@@ -59,7 +83,7 @@ export const UserProvider = ({ children }) => {
    }
  }
  
- return <UserContext.Provider value={{ user, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser }}>
+ return <UserContext.Provider value={{ user, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser, emailPasswordReset, passwordReset  }}>
    {children}
  </UserContext.Provider>;
 }

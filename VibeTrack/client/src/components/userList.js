@@ -11,7 +11,7 @@ const User = (props) => (
     <td>{props.user.gender}</td>
     <td>{props.user.birthdate}</td>
     <td>
-      <Link className="btn btn-link" to={`/settings/${props.user._id}`} style={{ color: '#000000' }}>Edit</Link>
+      <Link className="btn btn-link" to={`/settings/${props.user.code}`} style={{ color: '#000000' }}>Edit</Link>
     </td>
   </tr>
 );
@@ -40,13 +40,13 @@ export default function UserList() {
     return;
   }, [users.length]);
 
-  async function deleteUser(id) { // Deletes a record by its ID
-    await fetch(`http://localhost:5050/user/${id}`, {
+  async function deleteUser(code) { // Deletes a record by its ID
+    await fetch(`http://localhost:5050/user/${code}`, {
       method: "DELETE"
     });
 
     //  Create a new array that excludes the record with the matching _id.
-    const newUsers = users.filter((el) => el._id !== id);
+    const newUsers = users.filter((el) => el.code !== code);
     setUsers(newUsers);
   }
 
@@ -55,8 +55,8 @@ export default function UserList() {
       return (
         <User 
           user={user}
-          deleteUser={() => deleteUser(user._id)}
-          key={user._id}
+          deleteUser={() => deleteUser(user.code)}
+          key={user.code}
         />
       );
     });

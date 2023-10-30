@@ -1,6 +1,6 @@
 import express from "express";
 import db from "../db/conn.mjs";
-import { ObjectId } from "mongodb";
+//import { ObjectId } from "mongodb";
 
 const router = express.Router();
 
@@ -12,9 +12,9 @@ router.get("/", async (req, res) => {
 });
 
 // This section will help you get a single record by id
-router.get("/:user", async (req, res) => {
+router.get("/:code", async (req, res) => {
   let collection = await db.collection("User");
-  let query = {_id: new ObjectId(req.params.user)};
+  let query = {code: req.params.code};
   let result = await collection.findOne(query);
 
   if (!result) res.send("Not found").status(404);
@@ -24,14 +24,17 @@ router.get("/:user", async (req, res) => {
 // This section will help you create a new record.
 router.post("/", async (req, res) => {
   let newDocument = {
+    code: req.body.code,
     name: req.body.name,
     lastName: req.body.lastName,
     phone: req.body.phone,
     email: req.body.email,
     gender: req.body.gender,
     birthdate: req.body.birthdate,
-    emergency1: req.body.emergency1,
-    emergency2: req.body.emergency2,
+    emergencyName1: req.body.emergencyName1,
+    emergencyEmail1: req.body.emergencyEmail1,
+    emergencyName2: req.body.emergencyName2,
+    emergencyEmail2: req.body.emergencyEmail2,
   };
   let collection = await db.collection("User");
   let result = await collection.insertOne(newDocument);
@@ -39,18 +42,21 @@ router.post("/", async (req, res) => {
 });
 
 // This section will help you update a record by id.
-router.patch("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
+router.patch("/:code", async (req, res) => {
+  let query = {code: req.params.code};
   const updates =  {
     $set: {
+      code: req.body.code,
       name: req.body.name,
       lastName: req.body.lastName,
       phone: req.body.phone,
       email: req.body.email,
       gender: req.body.gender,
       birthdate: req.body.birthdate,
-      emergency1: req.body.emergency1,
-      emergency2: req.body.emergency2,
+      emergencyName1: req.body.emergencyName1,
+      emergencyEmail1: req.body.emergencyEmail1,
+      emergencyName2: req.body.emergencyName2,
+      emergencyEmail2: req.body.emergencyEmail2,
     }
   };
 
@@ -60,8 +66,8 @@ router.patch("/:user", async (req, res) => {
 });
 
 // This section will help you delete a record
-router.delete("/:user", async (req, res) => {
-  const query = { _id: new ObjectId(req.params.user) };
+router.delete("/:code", async (req, res) => {
+  let query = {code: req.params.code};
 
   const collection = db.collection("User");
   let result = await collection.deleteOne(query);

@@ -5,10 +5,10 @@ import { UserContext } from "./UserContext";
 import '../css/login.css';
  
 const Signup = () => {
- const navigate = useNavigate();
- const location = useLocation();
+ const navigate = useNavigate(); // Hook for navigating between routes
+ const location = useLocation(); // Hook for getting the current location
  
- const { emailPasswordSignup } = useContext(UserContext);
+ const { emailPasswordSignup } = useContext(UserContext); // Destructuring and accessing the signup function from the context
  const [form, setForm] = useState({
    email: "",
    password: "",
@@ -18,22 +18,23 @@ const Signup = () => {
  
  const onFormInputChange = (event) => {
    const { name, value } = event.target;
-   setForm({ ...form, [name]: value });
+   setForm({ ...form, [name]: value }); // Updating the form state with the new input value
  };
  
  const redirectNow = () => {
-   const redirectTo = location.search.replace("?redirectTo=", "");
-   navigate(redirectTo ? redirectTo : "/");
+   const redirectTo = location.search.replace("?redirectTo=", ""); // Extracting the redirectTo parameter from the URL
+   navigate(redirectTo ? redirectTo : "/"); // Navigating to the redirectTo path or the default path if not provided
  }
  
  const onSubmit = async () => {
    try {
-     const user = await emailPasswordSignup(form.email, form.password, form.name, form.lastName);
+     const user = await emailPasswordSignup(form.email, form.password); // Calling the signup function
      if (user) {
-       redirectNow();
+        alert(`Your user ID is: ${user.id}. Keep this with you.`); // Showing a success message with the user ID
+       redirectNow(); // Redirecting after successful signup
      }
    } catch (error) {
-     alert(error);
+     alert(error); // Handling and alerting any errors that occur during signup
    }
  };
  

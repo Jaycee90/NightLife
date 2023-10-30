@@ -3,13 +3,14 @@ import { UserProvider } from "./realm/UserContext";
 import Login from "./realm/Login";
 import PrivateRoute from "./realm/Private";
 import Signup from "./realm/Signup";
+import Security from "./realm/Security";
+import Reset from "./realm/Reset";
 
 import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import UserList from "./components/userList";
-import Settings from "./components/settings";
 
 import Discover from './routes/Discover';
 import Data from './routes/Data'; 
@@ -45,13 +46,14 @@ function App() {
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
 
+            <Route path='/security' element={<Security />} />
+            <Route path='/reset' element={<Reset />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route element={<PrivateRoute />}>
-                <Route path='/profile/:user' element={<Profile />} />
-                <Route path='/contact/:user' element={<Contact />} />
+                <Route path='/profile/:code' element={<Profile />} />
+                <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-                <Route path="/settings/:user" element={<Settings />} />
             </Route>
        </Routes>
      </UserProvider>
