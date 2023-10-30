@@ -22,7 +22,9 @@ function Search() {
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
     const [records, setRecords] = useState([]); 
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query.
+    const [venueFound, setVenueFound] = useState(false);
+    const [foundVenueLocation, setFoundVenueLocation] = useState(null);
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -34,16 +36,13 @@ function Search() {
           window.alert(message);
           return;
         }
-
-        // Parse the response (object in database) as JSON
-        const records = await response.json(); 
   
-        // Update the 'record' state with the fetched data
-        setRecords(records);  
+        const records = await response.json(); // Parse the response (object in database) as JSON
+  
+        setRecords(records);  // Update the 'record' state with the fetched data
       }
   
-      // Call fetchData function
-      getRecords();  
+      getRecords();  // Call fetchData function
   
       return;
     }, [records.length]);
@@ -91,7 +90,6 @@ function Search() {
         getUserLocation();
         //fetchExistingVenues();
     }, []);
-      
 
     // Render the component's JSX content
     function findNearestClubs(userLatitude, userLongitude, numClubs = 10) {
@@ -106,25 +104,67 @@ function Search() {
         return sortedRecords.map((entry) => entry.record);
     }
 
+    // Function to update the search query
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    // Function to search for a specific venue by name
+    const searchVenue = () => {
+        const foundVenue = records.find(record =>
+            record.name.toLowerCase() === searchQuery.toLowerCase()
+        );
+    
+        if (foundVenue) {
+            setVenueFound(true);
+            setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
+        } else {
+            setVenueFound(false);
+        }
+    };
+          
+
     return (
         <div className="main-box">
+            <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
+            <div className="action-box">
+            <button onClick={searchVenue}>Search</button>
+            </div>
+            
+            {/**prompt a user to search */}
+            <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Search by venue name"
+            />
+
+            {/* Display search result message */}
+            {searchQuery && (
+                <p>
+                    {venueFound
+                        ? `Heading to ${searchQuery}`
+                        : `Venue "${searchQuery}" not found`}
+                </p>
+            )}
+
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
-            <button onClick={getUserLocation}>My Location:</button>
+            <button onClick={getUserLocation}>Your Location:</button>
             <p id="locationResult">{locationResult}</p>
-        </div>
+            </div>
 
-            {/* Display the top 10 closest clubs */}
-            {locationCoord && (
+                        {/* Display the top 10 closest clubs */}
+                        {locationCoord && (
                 <div>
-                    <h2>Top 10 Closest Clubs</h2>
-                <   table style={{ marginTop: 20, color: '#000000' }}>
+                    <h2 className="nearMe">Top 10 Closest Clubs</h2>
+                    <table style={{ marginTop: 20, color: '#000000' }}>
                         <thead>
                             <tr>
-                                <th className="nameColumn">Name</th>
-                                <th className="addressColumn">Address</th>
-                                <th className="nameColumn">Latitude</th>
-                                <th className="nameColumn">Longitude</th>
+            <th className="nameColumn">Name</th>
+            <th className="addressColumn">Address</th>
+            <th className="nameColumn">Latitude</th>
+            <th className="nameColumn">Longitude</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -139,24 +179,28 @@ function Search() {
                 </div>
             )}
 
-            {/* Render the map with a marker */}
+            {/* Render the map with the found venue marker or user's location */}
             {mapReady && (
                 <MapContainer
                     style={{ height: "70vh", width: "100%" }}
-                    center={locationCoord || [0, 0]} // Center the map at the user's geolocation or default to [0, 0]
+                    center={
+                        foundVenueLocation ? foundVenueLocation : locationCoord || [0, 0]
+                    }
                     zoom={15}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {locationCoord && (
-                        <Marker position={locationCoord} icon={icon}>
-                            <Popup>
-                                Your Location <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
-                            </Popup>
+                    {foundVenueLocation ? (
+                        <Marker position={foundVenueLocation} icon={icon}>
+                            <Popup>{`Heading to ${searchQuery}`}</Popup>
                         </Marker>
-                    )}        
+                    ) : locationCoord && (
+                        <Marker position={locationCoord} icon={icon}>
+                            <Popup>Your Location</Popup>
+                        </Marker>
+                    )}
                 </MapContainer>
             )}
 
