@@ -124,6 +124,7 @@ npm start
 	* Create a database for the user information
 	* Possible favorite feature
 	* Possible review feature 
+	* created a test app for the basic star ratings function.
 * __Michelle__: 
 	* Continue expanding and integrating database into application (opening hours, social Media, image gallery)
 	* Continue improving interface to be more user-friendly and easy-to-navigate 
