@@ -30,6 +30,20 @@ text-align: center;
 
 }
 
+.para{
+  text-align: center;
+  color: green;
+  width: 100%;
+  padding: 20px;
+  font-size: 2em;
+}
+
+.nearMe{
+  color: black;
+  text-align: center;
+
+}
+
 table {
 border-collapse: collapse;
 width: 100%;
