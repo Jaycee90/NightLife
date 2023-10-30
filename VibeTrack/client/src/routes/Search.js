@@ -81,14 +81,17 @@ function Search() {
 
     // Custom icon for the marker
     const icon = new L.Icon({
-        iconUrl: "https://i.imgur.com/yyb78tO.png", 
-        iconSize: [32, 32],
+        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
     });
 
     // Use useEffect to call getUserLocation when the component mounts
     useEffect(() => {
         getUserLocation();
-        //fetchExistingVenues();
     }, []);
 
     // Render the component's JSX content
@@ -122,8 +125,24 @@ function Search() {
             setVenueFound(false);
         }
     };
-          
 
+    // Display the user's location marker by default or when no search is performed
+    const defaultMarker = locationCoord && !venueFound && !searchQuery && (
+        <Marker position={locationCoord} icon={icon}>
+            <Popup>Your Location</Popup>
+        </Marker>
+    );
+
+    // Function to get the top 10 closest clubs' markers
+    const getTopClubsMarkers = (userLatitude, userLongitude) => {
+        const nearestClubs = findNearestClubs(userLatitude, userLongitude, 10);
+        return nearestClubs.map((club, index) => (
+            <Marker key={index} position={[club.latitude, club.longitude]} icon={icon}>
+                <Popup>{club.name}</Popup>
+            </Marker>
+        ));
+    };
+          
     return (
         <div className="main-box">
             <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
@@ -154,60 +173,53 @@ function Search() {
             <p id="locationResult">{locationResult}</p>
             </div>
 
-                        {/* Display the top 10 closest clubs */}
-                        {locationCoord && (
-                <div>
-                    <h2 className="nearMe">Top 10 Closest Clubs</h2>
-                    <table style={{ marginTop: 20, color: '#000000' }}>
-                        <thead>
-                            <tr>
-            <th className="nameColumn">Name</th>
-            <th className="addressColumn">Address</th>
-            <th className="nameColumn">Latitude</th>
-            <th className="nameColumn">Longitude</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
-                                <Record
-                                    record={record}
-                                    key={record._id}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
+            <div>
+                <h2 className="nearMe">Top 10 Closest Clubs</h2>
+                <table style={{ marginTop: 20, color: '#000000' }}>
+                    <thead>
+                        <tr>
+                            <th className="nameColumn">Name</th>
+                            <th className="addressColumn">Address</th>
+                            <th className="nameColumn">Latitude</th>
+                            <th className="nameColumn">Longitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
+                        <Record 
+                        record={record}
+                        key={record._id}
+                        />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             )}
 
-            {/* Render the map with the found venue marker or user's location */}
+            {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
                     style={{ height: "70vh", width: "100%" }}
-                    center={
-                        foundVenueLocation ? foundVenueLocation : locationCoord || [0, 0]
-                    }
+                    center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
                     zoom={15}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {foundVenueLocation ? (
+                    {defaultMarker}
+                    {foundVenueLocation && (
                         <Marker position={foundVenueLocation} icon={icon}>
                             <Popup>{`Heading to ${searchQuery}`}</Popup>
                         </Marker>
-                    ) : locationCoord && (
-                        <Marker position={locationCoord} icon={icon}>
-                            <Popup>Your Location</Popup>
-                        </Marker>
                     )}
+                    {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
-
-
 
         </div>
     );
 }
-
 export default Search;
