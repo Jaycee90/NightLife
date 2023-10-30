@@ -126,8 +126,11 @@ function Search() {
 
     return (
         <div className="main-box">
-            <p>Ready to make the dance floor jealous? Let's vibe!</p>
+            <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
+            <div className="action-box">
             <button onClick={searchVenue}>Search</button>
+            </div>
+            
             {/**prompt a user to search */}
             <input
                 type="text"
@@ -154,7 +157,7 @@ function Search() {
                         {/* Display the top 10 closest clubs */}
                         {locationCoord && (
                 <div>
-                    <h2>Top 10 Closest Clubs</h2>
+                    <h2 className="nearMe">Top 10 Closest Clubs</h2>
                     <table style={{ marginTop: 20, color: '#000000' }}>
                         <thead>
                             <tr>
