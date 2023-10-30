@@ -122,6 +122,13 @@ function Search() {
             setVenueFound(false);
         }
     };
+
+    // Display the user's location marker by default or when no search is performed
+    const defaultMarker = locationCoord && !venueFound && !searchQuery && (
+        <Marker position={locationCoord} icon={icon}>
+            <Popup>Your Location</Popup>
+        </Marker>
+    );
           
 
     return (
