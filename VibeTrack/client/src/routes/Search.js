@@ -33,13 +33,16 @@ function Search() {
           window.alert(message);
           return;
         }
+
+        // Parse the response (object in database) as JSON
+        const records = await response.json(); 
   
-        const records = await response.json(); // Parse the response (object in database) as JSON
-  
-        setRecords(records);  // Update the 'record' state with the fetched data
+        // Update the 'record' state with the fetched data
+        setRecords(records);  
       }
   
-      getRecords();  // Call fetchData function
+      // Call fetchData function
+      getRecords();  
   
       return;
     }, [records.length]);
@@ -106,7 +109,7 @@ function Search() {
         <div className="main-box">
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
-            <button onClick={getUserLocation}>Your Location:</button>
+            <button onClick={getUserLocation}>My Location:</button>
             <p id="locationResult">{locationResult}</p>
         </div>
 
@@ -134,8 +137,6 @@ function Search() {
                     </table>
                 </div>
             )}
-            {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
             {/* Render the map with a marker */}
             {mapReady && (
