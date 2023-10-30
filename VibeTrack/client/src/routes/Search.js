@@ -81,8 +81,12 @@ function Search() {
 
     // Custom icon for the marker
     const icon = new L.Icon({
-        iconUrl: "https://i.imgur.com/yyb78tO.png", 
-        iconSize: [32, 32],
+        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
     });
 
     // Use useEffect to call getUserLocation when the component mounts
@@ -196,28 +200,25 @@ function Search() {
                 </div>
             )}
 
-            {/* Render the map with the found venue marker or user's location */}
+
+            {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
                     style={{ height: "70vh", width: "100%" }}
-                    center={
-                        foundVenueLocation ? foundVenueLocation : locationCoord || [0, 0]
-                    }
+                    center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
                     zoom={15}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {foundVenueLocation ? (
+                    {defaultMarker}
+                    {foundVenueLocation && (
                         <Marker position={foundVenueLocation} icon={icon}>
                             <Popup>{`Heading to ${searchQuery}`}</Popup>
                         </Marker>
-                    ) : locationCoord && (
-                        <Marker position={locationCoord} icon={icon}>
-                            <Popup>Your Location</Popup>
-                        </Marker>
                     )}
+                    {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
 
