@@ -92,7 +92,6 @@ function Search() {
     // Use useEffect to call getUserLocation when the component mounts
     useEffect(() => {
         getUserLocation();
-        //fetchExistingVenues();
     }, []);
 
     // Render the component's JSX content
@@ -144,7 +143,6 @@ function Search() {
         ));
     };
           
-
     return (
         <div className="main-box">
             <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
@@ -175,31 +173,30 @@ function Search() {
             <p id="locationResult">{locationResult}</p>
             </div>
 
-                        {/* Display the top 10 closest clubs */}
-                        {locationCoord && (
-                <div>
-                    <h2 className="nearMe">Top 10 Closest Clubs</h2>
-                    <table style={{ marginTop: 20, color: '#000000' }}>
-                        <thead>
-                            <tr>
-            <th className="nameColumn">Name</th>
-            <th className="addressColumn">Address</th>
-            <th className="nameColumn">Latitude</th>
-            <th className="nameColumn">Longitude</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
-                                <Record
-                                    record={record}
-                                    key={record._id}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
+            <div>
+                <h2 className="nearMe">Top 10 Closest Clubs</h2>
+                <table style={{ marginTop: 20, color: '#000000' }}>
+                    <thead>
+                        <tr>
+                            <th className="nameColumn">Name</th>
+                            <th className="addressColumn">Address</th>
+                            <th className="nameColumn">Latitude</th>
+                            <th className="nameColumn">Longitude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
+                        <Record 
+                        record={record}
+                        key={record._id}
+                        />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
             )}
-
 
             {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
@@ -222,10 +219,7 @@ function Search() {
                 </MapContainer>
             )}
 
-
-
         </div>
     );
 }
-
 export default Search;
