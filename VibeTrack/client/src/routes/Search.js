@@ -23,6 +23,8 @@ function Search() {
     const [mapReady, setMapReady] = useState(false);
     const [records, setRecords] = useState([]); 
     const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query.
+    const [venueFound, setVenueFound] = useState(false);
+    const [foundVenueLocation, setFoundVenueLocation] = useState(null);
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -89,12 +91,6 @@ function Search() {
         //fetchExistingVenues();
     }, []);
 
-    // Function to update the search query
-    const handleSearch = (event) => {
-        setSearchQuery(event.target.value);
-    };
-      
-
     // Render the component's JSX content
     function findNearestClubs(userLatitude, userLongitude, numClubs = 10) {
         const distances = records.map((record) => {
@@ -108,8 +104,47 @@ function Search() {
         return sortedRecords.map((entry) => entry.record);
     }
 
+    // Function to update the search query
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    // Function to search for a specific venue by name
+    const searchVenue = () => {
+        const foundVenue = records.find(record =>
+            record.name.toLowerCase() === searchQuery.toLowerCase()
+        );
+    
+        if (foundVenue) {
+            setVenueFound(true);
+            setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
+        } else {
+            setVenueFound(false);
+        }
+    };
+          
+
     return (
         <div className="main-box">
+            <p>Ready to make the dance floor jealous? Let's vibe!</p>
+            <button onClick={searchVenue}>Search</button>
+            {/**prompt a user to search */}
+            <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Search by venue name"
+            />
+
+            {/* Display search result message */}
+            {searchQuery && (
+                <p>
+                    {venueFound
+                        ? `Heading to ${searchQuery}`
+                        : `Venue "${searchQuery}" not found`}
+                </p>
+            )}
+
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
             <button onClick={getUserLocation}>Your Location:</button>
@@ -140,27 +175,29 @@ function Search() {
                     </table>
                 </div>
             )}
-            {/* Display the 'locationResult' state, which will show the geolocation information or error message */}
-            {/*<p style={{'color':'#000000'}}id="locationResult">{locationResult}</p>*/}
 
-            {/* Render the map with a marker */}
+            {/* Render the map with the found venue marker or user's location */}
             {mapReady && (
                 <MapContainer
                     style={{ height: "70vh", width: "100%" }}
-                    center={locationCoord || [0, 0]} // Center the map at the user's geolocation or default to [0, 0]
+                    center={
+                        foundVenueLocation ? foundVenueLocation : locationCoord || [0, 0]
+                    }
                     zoom={15}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {locationCoord && (
-                        <Marker position={locationCoord} icon={icon}>
-                            <Popup>
-                                Your Location <br /> Coordinates: {locationCoord[0]}, {locationCoord[1]}
-                            </Popup>
+                    {foundVenueLocation ? (
+                        <Marker position={foundVenueLocation} icon={icon}>
+                            <Popup>{`Heading to ${searchQuery}`}</Popup>
                         </Marker>
-                    )}        
+                    ) : locationCoord && (
+                        <Marker position={locationCoord} icon={icon}>
+                            <Popup>Your Location</Popup>
+                        </Marker>
+                    )}
                 </MapContainer>
             )}
 
