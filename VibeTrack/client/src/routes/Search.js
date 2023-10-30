@@ -88,6 +88,11 @@ function Search() {
         getUserLocation();
         //fetchExistingVenues();
     }, []);
+
+    // Function to update the search query
+    const handleSearch = (event) => {
+        setSearchQuery(event.target.value);
+    };
       
 
     // Render the component's JSX content
