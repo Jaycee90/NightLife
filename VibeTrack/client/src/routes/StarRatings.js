@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../css/StarRating.css';
+import '../css/StarRatings.css';
 import { FaStar } from "react-icons/fa";
 
 const colors = {
