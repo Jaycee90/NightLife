@@ -92,9 +92,8 @@ const Login = () => {
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
-              <form autocomplete="off">
+              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", borderColor:'#747474', color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
-                  <label for="username">Email</label>
                       <TextField
                           label="Email"
                           type="email"
@@ -106,12 +105,6 @@ const Login = () => {
                       />
                 </div>
                 <div class="form-group">
-                  <label class="d-block" for="password">
-                    Password
-                    <div class="float-right">
-                      <a href="/security">Forgot Password?</a>
-                    </div>
-                  </label>
                     <TextField
                         label="Password"
                         type="password"
@@ -123,13 +116,11 @@ const Login = () => {
                         inputProps={{ style: { backgroundColor: "#fff" } }}
                         tabindex="2"
                     />
+                    <div class="float-left"><a href="/signup">Create an account?</a></div>
+                    <div class="float-right"><a href="/security">Forgot Password?</a>
+                    </div>
                 </div>
-                <div class="form-group text-right">
-                  <div class="float-left mt-2"><a href="/signup">Create an account?</a>
-                  </div>
-                                    
-                  <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Login</Button>
-                </div>
+                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Login</Button>
               </form>
             </div>
           </div>
