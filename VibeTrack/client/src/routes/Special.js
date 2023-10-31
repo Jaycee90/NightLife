@@ -16,7 +16,6 @@ function SpecialEvent() {
         console.error('Error fetching event data', error);
       });
   }, []);
-
     return (
         <div class="event-container">
            <h1 style={{color:'#000'}}>Upcoming Events</h1>
