@@ -1,5 +1,6 @@
 import { useState } from "react";
-import '../css/StarRatings.css';
+import { useParams } from "react-router-dom";
+import '../css/StarRating.css';
 import { FaStar } from "react-icons/fa";
 
 const colors = {
@@ -25,6 +26,35 @@ function StarRating() {
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
+    const [reviewsData, setReviewsData] = useState({
+      ratings: 0,
+      reviews: 0,
+    });
+  
+    const params = useParams();
+  
+    useEffect(() => {
+      async function fetchReviews() {
+        const response = await fetch(`http://localhost:5050/reviews/${params.id}`);
+  
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
+  
+        const reviews = await response.json();
+        if (!reviews) {
+          window.alert(`Reviews for venue with id ${params.id} not found`);
+          return;
+        }
+  
+        setReviewsData(reviews);
+      }
+  
+      fetchReviews();
+    }, [params.id]);
+  
     return (
         <div style={styles.container}>
       <h2> VibeTrack Ratings </h2>
@@ -88,6 +118,5 @@ const styles = {
     }
   
   };
-
 
   export default    StarRating;
