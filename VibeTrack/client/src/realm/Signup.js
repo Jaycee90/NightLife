@@ -50,30 +50,30 @@ const Signup = () => {
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
               <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", borderColor:'#747474', color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
-                      <TextField
-                          label="Email"
-                          type="email"
-                          variant="outlined"
-                          name="email"
-                          value={form.email}
-                          onChange={onFormInputChange}
-                          tabindex="1"
-                      />
+                  <TextField
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      name="email"
+                      value={form.email}
+                      onChange={onFormInputChange}
+                      tabindex="1"
+                  />
                 </div>
                 <div class="form-group">
-                    <TextField
-                        label="Password"
-                        type="password"
-                        variant="outlined"
-                        name="password"
-                        value={form.password}
-                        onChange={onFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
-                        inputProps={{ style: { backgroundColor: "#fff" } }}
-                        tabindex="2"
-                    />
-                    <div class="float-left"><a href="/login">Already have an acocunt? Login</a></div>
-                    </div>
+                <TextField
+                    label="Password"
+                    type="password"
+                    variant="outlined"
+                    name="password"
+                    value={form.password}
+                    onChange={onFormInputChange}
+                    style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                    inputProps={{ style: { backgroundColor: "#fff" } }}
+                    tabindex="2"
+                />
+                <div class="float-left"><a href="/login">Already have an acocunt? Login</a></div>
+                </div>
                 <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Signup</Button>
               </form>
             </div>
@@ -85,7 +85,7 @@ const Signup = () => {
                   <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
                 </div>
                 <h4 class="text-light mb-2">Don't waste your time</h4>
-                <p class="lead text-light">Login quickly with Google one-tap sign-in.</p>
+                <p class="lead text-light">Create an account quickly with a single click.</p>
                 <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Google</button>
                 <p class="lead text-light">- or -</p>
                 <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Facebook</button>
