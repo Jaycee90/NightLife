@@ -1,11 +1,13 @@
+// Unused, have combined with Security
+
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { UserContext } from "./UserContext";
 import '../css/login.css';
 
 const Reset = () => {
-    // State to manage the form input (password, token, tokenId)
-    const [form, setForm] = useState({ 
+    // State to manage the passwordForm input (password, token, tokenId)
+    const [passwordForm, setPasswordForm] = useState({ 
         password: "",
         token: "", // New input field for token
         tokenId: "" // New input field for tokenId
@@ -13,10 +15,10 @@ const Reset = () => {
 
     const { passwordReset } = useContext(UserContext);
 
-    // Handler for form input changes
+    // Handler for passwordForm input changes
     const onFormInputChange = (event) => {
         const { name, value } = event.target;
-        setForm({ ...form, [name]: value });
+        setPasswordForm({ ...passwordForm, [name]: value });
     };
 
     const resetPasswordWithToken = async () => {
@@ -26,12 +28,12 @@ const Reset = () => {
             //const token = urlParams.get('token');
             //const tokenId = urlParams.get('tokenId');
 
-            // Destructure form values (password, token, tokenId)
-            const { token, tokenId, password } = form;
+            // Destructure passwordForm values (password, token, tokenId)
+            const { token, tokenId, password } = passwordForm;
 
             // Validate that password, token, and tokenId are provided
             if (!password || !token || !tokenId) {
-                alert("Please provide all required information.");
+                alert("Please provide all required inpasswordFormation.");
                 return;
             }
 
@@ -41,7 +43,7 @@ const Reset = () => {
             alert("Password reset successfully!");
         } catch (error) {
             // Modify the error message to include the password, token, and tokenId
-            alert(`Error resetting password:\n\nPassword: ${form.password}\nToken: ${form.token}\nToken ID: ${form.tokenId}\n\n${error.message}`);
+            alert(`Error resetting password:\n\nPassword: ${passwordForm.password}\nToken: ${passwordForm.token}\nToken ID: ${passwordForm.tokenId}\n\n${error.message}`);
         }
     };
 
@@ -54,7 +56,7 @@ const Reset = () => {
                 type="password"
                 variant="outlined"
                 name="password"
-                value={form.password}
+                value={passwordForm.password}
                 onChange={onFormInputChange}
                 style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
                 inputProps={{ style: { backgroundColor: "#fff" } }}
@@ -64,7 +66,7 @@ const Reset = () => {
                 label="Token"
                 variant="outlined"
                 name="token"
-                value={form.token}
+                value={passwordForm.token}
                 onChange={onFormInputChange}
                 style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
                 inputProps={{ style: { backgroundColor: "#fff", color: "#000"} }}
@@ -74,7 +76,7 @@ const Reset = () => {
                 label="Token ID"
                 variant="outlined"
                 name="tokenId"
-                value={form.tokenId}
+                value={passwordForm.tokenId}
                 onChange={onFormInputChange}
                 style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
                 inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
