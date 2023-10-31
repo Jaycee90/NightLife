@@ -24,7 +24,8 @@ import Profile from './routes/Profile';
 import Contact from './routes/Contact';
 
 import Home from './routes/Home';
-import SearchLink from "./components/link_search"; 
+import SearchLink from "./components/link_search";
+import Invitation from "./routes/email_inv";  
 
 function App() {
  return (
@@ -45,6 +46,7 @@ function App() {
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
+            <Route path='/invitation' element={<Invitation />} />
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
@@ -54,6 +56,7 @@ function App() {
                 <Route path='/profile/:code' element={<Profile />} />
                 <Route path='/contact/:code' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
+
             </Route>
        </Routes>
      </UserProvider>
