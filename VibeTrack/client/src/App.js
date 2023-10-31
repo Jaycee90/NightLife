@@ -4,6 +4,7 @@ import Login from "./realm/Login";
 import PrivateRoute from "./realm/Private";
 import Signup from "./realm/Signup";
 import Security from "./realm/Security";
+import Reset from "./realm/Reset";
 
 import Navbar from "./components/navbar";
 import RecordList from "./components/recordList";
@@ -47,7 +48,8 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path="/test" element={<Test />} />
 
-            <Route exact path='/security' element={<Security />} />
+            <Route path='/security' element={<Security />} />
+            <Route path='/reset' element={<Reset />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
             <Route element={<PrivateRoute />}>
