@@ -16,6 +16,7 @@ import Discover from './routes/Discover';
 import Data from './routes/Data'; 
 import SpecialEvent from './routes/Special';
 import Search from './routes/Search'; 
+import Test from './routes/Test'; 
 
 import Calendar from './routes/Calendar';
 import Template from './routes/Template';
@@ -45,6 +46,7 @@ function App() {
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
+            <Route path="/test" element={<Test />} />
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
