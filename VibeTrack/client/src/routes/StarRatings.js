@@ -76,6 +76,39 @@ function StarRating() {
           )
         })};
       </div>
+      <textarea
+        placeholder="This is the ratings page"
+        style={styles.textarea}
+      />
+
+      <button
+        style={styles.button}
+      >
+        Submit
+      </button>
+
+
+
+
+
+
+
+      <h2>Ratings and Reviews</h2>
+      <div>
+        <h3>Ratings:</h3>
+        <ul>
+          {reviewsData.ratings.map((rating, index) => (
+            <li key={index}>{rating}</li>
+          ))}
+        </ul>
+        <h3>Reviews:</h3>
+        <ul>
+          {reviewsData.reviews.map((review, index) => (
+            <li key={index}>{review}</li>
+          ))}
+        </ul>
+      </div>
+      /*
       <h2>Ratings</h2>
       <ul>
         {reviewsData.ratings.map((rating, index) => (
@@ -88,18 +121,8 @@ function StarRating() {
         {reviewsData.reviews.map((review, index) => (
           <li key={index}>{review}</li>
         ))}
-      </ul>
-      <textarea
-        placeholder="This is the ratings page"
-        style={styles.textarea}
-      />
+      </ul>*/
 
-      <button
-        style={styles.button}
-      >
-        Submit
-      </button>
-      
     </div>
     );
 };
