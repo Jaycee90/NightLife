@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 import '../css/login.css';
  
@@ -39,53 +39,71 @@ const Signup = () => {
  };
  
  return (
-   <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:'#000', backgroundColor:"#fff"}}>
-     <h1 style={{marginBottom:"10px"}}>Signup</h1>
-     <TextField
-       label="First Name"
-       variant="outlined"
-       name="name"
-       value={form.name}
-       onInput={onFormInputChange}
-       style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-       inputProps={{ style: { backgroundColor: "#fff", color:'#000'} }}
-     />
-     <TextField
-       label="Last Name"
-       variant="outlined"
-       name="lastName"
-       value={form.lastName}
-       onInput={onFormInputChange}
-       style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-       inputProps={{ style: { backgroundColor: "#fff", color:'#000'} }}
-     />
-     <TextField
-       label="Email"
-       type="email"
-       variant="outlined"
-       name="email"
-       value={form.email}
-       onInput={onFormInputChange}
-       style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-       inputProps={{ style: { backgroundColor: "#fff", color:'#000'} }}
-     />
-     <TextField
-       label="Password"
-       type="password"
-       variant="outlined"
-       name="password"
-       value={form.password}
-       onInput={onFormInputChange}
-       style={{ marginBottom: "1rem", backgroundColor:"#fff"}}
-       inputProps={{ style: { backgroundColor: "#fff" } }}
-     />
-     <Button variant="contained" color="primary" onClick={onSubmit}>
-       Signup
-     </Button>
-     <p style={{color:"#000", marginTop:"10px", display: "flex", alignItems: "center"}}>
-       Have an account already? <Link to="/login" style={{ marginLeft: "5px" }}>Login</Link>
-     </p>
-   </form>
+  <div class="login-component">
+  <div class="container-fluid">
+    <div class="card card-login">
+      <div class="card-body">
+        <div class="row justify-content-center"  style={{color:'#000'}}>
+          <div class="col-lg-6 col-md-12">
+            <div class="padding">
+              <h2>Signup</h2>
+              <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
+              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", borderColor:'#747474', color:'#000', backgroundColor:"#fff"}}>
+                <div class="form-group">
+                  <TextField
+                      label="Email"
+                      type="email"
+                      variant="outlined"
+                      name="email"
+                      value={form.email}
+                      onChange={onFormInputChange}
+                      tabindex="1"
+                  />
+                </div>
+                <div class="form-group">
+                <TextField
+                    label="Password"
+                    type="password"
+                    variant="outlined"
+                    name="password"
+                    value={form.password}
+                    onChange={onFormInputChange}
+                    style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                    inputProps={{ style: { backgroundColor: "#fff" } }}
+                    tabindex="2"
+                />
+                <div class="float-left"><a href="/login">Already have an acocunt? Login</a></div>
+                </div>
+                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Signup</Button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="padding bg-primary text-center align-items-center d-flex">
+              <div class="w-100">
+                <div class="logo mb-4">
+                  <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
+                </div>
+                <h4 class="text-light mb-2">Don't waste your time</h4>
+                <p class="lead text-light">Create an account quickly with a single click.</p>
+                <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Google</button>
+                <p class="lead text-light">- or -</p>
+                <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Facebook</button>
+              </div>
+
+              <div class="help-links" >
+                <ul>
+                  <li><a href="/test">Terms of Service &nbsp; </a></li>
+                  <li><a href="/test">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
  );
 }
  
