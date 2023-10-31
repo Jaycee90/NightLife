@@ -64,84 +64,81 @@ const Login = () => {
 
   <div class="login-component">
   <div class="container-fluid">
-<div class="card card-login">
-<div class="card-body">
-  <div class="row justify-content-center"  style={{color:'#000'}}>
-    <div class="col-lg-6 col-md-12">
-      <div class="padding bg-primary text-center align-items-center d-flex">
-        <div class="w-100">
-          <div class="logo mb-4">
-            <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
-          </div>
-          <h4 class="text-light mb-2">Don't waste your time</h4>
-          <p class="lead text-light">Login quickly with Google one-tap sign-in.</p>
-          <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>
-            Login with Google
-          </button>
-        </div>
-
-        <div class="help-links" >
-          <ul>
-            <li><a href="/test">Terms of Service</a></li>
-            <li><a href="/test">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <div class="padding">
-        <h2>Login</h2>
-        <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
-        <form autocomplete="off">
-          <div class="form-group">
-            <label for="username">Username</label>
-                              <TextField
-                                  label="Email"
-                                  type="email"
-                                  variant="outlined"
-                                  name="email"
-                                  value={form.email}
-                                  onChange={onFormInputChange}
-                                  tabindex="1"
-                              />
-          </div>
-          <div class="form-group">
-            <label class="d-block" for="password">
-              Password
-              <div class="float-right">
-                <a href="/test">Forgot Password?</a>
+    <div class="card card-login">
+      <div class="card-body">
+        <div class="row justify-content-center"  style={{color:'#000'}}>
+          <div class="col-lg-6 col-md-12">
+            <div class="padding bg-primary text-center align-items-center d-flex">
+              <div class="w-100">
+                <div class="logo mb-4">
+                  <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
+                </div>
+                <h4 class="text-light mb-2">Don't waste your time</h4>
+                <p class="lead text-light">Login quickly with Google one-tap sign-in.</p>
+                <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>
+                  Login with Google
+                </button>
               </div>
-            </label>
-                              <TextField
-                                  label="Password"
-                                  type="password"
-                                  variant="outlined"
-                                  name="password"
-                                  value={form.password}
-                                  onChange={onFormInputChange}
-                                  style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
-                                  inputProps={{ style: { backgroundColor: "#fff" } }}
-                                  tabindex="2"
-                              />
-          </div>
-          <div class="form-group text-right">
-            <div class="float-left mt-2">
-              <a href="/test">Create an account?</a>
+
+              <div class="help-links" >
+                <ul>
+                  <li><a href="/test">Terms of Service &nbsp; </a></li>
+                  <li><a href="/test">Privacy Policy</a></li>
+                </ul>
+              </div>
             </div>
-                              
-                              <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">
-                                  Login
-                              </Button>
           </div>
-        </form>
+          <div class="col-lg-6 col-md-12">
+            <div class="padding">
+              <h2>Login</h2>
+              <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
+              <form autocomplete="off">
+                <div class="form-group">
+                  <label for="username">Email</label>
+                      <TextField
+                          label="Email"
+                          type="email"
+                          variant="outlined"
+                          name="email"
+                          value={form.email}
+                          onChange={onFormInputChange}
+                          tabindex="1"
+                      />
+                </div>
+                <div class="form-group">
+                  <label class="d-block" for="password">
+                    Password
+                    <div class="float-right">
+                      <a href="/security">Forgot Password?</a>
+                    </div>
+                  </label>
+                    <TextField
+                        label="Password"
+                        type="password"
+                        variant="outlined"
+                        name="password"
+                        value={form.password}
+                        onChange={onFormInputChange}
+                        style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                        inputProps={{ style: { backgroundColor: "#fff" } }}
+                        tabindex="2"
+                    />
+                </div>
+                <div class="form-group text-right">
+                  <div class="float-left mt-2"><a href="/signup">Create an account?</a>
+                  </div>
+                                    
+                  <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Login</Button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
-</div>
   </div>
  );
 }
- 
+
 export default Login;
