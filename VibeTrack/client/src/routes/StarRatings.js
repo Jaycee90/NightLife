@@ -27,8 +27,8 @@ function StarRating() {
       setHoverValue(undefined)
     }
     const [reviewsData, setReviewsData] = useState({
-      ratings: 0,
-      reviews: 0,
+      ratings: [],
+      reviews: [],
     });
   
     const params = useParams();
@@ -74,8 +74,21 @@ function StarRating() {
               }}
             />
           )
-        })}
+        })};
       </div>
+      <h2>Ratings</h2>
+      <ul>
+        {reviewsData.ratings.map((rating, index) => (
+          <li key={index}>{rating} stars</li>
+        ))}
+      </ul>
+
+      <h2>Reviews</h2>
+      <ul>
+        {reviewsData.reviews.map((review, index) => (
+          <li key={index}>{review}</li>
+        ))}
+      </ul>
       <textarea
         placeholder="This is the ratings page"
         style={styles.textarea}
