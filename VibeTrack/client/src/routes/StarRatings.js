@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import '../css/StarRating.css';
+import '../css/StarRatings.css';
 import { FaStar } from "react-icons/fa";
 
 const colors = {
@@ -38,8 +38,8 @@ function StarRating() {
   
   // accesses the MongoDB database.
     useEffect(() => {
-      async function fetchReviews() {
-        const response = await fetch(`http://localhost:5050/reviews/${params.id}`);
+      async function fetchData() {
+        const response = await fetch(`http://localhost:5050/record/${params.id}`);
   
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -56,7 +56,7 @@ function StarRating() {
         setReviewsData(reviews);
       }
   
-      fetchReviews();
+      fetchData();
     }, [params.id]);
 
 // this function should allow the user to input the ratings
@@ -67,7 +67,7 @@ function StarRating() {
         text: ratingText,
       };
   
-      const response = await fetch(`http://localhost:5050/submit-rating/${params.id}`, {
+      const response = await fetch(`http://localhost:5050/record/${params.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function StarRating() {
   
       if (response.ok) {
         // If the submission was successful, fetch and update the ratings and reviews
-        fetchReviews();
+
         // Clear the input fields
         setCurrentValue(0);
         setRatingText("");
@@ -85,11 +85,10 @@ function StarRating() {
         window.alert("Failed to submit rating.");
       }
     };
-  
+
     return (
       <div style={styles.container}>
           <h2> VibeTrack Ratings </h2>
-          //generates a set of star icons that users can interact with
           <div style={styles.stars}>
               {stars.map((_, index) => (
                   <FaStar
@@ -166,4 +165,4 @@ const styles = {
   
   };
 
-  export default    StarRating;
+  export default StarRating;

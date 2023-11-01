@@ -12,6 +12,8 @@ import Edit from "./components/edit";
 import Create from "./components/create";
 import UserList from "./components/userList";
 
+import StarRating from "./routes/StarRatings";
+
 import Discover from './routes/Discover';
 import Data from './routes/Data'; 
 import SpecialEvent from './routes/Special';
@@ -48,6 +50,7 @@ function App() {
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
+            <Route path='/rating/:ID' element={<StarRating />} />
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
