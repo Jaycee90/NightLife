@@ -13,6 +13,7 @@ const colors = {
 function StarRating() {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
+    const [ratingText, setRatingText] = useState(""); // New state for rating text input
     const stars = Array(5).fill(0)
   
     const handleClick = value => {
@@ -26,12 +27,12 @@ function StarRating() {
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
+    const params = useParams();
     const [reviewsData, setReviewsData] = useState({
       ratings: [],
       reviews: [],
     });
   
-    const params = useParams();
   
     useEffect(() => {
       async function fetchReviews() {
@@ -54,13 +55,39 @@ function StarRating() {
   
       fetchReviews();
     }, [params.id]);
+
+// this function should allow the user to input the ratings
+    const submitRating = async () => {
+      // Create a data object with the rating and text
+      const ratingData = {
+        rating: currentValue,
+        text: ratingText,
+      };
+  
+      const response = await fetch(`http://localhost:5050/submit-rating/${params.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ratingData),
+      });
+  
+      if (response.ok) {
+        // If the submission was successful, fetch and update the ratings and reviews
+        fetchReviews();
+        // Clear the input fields
+        setCurrentValue(0);
+        setRatingText("");
+      } else {
+        window.alert("Failed to submit rating.");
+      }
+    };
   
     return (
-        <div style={styles.container}>
-      <h2> VibeTrack Ratings </h2>
-      <div style={styles.stars}>
-        {stars.map((_, index) => {
-          return (
+      <div style={styles.container}>
+        <h2> VibeTrack Ratings </h2>
+        <div style={styles.stars}>
+          {stars.map((_, index) => (
             <FaStar
               key={index}
               size={24}
@@ -73,58 +100,37 @@ function StarRating() {
                 cursor: "pointer"
               }}
             />
-          )
-        })};
-      </div>
-      <textarea
-        placeholder="This is the ratings page"
-        style={styles.textarea}
-      />
-
-      <button
-        style={styles.button}
-      >
-        Submit
-      </button>
-
-
-
-
-
-
-// this should display the ratings and reviews.
-      <h2>Ratings and Reviews</h2>
-      <div>
-        <h3>Ratings:</h3>
-        <ul>
-          {reviewsData.ratings.map((rating, index) => (
-            <li key={index}>{rating}</li>
           ))}
-        </ul>
-        <h3>Reviews:</h3>
-        <ul>
-          {reviewsData.reviews.map((review, index) => (
-            <li key={index}>{review}</li>
-          ))}
-        </ul>
+        </div>
+        <textarea
+          placeholder="Write your review here"
+          value={ratingText}
+          onChange={(e) => setRatingText(e.target.value)}
+          style={styles.textarea}
+        />
+        <button
+          style={styles.button}
+          onClick={submitRating}
+        >
+          Submit Rating
+        </button>
+
+        <h2>Ratings and Reviews</h2>
+        <div>
+          <h3>Ratings:</h3>
+          <ul>
+            {reviewsData.ratings.map((rating, index) => (
+              <li key={index}>{rating} stars</li>
+            ))}
+          </ul>
+          <h3>Reviews:</h3>
+          <ul>
+            {reviewsData.reviews.map((review, index) => (
+              <li key={index}>{review}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      /* This worked as a comment yesterday, but this should be the section that does the star calculation 
-      <h2>Ratings</h2>
-      <ul>
-        {reviewsData.ratings.map((rating, index) => (
-          <li key={index}>{rating} stars</li>
-        ))}
-      </ul>
-
-      <h2>Reviews</h2>
-      <ul>
-        {reviewsData.reviews.map((review, index) => (
-          <li key={index}>{review}</li>
-        ))}
-      </ul>*/
-
-    </div>
     );
 };
 
