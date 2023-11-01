@@ -92,7 +92,7 @@ function StarRating() {
 
 
 
-
+// this should display the ratings and reviews.
       <h2>Ratings and Reviews</h2>
       <div>
         <h3>Ratings:</h3>
@@ -108,7 +108,8 @@ function StarRating() {
           ))}
         </ul>
       </div>
-      /*
+
+      /* This worked as a comment yesterday, but this should be the section that does the star calculation 
       <h2>Ratings</h2>
       <ul>
         {reviewsData.ratings.map((rating, index) => (
