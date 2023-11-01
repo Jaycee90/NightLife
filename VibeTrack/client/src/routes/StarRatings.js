@@ -85,53 +85,53 @@ function StarRating() {
   
     return (
       <div style={styles.container}>
-        <h2> VibeTrack Ratings </h2>
-        <div style={styles.stars}>
-          {stars.map((_, index) => (
-            <FaStar
-              key={index}
-              size={24}
-              onClick={() => handleClick(index + 1)}
-              onMouseOver={() => handleMouseOver(index + 1)}
-              onMouseLeave={handleMouseLeave}
-              color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-              style={{
-                marginRight: 10,
-                cursor: "pointer"
-              }}
-            />
-          ))}
-        </div>
-        <textarea
-          placeholder="Write your review here"
-          value={ratingText}
-          onChange={(e) => setRatingText(e.target.value)}
-          style={styles.textarea}
-        />
-        <button
-          style={styles.button}
-          onClick={submitRating}
-        >
-          Submit Rating
-        </button>
+          <h2> VibeTrack Ratings </h2>
+          <div style={styles.stars}>
+              {stars.map((_, index) => (
+                  <FaStar
+                      key={index}
+                      size={24}
+                      onClick={() => handleClick(index + 1)}
+                      onMouseOver={() => handleMouseOver(index + 1)}
+                      onMouseLeave={handleMouseLeave}
+                      color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                      style={{
+                          marginRight: 10,
+                          cursor: "pointer"
+                      }}
+                  />
+              ))}
+          </div>
+          <textarea
+              placeholder="Write your review here"
+              value={ratingText}
+              onChange={(e) => setRatingText(e.target.value)}
+              style={styles.textarea}
+          />
+          <button
+              style={styles.button}
+              onClick={submitRating}
+          >
+              Submit Rating
+          </button>
 
-        <h2>Ratings and Reviews</h2>
-        <div>
-          <h3>Ratings:</h3>
-          <ul>
-            {reviewsData.ratings.map((rating, index) => (
-              <li key={index}>{rating} stars</li>
-            ))}
-          </ul>
-          <h3>Reviews:</h3>
-          <ul>
-            {reviewsData.reviews.map((review, index) => (
-              <li key={index}>{review}</li>
-            ))}
-          </ul>
-        </div>
+          <h2>Ratings and Reviews</h2>
+          <div>
+              <h3>Ratings:</h3>
+              <ul>
+                  {reviewsData.ratings.map((rating, index) => (
+                      <li key={index}>{rating} stars</li>
+                  ))}
+              </ul>
+              <h3>Reviews:</h3>
+              <ul>
+                  {reviewsData.reviews.map((review, index) => (
+                      <li key={index}>{review}</li>
+                  ))}
+              </ul>
+          </div>
       </div>
-    );
+  );
 };
 
 
