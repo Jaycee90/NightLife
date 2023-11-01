@@ -9,21 +9,24 @@ const colors = {
     
 };
 
-
+// How the 
 function StarRating() {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const [ratingText, setRatingText] = useState(""); // New state for rating text input
     const stars = Array(5).fill(0)
   
+    // is called when the user clicks on a star and updates the currentValue with the chosen rating value.
     const handleClick = value => {
       setCurrentValue(value)
     }
   
+    //is called when the user hovers their mouse over a star and updates the hoverValue with the value of the star being hovered over.
     const handleMouseOver = newHoverValue => {
       setHoverValue(newHoverValue)
     };
   
+    //is called when the user moves their mouse away from the stars and resets hoverValue to undefined.
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
@@ -33,7 +36,7 @@ function StarRating() {
       reviews: [],
     });
   
-  
+  // accesses the MongoDB database.
     useEffect(() => {
       async function fetchReviews() {
         const response = await fetch(`http://localhost:5050/reviews/${params.id}`);
@@ -86,6 +89,7 @@ function StarRating() {
     return (
       <div style={styles.container}>
           <h2> VibeTrack Ratings </h2>
+          //generates a set of star icons that users can interact with
           <div style={styles.stars}>
               {stars.map((_, index) => (
                   <FaStar
