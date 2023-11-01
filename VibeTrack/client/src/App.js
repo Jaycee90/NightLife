@@ -21,7 +21,6 @@ import Template from './routes/Template';
 import Safety from './routes/Safety';
 import Profile from './routes/Profile';
 import Contact from './routes/Contact';
-import StarRatings from './routes/StarRatings';
 
 
 import Home from './routes/Home';
@@ -46,7 +45,6 @@ function App() {
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />
-            <Route path="/ratings" element={<StarRatings />} />
 
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
