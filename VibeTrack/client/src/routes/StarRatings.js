@@ -6,29 +6,29 @@ import { FaStar } from "react-icons/fa";
 const colors = {
     orange: "#FFBA5A",
     grey: "#a9a9a9"
-    
 };
 
 export default function StarRating(props) {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
-    const stars = Array(5).fill(0)
-  
-    // is called when the user clicks on a star and updates the currentValue with the chosen rating value.
+    const stars = Array(5).fill(0);
+
+    // Function to handle when a star is clicked
     const handleClick = value => {
-      setCurrentValue(value)
-    }
-  
-    //is called when the user hovers their mouse over a star and updates the hoverValue with the value of the star being hovered over.
-    const handleMouseOver = newHoverValue => {
-      setHoverValue(newHoverValue)
-    };
-  
-    //is called when the user moves their mouse away from the stars and resets hoverValue to undefined.
-    const handleMouseLeave = () => {
-      setHoverValue(undefined)
+      setCurrentValue(value);
     }
 
+    // Function to handle when the mouse hovers over a star
+    const handleMouseOver = newHoverValue => {
+      setHoverValue(newHoverValue);
+    };
+
+    // Function to handle when the mouse leaves the star area
+    const handleMouseLeave = () => {
+      setHoverValue(undefined);
+    }
+
+    // Function to calculate new rating
     function calculateNewRating(userRating, currentRating, currentNumber) {
       const newRating = (userRating + currentRating * currentNumber) / (currentNumber + 1);
       return newRating.toFixed(1); 
@@ -60,7 +60,6 @@ export default function StarRating(props) {
       review: "",
     });
   
-  // accesses the MongoDB database.
     useEffect(() => {
       async function fetchData() {
         const id = params.id.toString();
@@ -84,7 +83,8 @@ export default function StarRating(props) {
       fetchData();
     }, [params.id]);
 
-    async function onSubmit(e) { // Extract form fields for the request body
+    // Function to handle form submission
+    async function onSubmit(e) {
       e.preventDefault();
       const editedVenue = {
         _id : form._id,
@@ -111,7 +111,6 @@ export default function StarRating(props) {
         review: parseFloat(form.review) + 1,
       };
       
-      // Send a PATCH request to update the venue
       await fetch(`http://localhost:5050/record/${params.id}`, {
         method: "PATCH",
         body: JSON.stringify(editedVenue),
@@ -120,87 +119,41 @@ export default function StarRating(props) {
         },
       });
     }
+  
     return (
-      <div style={styles.container}>
-        <div>
-          <div style={styles.stars}>{stars.map((_, index) => (
-            <FaStar
-                key={index}
-                size={24}
-                onClick={() => handleClick(index + 1)}
-                onMouseOver={() => handleMouseOver(index + 1)}
-                onMouseLeave={handleMouseLeave}
-                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                style={{
+      <div className="rating-component">
+        <div className="grid-rating">
+          <div className="item">
+            <div className="stars">
+              {stars.map((_, index) => (
+                <FaStar
+                  key={index}
+                  size={24}
+                  onClick={() => handleClick(index + 1)}
+                  onMouseOver={() => handleMouseOver(index + 1)}
+                  onMouseLeave={handleMouseLeave}
+                  color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                  style={{
                     marginRight: 10,
                     cursor: "pointer"
-                }}
-            />
-        ))}
-        </div>
-        <br/>
-        {/*<p style={{color:'#000'}}>Current Index: {currentValue}</p>*/}
-        
-    </div>
-
-          <br/>
-          <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-            {/* 
-          <div className="form-group">
-              <label htmlFor="rating">Rating:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="rating"
-                value={form.rating}
-              />
-            </div>
-            <div className="form-group">
-                <label htmlFor="review">Rating #:</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="review"
-                  value={form.review}
+                  }}
                 />
+              ))}
             </div>
-              */}
-            <div className="form-group">
-              <input
-                type="submit"
-                value="Update Venue"
-                className="btn btn-primary"
-              />
-            </div>
-          </form>
-      </div>
-  );
-};
+          </div>
 
-const styles = {
-    container: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "left",
-    },
-    stars: {
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "left",
-    },
-    textarea: {
-      border: "1px solid #a9a9a9",
-      borderRadius: 5,
-      padding: 10,
-      margin: "20px 0",
-      minHeight: 100,
-      width: 300
-    },
-    button: {
-      border: "1px solid #a9a9a9",
-      borderRadius: 5,
-      width: 300,
-      padding: 10,
-    }
-  
-  }
+          <div className="item">
+            <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+              <div className="form-group">
+                <input
+                  type="submit"
+                  value="Submit rating"
+                  className="btn btn-primary"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+};
