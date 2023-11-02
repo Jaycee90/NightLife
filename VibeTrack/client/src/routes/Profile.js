@@ -5,10 +5,10 @@ import { ProSidebar, Menu, MenuItem, SidebarFooter, SidebarContent } from "react
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
-
 import { useContext } from 'react';
 import { UserContext } from '../realm/UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
+
 export default function Profile() {
   const [form, setForm] = useState({
     _id: "",
@@ -100,7 +100,7 @@ export default function Profile() {
 }
 
   return (
-    <div>
+    <div className="profile-component">
     <div className="grid-settings">
       <div className="grid-settings-left">
         <div id="header">
