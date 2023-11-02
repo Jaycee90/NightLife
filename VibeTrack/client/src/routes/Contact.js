@@ -26,6 +26,7 @@ export default function Contact() {
   
   const params = useParams();
   const navigate = useNavigate();
+  const userCode = params.code; // This will contain the user code from the URL
 
   useEffect(() => {
     
@@ -106,22 +107,21 @@ export default function Contact() {
       <div class="grid-settings">
         <div class="grid-settings-left">
           <div id="header">
-            <ProSidebar collapsed={menuCollapse}>
-              <SidebarContent>
-                <Menu iconShape="square">
-                  <MenuItem icon={<FiHome />}>Profile</MenuItem>
-                  <MenuItem icon={<BiCog />}>Security</MenuItem>
-                  <MenuItem active={true} icon={<FaList />}>Contacts</MenuItem>
-                  <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
-                  <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
-                </Menu>
-              </SidebarContent>
-              <SidebarFooter>
-                <Menu iconShape="square">
-                  <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
-                </Menu>
-              </SidebarFooter>
-            </ProSidebar>
+          <ProSidebar collapsed={menuCollapse}>
+            <SidebarContent>
+              <Menu iconShape="square">
+                <MenuItem icon={<FiHome />}><a href={`/profile/${userCode}`}>Profile</a></MenuItem>
+                <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
+                <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
+                <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
+              </Menu>
+            </SidebarContent>
+            <SidebarFooter>
+              <Menu iconShape="square">
+                <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
+              </Menu>
+            </SidebarFooter>
+          </ProSidebar>
           </div>
         </div>
         <div class="grid-settings-right">
