@@ -22,7 +22,7 @@ import Template from './routes/Template';
 import Safety from './routes/Safety';
 import Profile from './routes/Profile';
 import Contact from './routes/Contact';
-import Favorites from './routes/Favorites';
+import Favorites from "./routes/favorites";
 
 import Home from './routes/Home';
 import SearchLink from "./components/link_search";
