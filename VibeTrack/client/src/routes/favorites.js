@@ -111,3 +111,4 @@ function Favorites() {
 
 export default Favorites;
 
+// at a stopping point
