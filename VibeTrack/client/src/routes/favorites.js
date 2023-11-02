@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 function Favorites() {
-  const [venues, setVenues] = useState([]); // array of venue names
+  const [venues, setVenues] = useState([]); // array of venue objects
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
   const [confirmationVenue, setConfirmationVenue] = useState(null); // confirmation state
 
   useEffect(() => {
@@ -33,12 +33,13 @@ function Favorites() {
   };
 
   const toggleFavoritesDisplay = () => {
-    setShowFavoritesOnly(!showFavoritesOnly);
+    setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
   };
 
+  // Function to add the current venue to favorites
   const addToFavorites = (venue) => {
-    if (!selectedVenues.includes(venue)) {
-      setSelectedVenues([...selectedVenues, venue]);
+    if (!selectedVenues.includes(venue.name)) {
+      setSelectedVenues([...selectedVenues, venue.name]);
     }
   };
 
@@ -95,8 +96,8 @@ function Favorites() {
             ))
           : venues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
-                {venue}
-                {!selectedVenues.includes(venue) && (
+                {venue.name}
+                {!selectedVenues.includes(venue.name) && (// Conditionally render the button
                   <button onClick={() => addToFavorites(venue)}>
                     Add to Favorites
                   </button>
@@ -109,3 +110,4 @@ function Favorites() {
 }
 
 export default Favorites;
+
