@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import '../css/StarRatings.css';
 import { FaStar } from "react-icons/fa";
 
@@ -9,11 +9,9 @@ const colors = {
     
 };
 
-// How the 
-function StarRating() {
+export default function StarRating(props) {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
-    const [ratingText, setRatingText] = useState(""); // New state for rating text input
     const stars = Array(5).fill(0)
   
     // is called when the user clicks on a star and updates the currentValue with the chosen rating value.
@@ -30,15 +28,19 @@ function StarRating() {
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
+
     const params = useParams();
-    const [reviewsData, setReviewsData] = useState({
-      ratings: [],
-      reviews: [],
+    const navigate = useNavigate(); // Navigate function from react-router-dom
+
+    const [form, setForm] = useState({
+      rating: "",
+      review: "",
     });
   
   // accesses the MongoDB database.
     useEffect(() => {
       async function fetchData() {
+        const id = params.id.toString();
         const response = await fetch(`http://localhost:5050/record/${params.id}`);
   
         if (!response.ok) {
@@ -47,91 +49,94 @@ function StarRating() {
           return;
         }
   
-        const reviews = await response.json();
-        if (!reviews) {
-          window.alert(`Reviews for venue with id ${params.id} not found`);
+        const venue = await response.json();
+        if (!venue) {
+          window.alert(`Reviews for venue with id ${id} not found`);
+          navigate("/");
           return;
         }
   
-        setReviewsData(reviews);
+        setForm(venue);
       }
   
       fetchData();
-    }, [params.id]);
+    }, [params.id, navigate]);
 
-// this function should allow the user to input the ratings
-    const submitRating = async () => {
-      // Create a data object with the rating and text
-      const ratingData = {
-        rating: currentValue,
-        text: ratingText,
+    async function onSubmit(e) { // Extract form fields for the request body
+      e.preventDefault();
+      const editedVenue = {
+        _id : form._id,
+        rating: form.rating,
+        review: form.review,
       };
-  
-      const response = await fetch(`http://localhost:5050/record/${params.id}`, {
-        method: "POST",
+      
+      // Send a PATCH request to update the venue
+      await fetch(`http://localhost:5050/record/${params.id}`, {
+        method: "PATCH",
+        body: JSON.stringify(editedVenue),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify(ratingData),
       });
   
-      if (response.ok) {
-        // If the submission was successful, fetch and update the ratings and reviews
-
-        // Clear the input fields
-        setCurrentValue(0);
-        setRatingText("");
-      } else {
-        window.alert("Failed to submit rating.");
-      }
-    };
-
+      navigate("/recordList");
+    }
     return (
       <div style={styles.container}>
-          <h2> VibeTrack Ratings </h2>
-          <div style={styles.stars}>
-              {stars.map((_, index) => (
-                  <FaStar
-                      key={index}
-                      size={24}
-                      onClick={() => handleClick(index + 1)}
-                      onMouseOver={() => handleMouseOver(index + 1)}
-                      onMouseLeave={handleMouseLeave}
-                      color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                      style={{
-                          marginRight: 10,
-                          cursor: "pointer"
-                      }}
-                  />
-              ))}
-          </div>
-          <textarea
-              placeholder="Write your review here"
-              value={ratingText}
-              onChange={(e) => setRatingText(e.target.value)}
-              style={styles.textarea}
+        <div>
+          <div style={styles.stars}>{stars.map((_, index) => (
+            <FaStar
+                key={index}
+                size={24}
+                onClick={() => handleClick(index + 1)}
+                onMouseOver={() => handleMouseOver(index + 1)}
+                onMouseLeave={handleMouseLeave}
+                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                style={{
+                    marginRight: 10,
+                    cursor: "pointer"
+                }}
+            />
+        ))}
+        </div>
+        <br/>
+        <p style={{color:'#000'}}>Current Index: {currentValue}</p>
+    </div>
+
+          <br/>
+          <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+      <div className="form-group">
+          <label htmlFor="rating">Rating:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="rating"
+            value={form.rating}
           />
-          <button
-              style={styles.button}
-              onClick={submitRating}
-          >
-              Submit Rating
-          </button>
+        </div>
+      <div className="form-group">
+          <label htmlFor="review">Rating #:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="review"
+            value={form.review}
+          />
+        </div>
+        
+        <div className="form-group">
+          <input
+            type="submit"
+            value="Update Venue"
+            className="btn btn-primary"
+          />
+        </div>
+      </form>
 
           <h2>Ratings and Reviews</h2>
           <div>
-              <h3>Ratings:</h3>
-              <ul>
-                  {reviewsData.ratings.map((rating, index) => (
-                      <li key={index}>{rating} stars</li>
-                  ))}
-              </ul>
-              <h3>Reviews:</h3>
-              <ul>
-                  {reviewsData.reviews.map((review, index) => (
-                      <li key={index}>{review}</li>
-                  ))}
-              </ul>
+              <ul>Rating: {form.rating}</ul>
+              <ul>Review: {form.review}</ul>
           </div>
       </div>
   );
@@ -163,6 +168,4 @@ const styles = {
       padding: 10,
     }
   
-  };
-
-  export default StarRating;
+  }
