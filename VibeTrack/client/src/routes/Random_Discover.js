@@ -1,27 +1,25 @@
 import React, { useEffect, useState } from 'react';
 
-function Favorites() {
-  const [venues, setVenues] = useState([]); // array of venue names
+function RandomDiscover() {
+  const [venues, setVenues] = useState([]); // array of venues
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
-
 
   useEffect(() => {
-    // Retreive all of teh venues
+    // Retrieve all of the venues
     const getVenues = async () => {
       try {
         const response = await fetch(`http://localhost:5050/record/`);
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
 
-      const venueData = await response.json();
-      setVenues(venueData);
+        const venueData = await response.json();
+        setVenues(venueData);
       } catch (error) {
-        console.log('Error fetching venues from database, ', error);
+        console.log('Error fetching venues from the database, ', error);
       }
     };
     getVenues();
@@ -35,36 +33,19 @@ function Favorites() {
     }
   };
 
-  const toggleFavoritesDisplay = () => {
-    setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
+  // Function to get 3 random venues
+  const getRandomVenues = () => {
+    const shuffledVenues = [...venues]; // Create a copy of the venues array
+    for (let i = shuffledVenues.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledVenues[i], shuffledVenues[j]] = [shuffledVenues[j], shuffledVenues[i]];
+    }
+    return shuffledVenues.slice(0, 3); // Get the first 3 shuffled venues
   };
 
-  return (
-    <div>
-      <h1>Selected Venues</h1>
-      <ul>
-        {selectedVenues.map((venue, index) => (
-          <li key={index}>{venue}</li>
-        ))}
-      </ul>
+  const randomVenues = getRandomVenues();
 
-      <button onClick={toggleFavoritesDisplay}>
-        {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
-      </button>
 
-      <ul style={{ color: '#000' }}>
-        {showFavoritesOnly
-          ? selectedVenues.map((venue, index) => (
-              <li key={index}>{venue}</li>
-            ))
-          : venues.map((venue, index) => (
-              <li key={index} onClick={() => handleClickedVenue(venue)}>
-                {venue}
-              </li>
-            ))}
-      </ul>
-    </div>
-  );
 }
 
-export default Favorites;
+export default RandomDiscover;
