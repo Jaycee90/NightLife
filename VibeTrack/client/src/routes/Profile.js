@@ -108,10 +108,9 @@ export default function Profile() {
             <SidebarContent>
               <Menu iconShape="square">
                 <MenuItem active={true} icon={<FiHome />}>Profile</MenuItem>
-                <MenuItem icon={<BiCog />}>Security</MenuItem>
-                <MenuItem icon={<FaList />}>Contacts</MenuItem>
+                <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
+                <MenuItem icon={<FaList />}><a href="/contact">Contacts</a></MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
-                
               </Menu>
             </SidebarContent>
             <SidebarFooter>
@@ -158,7 +157,7 @@ export default function Profile() {
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -187,7 +186,7 @@ export default function Profile() {
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
                 />
               </div>
             </div>
@@ -206,13 +205,14 @@ export default function Profile() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="email" style={{marginLeft:'10px'}}>Email: </label>
             <input
               type="text"
               className="form-control"
               id="email"
               value={form.email}
               onChange={(e) => updateForm({ email: e.target.value })}
+              style={{marginLeft:'10px'}}
             />
           </div>
           <br />
@@ -221,6 +221,7 @@ export default function Profile() {
               type="submit"
               value="Update Information"
               className="btn btn-primary"
+              style={{width:'50%', marginLeft:'30%'}}
             />
           </div>
         </form>

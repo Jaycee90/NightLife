@@ -102,7 +102,7 @@ export default function Contact() {
   }
 }
   return (
-    <div>
+    <div className="profile-component">
       <div class="grid-settings">
         <div class="grid-settings-left">
           <div id="header">
@@ -113,6 +113,7 @@ export default function Contact() {
                   <MenuItem icon={<BiCog />}>Security</MenuItem>
                   <MenuItem active={true} icon={<FaList />}>Contacts</MenuItem>
                   <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
+                  <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
                 </Menu>
               </SidebarContent>
               <SidebarFooter>
