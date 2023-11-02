@@ -70,3 +70,5 @@ export default RandomDiscover;
 //the function should just display 3 random venues
 //unless the team decides that it should be a fun user experience.
 // will work on this later
+//line 112 in Home.js, write code to make it open the discover page
+//make the cards display 3 random venues and their associated data
