@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import '../css/Template.css';
+import React, { useState, useEffect } from 'react';
 
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue objects
@@ -64,7 +62,7 @@ function Favorites() {
       <ul>
         {selectedVenues.map((venue, index) => (
           <li key={index} style={{ color: 'blue' }}>
-            {venue}
+            <button onClick={() => handleClickedVenue(venue)}>{venue}</button>
             <button onClick={() => requestRemoveConfirmation(venue)}>
               Remove from Favorites
             </button>
@@ -90,7 +88,7 @@ function Favorites() {
         {showFavoritesOnly
           ? selectedVenues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
-                {venue}
+                <button onClick={() => handleClickedVenue(venue)}>{venue}</button>
                 <button onClick={() => requestRemoveConfirmation(venue)}>
                   Remove from Favorites
                 </button>
@@ -98,7 +96,7 @@ function Favorites() {
             ))
           : venues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
-                {venue.name}
+                <button onClick={() => handleClickedVenue(venue.name)}>{venue.name}</button>
                 {!selectedVenues.includes(venue.name) && (// Conditionally render the button
                   <button onClick={() => addToFavorites(venue)}>
                     Add to Favorites
@@ -112,5 +110,3 @@ function Favorites() {
 }
 
 export default Favorites;
-
-// at a stopping point
