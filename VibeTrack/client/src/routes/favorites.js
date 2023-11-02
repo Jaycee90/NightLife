@@ -1,55 +1,78 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import ImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
-import '../css/Template.css';
+import React, { useEffect, useState } from 'react';
 
-function Favorites() { // Change the function name to "Favorites"
-    const [venueData, setVenueData] = useState({
-        name: "",
-        address: "",
-        about: "",
-        website: "",
-        phone: 0,
-    });
+function Favorites() {
+  const [venues, setVenues] = useState([]); // array of venue names
+  const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
 
-    const params = useParams();
+  useEffect(() => {
+    // Retrieve all of the venues
+    const getVenues = async () => {
+      try {
+        const response = await fetch(`http://localhost:5050/record/`);
 
-    useEffect(() => {
-        async function fetchData() {
-            const response = await fetch(`http://localhost:5050/record/${params.id}`);
-
-            if (!response.ok) {
-                const message = `An error has occurred: ${response.statusText}`;
-                window.alert(message);
-                return;
-            }
-            const venue = await response.json();
-            if (!venue) {
-                window.alert(`Venue with id ${params.id} not found`);
-                return;
-            }
-            setVenueData(venue);
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
         }
 
-        fetchData();
-    }, [params.id]);
+        const venueData = await response.json();
+        setVenues(venueData);
+      } catch (error) {
+        console.log('Error fetching venues from the database, ', error);
+      }
+    };
+    getVenues();
+  }, []);
 
-    return (
-        <div>
-            <div className="about-section">
-                <div className="item">
-                    <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
-                    <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
-                    <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-                </div>
-            </div>
-        </div>
-    );
+  const handleClickedVenue = (clickedVenue) => {
+    if (selectedVenues.includes(clickedVenue)) return;
+    else {
+      // Add the new venue to the list
+      setSelectedVenues([...selectedVenues, clickedVenue]);
+    }
+  };
+
+  const toggleFavoritesDisplay = () => {
+    setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
+  };
+
+  return (
+    <div>
+      <h1>Selected Venues</h1>
+      <ul>
+        {selectedVenues.map((venue, index) => (
+          <li key={index} style={{ color: 'blue' }}>
+            {venue}
+          </li>
+        ))}
+      </ul>
+
+      <button onClick={toggleFavoritesDisplay}>
+        {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
+      </button>
+
+      <ul style={{ color: '#000' }}>
+        {showFavoritesOnly
+          ? selectedVenues.map((venue, index) => (
+              <li key={index} style={{ color: 'blue' }}>
+                {venue}
+              </li>
+            ))
+          : venues.map((venue, index) => (
+              <li
+                key={index}
+                onClick={() => handleClickedVenue(venue)}
+                style={{ color: 'blue' }}
+              >
+                {venue}
+              </li>
+            ))}
+      </ul>
+    </div>
+  );
 }
 
 export default Favorites;
+
