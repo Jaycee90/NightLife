@@ -5,23 +5,22 @@ function Favorites() {
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
 
-
   useEffect(() => {
-    // Retreive all of teh venues
+    // Retrieve all of the venues
     const getVenues = async () => {
       try {
         const response = await fetch(`http://localhost:5050/record/`);
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
 
-      const venueData = await response.json();
-      setVenues(venueData);
+        const venueData = await response.json();
+        setVenues(venueData);
       } catch (error) {
-        console.log('Error fetching venues from database, ', error);
+        console.log('Error fetching venues from the database, ', error);
       }
     };
     getVenues();
@@ -52,19 +51,23 @@ function Favorites() {
         {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
       </button>
 
-      <ul style={{ color: '#000' }}>
-        {showFavoritesOnly
-          ? selectedVenues.map((venue, index) => (
-              <li key={index}>{venue}</li>
-            ))
-          : venues.map((venue, index) => (
-              <li key={index} onClick={() => handleClickedVenue(venue)}>
-                {venue}
-              </li>
-            ))}
-      </ul>
+      {showFavoritesOnly ? (
+        <ul style={{ color: '#000' }}>
+          {selectedVenues.map((venue, index) => (
+            <li key={index}>{venue}</li>
+          ))}
+        </ul>
+      ) : (
+        <textarea
+          rows="10"
+          cols="30"
+          value={venues.join('\n')}
+          readOnly
+        />
+      )}
     </div>
   );
 }
 
 export default Favorites;
+
