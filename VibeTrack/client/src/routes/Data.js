@@ -10,7 +10,6 @@ import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/Template.css';
-import StarRating from './StarRatings.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -155,7 +154,6 @@ function Data(props) {
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
           )}
 
-          <div  style={{ 'float': 'left', 'textAlign': 'left'}}><p></p> <StarRating/></div>
         </div>
         <div className="item" >
           <ImageGallery items={images}
