@@ -34,7 +34,7 @@ function Favorites() {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
-  
+
   const toggleFavoritesDisplay = () => {
     setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
   };
@@ -47,12 +47,21 @@ function Favorites() {
           <li key={index}>{venue}</li>
         ))}
       </ul>
+
+      <button onClick={toggleFavoritesDisplay}>
+        {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
+      </button>
+
       <ul style={{ color: '#000' }}>
-        {venues.map((venue, index) => (
-          <li key={index} onClick={() => handleClickedVenue(venue)}>
-            {venue}
-          </li>
-        ))}
+        {showFavoritesOnly
+          ? selectedVenues.map((venue, index) => (
+              <li key={index}>{venue}</li>
+            ))
+          : venues.map((venue, index) => (
+              <li key={index} onClick={() => handleClickedVenue(venue)}>
+                {venue}
+              </li>
+            ))}
       </ul>
     </div>
   );
