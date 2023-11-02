@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue names
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
+
 
   useEffect(() => {
     // Retreive all of teh venues
