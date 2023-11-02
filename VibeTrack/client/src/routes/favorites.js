@@ -1,82 +1,58 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "leaflet/dist/leaflet.css";
+import '../css/Template.css';
 
-function Favorites() {
-  const [venues, setVenues] = useState([]); // array of venue names
-  const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
+function Favorites() { // Change the function name to "Favorites"
+    const [venueData, setVenueData] = useState({
+        name: "",
+        address: "",
+        about: "",
+        website: "",
+        phone: 0,
+    });
 
-  useEffect(() => {
-    // Retrieve all of the venues
-    const getVenues = async () => {
-      try {
-        const response = await fetch(`http://localhost:5050/record/`);
+    const [favoriteVenues, setFavoriteVenues] = useState([]); // Add state for favorite venues
 
-        if (!response.ok) {
-          const message = `An error occurred: ${response.statusText}`;
-          window.alert(message);
-          return;
+    const params = useParams();
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch(`http://localhost:5050/record/${params.id}`);
+
+            if (!response.ok) {
+                const message = `An error has occurred: ${response.statusText}`;
+                window.alert(message);
+                return;
+            }
+            const venue = await response.json();
+            if (!venue) {
+                window.alert(`Venue with id ${params.id} not found`);
+                return;
+            }
+            setVenueData(venue);
         }
 
-        const venueData = await response.json();
-        setVenues(venueData);
-      } catch (error) {
-        console.log('Error fetching venues from the database: ', error);
-      }
+        fetchData();
+    }, [params.id]);
+
+    // Function to add the current venue to favorites
+    const addToFavorites = () => {
+        setFavoriteVenues([...favoriteVenues, venueData.name]);
     };
-    getVenues();
-  }, []);
 
-  const handleClickedVenue = (clickedVenue) => {
-    if (selectedVenues.includes(clickedVenue)) return;
-    else {
-      // Add the new venue to the list
-      setSelectedVenues([...selectedVenues, clickedVenue]);
-    }
-  };
-
-  const toggleFavoritesDisplay = () => {
-    setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
-  };
-
-  const venueListStyle = {
-    border: '1px solid #000',
-    padding: '10px',
-    marginBottom: '10px',
-    backgroundColor: '#f2f2f2',
-  };
-
-  return (
-    <div>
-      <h1>Selected Venues</h1>
-      <ul>
-        {selectedVenues.map((venue, index) => (
-          <li key={index}>{venue}</li>
-        ))}
-      </ul>
-
-      <button onClick={toggleFavoritesDisplay}>
-        {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
-      </button>
-
-      <div style={venueListStyle}>
-        {showFavoritesOnly
-          ? selectedVenues.map((venue, index) => (
-              <div key={index}>{venue}</div>
-            ))
-          : venues.map((venue, index) => (
-              <div
-                key={index}
-                onClick={() => handleClickedVenue(venue)}
-                style={{ cursor: 'pointer' }}
-              >
-                {venue}
-              </div>
-            ))}
-      </div>
-    </div>
-  );
+    return (
+        <div>
+            <div className="about-section">
+                <div className="item">
+                    <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
+                    <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
+                    <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
+                    <button onClick={addToFavorites} style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default Favorites;
-
-
