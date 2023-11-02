@@ -26,7 +26,7 @@ export default function Profile() {
   });
 
   const params = useParams();
-
+  const userCode = params.code; // This will contain the user code from the URL
   useEffect(() => {
     async function fetchData() {
       const code = params.code.toString();
@@ -109,7 +109,7 @@ export default function Profile() {
               <Menu iconShape="square">
                 <MenuItem active={true} icon={<FiHome />}>Profile</MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
-                <MenuItem icon={<FaList />}><a href="/contact">Contacts</a></MenuItem>
+                <MenuItem icon={<FaList />}><a href={`/contact/${userCode}`}>Contacts</a></MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
               </Menu>
             </SidebarContent>
