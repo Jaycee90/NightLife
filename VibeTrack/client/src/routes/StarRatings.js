@@ -30,12 +30,33 @@ export default function StarRating(props) {
     }
 
     function calculateNewRating(userRating, currentRating, currentNumber) {
-      return (userRating + currentRating) / (currentNumber + 1);
+      const newRating = (userRating + currentRating * currentNumber) / (currentNumber + 1);
+      return newRating.toFixed(1); 
     }
+    
     const params = useParams();
     const navigate = useNavigate(); // Navigate function from react-router-dom
 
     const [form, setForm] = useState({
+      _id: "",
+      id: "",
+      name: "",
+      about: "",
+      phone: "",
+      website: "",
+      monday: "",
+      tuesday: "",
+      wednesday: "",
+      thursday: "",
+      friday: "",
+      saturday: "",
+      sunday: "",
+      facebook: "",
+      instagram: "",
+      yelp: "",
+      amenities: "",
+      tags: "",
+      price: "",
       rating: "",
       review: "",
     });
@@ -69,6 +90,25 @@ export default function StarRating(props) {
       e.preventDefault();
       const editedVenue = {
         _id : form._id,
+        id : form.id,
+        name: form.name,
+        address: form.address,
+        about: form.about,
+        phone: form.phone,
+        website: form.website,
+        monday: form.monday,
+        tuesday: form.tuesday,
+        wednesday: form.wednesday,
+        thursday: form.thursday,
+        friday: form.friday,
+        saturday: form.saturday,
+        sunday: form.sunday,
+        facebook: form.facebook,
+        instagram: form.instagram,
+        yelp: form.yelp,
+        amenities: form.amenities,
+        tags: form.tags,
+        price: form.price,
         rating: calculateNewRating(currentValue, form.rating, form.review),
         review: parseFloat(form.review) + 1,
       };
@@ -109,6 +149,24 @@ export default function StarRating(props) {
           <br/>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="form-group">
+              <label htmlFor="rating">Rating:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="rating"
+                value={form.rating}
+              />
+            </div>
+            <div className="form-group">
+                <label htmlFor="review">Rating #:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="review"
+                  value={form.review}
+                />
+            </div>
+            <div className="form-group">
               <input
                 type="submit"
                 value="Update Venue"
@@ -116,9 +174,6 @@ export default function StarRating(props) {
               />
             </div>
           </form>
-          
-        <p style={{color:'#000'}}>Current Rating: {form.rating}</p>
-        <p style={{color:'#000'}}>Current Review: {form.review}</p>
       </div>
   );
 };
