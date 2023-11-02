@@ -2,7 +2,7 @@
 
 import React from "react";
 
-function Favorite() {
+function Favorites() {
     return (
         <div>
             <h1>This is a test message for the favorites page</h1>
@@ -10,4 +10,4 @@ function Favorite() {
     );
 };
 
-export default Calendar; 
+export default Favorites;  

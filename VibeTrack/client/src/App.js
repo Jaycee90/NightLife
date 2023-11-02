@@ -48,7 +48,7 @@ function App() {
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/favorite' element={< Favorites/>}/>
+            <Route path='/favorites' element={<Favorites/>} />
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
