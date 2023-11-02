@@ -38,6 +38,12 @@ function Favorites() {
     setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
   };
 
+  const addToFavorites = (venue) => {
+    if (!selectedVenues.includes(venue)) {
+      setSelectedVenues([...selectedVenues, venue]);
+    }
+  };
+
   return (
     <div>
       <h1>Selected Venues</h1>
@@ -61,12 +67,11 @@ function Favorites() {
               </li>
             ))
           : venues.map((venue, index) => (
-              <li
-                key={index}
-                onClick={() => handleClickedVenue(venue)}
-                style={{ color: 'blue' }}
-              >
+              <li key={index} style={{ color: 'blue' }}>
                 {venue}
+                <button onClick={() => addToFavorites(venue)}>
+                  Add to Favorites
+                </button>
               </li>
             ))}
       </ul>
@@ -75,4 +80,5 @@ function Favorites() {
 }
 
 export default Favorites;
+
 
