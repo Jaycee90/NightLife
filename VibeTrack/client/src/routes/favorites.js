@@ -34,6 +34,10 @@ function Favorites() {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
+  
+  const toggleFavoritesDisplay = () => {
+    setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
+  };
 
   return (
     <div>
