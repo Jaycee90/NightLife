@@ -69,3 +69,4 @@ export default RandomDiscover;
 //pretty sure that wasn't what i was going for. 
 //the function should just display 3 random venues
 //unless the team decides that it should be a fun user experience.
+// will work on this later
