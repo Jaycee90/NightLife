@@ -45,7 +45,23 @@ function RandomDiscover() {
 
   const randomVenues = getRandomVenues();
 
-
+  return (
+    <div>
+      <h1>Selected Venues</h1>
+      <ul>
+        {selectedVenues.map((venue, index) => (
+          <li key={index}>{venue}</li>
+        ))}
+      </ul>
+      <ul style={{ color: '#000' }}>
+        {randomVenues.map((venue, index) => (
+          <li key={index} onClick={() => handleClickedVenue(venue.name)}>
+            {venue.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default RandomDiscover;
