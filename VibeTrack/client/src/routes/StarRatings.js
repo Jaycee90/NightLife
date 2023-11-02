@@ -29,6 +29,9 @@ export default function StarRating(props) {
       setHoverValue(undefined)
     }
 
+    function calculateNewRating(userRating, currentRating, currentNumber) {
+      return (userRating + currentRating) / (currentNumber + 1);
+    }
     const params = useParams();
     const navigate = useNavigate(); // Navigate function from react-router-dom
 
@@ -66,8 +69,8 @@ export default function StarRating(props) {
       e.preventDefault();
       const editedVenue = {
         _id : form._id,
-        rating: form.rating,
-        review: form.review,
+        rating: calculateNewRating(currentValue, form.rating, form.review),
+        review: parseFloat(form.review) + 1,
       };
       
       // Send a PATCH request to update the venue
@@ -105,43 +108,20 @@ export default function StarRating(props) {
 
           <br/>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-      <div className="form-group">
-          <label htmlFor="rating">Rating:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="rating"
-            value={form.rating}
-          />
-        </div>
-      <div className="form-group">
-          <label htmlFor="review">Rating #:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="review"
-            value={form.review}
-          />
-        </div>
-        
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Update Venue"
-            className="btn btn-primary"
-          />
-        </div>
-      </form>
-
-          <h2>Ratings and Reviews</h2>
-          <div>
-              <ul>Rating: {form.rating}</ul>
-              <ul>Review: {form.review}</ul>
-          </div>
+          <div className="form-group">
+              <input
+                type="submit"
+                value="Update Venue"
+                className="btn btn-primary"
+              />
+            </div>
+          </form>
+          
+        <p style={{color:'#000'}}>Current Rating: {form.rating}</p>
+        <p style={{color:'#000'}}>Current Review: {form.review}</p>
       </div>
   );
 };
-
 
 const styles = {
     container: {
