@@ -5,24 +5,24 @@ function Favorites() {
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
 
   useEffect(() => {
-    // Retrieve all of the venue names
-    const getVenueNames = async () => {
+    // Retreive all of teh venues
+    const getVenues = async () => {
       try {
-        const response = await fetch('http://localhost:5050/record/names');
+        const response = await fetch(`http://localhost:5050/record/`);
 
-        if (!response.ok) {
-          const message = `An error occurred: ${response.statusText}`;
-          window.alert(message);
-          return;
-        }
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
 
-        const venueData = await response.json();
-        setVenues(venueData.names);
+      const venueData = await response.json();
+      setVenues(venueData);
       } catch (error) {
-        console.log('Error fetching venue names from the database,', error);
+        console.log('Error fetching venues from database, ', error);
       }
     };
-    getVenueNames();
+    getVenues();
   }, []);
 
   const handleClickedVenue = (clickedVenue) => {
