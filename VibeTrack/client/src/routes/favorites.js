@@ -20,7 +20,7 @@ function Favorites() {
         const venueData = await response.json();
         setVenues(venueData);
       } catch (error) {
-        console.log('Error fetching venues from the database, ', error);
+        console.log('Error fetching venues from the database: ', error);
       }
     };
     getVenues();
@@ -38,6 +38,13 @@ function Favorites() {
     setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
   };
 
+  const venueListStyle = {
+    border: '1px solid #000',
+    padding: '10px',
+    marginBottom: '10px',
+    backgroundColor: '#f2f2f2',
+  };
+
   return (
     <div>
       <h1>Selected Venues</h1>
@@ -51,23 +58,25 @@ function Favorites() {
         {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
       </button>
 
-      {showFavoritesOnly ? (
-        <ul style={{ color: '#000' }}>
-          {selectedVenues.map((venue, index) => (
-            <li key={index}>{venue}</li>
-          ))}
-        </ul>
-      ) : (
-        <textarea
-          rows="10"
-          cols="30"
-          value={venues.join('\n')}
-          readOnly
-        />
-      )}
+      <div style={venueListStyle}>
+        {showFavoritesOnly
+          ? selectedVenues.map((venue, index) => (
+              <div key={index}>{venue}</div>
+            ))
+          : venues.map((venue, index) => (
+              <div
+                key={index}
+                onClick={() => handleClickedVenue(venue)}
+                style={{ cursor: 'pointer' }}
+              >
+                {venue}
+              </div>
+            ))}
+      </div>
     </div>
   );
 }
 
 export default Favorites;
+
 
