@@ -62,7 +62,7 @@ function Favorites() {
       <ul>
         {selectedVenues.map((venue, index) => (
           <li key={index} style={{ color: 'blue' }}>
-            <button onClick={() => handleClickedVenue(venue)}>{venue}</button>
+            {venue}
             <button onClick={() => requestRemoveConfirmation(venue)}>
               Remove from Favorites
             </button>
@@ -88,7 +88,7 @@ function Favorites() {
         {showFavoritesOnly
           ? selectedVenues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
-                <button onClick={() => handleClickedVenue(venue)}>{venue}</button>
+                {venue}
                 <button onClick={() => requestRemoveConfirmation(venue)}>
                   Remove from Favorites
                 </button>
@@ -96,7 +96,7 @@ function Favorites() {
             ))
           : venues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
-                <button onClick={() => handleClickedVenue(venue.name)}>{venue.name}</button>
+                {venue.name}
                 {!selectedVenues.includes(venue.name) && (// Conditionally render the button
                   <button onClick={() => addToFavorites(venue)}>
                     Add to Favorites
@@ -110,3 +110,5 @@ function Favorites() {
 }
 
 export default Favorites;
+
+// at a stopping point
