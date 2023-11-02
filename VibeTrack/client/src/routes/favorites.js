@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue names
@@ -28,10 +28,7 @@ function Favorites() {
 
   const handleClickedVenue = (clickedVenue) => {
     if (selectedVenues.includes(clickedVenue)) return;
-    else {
-      // Add the new venue to the list
-      setSelectedVenues([...selectedVenues, clickedVenue]);
-    }
+    setSelectedVenues([...selectedVenues, clickedVenue]);
   };
 
   const toggleFavoritesDisplay = () => {
@@ -43,7 +40,7 @@ function Favorites() {
       setSelectedVenues([...selectedVenues, venue]);
     }
   };
-  
+
   const removeFromFavorites = (venue) => {
     setSelectedVenues(selectedVenues.filter((v) => v !== venue));
   };
@@ -55,6 +52,9 @@ function Favorites() {
         {selectedVenues.map((venue, index) => (
           <li key={index} style={{ color: 'blue' }}>
             {venue}
+            <button onClick={() => removeFromFavorites(venue)}>
+              Remove from Favorites
+            </button>
           </li>
         ))}
       </ul>
@@ -68,6 +68,9 @@ function Favorites() {
           ? selectedVenues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
                 {venue}
+                <button onClick={() => removeFromFavorites(venue)}>
+                  Remove from Favorites
+                </button>
               </li>
             ))
           : venues.map((venue, index) => (
@@ -84,5 +87,3 @@ function Favorites() {
 }
 
 export default Favorites;
-
-
