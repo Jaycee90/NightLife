@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue objects
-  const [selectedVenue, setSelectedVenue] = useState(""); // single selected venue
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
   const [confirmationVenue, setConfirmationVenue] = useState(null); // confirmation state
@@ -28,14 +27,9 @@ function Favorites() {
     getVenues();
   }, []);
 
-  const handleVenueSelect = (event) => {
-    setSelectedVenue(event.target.value);
-  };
-
   const handleClickedVenue = (clickedVenue) => {
-    if (!selectedVenues.includes(clickedVenue)) {
-      setSelectedVenues([...selectedVenues, clickedVenue]);
-    }
+    if (selectedVenues.includes(clickedVenue)) return;
+    setSelectedVenues([...selectedVenues, clickedVenue]);
   };
 
   const toggleFavoritesDisplay = () => {
@@ -43,10 +37,9 @@ function Favorites() {
   };
 
   // Function to add the current venue to favorites
-  const addToFavorites = () => {
-    if (selectedVenue && !selectedVenues.includes(selectedVenue)) {
-      setSelectedVenues([...selectedVenues, selectedVenue]);
-      setSelectedVenue(""); // Clear the selected venue
+  const addToFavorites = (venue) => {
+    if (!selectedVenues.includes(venue.name)) {
+      setSelectedVenues([...selectedVenues, venue.name]);
     }
   };
 
@@ -91,18 +84,6 @@ function Favorites() {
         {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
       </button>
 
-      <div>
-        <select value={selectedVenue} onChange={handleVenueSelect}>
-          <option value="">Select a Venue</option>
-          {venues.map((venue, index) => (
-            <option key={index} value={venue.name}>
-              {venue.name}
-            </option>
-          ))}
-        </select>
-        <button onClick={addToFavorites}>Add to Favorites</button>
-      </div>
-
       <ul style={{ color: '#000' }}>
         {showFavoritesOnly
           ? selectedVenues.map((venue, index) => (
@@ -116,9 +97,8 @@ function Favorites() {
           : venues.map((venue, index) => (
               <li key={index} style={{ color: 'blue' }}>
                 {venue.name}
-                {!selectedVenues.includes(venue.name) && (
-                  // Conditionally render the button
-                  <button onClick={() => addToFavorites(venue.name)}>
+                {!selectedVenues.includes(venue.name) && (// Conditionally render the button
+                  <button onClick={() => addToFavorites(venue)}>
                     Add to Favorites
                   </button>
                 )}
@@ -130,3 +110,5 @@ function Favorites() {
 }
 
 export default Favorites;
+
+// at a stopping point
