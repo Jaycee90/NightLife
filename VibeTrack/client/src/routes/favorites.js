@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/Template.css';
 
 function Favorites() { // Change the function name to "Favorites"
@@ -11,8 +16,6 @@ function Favorites() { // Change the function name to "Favorites"
         website: "",
         phone: 0,
     });
-
-    const [favoriteVenues, setFavoriteVenues] = useState([]); // Add state for favorite venues
 
     const params = useParams();
 
@@ -36,11 +39,6 @@ function Favorites() { // Change the function name to "Favorites"
         fetchData();
     }, [params.id]);
 
-    // Function to add the current venue to favorites
-    const addToFavorites = () => {
-        setFavoriteVenues([...favoriteVenues, venueData.name]);
-    };
-
     return (
         <div>
             <div className="about-section">
@@ -48,7 +46,6 @@ function Favorites() { // Change the function name to "Favorites"
                     <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
                     <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
                     <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-                    <button onClick={addToFavorites} style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">Add to Favorites</button>
                 </div>
             </div>
         </div>
