@@ -66,6 +66,7 @@ function RandomDiscover() {
 
 export default RandomDiscover;
 //made a mistake this allows the user to pick 3 random venues
+// from my understanding it is like the user clicks a button and 3 random venues pop up
 //pretty sure that wasn't what i was going for. 
 //the function should just display 3 random venues
 //unless the team decides that it should be a fun user experience.
