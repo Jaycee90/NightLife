@@ -10,6 +10,7 @@ import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/Template.css';
+import StarRating from './StarRatings.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -149,10 +150,13 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           {isOpen ? (
-            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab'}} className="btn btn-primary">OPEN NOW</button>
+            <button style={{ 'display':'block', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab', 'marginBottom':'20px'}} className="btn btn-primary">OPEN NOW</button>
           ) : (
-            <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
+            <button style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
           )}
+          <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><StarRating/> 
+          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
+          </div>
         </div>
         <div className="item" >
           <ImageGallery items={images}

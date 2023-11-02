@@ -5,7 +5,7 @@
   }
   
   .container {
-	display: flex;
+	display: block;
 	flex-direction: column;
 	align-items: left;
   }
@@ -14,6 +14,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: left;
+	padding-top:10px;
   }
   
 .textarea {
@@ -40,10 +41,8 @@
   }
 
 .grid-rating > div {
-	background-color: rgba(255, 255, 255, 0.8);
 	border-color: black;
 	text-align: center;
-	padding: 20px 0;
   }
 
 }

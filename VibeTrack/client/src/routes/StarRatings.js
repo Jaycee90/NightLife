@@ -162,7 +162,7 @@ export default function StarRating(props) {
           <div className="form-group">
             <input
               type="submit"
-              value="Update Venue"
+              value="Submit rating"
               className="btn btn-primary"
             />
           </div>
