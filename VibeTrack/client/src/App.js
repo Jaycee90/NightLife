@@ -22,6 +22,7 @@ import Template from './routes/Template';
 import Safety from './routes/Safety';
 import Profile from './routes/Profile';
 import Contact from './routes/Contact';
+import Favorites from './routes/Favorites';
 
 import Home from './routes/Home';
 import SearchLink from "./components/link_search";
@@ -47,6 +48,7 @@ function App() {
             <Route path="/edit/:ID" element={<Edit />} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
+            <Route path='/favorite' element={< Favorites/>}/>
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
