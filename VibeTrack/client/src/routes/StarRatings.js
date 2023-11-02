@@ -13,18 +13,22 @@ export default function StarRating(props) {
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0);
 
+    // Function to handle when a star is clicked
     const handleClick = value => {
       setCurrentValue(value);
     }
 
+    // Function to handle when the mouse hovers over a star
     const handleMouseOver = newHoverValue => {
       setHoverValue(newHoverValue);
     };
 
+    // Function to handle when the mouse leaves the star area
     const handleMouseLeave = () => {
       setHoverValue(undefined);
     }
 
+    // Function to calculate new rating
     function calculateNewRating(userRating, currentRating, currentNumber) {
       const newRating = (userRating + currentRating * currentNumber) / (currentNumber + 1);
       return newRating.toFixed(1); 
@@ -79,6 +83,7 @@ export default function StarRating(props) {
       fetchData();
     }, [params.id]);
 
+    // Function to handle form submission
     async function onSubmit(e) {
       e.preventDefault();
       const editedVenue = {
@@ -118,56 +123,36 @@ export default function StarRating(props) {
     return (
       <div className="rating-component">
         <div className="grid-rating">
-          <div class="item">
-          <div className="stars">
-            {stars.map((_, index) => (
-              <FaStar
-                key={index}
-                size={24}
-                onClick={() => handleClick(index + 1)}
-                onMouseOver={() => handleMouseOver(index + 1)}
-                onMouseLeave={handleMouseLeave}
-                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                style={{
-                  marginRight: 10,
-                  cursor: "pointer"
-                }}
-              />
-            ))}
-          </div>
+          <div className="item">
+            <div className="stars">
+              {stars.map((_, index) => (
+                <FaStar
+                  key={index}
+                  size={24}
+                  onClick={() => handleClick(index + 1)}
+                  onMouseOver={() => handleMouseOver(index + 1)}
+                  onMouseLeave={handleMouseLeave}
+                  color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                  style={{
+                    marginRight: 10,
+                    cursor: "pointer"
+                  }}
+                />
+              ))}
+            </div>
           </div>
 
-       <div class="item">
-       <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-          {/* 
-          <div className="form-group">
-              <label htmlFor="rating">Rating:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="rating"
-                value={form.rating}
-              />
-            </div>
-            <div className="form-group">
-                <label htmlFor="review">Rating #:</label>
+          <div className="item">
+            <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+              <div className="form-group">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="review"
-                  value={form.review}
+                  type="submit"
+                  value="Submit rating"
+                  className="btn btn-primary"
                 />
-            </div>
-              */}
-          <div className="form-group">
-            <input
-              type="submit"
-              value="Submit rating"
-              className="btn btn-primary"
-            />
+              </div>
+            </form>
           </div>
-        </form>
-       </div>
         </div>
       </div>
     );

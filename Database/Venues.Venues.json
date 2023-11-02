@@ -1554,8 +1554,8 @@
   "yelp": "https://www.yelp.com/biz/the-vault-san-marcos",
   "amenities": "Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,Full Bar,TV,No Outdoor Seating,Bike Parking",
   "price": "$$",
-  "rating": 3.4,
-  "review": 93,
+  "rating": "3.4",
+  "review": 94,
   "tags": "Sake Bars,Karaoke"
 },
 {
@@ -1700,8 +1700,8 @@
   "amenities": null,
   "facebook": null,
   "price": "$",
-  "rating": "4.5",
-  "review": 2,
+  "rating": "4.3",
+  "review": 3,
   "tags": "Bars",
   "yelp": null
 },

@@ -147,13 +147,14 @@ function Data(props) {
       <div className="about-section">
         <div className="item">
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
+          {isOpen ? (
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab', 'marginBottom':'20px'}} className="btn btn-primary">OPEN NOW</button>
+          ) : (
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px','float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
+          )}
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
-          {isOpen ? (
-            <button style={{ 'display':'block', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab', 'marginBottom':'20px'}} className="btn btn-primary">OPEN NOW</button>
-          ) : (
-            <button style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
-          )}
+          
           <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><StarRating/> 
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
           </div>
