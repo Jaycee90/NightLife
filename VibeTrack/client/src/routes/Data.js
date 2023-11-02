@@ -153,7 +153,6 @@ function Data(props) {
           ) : (
             <button style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
           )}
-
         </div>
         <div className="item" >
           <ImageGallery items={images}
