@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import '../css/StarRatings.css';
 import { FaStar } from "react-icons/fa";
 
@@ -35,7 +35,6 @@ export default function StarRating(props) {
     }
     
     const params = useParams();
-    const navigate = useNavigate(); // Navigate function from react-router-dom
 
     const [form, setForm] = useState({
       _id: "",
@@ -76,7 +75,6 @@ export default function StarRating(props) {
         const venue = await response.json();
         if (!venue) {
           window.alert(`Reviews for venue with id ${id} not found`);
-          navigate("/");
           return;
         }
   
@@ -84,7 +82,7 @@ export default function StarRating(props) {
       }
   
       fetchData();
-    }, [params.id, navigate]);
+    }, [params.id]);
 
     async function onSubmit(e) { // Extract form fields for the request body
       e.preventDefault();
@@ -121,8 +119,6 @@ export default function StarRating(props) {
           'Content-Type': 'application/json'
         },
       });
-  
-      navigate("/recordList");
     }
     return (
       <div style={styles.container}>
@@ -143,11 +139,13 @@ export default function StarRating(props) {
         ))}
         </div>
         <br/>
-        <p style={{color:'#000'}}>Current Index: {currentValue}</p>
+        {/*<p style={{color:'#000'}}>Current Index: {currentValue}</p>*/}
+        
     </div>
 
           <br/>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+            {/* 
           <div className="form-group">
               <label htmlFor="rating">Rating:</label>
               <input
@@ -166,6 +164,7 @@ export default function StarRating(props) {
                   value={form.review}
                 />
             </div>
+              */}
             <div className="form-group">
               <input
                 type="submit"
@@ -182,11 +181,12 @@ const styles = {
     container: {
       display: "flex",
       flexDirection: "column",
-      alignItems: "center"
+      alignItems: "left",
     },
     stars: {
       display: "flex",
       flexDirection: "row",
+      alignItems: "left",
     },
     textarea: {
       border: "1px solid #a9a9a9",

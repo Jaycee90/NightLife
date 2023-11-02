@@ -32,47 +32,46 @@
   "facebook": null,
   "instagram": null,
   "price": "$",
-  "rating": 4.2,
+  "rating": "4.2",
   "tags": "Bars,Pool Halls",
-  "review": "202"
+  "review": 207
 },
 {
   "_id": {
-    "$oid": "651e5014c7ff119bb2ec6dcc"
+    "$oid": "651cdf10f721dadd5abf2238"
   },
-  "name": "Patio Dolcetto",
-  "address": "322 Cheatham St, San Marcos, TX 78666",
-  "latitude": 29.87682,
-  "about": "Located in San Marcos and inspired by the beautiful river, Patio Dolcetto embodies the energy and class of the city with the laid back atmosphere of the Hill Country. Treat yourself to great wines, craft ciders, cocktails, martinis, craft beers and good food on the romantic patio. And trust us, you're going to want to save room for dessert! Enjoy dining and imbibing at Patio Dolcetto. ",
+  "id": "chancesr",
+  "name": "Chances R",
+  "address": "138 S L B J Dr, San Marcos, TX 78666",
+  "latitude": 29.88149,
+  "longitude": -97.94025,
+  "about": "We are Chances “R.” The oldest continuous liquor establishment in San Marcos. We started as Hutton’s Key club then the Angnew Club, L.O.’s, and The Restless Wind. It stayed the Restless Wind for fifty years and become Chances “R” in 2013. The current owners have had the Restless Wind – Chances “R” for forty seven years.",
   "phone": {
-    "$numberLong": "5123663605"
+    "$numberLong": "5123921727"
   },
-  "website": "https://patiodolcetto.com/",
+  "website": "https://www.chancesrbarsm.com/",
   "image": [
-    "https://i.imgur.com/u5W6rwg.jpg",
-    "https://i.imgur.com/IULQRj5.png",
-    "https://i.imgur.com/6UEK0dF.png",
-    "https://i.imgur.com/vtCdpiL.jpg",
-    "https://i.imgur.com/49UGL9h.jpg",
-    "https://i.imgur.com/t86NgVo.png",
-    "https://i.imgur.com/F8NNrvx.png"
+    "https://i.imgur.com/6EIGn97.jpg",
+    "https://i.imgur.com/E63OIGc.png",
+    "https://i.imgur.com/52ky36U.jpg",
+    "https://i.imgur.com/OZUb7xZ.jpg",
+    "https://i.imgur.com/1ri0VCt.png"
   ],
-  "friday": "4:00 PM - 12:00 AM",
-  "instagram": "https://www.instagram.com/patiodolcetto/",
-  "monday": "4:00 PM - 11:00 PM",
-  "saturday": "4:00 PM - 12:00 AM",
-  "sunday": "12:00 PM - 10:00 PM",
-  "thursday": "4:00 PM - 11:00 PM",
-  "tuesday": "4:00 PM - 11:00 PM",
-  "wednesday": "4:00 PM - 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/patio-dolcetto-san-marcos",
-  "amenities": "Takes Reservations,Offers Takeout,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Romantic, Intimate, Classy, Casual,Quiet,Casual Dress,Good for Groups,Good for Dinner,Street Parking, Private Lot Parking,Waiter Service,Free Wi-Fi,Best nights on Saturday,Happy Hour Specials,Beer & Wine Only,Smoking Outside Only,Wheelchair Accessible,Gender-neutral restrooms,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Kids,Not Good For Dancing,No Drive-Thru,Dogs Not Allowed,No TV,Bike Parking,Compostable containers available",
-  "longtitude": -97.93679,
-  "facebook": null,
-  "price": "$$",
-  "rating": 4.7,
-  "review": 456,
-  "tags": "Wine Bars,Pizza,Tapas,Small Plates"
+  "facebook": "https://www.facebook.com/chancesrsanmarcos/",
+  "friday": "3:00 PM – 2:00 AM",
+  "instagram": "https://www.instagram.com/chancesrbar/",
+  "monday": "3:00 PM – 2:00 AM",
+  "saturday": "4:00 PM – 2:00 AM",
+  "sunday": "4:00 PM – 2:00 AM",
+  "thursday": "3:00 PM – 2:00 AM",
+  "tuesday": "3:00 PM – 2:00 AM",
+  "wednesday": "3:00 PM – 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/chances-r-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Divey,Moderate Noise,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,No Wi-Fi,Bike Parking",
+  "price": "$",
+  "rating": 4.5,
+  "review": 137,
+  "tags": "Cocktail Bars,Lounges"
 },
 {
   "_id": {
@@ -111,159 +110,6 @@
   "rating": 4.5,
   "review": 273,
   "tags": "Music Venues"
-},
-{
-  "_id": {
-    "$oid": "651cdf95f721dadd5abf223f"
-  },
-  "id": "blackrabbit",
-  "name": "Black Rabbit Saloon",
-  "address": "127 E. Hopkins St. San Marcos, TX 78666",
-  "latitude": 29.88338,
-  "longitude": -97.9408,
-  "about": "The latest and greatest addition to the San Marcos nightlife scene! Enjoy cold beer on draft, a great selection of bottled beer, or partake in one of our specialty cocktails. Offering San Marcos' only 'big kids' game room, you can roll Skeeball, throw darts, play pool, or be challenged at any of our numerous video games! Come drink, come play. ",
-  "phone": {
-    "$numberLong": "8666206667"
-  },
-  "website": "https://www.facebook.com/BlackRabbitSaloon/",
-  "image": [
-    "https://i.imgur.com/nBimlAT.jpg",
-    "https://i.imgur.com/Nl1HiVJ.jpg",
-    "https://i.imgur.com/xsrwuOK.jpg",
-    "https://i.imgur.com/RSGD1rP.jpg",
-    "https://i.imgur.com/zQ6s6ry.jpg",
-    "https://i.imgur.com/G7xY4oi.jpg",
-    "https://i.imgur.com/PXbaJj8.jpg"
-  ],
-  "facebook": "5:00 PM – 2:00 AM",
-  "friday": "5:00 PM – 2:00 AM",
-  "instagram": "https://www.instagram.com/blackrabbitsaloon/",
-  "monday": "5:00 PM – 2:00 AM",
-  "saturday": "5:00 PM – 2:00 AM",
-  "sunday": "5:00 PM – 2:00 AM",
-  "thursday": "5:00 PM – 2:00 AM",
-  "tuesday": "5:00 PM – 2:00 AM",
-  "wednesday": "5:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/black-rabbit-saloon-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Casual,Very Loud,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,No Wi-Fi,No Smoking,Bike Parking",
-  "price": "$$",
-  "rating": 4.1,
-  "review": 141,
-  "tags": "Bars"
-},
-{
-  "_id": {
-    "$oid": "651f38bd1f8d452578e363a3"
-  },
-  "id": "redbus",
-  "name": "Red Bus Food Truck Park",
-  "address": "801 Chestnut St San Marcos, TX 78666",
-  "latitude": 29.89227,
-  "longitude": -97.94198,
-  "about": "Red Bus Food Park is home to the only 40-foot bus that is heated and cooled for dining with food trucks surrounding it. Opt for outside dining under the shade of the trees on the lot. Get a sweet dessert from the bakeshop on site.",
-  "phone": {
-    "$numberLong": "5125371902"
-  },
-  "website": "https://redbusfoodpark.com",
-  "image": [
-    "https://i.imgur.com/wVzNMiK.jpg",
-    "https://i.imgur.com/ToVLzo1.jpg",
-    "https://i.imgur.com/ZTeSIMT.jpg",
-    "https://i.imgur.com/xIePMTF.jpg",
-    "https://i.imgur.com/jQC4rJc.jpg",
-    "https://i.imgur.com/QJm4G1f.jpg"
-  ],
-  "facebook": "https://www.facebook.com/RedBusFoodParkandBar/",
-  "friday": "7:00 AM - 12:30 AM",
-  "instagram": "https://www.instagram.com/redbusfoodparkandbar/",
-  "monday": "8:00 AM - 7:00 PM",
-  "saturday": "7:00 AM - 12:30 AM",
-  "sunday": "CLOSED",
-  "thursday": "7:00 AM - 11:00 PM",
-  "tuesday": "7:00 AM - 11:00 PM",
-  "wednesday": "7:00 AM - 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/red-bus-food-park-and-bar-san-marcos",
-  "amenities": "Offers Delivery,Offers Takeout,Pescatarian Options,Vegan Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Outdoor Seating,Good For Kids,Street Parking, Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Latinx-owned,Women-owned,Open to All,No Happy Hour,Bike Parking",
-  "price": "$",
-  "rating": 4.8,
-  "review": 21,
-  "tags": "Bars,Food Truck,Karaoke"
-},
-{
-  "_id": {
-    "$oid": "651f3a391f8d452578e363af"
-  },
-  "id": "wakethedead",
-  "name": "Wake The Dead Coffee House",
-  "address": "1432 Ranch Road 12 San Marcos, TX 78666",
-  "latitude": 29.89165,
-  "longitude": -97.95669,
-  "about": "This funky Tim Burton-esque serves breakfast and lunch. Choose from a variety of over 55 imported and domestic beers. Monthly exhibits showcase local artists. Monday - Sunday: 7am - 12am",
-  "phone": {
-    "$numberLong": "5127549253"
-  },
-  "website": "https://wakethedeadcoffeehouse.squarespace.com",
-  "image": [
-    "https://i.imgur.com/bybL3SG.jpg",
-    "https://i.imgur.com/0pC126S.jpg",
-    "https://i.imgur.com/qEmfoai.png",
-    "https://i.imgur.com/YzZvlww.png",
-    "https://i.imgur.com/5SEe76G.jpg",
-    "https://i.imgur.com/prWSr3t.jpg",
-    "https://i.imgur.com/e7G3M7s.jpg"
-  ],
-  "facebook": "https://www.facebook.com/wakethedeadcoffeehouse/",
-  "friday": "7:00 AM - 10:00 PM",
-  "instagram": "https://www.instagram.com/wakethedeadcoffeehouse/",
-  "monday": "7:00 AM - 10:00 PM",
-  "saturday": "7:00 AM - 10:00 PM",
-  "sunday": "7:00 AM - 10:00 PM",
-  "thursday": "7:00 AM - 10:00 PM",
-  "tuesday": "7:00 AM - 10:00 PM",
-  "wednesday": "7:00 AM - 10:00 PM",
-  "yelp": "https://www.yelp.com/biz/wake-the-dead-coffee-house-san-marcos",
-  "amenities": "Offers Takeout,Vegan Options,Accepts Credit Cards,Outdoor Seating,Moderate Noise,Good for Working,Street Parking,Private Lot Parking,Free Wi-Fi,Dogs Allowed,Gender-neutral restrooms,Offers Catering,Bike Parking",
-  "price": "$",
-  "rating": 4.6,
-  "review": 815,
-  "tags": "Coffee & Tea,Desserts"
-},
-{
-  "_id": {
-    "$oid": "651cdfb3f721dadd5abf2240"
-  },
-  "id": "axis",
-  "name": "Axis",
-  "address": "202 N LBJ Suite A San Marcos, TX 78666",
-  "latitude": 29.88346,
-  "longitude": -97.93997,
-  "about": "Axis is San Marcos' premier underground bar. Located right in downtown San Marcos at the heart of the square we feature karaoke, late night food, live entertainment, piano bar, and private events. Axis also has a courtyard for soaking up the lively San Marcos atmosphere.",
-  "phone": {
-    "$numberLong": "5123923031"
-  },
-  "website": "https://axisbarsmtx.com/",
-  "image": [
-    "https://i.imgur.com/8ULg8qp.png",
-    "https://i.imgur.com/qE42tEZ.jpg",
-    "https://i.imgur.com/Xk9T8xl.png",
-    "https://i.imgur.com/M4G99R4.jpg",
-    "https://i.imgur.com/tzQjqEV.jpg"
-  ],
-  "facebook": "https://www.facebook.com/axis78666/",
-  "friday": "6:00 PM - 2:00 AM",
-  "instagram": "https://www.instagram.com/axis78666/",
-  "monday": "6:00 PM - 2:00 AM",
-  "saturday": "6:00 PM - 2:00 AM",
-  "sunday": "6:00 PM - 2:00 AM",
-  "thursday": "6:00 PM - 2:00 AM",
-  "tuesday": "6:00 PM - 2:00 AM",
-  "wednesday": "6:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/axis-san-marcos",
-  "amenities": "Accepts Credit Cards,Outdoor Seating,Trendy,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Bike Parking",
-  "price": "$",
-  "rating": 3.8,
-  "review": 61,
-  "tags": "Bars,Karaoke"
 },
 {
   "_id": {
@@ -306,155 +152,6 @@
 },
 {
   "_id": {
-    "$oid": "651e4b8667944ee39d43c71e"
-  },
-  "name": "Zelicks Icehouse",
-  "address": "336 W Hopkins St, San Marcos, TX 78666",
-  "latitude": 29.8828375,
-  "longitude": -97.945398,
-  "about": "Rough 'n' ready roadhouse bar set in a 1930s gas station with TVs, games, a pool table & a patio. In May 2011, Zelicks was opened by brothers' Chase and Seth Katz, as a place that would attract diverse clientele to its friendly atmosphere, making it the perfect place to make new friends or catch up with old ones.",
-  "phone": {
-    "$numberLong": "5127578787"
-  },
-  "website": "http://www.zelickssmtx.com/",
-  "image": [
-    "https://i.imgur.com/ikuh0yR.jpg",
-    "https://i.imgur.com/u56m28p.png",
-    "https://i.imgur.com/j0ZgbZg.jpg",
-    "https://i.imgur.com/gQkSDOS.jpg",
-    "https://i.imgur.com/sLVnmxh.png",
-    "https://i.imgur.com/k4YtjnJ.png"
-  ],
-  "facebook": "https://www.facebook.com/Zelicks/",
-  "friday": "12:00 PM  - 2:00 AM",
-  "instagram": "https://www.instagram.com/zelicks/",
-  "monday": "3:00 PM  - 2:00 AM",
-  "saturday": "12:00 PM  - 2:00 AM",
-  "sunday": "12:00 PM  - 2:00 AM",
-  "thursday": "12:00 PM  - 2:00 AM",
-  "tuesday": "3:00 PM  - 2:00 AM",
-  "wednesday": "3:00 PM  - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/zelicks-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Best nights on Tuesday, Friday, Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Open to All,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Dancing,Bike Parking",
-  "price": "Bars",
-  "rating": 4.6,
-  "review": 755,
-  "tags": "$$"
-},
-{
-  "_id": {
-    "$oid": "651f37c51f8d452578e3639d"
-  },
-  "id": "middletonbrewing",
-  "name": "Middleton Brewing",
-  "address": "101 Oakwood Loop San Marcos, TX 78666",
-  "latitude": 29.93049,
-  "longitude": -98.07176,
-  "about": "Four legs or two, everyone feels right at home at Middleton Brewing! We suggest getting a glass of anything that strikes your fancy and then head to the rooftop for beautiful Hill Country views. The laid-back atmosphere at Middleton really hits the spot after a long day of exploring. ",
-  "phone": {
-    "$numberLong": "5128473435"
-  },
-  "website": "http://www.middletonbrewingtx.com",
-  "image": [
-    "https://i.imgur.com/aYIhEvB.jpg",
-    "https://i.imgur.com/Wp1f1Bh.jpg",
-    "https://i.imgur.com/ShOiC4w.png",
-    "https://i.imgur.com/iorzBt2.jpg",
-    "https://i.imgur.com/tisVLih.jpg",
-    "https://i.imgur.com/lWMCe80.jpg",
-    "https://i.imgur.com/Qt9zh6S.jpg"
-  ],
-  "facebook": "https://www.facebook.com/middletonbrewingsmtx/",
-  "friday": "12:00 PM - 10:00 PM",
-  "instagram": "https://www.instagram.com/middletonbrewing/",
-  "monday": "2:00 PM - 10:00 PM",
-  "saturday": "12:00 PM - 10:00 PM",
-  "sunday": "12:00 PM - 10:00 PM",
-  "thursday": "2:00 PM - 10:00 PM",
-  "tuesday": "CLOSED",
-  "wednesday": "2:00 PM - 10:00 PM",
-  "yelp": "https://www.yelp.com/biz/middleton-brewing-san-marcos-3",
-  "amenities": "No Reservations,No Takeout,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Offers Catering,Not Good For Dancing,No Pool Table,No TV,Bike Parking",
-  "price": "$$",
-  "rating": 4.7,
-  "review": 331,
-  "tags": "Breweries,Pubs"
-},
-{
-  "_id": {
-    "$oid": "651f38941f8d452578e363a2"
-  },
-  "id": "railyardbarngrill",
-  "name": "Railyard Bar And Grill",
-  "address": "116 S. Edward Gary St. San Marcos, TX 78666",
-  "latitude": 29.88137,
-  "longitude": -97.939,
-  "about": "Railyard Bar and Grill is a great place for the whole family to hang out, play and enjoy some good food. Get a drink from the full bar, relax and listen to live music and explore the spacious outdoor area with games for the whole crew.",
-  "phone": {
-    "$numberLong": "5123927555"
-  },
-  "website": "https://railyardbarandgrill.com",
-  "image": [
-    "https://i.imgur.com/502ItF5.jpg",
-    "https://i.imgur.com/Er9tTLZ.jpg",
-    "https://i.imgur.com/UuEWN08.jpg",
-    "https://i.imgur.com/iQdK9n3.jpg",
-    "https://i.imgur.com/NNAwVnc.jpg",
-    "https://i.imgur.com/yTK9HSJ.jpg",
-    "https://i.imgur.com/ws8oqG5.jpg"
-  ],
-  "facebook": "https://www.facebook.com/profile.php?id=227801880609841",
-  "friday": "12:00 PM - 2:00 AM",
-  "instagram": "https://www.instagram.com/railyardsmtx/",
-  "monday": "4:00 PM - 12:00 AM",
-  "saturday": "12:00 PM - 2:00 AM",
-  "sunday": "12:00 PM - 12:00 AM",
-  "thursday": "4:00 PM - 12:00 AM",
-  "tuesday": "4:00 PM - 12:00 AM",
-  "wednesday": "4:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/railyard-bar-and-grill-san-marcos",
-  "amenities": "Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Good For Kids,Good for Lunch, Dinner,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,TV,Offers Catering,Not Good For Dancing,No Drive-Thru,Bike Parking",
-  "price": "$$",
-  "rating": 4.1,
-  "review": 689,
-  "tags": "American (Traditional),Mexican,Sports Bars,Bars,Grills"
-},
-{
-  "_id": {
-    "$oid": "651f3a0b1f8d452578e363ad"
-  },
-  "id": "veranda",
-  "name": "The Veranda Roof Top Patio",
-  "address": "139 E. Hopkins San Marcos, TX 78666",
-  "latitude": 29.8834,
-  "longitude": -97.94053,
-  "about": "Enjoy the best view of Downtown San Marcos at Veranda! 360 degrees views of San Marcos from the top of Harper's Public House.",
-  "phone": {
-    "$numberLong": "5128782448"
-  },
-  "website": "https://www.facebook.com/HarpersVerandaSMTX/",
-  "image": [
-    "https://i.imgur.com/FFi8U1r.png",
-    "https://i.imgur.com/wdfhhEr.jpg"
-  ],
-  "facebook": "https://www.facebook.com/HarpersVerandaSMTX/",
-  "friday": "1:30 PM – 12:00 AM",
-  "instagram": "https://www.instagram.com/harpers.veranda.snappaheads/",
-  "monday": "5:00 PM – 12:00 AM",
-  "saturday": "12:30 PM -  2:00 AM",
-  "sunday": "12:30 PM -  12:00 AM",
-  "thursday": "3:00 PM – 12:00 AM",
-  "tuesday": "3:00 PM – 12:00 AM",
-  "wednesday": "3:00 PM – 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-veranda-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Loud,Good for Groups,Pool Table,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,Bike Parking",
-  "price": "$",
-  "rating": 3.5,
-  "review": 46,
-  "tags": "Lounges,Bars"
-},
-{
-  "_id": {
     "$oid": "651cdf61f721dadd5abf223b"
   },
   "id": "codys",
@@ -491,155 +188,6 @@
   "rating": 4.6,
   "review": 703,
   "tags": "Lounges,American (New),Cocktail Bars"
-},
-{
-  "_id": {
-    "$oid": "651f36481f8d452578e36394"
-  },
-  "id": "idontknowbar",
-  "name": "I Don't Know Bar",
-  "address": "650 E. Hopkins St San Marcos, TX 78666",
-  "latitude": 29.88491,
-  "longitude": -97.92496,
-  "about": "Pool, darts and lots of TV's with all the sports channels. I Don't Know Bar is open early and closes late. Monday-Friday 1pm-2am Saturday-Sunday 12pm-2am",
-  "phone": {
-    "$numberLong": "5123961964"
-  },
-  "website": "https://www.facebook.com/p/I-Dont-Know-Bar-100057188511171/",
-  "image": [
-    "https://i.imgur.com/f8YorJc.png",
-    "https://i.imgur.com/8n1vXM4.png",
-    "https://i.imgur.com/8AccL5R.png"
-  ],
-  "facebook": "https://www.facebook.com/p/I-Dont-Know-Bar-100057188511171/",
-  "friday": "11:30 AM - 1:30 AM",
-  "monday": "12:00 PM - 2:00 AM",
-  "saturday": "12:00 PM - 2:00 AM",
-  "sunday": "12:00 PM - 2:00 AM",
-  "thursday": "12:00 PM - 2:00 AM",
-  "tuesday": "12:00 PM - 2:00 AM",
-  "wednesday": "12:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/i-dont-know-bar-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good For Dancing,Pool Table,Private Lot Parking,Paid Wi-Fi,DJ,Full Bar,Smoking Outside Only,TV,No Outdoor Seating,Not Good For Groups,No Bike Parking",
-  "instagram": null,
-  "price": "$",
-  "rating": 3.9,
-  "review": 239,
-  "tags": "Dive Bars,Poll Halls"
-},
-{
-  "_id": {
-    "$oid": "651f355d1f8d452578e3638f"
-  },
-  "id": "fullmoonsaloon",
-  "name": "Full Moon Saloon",
-  "address": "16480 Texas Hwy 123, San Marcos, TX 78666",
-  "latitude": 29.80095,
-  "longitude": -97.9452,
-  "about": "Full Moon Saloon is where to go in San Marcos when you want to unwind and enjoy a drink. They offer a full bar, friendly atmosphere and good service. They have plenty of TVs for those of you who want to enjoy watching your favorite team play, pool tables and dart boards. You'll enjoy the menu of appetizers they offer to go along with whatever your drink of choice may be. There's no need to worry about having to spend a fortune to indulge yourself in the many drinks that are available. The cost of drinks is reasonable, and the quality is superb.",
-  "phone": {
-    "$numberLong": "5123962288"
-  },
-  "website": "https://www.facebook.com/p/Fullmoon-Saloon-100042368575950/",
-  "image": [
-    "https://i.imgur.com/PmWRvOr.jpg",
-    "https://i.imgur.com/FmUYBsF.jpg",
-    "https://i.imgur.com/bsoqLGp.png",
-    "https://i.imgur.com/LKcUoew.png",
-    "https://i.imgur.com/2i0VHOL.png",
-    "https://i.imgur.com/glwgFtl.png"
-  ],
-  "facebook": "https://www.facebook.com/p/Fullmoon-Saloon-100042368575950/",
-  "friday": "4:00 PM - 12:00 AM",
-  "monday": "4:00 PM - 12:00 AM",
-  "saturday": "4:00 PM - 1:00 AM",
-  "sunday": "4:00 PM - 12:00 AM",
-  "thursday": "4:00 PM - 12:00 AM",
-  "tuesday": "4:00 PM - 12:00 AM",
-  "wednesday": "4:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/full-moon-saloon-san-marcos",
-  "amenities": "Good for Groups",
-  "instagram": null,
-  "price": "$",
-  "rating": 4.1,
-  "review": 105,
-  "tags": "Beer Bars"
-},
-{
-  "_id": {
-    "$oid": "651f366e1f8d452578e36396"
-  },
-  "id": "jacksroadhouse",
-  "name": "Jack's Roadhouse",
-  "address": "1625 Hunter Rd. San Marcos, TX 78666",
-  "latitude": 29.87081,
-  "longitude": -97.95864,
-  "about": "Looking for a place to kick back, relax and enjoy a cold one (or two)? Jack's Roadhouse is just the place! With covered porch seating, live music and a full service bar, you're sure to be in for a good time.",
-  "phone": {
-    "$numberLong": "5122148511"
-  },
-  "website": "https://www.facebook.com/jacksroadhouse.sanmarcos/",
-  "image": [
-    "https://i.imgur.com/OLiuFqs.png",
-    "https://i.imgur.com/38aYnpX.png",
-    "https://i.imgur.com/6LzGfNz.jpg",
-    "https://i.imgur.com/qHwyH9o.jpg",
-    "https://i.imgur.com/nSFqI5W.png",
-    "https://i.imgur.com/nuX3BVJ.png"
-  ],
-  "facebook": "https://www.facebook.com/jacksroadhouse.sanmarcos/photos/",
-  "friday": "2:00 PM - 2:00 AM",
-  "instagram": "https://www.instagram.com/explore/locations/514277611/jacks-roadhouse-san-marcos/",
-  "monday": "2:00 PM - 2:00 AM",
-  "saturday": "12:00 PM - 2:00 AM",
-  "sunday": "12:00 PM - 2:00 AM",
-  "thursday": "2:00 PM - 2:00 AM",
-  "tuesday": "2:00 PM - 2:00 AM",
-  "wednesday": "2:00 PM - 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/jacks-roadhouse-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Divey,Casual,Loud,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Monday,Best nights on Friday,Best nights on Saturday,Beer & Wine Only,Smoking Allowed,TV,Not Good For Dancing,Bike Parking",
-  "price": "$",
-  "rating": 4.3,
-  "review": 338,
-  "tags": "Bars"
-},
-{
-  "_id": {
-    "$oid": "651f38671f8d452578e363a0"
-  },
-  "id": "puttpub",
-  "name": "Putt Pub",
-  "address": "307 S LBJ San Marcos, TX 78666",
-  "latitude": 29.87933,
-  "longitude": -97.93925,
-  "about": "Two full bars, indoor and outdoor seating, tasty food trucks, games, and, of course, an 18-hole miniature golf course - Putt Pub is a great place for the kids at heart. This laid-back neighborhood bar is full of fun surprises (like a seesaw!) and you're always in for a good time.",
-  "phone": {
-    "$numberLong": "5122229838"
-  },
-  "website": "http://www.puttpub.com",
-  "image": [
-    "https://i.imgur.com/p6Wqpx5.jpg",
-    "https://i.imgur.com/3eS1otI.png",
-    "https://i.imgur.com/kPbDhjB.jpg",
-    "https://i.imgur.com/c4BoE9Q.jpg",
-    "https://i.imgur.com/14SxE5d.png",
-    "https://i.imgur.com/1Ecuc5W.jpg"
-  ],
-  "facebook": "https://www.facebook.com/puttpub/",
-  "friday": "1:00 PM - 2:00 AM",
-  "instagram": "https://www.instagram.com/puttpub/",
-  "monday": "3:00 PM - 12:00 AM",
-  "saturday": "1:00 PM - 2:00 AM",
-  "sunday": "1:00 PM - 12:00 AM",
-  "thursday": "3:00 PM - 12:00 AM",
-  "tuesday": "3:00 PM - 12:00 AM",
-  "wednesday": "3:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/putt-pub-san-marcos",
-  "amenities": "Outdoor Seating,Street Parking,Private Lot Parking,Happy Hour Specials",
-  "price": "$",
-  "rating": 4.6,
-  "review": 233,
-  "tags": "Bars,Mini Gold,Venues,Event Spaces"
 },
 {
   "_id": {
@@ -719,6 +267,196 @@
 },
 {
   "_id": {
+    "$oid": "651cdf84f721dadd5abf223e"
+  },
+  "id": "evo",
+  "name": "Evo Entertainment At Springtown Center",
+  "address": "1180 Thorpe Lane San Marcos, TX 78666",
+  "latitude": 29.88784,
+  "longitude": -97.92331,
+  "about": "A true social hub & entertainment destination, EVO features a six-screen dine-in cinema with all luxury recliner seating and food and drink service right to your seat, eight lanes of boutique bowling, a full-service restaurant, arcade and board games, as well as an innovative craft cocktail bar.",
+  "phone": {
+    "$numberLong": "5122108600"
+  },
+  "website": "https://www.evocinemas.com/sanmarcos",
+  "image": [
+    "https://i.imgur.com/mf9Yl5N.jpg",
+    "https://i.imgur.com/acObg0b.jpg",
+    "https://i.imgur.com/inHQef9.jpg",
+    "https://i.imgur.com/YuYXnrO.jpg",
+    "https://i.imgur.com/iRMaozW.jpg",
+    "https://i.imgur.com/zZeHtfA.jpg",
+    "https://i.imgur.com/MOTdPSU.png"
+  ],
+  "facebook": "https://www.facebook.com/evospringtown/",
+  "friday": "12:00 PM - 11:00 PM",
+  "monday": "12:00 PM - 9:00 PM",
+  "saturday": "10:00 AM - 11:00 PM",
+  "sunday": "10:00 AM - 9:00 PM",
+  "thursday": "12:00 PM - 9:00 PM",
+  "tuesday": "12:00 PM - 9:00 PM",
+  "wednesday": "12:00 PM - 9:00 PM",
+  "yelp": "https://www.yelp.com/biz/evo-entertainment-springtown-san-marcos-2",
+  "amenities": "Accepts Credit Cards,Bike Parking,Dogs Not Allowed,Free Wi-Fi,Good For Kids,Private Lot Parking,Wheelchair Accessible",
+  "instagram": null,
+  "price": "$$",
+  "rating": 4.4,
+  "review": 1852,
+  "tags": "Cinema,Bowling,Arcades,Bars"
+},
+{
+  "_id": {
+    "$oid": "651cdf95f721dadd5abf223f"
+  },
+  "id": "blackrabbit",
+  "name": "Black Rabbit Saloon",
+  "address": "127 E. Hopkins St. San Marcos, TX 78666",
+  "latitude": 29.88338,
+  "longitude": -97.9408,
+  "about": "The latest and greatest addition to the San Marcos nightlife scene! Enjoy cold beer on draft, a great selection of bottled beer, or partake in one of our specialty cocktails. Offering San Marcos' only 'big kids' game room, you can roll Skeeball, throw darts, play pool, or be challenged at any of our numerous video games! Come drink, come play. ",
+  "phone": {
+    "$numberLong": "8666206667"
+  },
+  "website": "https://www.facebook.com/BlackRabbitSaloon/",
+  "image": [
+    "https://i.imgur.com/nBimlAT.jpg",
+    "https://i.imgur.com/Nl1HiVJ.jpg",
+    "https://i.imgur.com/xsrwuOK.jpg",
+    "https://i.imgur.com/RSGD1rP.jpg",
+    "https://i.imgur.com/zQ6s6ry.jpg",
+    "https://i.imgur.com/G7xY4oi.jpg",
+    "https://i.imgur.com/PXbaJj8.jpg"
+  ],
+  "facebook": "5:00 PM – 2:00 AM",
+  "friday": "5:00 PM – 2:00 AM",
+  "instagram": "https://www.instagram.com/blackrabbitsaloon/",
+  "monday": "5:00 PM – 2:00 AM",
+  "saturday": "5:00 PM – 2:00 AM",
+  "sunday": "5:00 PM – 2:00 AM",
+  "thursday": "5:00 PM – 2:00 AM",
+  "tuesday": "5:00 PM – 2:00 AM",
+  "wednesday": "5:00 PM – 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/black-rabbit-saloon-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Casual,Very Loud,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,No Wi-Fi,No Smoking,Bike Parking",
+  "price": "$$",
+  "rating": 4.1,
+  "review": 141,
+  "tags": "Bars"
+},
+{
+  "_id": {
+    "$oid": "651cdfb3f721dadd5abf2240"
+  },
+  "id": "axis",
+  "name": "Axis",
+  "address": "202 N LBJ Suite A San Marcos, TX 78666",
+  "latitude": 29.88346,
+  "longitude": -97.93997,
+  "about": "Axis is San Marcos' premier underground bar. Located right in downtown San Marcos at the heart of the square we feature karaoke, late night food, live entertainment, piano bar, and private events. Axis also has a courtyard for soaking up the lively San Marcos atmosphere.",
+  "phone": {
+    "$numberLong": "5123923031"
+  },
+  "website": "https://axisbarsmtx.com/",
+  "image": [
+    "https://i.imgur.com/8ULg8qp.png",
+    "https://i.imgur.com/qE42tEZ.jpg",
+    "https://i.imgur.com/Xk9T8xl.png",
+    "https://i.imgur.com/M4G99R4.jpg",
+    "https://i.imgur.com/tzQjqEV.jpg"
+  ],
+  "facebook": "https://www.facebook.com/axis78666/",
+  "friday": "6:00 PM - 2:00 AM",
+  "instagram": "https://www.instagram.com/axis78666/",
+  "monday": "6:00 PM - 2:00 AM",
+  "saturday": "6:00 PM - 2:00 AM",
+  "sunday": "6:00 PM - 2:00 AM",
+  "thursday": "6:00 PM - 2:00 AM",
+  "tuesday": "6:00 PM - 2:00 AM",
+  "wednesday": "6:00 PM - 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/axis-san-marcos",
+  "amenities": "Accepts Credit Cards,Outdoor Seating,Trendy,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Bike Parking",
+  "price": "$",
+  "rating": 3.8,
+  "review": 61,
+  "tags": "Bars,Karaoke"
+},
+{
+  "_id": {
+    "$oid": "651e4b8667944ee39d43c71e"
+  },
+  "name": "Zelicks Icehouse",
+  "address": "336 W Hopkins St, San Marcos, TX 78666",
+  "latitude": 29.8828375,
+  "longitude": -97.945398,
+  "about": "Rough 'n' ready roadhouse bar set in a 1930s gas station with TVs, games, a pool table & a patio. In May 2011, Zelicks was opened by brothers' Chase and Seth Katz, as a place that would attract diverse clientele to its friendly atmosphere, making it the perfect place to make new friends or catch up with old ones.",
+  "phone": {
+    "$numberLong": "5127578787"
+  },
+  "website": "http://www.zelickssmtx.com/",
+  "image": [
+    "https://i.imgur.com/ikuh0yR.jpg",
+    "https://i.imgur.com/u56m28p.png",
+    "https://i.imgur.com/j0ZgbZg.jpg",
+    "https://i.imgur.com/gQkSDOS.jpg",
+    "https://i.imgur.com/sLVnmxh.png",
+    "https://i.imgur.com/k4YtjnJ.png"
+  ],
+  "facebook": "https://www.facebook.com/Zelicks/",
+  "friday": "12:00 PM  - 2:00 AM",
+  "instagram": "https://www.instagram.com/zelicks/",
+  "monday": "3:00 PM  - 2:00 AM",
+  "saturday": "12:00 PM  - 2:00 AM",
+  "sunday": "12:00 PM  - 2:00 AM",
+  "thursday": "12:00 PM  - 2:00 AM",
+  "tuesday": "3:00 PM  - 2:00 AM",
+  "wednesday": "3:00 PM  - 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/zelicks-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Best nights on Tuesday, Friday, Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Open to All,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Dancing,Bike Parking",
+  "price": "Bars",
+  "rating": 4.6,
+  "review": 755,
+  "tags": "$$"
+},
+{
+  "_id": {
+    "$oid": "651e5014c7ff119bb2ec6dcc"
+  },
+  "name": "Patio Dolcetto",
+  "address": "322 Cheatham St, San Marcos, TX 78666",
+  "latitude": 29.87682,
+  "about": "Located in San Marcos and inspired by the beautiful river, Patio Dolcetto embodies the energy and class of the city with the laid back atmosphere of the Hill Country. Treat yourself to great wines, craft ciders, cocktails, martinis, craft beers and good food on the romantic patio. And trust us, you're going to want to save room for dessert! Enjoy dining and imbibing at Patio Dolcetto. ",
+  "phone": {
+    "$numberLong": "5123663605"
+  },
+  "website": "https://patiodolcetto.com/",
+  "image": [
+    "https://i.imgur.com/u5W6rwg.jpg",
+    "https://i.imgur.com/IULQRj5.png",
+    "https://i.imgur.com/6UEK0dF.png",
+    "https://i.imgur.com/vtCdpiL.jpg",
+    "https://i.imgur.com/49UGL9h.jpg",
+    "https://i.imgur.com/t86NgVo.png",
+    "https://i.imgur.com/F8NNrvx.png"
+  ],
+  "friday": "4:00 PM - 12:00 AM",
+  "instagram": "https://www.instagram.com/patiodolcetto/",
+  "monday": "4:00 PM - 11:00 PM",
+  "saturday": "4:00 PM - 12:00 AM",
+  "sunday": "12:00 PM - 10:00 PM",
+  "thursday": "4:00 PM - 11:00 PM",
+  "tuesday": "4:00 PM - 11:00 PM",
+  "wednesday": "4:00 PM - 11:00 PM",
+  "yelp": "https://www.yelp.com/biz/patio-dolcetto-san-marcos",
+  "amenities": "Takes Reservations,Offers Takeout,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Romantic, Intimate, Classy, Casual,Quiet,Casual Dress,Good for Groups,Good for Dinner,Street Parking, Private Lot Parking,Waiter Service,Free Wi-Fi,Best nights on Saturday,Happy Hour Specials,Beer & Wine Only,Smoking Outside Only,Wheelchair Accessible,Gender-neutral restrooms,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Kids,Not Good For Dancing,No Drive-Thru,Dogs Not Allowed,No TV,Bike Parking,Compostable containers available",
+  "facebook": null,
+  "price": "$$",
+  "rating": 4.7,
+  "review": 456,
+  "tags": "Wine Bars,Pizza,Tapas,Small Plates",
+  "longitude": -97.93679
+},
+{
+  "_id": {
     "$oid": "651f35001f8d452578e3638e"
   },
   "id": "freddycslounge",
@@ -758,118 +496,303 @@
 },
 {
   "_id": {
-    "$oid": "651f39311f8d452578e363a7"
+    "$oid": "651f355d1f8d452578e3638f"
   },
-  "id": "seanpatrick",
-  "name": "Sean Patrick'S Irish Pub & Texas Grub",
-  "address": "202 E. San Antonio St. Ste.119 San Marcos, TX 78666",
-  "latitude": 29.88211,
-  "longitude": -97.93946,
-  "about": "Sean Patrick’s is all about the Irish pub and Texas grub! Grab yourself an order of Guinness Fish & Chips and a cold pint of Sean Patrick’s finest beer and enjoy the buzz of Downtown San Marcos.",
+  "id": "fullmoonsaloon",
+  "name": "Full Moon Saloon",
+  "address": "16480 Texas Hwy 123, San Marcos, TX 78666",
+  "latitude": 29.80095,
+  "longitude": -97.9452,
+  "about": "Full Moon Saloon is where to go in San Marcos when you want to unwind and enjoy a drink. They offer a full bar, friendly atmosphere and good service. They have plenty of TVs for those of you who want to enjoy watching your favorite team play, pool tables and dart boards. You'll enjoy the menu of appetizers they offer to go along with whatever your drink of choice may be. There's no need to worry about having to spend a fortune to indulge yourself in the many drinks that are available. The cost of drinks is reasonable, and the quality is superb.",
   "phone": {
-    "$numberLong": "5123927310"
+    "$numberLong": "5123962288"
   },
-  "website": "https://seanpatrickstx.com",
+  "website": "https://www.facebook.com/p/Fullmoon-Saloon-100042368575950/",
   "image": [
-    "https://i.imgur.com/RZxnHAk.jpg",
-    "https://i.imgur.com/fd6PWDa.jpg",
-    "https://i.imgur.com/MQ5vEPA.jpg",
-    "https://i.imgur.com/YCs3vem.jpg",
-    "https://i.imgur.com/8v89rfM.jpg",
-    "https://i.imgur.com/P4Ythf6.jpg"
+    "https://i.imgur.com/PmWRvOr.jpg",
+    "https://i.imgur.com/FmUYBsF.jpg",
+    "https://i.imgur.com/bsoqLGp.png",
+    "https://i.imgur.com/LKcUoew.png",
+    "https://i.imgur.com/2i0VHOL.png",
+    "https://i.imgur.com/glwgFtl.png"
   ],
-  "facebook": "https://www.facebook.com/seanpatrickstx/",
-  "friday": "11:00 AM – 12:00 AM",
-  "instagram": "https://www.instagram.com/explore/locations/2184728/sean-patricks-irish-pub-n-texas-grub/",
-  "monday": "11:00 AM – 11:00 PM",
-  "saturday": "Open 24 hours",
-  "sunday": "11:00 AM – 10:00 PM",
-  "thursday": "11:00 AM – 12:00 AM",
-  "tuesday": "11:00 AM – 11:00 PM",
-  "wednesday": "11:00 AM – 11:00 PM",
-  "yelp": "https://www.yelp.com/biz/sean-patricks-irish-pub-texas-grub-san-marcos",
-  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good for Lunch,Good for Dinner,Pool Table,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,TV,Not Good For Kids,Bike Parking",
-  "price": "$$",
-  "rating": 4.4,
-  "review": 635,
-  "tags": "Irish,Burgers,Sport Bars"
+  "facebook": "https://www.facebook.com/p/Fullmoon-Saloon-100042368575950/",
+  "friday": "4:00 PM - 12:00 AM",
+  "monday": "4:00 PM - 12:00 AM",
+  "saturday": "4:00 PM - 1:00 AM",
+  "sunday": "4:00 PM - 12:00 AM",
+  "thursday": "4:00 PM - 12:00 AM",
+  "tuesday": "4:00 PM - 12:00 AM",
+  "wednesday": "4:00 PM - 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/full-moon-saloon-san-marcos",
+  "amenities": "Good for Groups",
+  "instagram": null,
+  "price": "$",
+  "rating": 4.1,
+  "review": 105,
+  "tags": "Beer Bars"
 },
 {
   "_id": {
-    "$oid": "651f39cf1f8d452578e363ab"
+    "$oid": "651f35821f8d452578e36390"
   },
-  "id": "treffstavern",
-  "name": "Treff's Tavern",
-  "address": "804 Chestnut St. San Marcos, TX 78666",
-  "latitude": 29.89288,
-  "longitude": -97.94181,
-  "about": "Treff's Tavern, is your friendly neighborhood bar located right up North LBJ and just across from Texas State campus. Treff's Tavern is your one-stop haven whenever you need to get out of the house, take a break from work or school, or just need to get a cold one. Bring your friends, or just come up on your own and meet our great bar staff and regulars! You'll love our daily happy hour and nightly drink specials, as well as get caught up in our weekly events!",
+  "id": "greenparrot",
+  "name": "Green Parrot",
+  "address": "124 N. LBJ Drive San Marcos, TX 78666",
+  "latitude": 29.88294,
+  "longitude": -97.93985,
+  "about": "Green Parrot is a fun place to come and enjoy a good drink with good friends. Historic bar, est. 1982. longest lasting bar on the square... AKA we can handle our liquor.",
   "phone": {
-    "$numberLong": "5123531594"
+    "$numberLong": "5123964259"
   },
-  "website": "https://www.treffstavern.com",
+  "website": "https://www.facebook.com/gparrotsanmarcos/",
   "image": [
-    "https://i.imgur.com/sUsX0lh.png",
-    "https://i.imgur.com/ExcdOjy.jpg",
-    "https://i.imgur.com/em8iq7C.png",
-    "https://i.imgur.com/2JMSEBw.png",
-    "https://i.imgur.com/YkCTn0R.jpg",
-    "https://i.imgur.com/8Ss8Ksl.jpg"
+    "https://i.imgur.com/8ATnETI.png",
+    "https://i.imgur.com/Ivok1Px.png",
+    "https://i.imgur.com/uDoDRtK.jpg",
+    "https://i.imgur.com/Acbo6Oz.png",
+    "https://i.imgur.com/7NSeMWH.png",
+    "https://i.imgur.com/qWfBQqg.jpg"
   ],
-  "facebook": "https://www.facebook.com/treffstavern/",
-  "friday": "12:30 PM -  2:00 AM",
-  "instagram": "https://www.instagram.com/treffstavern/",
-  "monday": "12:30 PM -  2:00 AM",
-  "saturday": "12:30 PM -  2:00 AM",
-  "sunday": "12:30 PM -  2:00 AM",
-  "thursday": "12:30 PM -  2:00 AM",
-  "tuesday": "12:30 PM -  2:00 AM",
-  "wednesday": "12:30 PM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/treffs-tavern-san-marcos",
-  "amenities": "Takes Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Loud,Good for Groups,Street Parking,Private Lot Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Pool Table,Bike Parking",
+  "facebook": "https://www.facebook.com/profile.php?id=100064896344962",
+  "friday": "CLOSED",
+  "monday": "CLOSED",
+  "saturday": "CLOSED",
+  "sunday": "CLOSED",
+  "thursday": "CLOSED",
+  "tuesday": "CLOSED",
+  "wednesday": "CLOSED",
+  "yelp": "https://www.yelp.com/biz/green-parrot-san-marcos",
+  "amenities": "No Takeout,Accepts Credit Cards,Loud,Good for Groups,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,No Outdoor Seating",
+  "instagram": null,
+  "price": "$$",
+  "rating": 2,
+  "review": 23,
+  "tags": "Beer Bars,Wine"
+},
+{
+  "_id": {
+    "$oid": "651f35be1f8d452578e36391"
+  },
+  "id": "growling",
+  "name": "The Growling",
+  "address": "700 North LBJ Drive Suite 111 San Marcos, TX 78666",
+  "latitude": 29.89186,
+  "longitude": -97.94091,
+  "about": "There are 27 Texas breweries represented on the tap wall from all five regions of the state. Drink a pint or share a growler with your friends at the bar, or purchase your beer to-go. They also offer plastic growlers for your float down the river or classic glass growlers and fancy porcelain growlers for those special occasions.",
+  "phone": {
+    "$numberLong": "5122166044"
+  },
+  "website": "http://www.thegrowling.com",
+  "image": [
+    "https://i.imgur.com/eYv0OeU.jpg",
+    "https://i.imgur.com/vxT0DnC.png",
+    "https://i.imgur.com/jjOlpRv.jpg",
+    "https://i.imgur.com/DCzts4d.jpg",
+    "https://i.imgur.com/NDurS1K.jpg",
+    "https://i.imgur.com/JDYxUFZ.png"
+  ],
+  "facebook": "https://www.facebook.com/thegrowlingsanmarcos/",
+  "friday": "2:00 PM - 12:00 AM",
+  "instagram": "https://www.instagram.com/thegrowlingtexasbeerbar/",
+  "monday": "2:00 PM - 12:00 AM",
+  "saturday": "2:00 PM - 1:00 AM",
+  "sunday": "2:00 PM - 12:00 AM",
+  "thursday": "2:00 PM - 12:00 AM",
+  "tuesday": "2:00 PM - 12:00 AM",
+  "wednesday": "2:00 PM - 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/the-growling-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Outdoor Seating,Divey,Hipster,Casual,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Thursday,Friday,Saturday,Beer & Wine Only,Wheelchair Accessible,TV,Not Good For Dancing,Bike Parking",
+  "price": "$$",
+  "rating": 4.7,
+  "review": 158,
+  "tags": "Beer Bars"
+},
+{
+  "_id": {
+    "$oid": "651f35ce1f8d452578e36392"
+  },
+  "id": "happycowbarngrill",
+  "name": "Happy Cow Bar And Grill",
+  "address": "9103 FM1102, New Braunfels, TX 78130",
+  "latitude": 29.8048,
+  "longitude": -98.02137,
+  "about": "Enjoy live music, delicious drinks and tasty food at Happy Cow Bar & Grill. The Texas Hill Country oasis is the perfect place to grab a picnic table, kick back and enjoy a good burger, cold beer and great music. Live music is played on the large outdoor stage, the “Happy Cow Backyard,” every Friday and Saturday.",
+  "phone": {
+    "$numberLong": "5126677510"
+  },
+  "website": "https://happycowbar.com",
+  "image": [
+    "https://i.imgur.com/E1teYV9.jpg",
+    "https://i.imgur.com/ObpvnBb.jpg",
+    "https://i.imgur.com/WtoF1dr.jpg",
+    "https://i.imgur.com/IMRzr4Y.jpg",
+    "https://i.imgur.com/I5yaUoR.jpg",
+    "https://i.imgur.com/lBZMLMU.jpg"
+  ],
+  "facebook": "https://www.facebook.com/happycowbarandgrill",
+  "friday": "1:00 PM - 12:00 AM",
+  "instagram": "https://www.instagram.com/happycowbar/",
+  "monday": "1:00 PM - 12:00 AM",
+  "saturday": "12:00 PM - 12:00 AM",
+  "sunday": "12:00 PM - 12:00 AM",
+  "thursday": "1:00 PM - 12:00 AM",
+  "tuesday": "1:00 PM - 12:00 AM",
+  "wednesday": "1:00 PM - 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/happy-cow-new-braunfels-2",
+  "amenities": "Offers Takeout,No Reservations,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Divey,Casual,Moderate Noise,Good for Groups,Good for Lunch,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Happy Hour Specials,Full Bar,Smoking Allowed,Wheelchair Accessible,TV,Heated Outdoor Seating,No Catering,Not Good For Kids,No Covered Outdoor Seating,No Private Dining,Bike Parking",
   "price": "$",
   "rating": 4.4,
-  "review": 253,
+  "review": 416,
+  "tags": "American (Traditional),Bars"
+},
+{
+  "_id": {
+    "$oid": "651f36061f8d452578e36393"
+  },
+  "id": "harpersonsquare",
+  "name": "Harper's On The Square",
+  "address": "139 E. Hopkins St. San Marcos, TX 78666",
+  "latitude": 29.8834,
+  "longitude": -97.94053,
+  "about": "Whether you're looking to watch the big game, relax with a round of drinks with your friends, or catch a live music performance, Harper's is always a good time. ",
+  "phone": {
+    "$numberLong": "5128782448"
+  },
+  "website": "https://www.facebook.com/HarpersVerandaSMTX/",
+  "image": [
+    "https://i.imgur.com/h2QZJAQ.png",
+    "https://i.imgur.com/tjQZ6c8.png",
+    "https://i.imgur.com/uLnbWtS.png",
+    "https://i.imgur.com/C2Zzj9D.png",
+    "https://i.imgur.com/uNo259t.jpg",
+    "https://i.imgur.com/QNt3ceP.png"
+  ],
+  "facebook": "https://www.facebook.com/HarpersVerandaSMTX/",
+  "friday": "7:00 PM - 1:30 AM",
+  "instagram": "https://www.instagram.com/harpers.veranda.snappaheads/",
+  "monday": "CLOSED",
+  "saturday": "CLOSED",
+  "sunday": "12:00 PM - 7:00 PM",
+  "thursday": "7:00 PM - 1:30 AM",
+  "tuesday": "CLOSED",
+  "wednesday": "8:00 PM - 1:30 AM",
+  "yelp": "https://www.yelp.com/biz/harpers-brick-oven-san-marcos",
+  "amenities": "Offers Takeout,No Reservations,No Delivery,Accepts Credit Cards,Accepts Cryptocurrency,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Full Bar,TV,No Outdoor Seating,Not Good For Kids,Bike Parking",
+  "price": "$$",
+  "rating": 4,
+  "review": 137,
+  "tags": "Pizza,Sport Bars,Chicken Wings"
+},
+{
+  "_id": {
+    "$oid": "651f36481f8d452578e36394"
+  },
+  "id": "idontknowbar",
+  "name": "I Don't Know Bar",
+  "address": "650 E. Hopkins St San Marcos, TX 78666",
+  "latitude": 29.88491,
+  "longitude": -97.92496,
+  "about": "Pool, darts and lots of TV's with all the sports channels. I Don't Know Bar is open early and closes late. Monday-Friday 1pm-2am Saturday-Sunday 12pm-2am",
+  "phone": {
+    "$numberLong": "5123961964"
+  },
+  "website": "https://www.facebook.com/p/I-Dont-Know-Bar-100057188511171/",
+  "image": [
+    "https://i.imgur.com/f8YorJc.png",
+    "https://i.imgur.com/8n1vXM4.png",
+    "https://i.imgur.com/8AccL5R.png"
+  ],
+  "facebook": "https://www.facebook.com/p/I-Dont-Know-Bar-100057188511171/",
+  "friday": "11:30 AM - 1:30 AM",
+  "monday": "12:00 PM - 2:00 AM",
+  "saturday": "12:00 PM - 2:00 AM",
+  "sunday": "12:00 PM - 2:00 AM",
+  "thursday": "12:00 PM - 2:00 AM",
+  "tuesday": "12:00 PM - 2:00 AM",
+  "wednesday": "12:00 PM - 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/i-dont-know-bar-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good For Dancing,Pool Table,Private Lot Parking,Paid Wi-Fi,DJ,Full Bar,Smoking Outside Only,TV,No Outdoor Seating,Not Good For Groups,No Bike Parking",
+  "instagram": null,
+  "price": "$",
+  "rating": 3.9,
+  "review": 239,
+  "tags": "Dive Bars,Poll Halls"
+},
+{
+  "_id": {
+    "$oid": "651f366e1f8d452578e36396"
+  },
+  "id": "jacksroadhouse",
+  "name": "Jack's Roadhouse",
+  "address": "1625 Hunter Rd. San Marcos, TX 78666",
+  "latitude": 29.87081,
+  "longitude": -97.95864,
+  "about": "Looking for a place to kick back, relax and enjoy a cold one (or two)? Jack's Roadhouse is just the place! With covered porch seating, live music and a full service bar, you're sure to be in for a good time.",
+  "phone": {
+    "$numberLong": "5122148511"
+  },
+  "website": "https://www.facebook.com/jacksroadhouse.sanmarcos/",
+  "image": [
+    "https://i.imgur.com/OLiuFqs.png",
+    "https://i.imgur.com/38aYnpX.png",
+    "https://i.imgur.com/6LzGfNz.jpg",
+    "https://i.imgur.com/qHwyH9o.jpg",
+    "https://i.imgur.com/nSFqI5W.png",
+    "https://i.imgur.com/nuX3BVJ.png"
+  ],
+  "facebook": "https://www.facebook.com/jacksroadhouse.sanmarcos/photos/",
+  "friday": "2:00 PM - 2:00 AM",
+  "instagram": "https://www.instagram.com/explore/locations/514277611/jacks-roadhouse-san-marcos/",
+  "monday": "2:00 PM - 2:00 AM",
+  "saturday": "12:00 PM - 2:00 AM",
+  "sunday": "12:00 PM - 2:00 AM",
+  "thursday": "2:00 PM - 2:00 AM",
+  "tuesday": "2:00 PM - 2:00 AM",
+  "wednesday": "2:00 PM - 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/jacks-roadhouse-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Divey,Casual,Loud,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Monday,Best nights on Friday,Best nights on Saturday,Beer & Wine Only,Smoking Allowed,TV,Not Good For Dancing,Bike Parking",
+  "price": "$",
+  "rating": 4.3,
+  "review": 338,
   "tags": "Bars"
 },
 {
   "_id": {
-    "$oid": "651f3a161f8d452578e363ae"
+    "$oid": "651f37081f8d452578e36397"
   },
-  "id": "uproot",
-  "name": "Uproot",
-  "address": "215 N LBJ DR San Marcos, TX 78666",
-  "latitude": 29.88372,
-  "longitude": -97.94044,
-  "about": "Nestled above the Root Cellar Cafe and a stone’s throw from the busy Square is UpRoot. It’s the perfect place for a cocktail before dinner, date night out to impress, or a solid start to a legendary evening.",
+  "id": "kissingalley",
+  "name": "Kissing Alley",
+  "address": "121 E Hopkins San Marcos, TX 78666",
+  "latitude": 29.88315,
+  "longitude": -97.94081,
+  "about": "What may seem like an average alley to passersby is actually one of San Marcos’ hidden gems! With eclectic murals both large and small, twinkly lights strung overhead and, of course, scenic views of the Hays County Courthouse – Kissing Alley is the heart of Downtown San Marcos.",
   "phone": {
-    "$numberLong": "5123925158"
+    "$numberLong": "5123938430"
   },
-  "website": "https://rootcellarcafe.com/san-marcos/uproot-bar.html",
+  "website": "https://www.facebook.com/downtownsmtx/",
   "image": [
-    "https://i.imgur.com/5a4vHWN.png",
-    "https://i.imgur.com/aj83Ltr.jpg",
-    "https://i.imgur.com/UYBF6B0.png",
-    "https://i.imgur.com/MiRXSED.png",
-    "https://i.imgur.com/s5b4d8b.jpg",
-    "https://i.imgur.com/djkbYKR.jpg",
-    "https://i.imgur.com/tm1Rndq.jpg"
+    "https://i.imgur.com/A6skuj4.jpg",
+    "https://i.imgur.com/PYN8JEJ.jpg",
+    "https://i.imgur.com/tCzREKm.png"
   ],
-  "facebook": "https://www.facebook.com/RootCellarCafe/",
-  "friday": "8:00 AM - 9:00 PM",
-  "instagram": "https://www.instagram.com/rootcellarcafe/",
-  "monday": "CLOSED",
-  "saturday": "8:00 AM - 9:00 PM",
-  "sunday": "8:00 AM - 9:00 PM",
-  "thursday": "8:00 AM - 9:00 PM",
-  "tuesday": "8:00 AM - 9:00 PM",
-  "wednesday": "8:00 AM - 9:00 PM",
-  "yelp": "https://www.yelp.com/biz/the-root-cellar-cafe-san-marcos",
-  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good For Kids,Good for Breakfast,Good for Brunch,Good for Lunch,Dinner,Street Parking,Waiter Service,Full Bar,Dogs Allowed,Wheelchair Accessible,Gender-neutral restrooms,Offers Military Discount,Open to All,Covered Outdoor Seating,Private Dining,No Wi-Fi,No Happy Hour,No TV,No Heated Outdoor Seating,Bike Parking,Compostable containers available,Provides reusable tableware",
-  "price": "$$",
-  "rating": 4.4,
-  "review": 1730,
-  "tags": "Breakfast & Brunch,American (New),Comfort Food"
+  "facebook": "https://www.facebook.com/kissingalley/",
+  "friday": "Open 24 hours",
+  "monday": "Open 24 hours",
+  "saturday": "Open 24 hours",
+  "sunday": "Open 24 hours",
+  "thursday": "Open 24 hours",
+  "tuesday": "Open 24 hours",
+  "wednesday": "Open 24 hours",
+  "amenities": null,
+  "instagram": null,
+  "price": "",
+  "rating": "3.5",
+  "review": 4,
+  "tags": {
+    "$numberDouble": "NaN"
+  },
+  "yelp": null
 },
 {
   "_id": {
@@ -950,6 +873,44 @@
 },
 {
   "_id": {
+    "$oid": "651f37621f8d452578e3639a"
+  },
+  "id": "martindalerivercafe",
+  "name": "Martindale River Cafe",
+  "address": "415 Main St Martindale, TX 78655",
+  "latitude": 29.83961,
+  "longitude": -97.84362,
+  "about": "Beer. Wine. Coffee. Fun. Sammies. Snacks. Music. Gifts. Good friends and good times in magical, mystical, Martindale.",
+  "phone": {
+    "$numberLong": "5123574277"
+  },
+  "website": "https://www.martindalerivercafe.com",
+  "image": [
+    "https://i.imgur.com/45UUgv3.png",
+    "https://i.imgur.com/wBkJIrx.png",
+    "https://i.imgur.com/VWEPRGl.jpg",
+    "https://i.imgur.com/cLcNsAt.png",
+    "https://i.imgur.com/ZvrGOSz.png",
+    "https://i.imgur.com/rOpzJYE.png"
+  ],
+  "facebook": "https://www.facebook.com/martindalerivercafe/",
+  "friday": "9:00 AM - 10:00 PM",
+  "instagram": "https://www.instagram.com/martindalerivercafe/",
+  "monday": "CLOSED",
+  "saturday": "9:00 AM - 10:00 PM",
+  "sunday": "9:00 AM - 5:00 PM",
+  "thursday": "9:00 AM - 10:00 PM",
+  "tuesday": "CLOSED",
+  "wednesday": "CLOSED",
+  "yelp": "https://www.yelp.com/biz/martindale-river-cafe-and-mercantile-martindale-2",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Outdoor Seating,Casual,Intimate,Good for Groups,Good For Kids,Good for Brunch,Free Wi-Fi,Beer & Wine Only",
+  "price": "$$",
+  "rating": 4.8,
+  "review": 150,
+  "tags": "Cafes"
+},
+{
+  "_id": {
     "$oid": "651f37a21f8d452578e3639c"
   },
   "id": "mayloos",
@@ -988,230 +949,81 @@
 },
 {
   "_id": {
-    "$oid": "651f39631f8d452578e363a9"
+    "$oid": "651f37c51f8d452578e3639d"
   },
-  "id": "showdown",
-  "name": "Showdown",
-  "address": "207 E. Hutchison St. San Marcos, TX 78666",
-  "latitude": 29.88463,
-  "longitude": -97.93998,
-  "about": "For decades, Showdown has been a staple hangout for locals and students alike. The laid-back environment with cheap drinks, good people and plenty to do makes Showdown an ideal bar to call home. Stop by for a drink and find your home at Showdown! Grill Hours: Monday - Saturday: 11am - 1am Sunday: 12pm - 1am",
+  "id": "middletonbrewing",
+  "name": "Middleton Brewing",
+  "address": "101 Oakwood Loop San Marcos, TX 78666",
+  "latitude": 29.93049,
+  "longitude": -98.07176,
+  "about": "Four legs or two, everyone feels right at home at Middleton Brewing! We suggest getting a glass of anything that strikes your fancy and then head to the rooftop for beautiful Hill Country views. The laid-back atmosphere at Middleton really hits the spot after a long day of exploring. ",
   "phone": {
-    "$numberLong": "5123927282"
+    "$numberLong": "5128473435"
   },
-  "website": "https://www.instagram.com/showdownsmtx/",
+  "website": "http://www.middletonbrewingtx.com",
   "image": [
-    "https://i.imgur.com/bqgYB0Z.jpg",
-    "https://i.imgur.com/sAUXzSB.png",
-    "https://i.imgur.com/z915VfY.jpg",
-    "https://i.imgur.com/gBuZQNK.jpg",
-    "https://i.imgur.com/SzhP2Vt.jpg",
-    "https://i.imgur.com/WjSRBNx.jpg"
+    "https://i.imgur.com/aYIhEvB.jpg",
+    "https://i.imgur.com/Wp1f1Bh.jpg",
+    "https://i.imgur.com/ShOiC4w.png",
+    "https://i.imgur.com/iorzBt2.jpg",
+    "https://i.imgur.com/tisVLih.jpg",
+    "https://i.imgur.com/lWMCe80.jpg",
+    "https://i.imgur.com/Qt9zh6S.jpg"
   ],
-  "friday": "10:00 AM -  2:00 AM",
-  "instagram": "https://www.instagram.com/showdownsmtx/",
-  "monday": "10:00 AM -  2:00 AM",
-  "saturday": "10:00 AM -  2:00 AM",
-  "sunday": "10:00 AM -  2:00 AM",
-  "thursday": "10:00 AM -  2:00 AM",
-  "tuesday": "10:00 AM -  2:00 AM",
-  "wednesday": "10:00 AM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/showdown-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Hipster,Divey,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking",
-  "facebook": null,
-  "price": "$",
+  "facebook": "https://www.facebook.com/middletonbrewingsmtx/",
+  "friday": "12:00 PM - 10:00 PM",
+  "instagram": "https://www.instagram.com/middletonbrewing/",
+  "monday": "2:00 PM - 10:00 PM",
+  "saturday": "12:00 PM - 10:00 PM",
+  "sunday": "12:00 PM - 10:00 PM",
+  "thursday": "2:00 PM - 10:00 PM",
+  "tuesday": "CLOSED",
+  "wednesday": "2:00 PM - 10:00 PM",
+  "yelp": "https://www.yelp.com/biz/middleton-brewing-san-marcos-3",
+  "amenities": "No Reservations,No Takeout,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Offers Catering,Not Good For Dancing,No Pool Table,No TV,Bike Parking",
+  "price": "$$",
   "rating": 4.7,
-  "review": 334,
-  "tags": "Dive Bars"
+  "review": 331,
+  "tags": "Breweries,Pubs"
 },
 {
   "_id": {
-    "$oid": "651f3a461f8d452578e363b0"
+    "$oid": "651f381a1f8d452578e3639e"
   },
-  "id": "wildfire",
-  "name": "Wildfire",
-  "address": "141 E. Hopkins St San Marcos, TX 78666",
-  "latitude": 29.88346,
-  "longitude": -97.94043,
-  "about": "Wildfire is a nightclub located in the heart of San Marcos offering a full bar with various local DJs and events.",
+  "id": "nephews",
+  "name": "Nephew's",
+  "address": "100 N. Guadalupe St. San Marcos, TX 78666",
+  "latitude": 29.88241,
+  "longitude": -97.94162,
+  "about": "Fashionable nightclub with a club atmosphere, great bartenders and some of the best drink specials in Downtown San Marcos. Monday-Saturday 8pm-2am.",
   "phone": {
-    "$numberLong": "9566818713"
+    "$numberLong": "5125582337"
   },
-  "website": "https://www.instagram.com/thewildfiresmtx/",
-  "image": [
-    "https://i.imgur.com/8QbgeLN.png",
-    "https://i.imgur.com/9vFCRFM.jpg",
-    "https://i.imgur.com/VUWQKpH.jpg"
-  ],
+  "website": "https://www.facebook.com/nephews.sanmarcos/",
   "friday": "9:00 PM -  2:00 AM",
-  "instagram": "https://www.instagram.com/thewildfiresmtx/",
+  "instagram": "https://www.instagram.com/nephews_smtx/",
   "monday": "CLOSED",
   "saturday": "9:00 PM -  2:00 AM",
-  "sunday": "9:00 PM -  2:00 AM",
+  "sunday": "CLOSED",
   "thursday": "9:00 PM -  2:00 AM",
   "tuesday": "9:00 PM -  2:00 AM",
   "wednesday": "9:00 PM -  2:00 AM",
-  "amenities": null,
-  "facebook": null,
+  "yelp": "https://www.yelp.com/biz/nephews-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,DJ,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking",
+  "image": [
+    "https://i.imgur.com/KT1bcJq.jpg",
+    "https://i.imgur.com/wz1lmSd.png",
+    "https://i.imgur.com/Nl7t755.png",
+    "https://i.imgur.com/ROqpvvd.jpg",
+    "https://i.imgur.com/4DCvxD6.png",
+    "https://i.imgur.com/Tm3wbBR.png",
+    "https://i.imgur.com/Mowp0mO.png"
+  ],
+  "facebook": "https://www.facebook.com/nephews.sanmarcos/",
   "price": "$",
-  "rating": 0,
-  "review": 0,
-  "tags": "Bars",
-  "yelp": null
-},
-{
-  "_id": {
-    "$oid": "651cde50b272bc98335e6512"
-  },
-  "id": "blindsalamander",
-  "name": "Blind Salamander",
-  "address": "301 N LBJ Dr Ste 111, San Marcos, TX 78666",
-  "latitude": 29.884609,
-  "longitude": -97.940681,
-  "about": "Blind Salamander Cantina is a colorful and lively margarita and taco joint located in Downtown San Marcos. Margaritas frozen or on the rocks, crispy or soft tacos, breakfast tacos, and of course, just about anything you want smothered in queso - Blind Salamander Cantina is a great place to relax after an afternoon spent exploring Downtown San Marcos.",
-  "phone": {
-    "$numberLong": "5122148081"
-  },
-  "website": "https://www.blindsalamandercantina.com/",
-  "image": [
-    "https://i.imgur.com/ztu9dtt.jpg",
-    "https://i.imgur.com/m21KjjJ.png",
-    "https://i.imgur.com/xmpdiLl.png",
-    "https://i.imgur.com/iCnZQFx.png",
-    "https://i.imgur.com/oNPNImT.png",
-    "https://i.imgur.com/YDQh9QZ.png",
-    "https://i.imgur.com/nL7Ug0N.png"
-  ],
-  "facebook": "https://www.facebook.com/blindsalamandertx/",
-  "friday": "11:00 AM – 2:00 AM",
-  "instagram": "https://www.instagram.com/blindsalamandertx/",
-  "monday": "11:00 AM – 12:00 AM",
-  "saturday": "11:00 AM – 2:00 AM",
-  "sunday": "11:00 AM – 12:00 AM",
-  "thursday": "11:00 AM – 2:00 AM",
-  "tuesday": "11:00 AM – 12:00 AM",
-  "wednesday": "11:00 AM – 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/blind-salamander-cantina-san-marcos",
-  "amenities": "Accepts Credit Cards,Good for Groups,Happy Hour Specials,Full Bar,TV,Outdoor Seating",
-  "price": "$",
-  "rating": 4.1,
-  "review": 223,
-  "tags": "Tacos,Burgers,Cocktail Bars"
-},
-{
-  "_id": {
-    "$oid": "651cdf84f721dadd5abf223e"
-  },
-  "id": "evo",
-  "name": "Evo Entertainment At Springtown Center",
-  "address": "1180 Thorpe Lane San Marcos, TX 78666",
-  "latitude": 29.88784,
-  "longitude": -97.92331,
-  "about": "A true social hub & entertainment destination, EVO features a six-screen dine-in cinema with all luxury recliner seating and food and drink service right to your seat, eight lanes of boutique bowling, a full-service restaurant, arcade and board games, as well as an innovative craft cocktail bar.",
-  "phone": {
-    "$numberLong": "5122108600"
-  },
-  "website": "https://www.evocinemas.com/sanmarcos",
-  "image": [
-    "https://i.imgur.com/mf9Yl5N.jpg",
-    "https://i.imgur.com/acObg0b.jpg",
-    "https://i.imgur.com/inHQef9.jpg",
-    "https://i.imgur.com/YuYXnrO.jpg",
-    "https://i.imgur.com/iRMaozW.jpg",
-    "https://i.imgur.com/zZeHtfA.jpg",
-    "https://i.imgur.com/MOTdPSU.png"
-  ],
-  "facebook": "https://www.facebook.com/evospringtown/",
-  "friday": "12:00 PM - 11:00 PM",
-  "monday": "12:00 PM - 9:00 PM",
-  "saturday": "10:00 AM - 11:00 PM",
-  "sunday": "10:00 AM - 9:00 PM",
-  "thursday": "12:00 PM - 9:00 PM",
-  "tuesday": "12:00 PM - 9:00 PM",
-  "wednesday": "12:00 PM - 9:00 PM",
-  "yelp": "https://www.yelp.com/biz/evo-entertainment-springtown-san-marcos-2",
-  "amenities": "Accepts Credit Cards,Bike Parking,Dogs Not Allowed,Free Wi-Fi,Good For Kids,Private Lot Parking,Wheelchair Accessible",
-  "instagram": null,
-  "price": "$$",
-  "rating": 4.4,
-  "review": 1852,
-  "tags": "Cinema,Bowling,Arcades,Bars"
-},
-{
-  "_id": {
-    "$oid": "651f35be1f8d452578e36391"
-  },
-  "id": "growling",
-  "name": "The Growling",
-  "address": "700 North LBJ Drive Suite 111 San Marcos, TX 78666",
-  "latitude": 29.89186,
-  "longitude": -97.94091,
-  "about": "There are 27 Texas breweries represented on the tap wall from all five regions of the state. Drink a pint or share a growler with your friends at the bar, or purchase your beer to-go. They also offer plastic growlers for your float down the river or classic glass growlers and fancy porcelain growlers for those special occasions.",
-  "phone": {
-    "$numberLong": "5122166044"
-  },
-  "website": "http://www.thegrowling.com",
-  "image": [
-    "https://i.imgur.com/eYv0OeU.jpg",
-    "https://i.imgur.com/vxT0DnC.png",
-    "https://i.imgur.com/jjOlpRv.jpg",
-    "https://i.imgur.com/DCzts4d.jpg",
-    "https://i.imgur.com/NDurS1K.jpg",
-    "https://i.imgur.com/JDYxUFZ.png"
-  ],
-  "facebook": "https://www.facebook.com/thegrowlingsanmarcos/",
-  "friday": "2:00 PM - 12:00 AM",
-  "instagram": "https://www.instagram.com/thegrowlingtexasbeerbar/",
-  "monday": "2:00 PM - 12:00 AM",
-  "saturday": "2:00 PM - 1:00 AM",
-  "sunday": "2:00 PM - 12:00 AM",
-  "thursday": "2:00 PM - 12:00 AM",
-  "tuesday": "2:00 PM - 12:00 AM",
-  "wednesday": "2:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/the-growling-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Outdoor Seating,Divey,Hipster,Casual,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Live Music,Best nights on Thursday,Friday,Saturday,Beer & Wine Only,Wheelchair Accessible,TV,Not Good For Dancing,Bike Parking",
-  "price": "$$",
-  "rating": 4.7,
-  "review": 158,
-  "tags": "Beer Bars"
-},
-{
-  "_id": {
-    "$oid": "651f37621f8d452578e3639a"
-  },
-  "id": "martindalerivercafe",
-  "name": "Martindale River Cafe",
-  "address": "415 Main St Martindale, TX 78655",
-  "latitude": 29.83961,
-  "longitude": -97.84362,
-  "about": "Beer. Wine. Coffee. Fun. Sammies. Snacks. Music. Gifts. Good friends and good times in magical, mystical, Martindale.",
-  "phone": {
-    "$numberLong": "5123574277"
-  },
-  "website": "https://www.martindalerivercafe.com",
-  "image": [
-    "https://i.imgur.com/45UUgv3.png",
-    "https://i.imgur.com/wBkJIrx.png",
-    "https://i.imgur.com/VWEPRGl.jpg",
-    "https://i.imgur.com/cLcNsAt.png",
-    "https://i.imgur.com/ZvrGOSz.png",
-    "https://i.imgur.com/rOpzJYE.png"
-  ],
-  "facebook": "https://www.facebook.com/martindalerivercafe/",
-  "friday": "9:00 AM - 10:00 PM",
-  "instagram": "https://www.instagram.com/martindalerivercafe/",
-  "monday": "CLOSED",
-  "saturday": "9:00 AM - 10:00 PM",
-  "sunday": "9:00 AM - 5:00 PM",
-  "thursday": "9:00 AM - 10:00 PM",
-  "tuesday": "CLOSED",
-  "wednesday": "CLOSED",
-  "yelp": "https://www.yelp.com/biz/martindale-river-cafe-and-mercantile-martindale-2",
-  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Outdoor Seating,Casual,Intimate,Good for Groups,Good For Kids,Good for Brunch,Free Wi-Fi,Beer & Wine Only",
-  "price": "$$",
-  "rating": 4.8,
-  "review": 150,
-  "tags": "Cafes"
+  "rating": 3.3,
+  "review": 69,
+  "tags": "Bars"
 },
 {
   "_id": {
@@ -1254,6 +1066,44 @@
 },
 {
   "_id": {
+    "$oid": "651f38671f8d452578e363a0"
+  },
+  "id": "puttpub",
+  "name": "Putt Pub",
+  "address": "307 S LBJ San Marcos, TX 78666",
+  "latitude": 29.87933,
+  "longitude": -97.93925,
+  "about": "Two full bars, indoor and outdoor seating, tasty food trucks, games, and, of course, an 18-hole miniature golf course - Putt Pub is a great place for the kids at heart. This laid-back neighborhood bar is full of fun surprises (like a seesaw!) and you're always in for a good time.",
+  "phone": {
+    "$numberLong": "5122229838"
+  },
+  "website": "http://www.puttpub.com",
+  "image": [
+    "https://i.imgur.com/p6Wqpx5.jpg",
+    "https://i.imgur.com/3eS1otI.png",
+    "https://i.imgur.com/kPbDhjB.jpg",
+    "https://i.imgur.com/c4BoE9Q.jpg",
+    "https://i.imgur.com/14SxE5d.png",
+    "https://i.imgur.com/1Ecuc5W.jpg"
+  ],
+  "facebook": "https://www.facebook.com/puttpub/",
+  "friday": "1:00 PM - 2:00 AM",
+  "instagram": "https://www.instagram.com/puttpub/",
+  "monday": "3:00 PM - 12:00 AM",
+  "saturday": "1:00 PM - 2:00 AM",
+  "sunday": "1:00 PM - 12:00 AM",
+  "thursday": "3:00 PM - 12:00 AM",
+  "tuesday": "3:00 PM - 12:00 AM",
+  "wednesday": "3:00 PM - 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/putt-pub-san-marcos",
+  "amenities": "Outdoor Seating,Street Parking,Private Lot Parking,Happy Hour Specials",
+  "price": "$",
+  "rating": 4.6,
+  "review": 233,
+  "tags": "Bars,Mini Gold,Venues,Event Spaces"
+},
+{
+  "_id": {
     "$oid": "651f38871f8d452578e363a1"
   },
   "id": "ragnarscompound",
@@ -1288,6 +1138,83 @@
   "review": 94,
   "tags": "Bars,Music Venues",
   "yelp": null
+},
+{
+  "_id": {
+    "$oid": "651f38941f8d452578e363a2"
+  },
+  "id": "railyardbarngrill",
+  "name": "Railyard Bar And Grill",
+  "address": "116 S. Edward Gary St. San Marcos, TX 78666",
+  "latitude": 29.88137,
+  "longitude": -97.939,
+  "about": "Railyard Bar and Grill is a great place for the whole family to hang out, play and enjoy some good food. Get a drink from the full bar, relax and listen to live music and explore the spacious outdoor area with games for the whole crew.",
+  "phone": {
+    "$numberLong": "5123927555"
+  },
+  "website": "https://railyardbarandgrill.com",
+  "image": [
+    "https://i.imgur.com/502ItF5.jpg",
+    "https://i.imgur.com/Er9tTLZ.jpg",
+    "https://i.imgur.com/UuEWN08.jpg",
+    "https://i.imgur.com/iQdK9n3.jpg",
+    "https://i.imgur.com/NNAwVnc.jpg",
+    "https://i.imgur.com/yTK9HSJ.jpg",
+    "https://i.imgur.com/ws8oqG5.jpg"
+  ],
+  "facebook": "https://www.facebook.com/profile.php?id=227801880609841",
+  "friday": "12:00 PM - 2:00 AM",
+  "instagram": "https://www.instagram.com/railyardsmtx/",
+  "monday": "4:00 PM - 12:00 AM",
+  "saturday": "12:00 PM - 2:00 AM",
+  "sunday": "12:00 PM - 12:00 AM",
+  "thursday": "4:00 PM - 12:00 AM",
+  "tuesday": "4:00 PM - 12:00 AM",
+  "wednesday": "4:00 PM - 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/railyard-bar-and-grill-san-marcos",
+  "amenities": "Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Good For Kids,Good for Lunch, Dinner,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,TV,Offers Catering,Not Good For Dancing,No Drive-Thru,Bike Parking",
+  "price": "$$",
+  "rating": 4.1,
+  "review": 689,
+  "tags": "American (Traditional),Mexican,Sports Bars,Bars,Grills"
+},
+{
+  "_id": {
+    "$oid": "651f38bd1f8d452578e363a3"
+  },
+  "id": "redbus",
+  "name": "Red Bus Food Truck Park",
+  "address": "801 Chestnut St San Marcos, TX 78666",
+  "latitude": 29.89227,
+  "longitude": -97.94198,
+  "about": "Red Bus Food Park is home to the only 40-foot bus that is heated and cooled for dining with food trucks surrounding it. Opt for outside dining under the shade of the trees on the lot. Get a sweet dessert from the bakeshop on site.",
+  "phone": {
+    "$numberLong": "5125371902"
+  },
+  "website": "https://redbusfoodpark.com",
+  "image": [
+    "https://i.imgur.com/wVzNMiK.jpg",
+    "https://i.imgur.com/ToVLzo1.jpg",
+    "https://i.imgur.com/ZTeSIMT.jpg",
+    "https://i.imgur.com/xIePMTF.jpg",
+    "https://i.imgur.com/jQC4rJc.jpg",
+    "https://i.imgur.com/QJm4G1f.jpg"
+  ],
+  "facebook": "https://www.facebook.com/RedBusFoodParkandBar/",
+  "friday": "7:00 AM - 12:30 AM",
+  "instagram": "https://www.instagram.com/redbusfoodparkandbar/",
+  "monday": "8:00 AM - 7:00 PM",
+  "saturday": "7:00 AM - 12:30 AM",
+  "sunday": "CLOSED",
+  "thursday": "7:00 AM - 11:00 PM",
+  "tuesday": "7:00 AM - 11:00 PM",
+  "wednesday": "7:00 AM - 11:00 PM",
+  "yelp": "https://www.yelp.com/biz/red-bus-food-park-and-bar-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,Pescatarian Options,Vegan Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Outdoor Seating,Good For Kids,Street Parking, Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Latinx-owned,Women-owned,Open to All,No Happy Hour,Bike Parking",
+  "price": "$",
+  "rating": 4.8,
+  "review": 21,
+  "tags": "Bars,Food Truck,Karaoke"
 },
 {
   "_id": {
@@ -1327,233 +1254,6 @@
   "rating": 4.7,
   "review": 603,
   "tags": "Music Venues,Dive Bars"
-},
-{
-  "_id": {
-    "$oid": "651cdf10f721dadd5abf2238"
-  },
-  "id": "chancesr",
-  "name": "Chances R",
-  "address": "138 S L B J Dr, San Marcos, TX 78666",
-  "latitude": 29.88149,
-  "longitude": -97.94025,
-  "about": "We are Chances “R.” The oldest continuous liquor establishment in San Marcos. We started as Hutton’s Key club then the Angnew Club, L.O.’s, and The Restless Wind. It stayed the Restless Wind for fifty years and become Chances “R” in 2013. The current owners have had the Restless Wind – Chances “R” for forty seven years.",
-  "phone": {
-    "$numberLong": "5123921727"
-  },
-  "website": "https://www.chancesrbarsm.com/",
-  "image": [
-    "https://i.imgur.com/6EIGn97.jpg",
-    "https://i.imgur.com/E63OIGc.png",
-    "https://i.imgur.com/52ky36U.jpg",
-    "https://i.imgur.com/OZUb7xZ.jpg",
-    "https://i.imgur.com/1ri0VCt.png"
-  ],
-  "facebook": "https://www.facebook.com/chancesrsanmarcos/",
-  "friday": "3:00 PM – 2:00 AM",
-  "instagram": "https://www.instagram.com/chancesrbar/",
-  "monday": "3:00 PM – 2:00 AM",
-  "saturday": "4:00 PM – 2:00 AM",
-  "sunday": "4:00 PM – 2:00 AM",
-  "thursday": "3:00 PM – 2:00 AM",
-  "tuesday": "3:00 PM – 2:00 AM",
-  "wednesday": "3:00 PM – 2:00 AM",
-  "yelp": "https://www.yelp.com/biz/chances-r-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Divey,Moderate Noise,Good for Groups,Pool Table,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,No Wi-Fi,Bike Parking",
-  "price": "$",
-  "rating": 4.5,
-  "review": 137,
-  "tags": "Cocktail Bars,Lounges"
-},
-{
-  "_id": {
-    "$oid": "651f35821f8d452578e36390"
-  },
-  "id": "greenparrot",
-  "name": "Green Parrot",
-  "address": "124 N. LBJ Drive San Marcos, TX 78666",
-  "latitude": 29.88294,
-  "longitude": -97.93985,
-  "about": "Green Parrot is a fun place to come and enjoy a good drink with good friends. Historic bar, est. 1982. longest lasting bar on the square... AKA we can handle our liquor.",
-  "phone": {
-    "$numberLong": "5123964259"
-  },
-  "website": "https://www.facebook.com/gparrotsanmarcos/",
-  "image": [
-    "https://i.imgur.com/8ATnETI.png",
-    "https://i.imgur.com/Ivok1Px.png",
-    "https://i.imgur.com/uDoDRtK.jpg",
-    "https://i.imgur.com/Acbo6Oz.png",
-    "https://i.imgur.com/7NSeMWH.png",
-    "https://i.imgur.com/qWfBQqg.jpg"
-  ],
-  "facebook": "https://www.facebook.com/profile.php?id=100064896344962",
-  "friday": "CLOSED",
-  "monday": "CLOSED",
-  "saturday": "CLOSED",
-  "sunday": "CLOSED",
-  "thursday": "CLOSED",
-  "tuesday": "CLOSED",
-  "wednesday": "CLOSED",
-  "yelp": "https://www.yelp.com/biz/green-parrot-san-marcos",
-  "amenities": "No Takeout,Accepts Credit Cards,Loud,Good for Groups,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,No Outdoor Seating",
-  "instagram": null,
-  "price": "$$",
-  "rating": 2,
-  "review": 23,
-  "tags": "Beer Bars,Wine"
-},
-{
-  "_id": {
-    "$oid": "651f35ce1f8d452578e36392"
-  },
-  "id": "happycowbarngrill",
-  "name": "Happy Cow Bar And Grill",
-  "address": "9103 FM1102, New Braunfels, TX 78130",
-  "latitude": 29.8048,
-  "longitude": -98.02137,
-  "about": "Enjoy live music, delicious drinks and tasty food at Happy Cow Bar & Grill. The Texas Hill Country oasis is the perfect place to grab a picnic table, kick back and enjoy a good burger, cold beer and great music. Live music is played on the large outdoor stage, the “Happy Cow Backyard,” every Friday and Saturday.",
-  "phone": {
-    "$numberLong": "5126677510"
-  },
-  "website": "https://happycowbar.com",
-  "image": [
-    "https://i.imgur.com/E1teYV9.jpg",
-    "https://i.imgur.com/ObpvnBb.jpg",
-    "https://i.imgur.com/WtoF1dr.jpg",
-    "https://i.imgur.com/IMRzr4Y.jpg",
-    "https://i.imgur.com/I5yaUoR.jpg",
-    "https://i.imgur.com/lBZMLMU.jpg"
-  ],
-  "facebook": "https://www.facebook.com/happycowbarandgrill",
-  "friday": "1:00 PM - 12:00 AM",
-  "instagram": "https://www.instagram.com/happycowbar/",
-  "monday": "1:00 PM - 12:00 AM",
-  "saturday": "12:00 PM - 12:00 AM",
-  "sunday": "12:00 PM - 12:00 AM",
-  "thursday": "1:00 PM - 12:00 AM",
-  "tuesday": "1:00 PM - 12:00 AM",
-  "wednesday": "1:00 PM - 12:00 AM",
-  "yelp": "https://www.yelp.com/biz/happy-cow-new-braunfels-2",
-  "amenities": "Offers Takeout,No Reservations,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Divey,Casual,Moderate Noise,Good for Groups,Good for Lunch,Pool Table,Private Lot Parking,Waiter Service,Free Wi-Fi,Live Music,Happy Hour Specials,Full Bar,Smoking Allowed,Wheelchair Accessible,TV,Heated Outdoor Seating,No Catering,Not Good For Kids,No Covered Outdoor Seating,No Private Dining,Bike Parking",
-  "price": "$",
-  "rating": 4.4,
-  "review": 416,
-  "tags": "American (Traditional),Bars"
-},
-{
-  "_id": {
-    "$oid": "651f36061f8d452578e36393"
-  },
-  "id": "harpersonsquare",
-  "name": "Harper's On The Square",
-  "address": "139 E. Hopkins St. San Marcos, TX 78666",
-  "latitude": 29.8834,
-  "longitude": -97.94053,
-  "about": "Whether you're looking to watch the big game, relax with a round of drinks with your friends, or catch a live music performance, Harper's is always a good time. ",
-  "phone": {
-    "$numberLong": "5128782448"
-  },
-  "website": "https://www.facebook.com/HarpersVerandaSMTX/",
-  "image": [
-    "https://i.imgur.com/h2QZJAQ.png",
-    "https://i.imgur.com/tjQZ6c8.png",
-    "https://i.imgur.com/uLnbWtS.png",
-    "https://i.imgur.com/C2Zzj9D.png",
-    "https://i.imgur.com/uNo259t.jpg",
-    "https://i.imgur.com/QNt3ceP.png"
-  ],
-  "facebook": "https://www.facebook.com/HarpersVerandaSMTX/",
-  "friday": "7:00 PM - 1:30 AM",
-  "instagram": "https://www.instagram.com/harpers.veranda.snappaheads/",
-  "monday": "CLOSED",
-  "saturday": "CLOSED",
-  "sunday": "12:00 PM - 7:00 PM",
-  "thursday": "7:00 PM - 1:30 AM",
-  "tuesday": "CLOSED",
-  "wednesday": "8:00 PM - 1:30 AM",
-  "yelp": "https://www.yelp.com/biz/harpers-brick-oven-san-marcos",
-  "amenities": "Offers Takeout,No Reservations,No Delivery,Accepts Credit Cards,Accepts Cryptocurrency,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Full Bar,TV,No Outdoor Seating,Not Good For Kids,Bike Parking",
-  "price": "$$",
-  "rating": 4,
-  "review": 137,
-  "tags": "Pizza,Sport Bars,Chicken Wings"
-},
-{
-  "_id": {
-    "$oid": "651f37081f8d452578e36397"
-  },
-  "id": "kissingalley",
-  "name": "Kissing Alley",
-  "address": "121 E Hopkins San Marcos, TX 78666",
-  "latitude": 29.88315,
-  "longitude": -97.94081,
-  "about": "What may seem like an average alley to passersby is actually one of San Marcos’ hidden gems! With eclectic murals both large and small, twinkly lights strung overhead and, of course, scenic views of the Hays County Courthouse – Kissing Alley is the heart of Downtown San Marcos.",
-  "phone": {
-    "$numberLong": "5123938430"
-  },
-  "website": "https://www.facebook.com/downtownsmtx/",
-  "image": [
-    "https://i.imgur.com/A6skuj4.jpg",
-    "https://i.imgur.com/PYN8JEJ.jpg",
-    "https://i.imgur.com/tCzREKm.png"
-  ],
-  "facebook": "https://www.facebook.com/kissingalley/",
-  "friday": "Open 24 hours",
-  "monday": "Open 24 hours",
-  "saturday": "Open 24 hours",
-  "sunday": "Open 24 hours",
-  "thursday": "Open 24 hours",
-  "tuesday": "Open 24 hours",
-  "wednesday": "Open 24 hours",
-  "amenities": null,
-  "instagram": null,
-  "price": "",
-  "rating": "3.5",
-  "review": 4,
-  "tags": {
-    "$numberDouble": "NaN"
-  },
-  "yelp": null
-},
-{
-  "_id": {
-    "$oid": "651f381a1f8d452578e3639e"
-  },
-  "id": "nephews",
-  "name": "Nephew's",
-  "address": "100 N. Guadalupe St. San Marcos, TX 78666",
-  "latitude": 29.88241,
-  "longitude": -97.94162,
-  "about": "Fashionable nightclub with a club atmosphere, great bartenders and some of the best drink specials in Downtown San Marcos. Monday-Saturday 8pm-2am.",
-  "phone": {
-    "$numberLong": "5125582337"
-  },
-  "website": "https://www.facebook.com/nephews.sanmarcos/",
-  "friday": "9:00 PM -  2:00 AM",
-  "instagram": "https://www.instagram.com/nephews_smtx/",
-  "monday": "CLOSED",
-  "saturday": "9:00 PM -  2:00 AM",
-  "sunday": "CLOSED",
-  "thursday": "9:00 PM -  2:00 AM",
-  "tuesday": "9:00 PM -  2:00 AM",
-  "wednesday": "9:00 PM -  2:00 AM",
-  "yelp": "https://www.yelp.com/biz/nephews-san-marcos",
-  "amenities": "No Reservations,Accepts Credit Cards,Very Loud,Good for Groups,Street Parking,DJ,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking",
-  "image": "https://i.imgur.com/KT1bcJq.jpg",
-  "facebook": [
-    "https://i.imgur.com/KT1bcJq.jpg",
-    "https://i.imgur.com/wz1lmSd.png",
-    "https://i.imgur.com/Nl7t755.png",
-    "https://i.imgur.com/ROqpvvd.jpg",
-    "https://i.imgur.com/4DCvxD6.png",
-    "https://i.imgur.com/Tm3wbBR.png",
-    "https://i.imgur.com/Mowp0mO.png"
-  ],
-  "price": "$",
-  "rating": 3.3,
-  "review": 69,
-  "tags": "Bars"
 },
 {
   "_id": {
@@ -1634,6 +1334,44 @@
 },
 {
   "_id": {
+    "$oid": "651f39311f8d452578e363a7"
+  },
+  "id": "seanpatrick",
+  "name": "Sean Patrick'S Irish Pub & Texas Grub",
+  "address": "202 E. San Antonio St. Ste.119 San Marcos, TX 78666",
+  "latitude": 29.88211,
+  "longitude": -97.93946,
+  "about": "Sean Patrick’s is all about the Irish pub and Texas grub! Grab yourself an order of Guinness Fish & Chips and a cold pint of Sean Patrick’s finest beer and enjoy the buzz of Downtown San Marcos.",
+  "phone": {
+    "$numberLong": "5123927310"
+  },
+  "website": "https://seanpatrickstx.com",
+  "image": [
+    "https://i.imgur.com/RZxnHAk.jpg",
+    "https://i.imgur.com/fd6PWDa.jpg",
+    "https://i.imgur.com/MQ5vEPA.jpg",
+    "https://i.imgur.com/YCs3vem.jpg",
+    "https://i.imgur.com/8v89rfM.jpg",
+    "https://i.imgur.com/P4Ythf6.jpg"
+  ],
+  "facebook": "https://www.facebook.com/seanpatrickstx/",
+  "friday": "11:00 AM – 12:00 AM",
+  "instagram": "https://www.instagram.com/explore/locations/2184728/sean-patricks-irish-pub-n-texas-grub/",
+  "monday": "11:00 AM – 11:00 PM",
+  "saturday": "Open 24 hours",
+  "sunday": "11:00 AM – 10:00 PM",
+  "thursday": "11:00 AM – 12:00 AM",
+  "tuesday": "11:00 AM – 11:00 PM",
+  "wednesday": "11:00 AM – 11:00 PM",
+  "yelp": "https://www.yelp.com/biz/sean-patricks-irish-pub-texas-grub-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Accepts Credit Cards,Accepts Apple Pay,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good for Lunch,Good for Dinner,Pool Table,Street Parking,Free Wi-Fi,Happy Hour Specials,Full Bar,TV,Not Good For Kids,Bike Parking",
+  "price": "$$",
+  "rating": 4.4,
+  "review": 635,
+  "tags": "Irish,Burgers,Sport Bars"
+},
+{
+  "_id": {
     "$oid": "651f39561f8d452578e363a8"
   },
   "id": "shade",
@@ -1669,6 +1407,44 @@
   "rating": 4.2,
   "review": 114,
   "tags": "Bars"
+},
+{
+  "_id": {
+    "$oid": "651f39631f8d452578e363a9"
+  },
+  "id": "showdown",
+  "name": "Showdown",
+  "address": "207 E. Hutchison St. San Marcos, TX 78666",
+  "latitude": 29.88463,
+  "longitude": -97.93998,
+  "about": "For decades, Showdown has been a staple hangout for locals and students alike. The laid-back environment with cheap drinks, good people and plenty to do makes Showdown an ideal bar to call home. Stop by for a drink and find your home at Showdown! Grill Hours: Monday - Saturday: 11am - 1am Sunday: 12pm - 1am",
+  "phone": {
+    "$numberLong": "5123927282"
+  },
+  "website": "https://www.instagram.com/showdownsmtx/",
+  "image": [
+    "https://i.imgur.com/bqgYB0Z.jpg",
+    "https://i.imgur.com/sAUXzSB.png",
+    "https://i.imgur.com/z915VfY.jpg",
+    "https://i.imgur.com/gBuZQNK.jpg",
+    "https://i.imgur.com/SzhP2Vt.jpg",
+    "https://i.imgur.com/WjSRBNx.jpg"
+  ],
+  "friday": "10:00 AM -  2:00 AM",
+  "instagram": "https://www.instagram.com/showdownsmtx/",
+  "monday": "10:00 AM -  2:00 AM",
+  "saturday": "10:00 AM -  2:00 AM",
+  "sunday": "10:00 AM -  2:00 AM",
+  "thursday": "10:00 AM -  2:00 AM",
+  "tuesday": "10:00 AM -  2:00 AM",
+  "wednesday": "10:00 AM -  2:00 AM",
+  "yelp": "https://www.yelp.com/biz/showdown-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Hipster,Divey,Casual,Loud,Good for Groups,Pool Table,Street Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Bike Parking",
+  "facebook": null,
+  "price": "$",
+  "rating": 4.7,
+  "review": 334,
+  "tags": "Dive Bars"
 },
 {
   "_id": {
@@ -1711,6 +1487,44 @@
 },
 {
   "_id": {
+    "$oid": "651f39cf1f8d452578e363ab"
+  },
+  "id": "treffstavern",
+  "name": "Treff's Tavern",
+  "address": "804 Chestnut St. San Marcos, TX 78666",
+  "latitude": 29.89288,
+  "longitude": -97.94181,
+  "about": "Treff's Tavern, is your friendly neighborhood bar located right up North LBJ and just across from Texas State campus. Treff's Tavern is your one-stop haven whenever you need to get out of the house, take a break from work or school, or just need to get a cold one. Bring your friends, or just come up on your own and meet our great bar staff and regulars! You'll love our daily happy hour and nightly drink specials, as well as get caught up in our weekly events!",
+  "phone": {
+    "$numberLong": "5123531594"
+  },
+  "website": "https://www.treffstavern.com",
+  "image": [
+    "https://i.imgur.com/sUsX0lh.png",
+    "https://i.imgur.com/ExcdOjy.jpg",
+    "https://i.imgur.com/em8iq7C.png",
+    "https://i.imgur.com/2JMSEBw.png",
+    "https://i.imgur.com/YkCTn0R.jpg",
+    "https://i.imgur.com/8Ss8Ksl.jpg"
+  ],
+  "facebook": "https://www.facebook.com/treffstavern/",
+  "friday": "12:30 PM -  2:00 AM",
+  "instagram": "https://www.instagram.com/treffstavern/",
+  "monday": "12:30 PM -  2:00 AM",
+  "saturday": "12:30 PM -  2:00 AM",
+  "sunday": "12:30 PM -  2:00 AM",
+  "thursday": "12:30 PM -  2:00 AM",
+  "tuesday": "12:30 PM -  2:00 AM",
+  "wednesday": "12:30 PM -  2:00 AM",
+  "yelp": "https://www.yelp.com/biz/treffs-tavern-san-marcos",
+  "amenities": "Takes Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Loud,Good for Groups,Street Parking,Private Lot Parking,Free Wi-Fi,Juke Box,Happy Hour Specials,Full Bar,TV,No Pool Table,Bike Parking",
+  "price": "$",
+  "rating": 4.4,
+  "review": 253,
+  "tags": "Bars"
+},
+{
+  "_id": {
     "$oid": "651f39ec1f8d452578e363ac"
   },
   "id": "vault",
@@ -1743,4 +1557,189 @@
   "rating": 3.4,
   "review": 93,
   "tags": "Sake Bars,Karaoke"
+},
+{
+  "_id": {
+    "$oid": "651f3a0b1f8d452578e363ad"
+  },
+  "id": "veranda",
+  "name": "The Veranda Roof Top Patio",
+  "address": "139 E. Hopkins San Marcos, TX 78666",
+  "latitude": 29.8834,
+  "longitude": -97.94053,
+  "about": "Enjoy the best view of Downtown San Marcos at Veranda! 360 degrees views of San Marcos from the top of Harper's Public House.",
+  "phone": {
+    "$numberLong": "5128782448"
+  },
+  "website": "https://www.facebook.com/HarpersVerandaSMTX/",
+  "image": [
+    "https://i.imgur.com/FFi8U1r.png",
+    "https://i.imgur.com/wdfhhEr.jpg"
+  ],
+  "facebook": "https://www.facebook.com/HarpersVerandaSMTX/",
+  "friday": "1:30 PM – 12:00 AM",
+  "instagram": "https://www.instagram.com/harpers.veranda.snappaheads/",
+  "monday": "5:00 PM – 12:00 AM",
+  "saturday": "12:30 PM -  2:00 AM",
+  "sunday": "12:30 PM -  12:00 AM",
+  "thursday": "3:00 PM – 12:00 AM",
+  "tuesday": "3:00 PM – 12:00 AM",
+  "wednesday": "3:00 PM – 12:00 AM",
+  "yelp": "https://www.yelp.com/biz/the-veranda-san-marcos",
+  "amenities": "No Reservations,Accepts Credit Cards,Outdoor Seating,Loud,Good for Groups,Pool Table,Best nights on Thursday,Best nights on Friday,Best nights on Saturday,Full Bar,TV,Bike Parking",
+  "price": "$",
+  "rating": 3.5,
+  "review": 46,
+  "tags": "Lounges,Bars"
+},
+{
+  "_id": {
+    "$oid": "651f3a161f8d452578e363ae"
+  },
+  "id": "uproot",
+  "name": "Uproot",
+  "address": "215 N LBJ DR San Marcos, TX 78666",
+  "latitude": 29.88372,
+  "longitude": -97.94044,
+  "about": "Nestled above the Root Cellar Cafe and a stone’s throw from the busy Square is UpRoot. It’s the perfect place for a cocktail before dinner, date night out to impress, or a solid start to a legendary evening.",
+  "phone": {
+    "$numberLong": "5123925158"
+  },
+  "website": "https://rootcellarcafe.com/san-marcos/uproot-bar.html",
+  "image": [
+    "https://i.imgur.com/5a4vHWN.png",
+    "https://i.imgur.com/aj83Ltr.jpg",
+    "https://i.imgur.com/UYBF6B0.png",
+    "https://i.imgur.com/MiRXSED.png",
+    "https://i.imgur.com/s5b4d8b.jpg",
+    "https://i.imgur.com/djkbYKR.jpg",
+    "https://i.imgur.com/tm1Rndq.jpg"
+  ],
+  "facebook": "https://www.facebook.com/RootCellarCafe/",
+  "friday": "8:00 AM - 9:00 PM",
+  "instagram": "https://www.instagram.com/rootcellarcafe/",
+  "monday": "CLOSED",
+  "saturday": "8:00 AM - 9:00 PM",
+  "sunday": "8:00 AM - 9:00 PM",
+  "thursday": "8:00 AM - 9:00 PM",
+  "tuesday": "8:00 AM - 9:00 PM",
+  "wednesday": "8:00 AM - 9:00 PM",
+  "yelp": "https://www.yelp.com/biz/the-root-cellar-cafe-san-marcos",
+  "amenities": "Offers Delivery,Offers Takeout,No Reservations,Vegan Options,Many Vegetarian Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Offers Catering,Good for Groups,Good For Kids,Good for Breakfast,Good for Brunch,Good for Lunch,Dinner,Street Parking,Waiter Service,Full Bar,Dogs Allowed,Wheelchair Accessible,Gender-neutral restrooms,Offers Military Discount,Open to All,Covered Outdoor Seating,Private Dining,No Wi-Fi,No Happy Hour,No TV,No Heated Outdoor Seating,Bike Parking,Compostable containers available,Provides reusable tableware",
+  "price": "$$",
+  "rating": 4.4,
+  "review": 1730,
+  "tags": "Breakfast & Brunch,American (New),Comfort Food"
+},
+{
+  "_id": {
+    "$oid": "651f3a391f8d452578e363af"
+  },
+  "id": "wakethedead",
+  "name": "Wake The Dead Coffee House",
+  "address": "1432 Ranch Road 12 San Marcos, TX 78666",
+  "latitude": 29.89165,
+  "longitude": -97.95669,
+  "about": "This funky Tim Burton-esque serves breakfast and lunch. Choose from a variety of over 55 imported and domestic beers. Monthly exhibits showcase local artists. Monday - Sunday: 7am - 12am",
+  "phone": {
+    "$numberLong": "5127549253"
+  },
+  "website": "https://wakethedeadcoffeehouse.squarespace.com",
+  "image": [
+    "https://i.imgur.com/bybL3SG.jpg",
+    "https://i.imgur.com/0pC126S.jpg",
+    "https://i.imgur.com/qEmfoai.png",
+    "https://i.imgur.com/YzZvlww.png",
+    "https://i.imgur.com/5SEe76G.jpg",
+    "https://i.imgur.com/prWSr3t.jpg",
+    "https://i.imgur.com/e7G3M7s.jpg"
+  ],
+  "facebook": "https://www.facebook.com/wakethedeadcoffeehouse/",
+  "friday": "7:00 AM - 10:00 PM",
+  "instagram": "https://www.instagram.com/wakethedeadcoffeehouse/",
+  "monday": "7:00 AM - 10:00 PM",
+  "saturday": "7:00 AM - 10:00 PM",
+  "sunday": "7:00 AM - 10:00 PM",
+  "thursday": "7:00 AM - 10:00 PM",
+  "tuesday": "7:00 AM - 10:00 PM",
+  "wednesday": "7:00 AM - 10:00 PM",
+  "yelp": "https://www.yelp.com/biz/wake-the-dead-coffee-house-san-marcos",
+  "amenities": "Offers Takeout,Vegan Options,Accepts Credit Cards,Outdoor Seating,Moderate Noise,Good for Working,Street Parking,Private Lot Parking,Free Wi-Fi,Dogs Allowed,Gender-neutral restrooms,Offers Catering,Bike Parking",
+  "price": "$",
+  "rating": 4.6,
+  "review": 815,
+  "tags": "Coffee & Tea,Desserts"
+},
+{
+  "_id": {
+    "$oid": "651f3a461f8d452578e363b0"
+  },
+  "id": "wildfire",
+  "name": "Wildfire",
+  "address": "141 E. Hopkins St San Marcos, TX 78666",
+  "latitude": 29.88346,
+  "longitude": -97.94043,
+  "about": "Wildfire is a nightclub located in the heart of San Marcos offering a full bar with various local DJs and events.",
+  "phone": {
+    "$numberLong": "9566818713"
+  },
+  "website": "https://www.instagram.com/thewildfiresmtx/",
+  "image": [
+    "https://i.imgur.com/8QbgeLN.png",
+    "https://i.imgur.com/9vFCRFM.jpg",
+    "https://i.imgur.com/VUWQKpH.jpg"
+  ],
+  "friday": "9:00 PM -  2:00 AM",
+  "instagram": "https://www.instagram.com/thewildfiresmtx/",
+  "monday": "CLOSED",
+  "saturday": "9:00 PM -  2:00 AM",
+  "sunday": "9:00 PM -  2:00 AM",
+  "thursday": "9:00 PM -  2:00 AM",
+  "tuesday": "9:00 PM -  2:00 AM",
+  "wednesday": "9:00 PM -  2:00 AM",
+  "amenities": null,
+  "facebook": null,
+  "price": "$",
+  "rating": "4.5",
+  "review": 2,
+  "tags": "Bars",
+  "yelp": null
+},
+{
+  "_id": {
+    "$oid": "6542f54901b78597bbae72fc"
+  },
+  "id": "catsbilliards",
+  "name": "Cats Billiards",
+  "address": " 143 S. LBJ Dr San Marcos, TX 78666",
+  "latitude": 29.88141,
+  "longitude": -97.93956,
+  "about": "Eight-foot pool tables and free pool with purchase. Juke box, cold beer and good friends.",
+  "phone": {
+    "$numberLong": "5123960888"
+  },
+  "website": "https://www.visitsanmarcos.com/listing/cats-billiards/390/",
+  "image": [
+    "https://i.imgur.com/2rrECxp.jpg",
+    "https://i.imgur.com/nDcOB97.png",
+    "https://i.imgur.com/PHl1hxL.jpg",
+    "https://i.imgur.com/WC9cQFF.png",
+    "https://i.imgur.com/5pH1BfX.png",
+    "https://i.imgur.com/q197BfB.png"
+  ],
+  "friday": "2:00 PM – 2:00 AM",
+  "monday": "2:00 PM – 2:00 AM",
+  "saturday": "2:00 PM – 2:00 AM",
+  "sunday": "2:00 PM – 2:00 AM",
+  "thursday": "2:00 PM – 2:00 AM",
+  "tuesday": "5:30 PM – 2:00 AM",
+  "wednesday": "2:00 PM – 2:00 AM",
+  "yelp": "https://www.yelp.com/biz/cats-billards-san-marcos",
+  "amenities": "Accepts Credit Cards,Quiet,Good for Groups,Pool Table,Happy Hour Specials,Full Bar,TV,No Outdoor Seating,Not Good For Dancing,Bike Parking\\n",
+  "facebook": null,
+  "instagram": null,
+  "price": "$",
+  "rating": 4.2,
+  "tags": "Bars,Pool Halls",
+  "review": "202"
 }]
