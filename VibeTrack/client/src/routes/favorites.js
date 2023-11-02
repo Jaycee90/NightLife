@@ -43,6 +43,10 @@ function Favorites() {
       setSelectedVenues([...selectedVenues, venue]);
     }
   };
+  
+  const removeFromFavorites = (venue) => {
+    setSelectedVenues(selectedVenues.filter((v) => v !== venue));
+  };
 
   return (
     <div>
