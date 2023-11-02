@@ -28,10 +28,10 @@ function Favorites() {
     getVenues();
   }, []);
 
-  const handleClickedVenue = (clickedVenue) => {
-    if (selectedVenues.includes(clickedVenue)) return;
-    setSelectedVenues([...selectedVenues, clickedVenue]);
-  };
+ // const handleClickedVenue = (clickedVenue) => {
+ //   if (selectedVenues.includes(clickedVenue)) return;
+ //   setSelectedVenues([...selectedVenues, clickedVenue]);
+ //};
 
   const toggleFavoritesDisplay = () => {
     setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
@@ -106,3 +106,4 @@ function Favorites() {
 export default Favorites;
 
 // at a stopping point
+// testing commits
