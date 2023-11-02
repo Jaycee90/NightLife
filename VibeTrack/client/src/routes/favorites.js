@@ -5,6 +5,7 @@ function Favorites() {
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
   const [confirmationVenue, setConfirmationVenue] = useState(null); // confirmation state
+  const [favoriteVenues, setFavoriteVenues] = useState([]);
 
   useEffect(() => {
     // Retrieve all of the venues
@@ -40,8 +41,12 @@ function Favorites() {
   const addToFavorites = (venue) => {
     if (!selectedVenues.includes(venue.name)) {
       setSelectedVenues([...selectedVenues, venue.name]);
+  
+      // Add the venue to the favorites
+      setFavoriteVenues([...favoriteVenues, venue.name]);
     }
   };
+  
 
   const requestRemoveConfirmation = (venue) => {
     setConfirmationVenue(venue);
@@ -69,7 +74,7 @@ function Favorites() {
           </li>
         ))}
       </ul>
-
+  
       {confirmationVenue && (
         <div>
           <p>Are you sure you want to remove {confirmationVenue} from favorites?</p>
@@ -79,34 +84,23 @@ function Favorites() {
           <button onClick={cancelRemoveConfirmation}>No</button>
         </div>
       )}
-
+  
       <button onClick={toggleFavoritesDisplay}>
         {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
       </button>
-
+  
       <ul style={{ color: '#000' }}>
-        {showFavoritesOnly
-          ? selectedVenues.map((venue, index) => (
-              <li key={index} style={{ color: 'blue' }}>
-                {venue}
-                <button onClick={() => requestRemoveConfirmation(venue)}>
-                  Remove from Favorites
-                </button>
-              </li>
-            ))
-          : venues.map((venue, index) => (
-              <li key={index} style={{ color: 'blue' }}>
-                {venue.name}
-                {!selectedVenues.includes(venue.name) && (// Conditionally render the button
-                  <button onClick={() => addToFavorites(venue)}>
-                    Add to Favorites
-                  </button>
-                )}
-              </li>
-            ))}
+        {venues.map((venue, index) => (
+          <li key={index} style={{ color: 'blue' }}>
+            {venue.name}
+            <button onClick={() => addToFavorites(venue)}>
+              Add to Favorites
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
-  );
+  );  
 }
 
 export default Favorites;
