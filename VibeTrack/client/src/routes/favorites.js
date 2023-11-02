@@ -4,6 +4,8 @@ function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue names
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
+  const [confirmationVenue, setConfirmationVenue] = useState(null); // venue for which confirmation is requested
+
 
   useEffect(() => {
     // Retrieve all of the venues
