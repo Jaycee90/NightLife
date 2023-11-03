@@ -26,6 +26,7 @@ import Profile from './routes/Profile';
 import Contact from './routes/Contact';
 
 
+
 import Home from './routes/Home';
 import SearchLink from "./components/link_search";
 import Invitation from "./routes/email_inv";  
@@ -51,6 +52,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
             <Route path='/rating/:id' element={<StarRating />} />
+            
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
