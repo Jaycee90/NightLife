@@ -11,6 +11,20 @@ import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    _id: "",
+    code: "",
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthdate: "",
+    gender: "",
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
+  });
   const navigate = useNavigate();
 
   const { fetchUser } = useContext(UserContext);
@@ -30,7 +44,7 @@ export default function Contact() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:5050/user/${code}`);
+        const response = await fetch(`http://localhost:5050/user/653aaae8a809310239c03a71`);
     
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -55,20 +69,6 @@ export default function Contact() {
   
   }, [code, navigate, fetchUser]);
   
-  const [form, setForm] = useState({
-    _id: "",
-    code: "",
-    name: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    birthdate: "",
-    gender: "",
-    emergencyName1: "", 
-    emergencyEmail1: "", 
-    emergencyName2: "", 
-    emergencyEmail2: "", 
-  });
 
   function updateForm(value) {
     return setForm(prev => {
@@ -93,7 +93,7 @@ export default function Contact() {
       emergencyEmail2: form.emergencyEmail2,
     };
     
-    await fetch(`http://localhost:5050/user/${code}`, {
+    await fetch(`http://localhost:5050/user/653aaae8a809310239c03a71`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
