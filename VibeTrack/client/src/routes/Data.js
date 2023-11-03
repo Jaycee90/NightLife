@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; //Something
+import React, { useState, useEffect } from "react";
 import '../css/Template.css';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams } from "react-router-dom";
