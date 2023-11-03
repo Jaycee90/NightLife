@@ -84,10 +84,9 @@ export default function Contact() {
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
     };
-    
+  
     const currentUser = await fetchUser();
-    const code = currentUser();
-    await fetch(`http://localhost:5050/user/${code}`, {
+    await fetch(`http://localhost:5050/user/${currentUser}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
