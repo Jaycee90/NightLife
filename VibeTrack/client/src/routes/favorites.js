@@ -25,7 +25,7 @@ function Favorites() {
       } catch (error) {
         console.log('Error fetching venues from the database, ', error);
       }
-    };
+    }; 
     getVenues();
   }, []);
 
