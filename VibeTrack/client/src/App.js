@@ -25,7 +25,6 @@ import Safety from './routes/Safety';
 import Profile from './routes/Profile';
 import Contact from './routes/Contact';
 
-import RandomDiscover from "./routes/Random_Discover";
 
 
 import Home from './routes/Home';
@@ -53,7 +52,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
             <Route path='/rating/:id' element={<StarRating />} />
-            <Route path='/randomdiscover' element={<RandomDiscover/>} />
+            
 
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
