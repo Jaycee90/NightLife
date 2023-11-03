@@ -11,11 +11,22 @@ import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Contact() {
-  const { fetchUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const code =  fetchUser(); // Await the fetchUser function
 
-  alert(`Your user ID is: ${code}. Keep this with you.`); // Showing a success message with the user ID
+  const { fetchUser } = useContext(UserContext);
+  const currentUser = async () => {
+    try {
+      const currentUser = await fetchUser();
+      if (currentUser) {
+        alert(`Your user ID is: ${currentUser.id}`); // Showing a success message with the user ID
+        return currentUser.id;
+      }
+    } catch (error) {
+      alert(error)
+    }
+  }
+  const code = currentUser();
+
   useEffect(() => {
     async function fetchData() {
       try {
