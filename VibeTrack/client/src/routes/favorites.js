@@ -4,7 +4,7 @@ import '../css/favorites.css';
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue objects
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // new state for toggling favorites
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // state to toggle favorites display
   const [confirmationVenue, setConfirmationVenue] = useState(null); // confirmation state
   const [favoriteVenues, setFavoriteVenues] = useState([]);
 
@@ -29,25 +29,16 @@ function Favorites() {
     getVenues();
   }, []);
 
- // const handleClickedVenue = (clickedVenue) => {
- //   if (selectedVenues.includes(clickedVenue)) return;
- //   setSelectedVenues([...selectedVenues, clickedVenue]);
- //};
-
   const toggleFavoritesDisplay = () => {
     setShowFavoritesOnly(!showFavoritesOnly); // Toggle the state
   };
 
-  // Function to add the current venue to favorites
   const addToFavorites = (venue) => {
     if (!selectedVenues.includes(venue.name)) {
       setSelectedVenues([...selectedVenues, venue.name]);
-  
-      // Add the venue to the favorites
       setFavoriteVenues([...favoriteVenues, venue.name]);
     }
   };
-  
 
   const requestRemoveConfirmation = (venue) => {
     setConfirmationVenue(venue);
@@ -70,13 +61,15 @@ function Favorites() {
           {selectedVenues.map((venue, index) => (
             <li key={index} style={{ color: 'blue' }}>
               {venue}
-              <button onClick={() => requestRemoveConfirmation(venue)}>
-                Remove from Favorites
-              </button>
+              <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
+                <button onClick={() => requestRemoveConfirmation(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
+                  Remove from Favorites
+                </button>
+              </div>
             </li>
           ))}
         </ul>
-  
+
         {confirmationVenue && (
           <div>
             <p>Are you sure you want to remove {confirmationVenue} from favorites?</p>
@@ -86,19 +79,37 @@ function Favorites() {
             <button onClick={cancelRemoveConfirmation}>No</button>
           </div>
         )}
-  
+
         <ul style={{ color: '#000' }}>
-          {venues.map((venue, index) => (
-            <li key={index} style={{ color: 'blue' }}>
-              {venue.name}
-              <button onClick={() => addToFavorites(venue)}>
-                Add to Favorites
-              </button>
-            </li>
-          ))}
+          {showFavoritesOnly
+            ? selectedVenues.map((venue, index) => (
+                <li key={index} style={{ color: 'blue' }}>
+                  <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
+                    {venue}
+                    <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
+                      <button onClick={() => requestRemoveConfirmation(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
+                        Remove from Favorites
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))
+            : venues.map((venue, index) => (
+                <li key={index} style={{ color: 'blue' }}>
+                  <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
+                    {venue.name}
+                    <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
+                      <button onClick={() => addToFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
+                        Add to Favorites
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))
+          }
         </ul>
       </div>
-  
+
       <div className="right-content">
         <button onClick={toggleFavoritesDisplay}>
           {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
@@ -106,10 +117,6 @@ function Favorites() {
       </div>
     </div>
   );
-    
 }
 
 export default Favorites;
-
-// at a stopping point
-// testing commits
