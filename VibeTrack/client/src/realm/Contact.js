@@ -28,46 +28,38 @@ export default function Contact() {
   const navigate = useNavigate();
 
   const { fetchUser } = useContext(UserContext);
-  const currentUser = async () => {
-    try {
-      const currentUser = await fetchUser();
-      if (currentUser) {
-        alert(`Your user ID is: ${currentUser.id}`); // Showing a success message with the user ID
-        return currentUser.id;
-      }
-    } catch (error) {
-      alert(error)
-    }
-  }
-  const code = currentUser();
-
+  
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:5050/user/${code}`);
+        const currentUser = await fetchUser();
+        if (currentUser) {
+          alert(`Your user ID is: ${currentUser.id}`);
+          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
     
-        if (!response.ok) {
-          const message = `An error has occurred: ${response.statusText}`;
-          window.alert(message);
-          return;
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+    
+          const user = await response.json();
+          if (!user) {
+            window.alert(`User with code ${currentUser.id} not found`);
+            navigate("/");
+            return;
+          }
+    
+          setForm(user);
         }
-    
-        const user = await response.json();
-        if (!user) {
-          window.alert(`User with code ${code} not found`);
-          navigate("/");
-          return;
-        }
-    
-        setForm(user);
       } catch (error) {
         console.error(error);
+        alert(error);
       }
     }
   
     fetchData();
-  
-  }, [code, navigate]);
+  }, [fetchUser, navigate]);
   
 
   function updateForm(value) {
@@ -93,6 +85,8 @@ export default function Contact() {
       emergencyEmail2: form.emergencyEmail2,
     };
     
+    const currentUser = await fetchUser();
+    const code = currentUser();
     await fetch(`http://localhost:5050/user/${code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
