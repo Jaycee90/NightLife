@@ -7,9 +7,24 @@ import { FiHome, FiLogOut } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
 
 import { useContext } from 'react';
-import { UserContext } from '../realm/UserContext';
+import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
+
 export default function Contact() {
+  
+  const { fetchUser } = useContext(UserContext);
+
+  const fetchUser = async () => {
+    if (!app.currentUser) return false;
+   try {
+      await app.currentUser.refreshCustomData();
+      setUser(app.currentUser);
+      return app.currentUser.code;
+  } catch (error) {
+    throw error;
+  }
+  }
+
   const [form, setForm] = useState({
     _id: "",
     name: "",
@@ -52,7 +67,7 @@ export default function Contact() {
   
     fetchData();
   
-  }, [params.code, navigate]); // Add initializeEmergencyContacts here
+  }, [params.code, navigate, fetchUser]); // Add initializeEmergencyContacts here
 
   function updateForm(value) {
     return setForm(prev => {
@@ -92,16 +107,18 @@ export default function Contact() {
   const [menuCollapse] = useState(false);
 
   const { logOutUser } = useContext(UserContext);
- const logOut = async () => {
-  try {
-    const loggedOut = await logOutUser();
-    if (loggedOut) {
-      window.location.reload(true);
+  const logOut = async () => {
+    try {
+      const loggedOut = await logOutUser();
+      if (loggedOut) {
+        window.location.reload(true);
+      }
+    } catch (error) {
+      alert(error)
     }
-  } catch (error) {
-    alert(error)
   }
-}
+  
+
   return (
     <div className="profile-component">
       <div class="grid-settings">
