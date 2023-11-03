@@ -44,7 +44,7 @@ export default function Contact() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:5050/user/653aaae8a809310239c03a71`);
+        const response = await fetch(`http://localhost:5050/user/${code}`);
     
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -67,7 +67,7 @@ export default function Contact() {
   
     fetchData();
   
-  }, [code, navigate, fetchUser]);
+  }, [code, navigate]);
   
 
   function updateForm(value) {
@@ -93,7 +93,7 @@ export default function Contact() {
       emergencyEmail2: form.emergencyEmail2,
     };
     
-    await fetch(`http://localhost:5050/user/653aaae8a809310239c03a71`, {
+    await fetch(`http://localhost:5050/user/${code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
