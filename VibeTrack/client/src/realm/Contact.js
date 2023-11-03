@@ -86,7 +86,7 @@ export default function Contact() {
     };
   
     const currentUser = await fetchUser();
-    await fetch(`http://localhost:5050/user/${currentUser}`, { // Use currentUser directly
+    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
