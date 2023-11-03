@@ -50,6 +50,7 @@ const Login = () => {
      const user = await emailPasswordLogin(form.email, form.password);
      if (user) {
        redirectNow();
+       alert(`Your user ID is: ${user.id}. Keep this with you.`); // Showing a success message with the user ID
      }
    } catch (error) {
        if (error.statusCode === 401) {
