@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../css/favorites.css';
 
 function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue objects
@@ -62,45 +63,50 @@ function Favorites() {
   };
 
   return (
-    <div>
-      <h1>Selected Venues</h1>
-      <ul>
-        {selectedVenues.map((venue, index) => (
-          <li key={index} style={{ color: 'blue' }}>
-            {venue}
-            <button onClick={() => requestRemoveConfirmation(venue)}>
-              Remove from Favorites
+    <div className="favorite-container">
+      <div className="left-content">
+        <h1>Selected Venues</h1>
+        <ul>
+          {selectedVenues.map((venue, index) => (
+            <li key={index} style={{ color: 'blue' }}>
+              {venue}
+              <button onClick={() => requestRemoveConfirmation(venue)}>
+                Remove from Favorites
+              </button>
+            </li>
+          ))}
+        </ul>
+  
+        {confirmationVenue && (
+          <div>
+            <p>Are you sure you want to remove {confirmationVenue} from favorites?</p>
+            <button onClick={() => confirmRemoveFromFavorites(confirmationVenue)}>
+              Yes
             </button>
-          </li>
-        ))}
-      </ul>
+            <button onClick={cancelRemoveConfirmation}>No</button>
+          </div>
+        )}
   
-      {confirmationVenue && (
-        <div>
-          <p>Are you sure you want to remove {confirmationVenue} from favorites?</p>
-          <button onClick={() => confirmRemoveFromFavorites(confirmationVenue)}>
-            Yes
-          </button>
-          <button onClick={cancelRemoveConfirmation}>No</button>
-        </div>
-      )}
+        <ul style={{ color: '#000' }}>
+          {venues.map((venue, index) => (
+            <li key={index} style={{ color: 'blue' }}>
+              {venue.name}
+              <button onClick={() => addToFavorites(venue)}>
+                Add to Favorites
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
   
-      <button onClick={toggleFavoritesDisplay}>
-        {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
-      </button>
-  
-      <ul style={{ color: '#000' }}>
-        {venues.map((venue, index) => (
-          <li key={index} style={{ color: 'blue' }}>
-            {venue.name}
-            <button onClick={() => addToFavorites(venue)}>
-              Add to Favorites
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className="right-content">
+        <button onClick={toggleFavoritesDisplay}>
+          {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
+        </button>
+      </div>
     </div>
-  );  
+  );
+    
 }
 
 export default Favorites;

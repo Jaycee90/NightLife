@@ -1,0 +1,18 @@
+/* Favorites.css */
+
+/* Flex container for the page */
+.favorite-container {
+    display: flex;
+  }
+  
+  /* Left content div */
+  .left-content {
+    flex: 1;
+  }
+  
+  /* Right content div (button) */
+  .right-content {
+    /* Add any styles you want for the right content here */
+    flex: 1;
+  }
+  
