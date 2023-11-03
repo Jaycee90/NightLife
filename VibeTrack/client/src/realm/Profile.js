@@ -6,7 +6,7 @@ import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
 import { useContext } from 'react';
-import { UserContext } from '../realm/UserContext';
+import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Profile() {

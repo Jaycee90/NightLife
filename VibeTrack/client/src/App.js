@@ -22,8 +22,8 @@ import Search from './routes/Search';
 import Calendar from './routes/Calendar';
 import Template from './routes/Template';
 import Safety from './routes/Safety';
-import Profile from './routes/Profile';
-import Contact from './routes/Contact';
+import Profile from './realm/Profile';
+import Contact from './realm/Contact';
 
 
 import Home from './routes/Home';

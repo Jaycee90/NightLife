@@ -11,10 +11,13 @@ import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Contact() {
+  const { fetchUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const code =  fetchUser(); // Await the fetchUser function
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const code = await fetchUser(); // Await the fetchUser function
         const response = await fetch(`http://localhost:5050/user/${code}`);
     
         if (!response.ok) {
@@ -38,7 +41,7 @@ export default function Contact() {
   
     fetchData();
   
-  }, [navigate, fetchUser]);
+  }, [code, navigate, fetchUser]);
   
   const [form, setForm] = useState({
     _id: "",
@@ -54,7 +57,7 @@ export default function Contact() {
     emergencyName2: "", 
     emergencyEmail2: "", 
   });
-  
+
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
@@ -113,7 +116,7 @@ export default function Contact() {
           <ProSidebar collapsed={menuCollapse}>
             <SidebarContent>
               <Menu iconShape="square">
-                <MenuItem icon={<FiHome />}><a href={`/profile/${userCode}`}>Profile</a></MenuItem>
+                <MenuItem icon={<FiHome />}><a href={`/profile/`}>Profile</a></MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
                 <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
