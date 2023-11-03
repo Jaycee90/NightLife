@@ -120,3 +120,7 @@ function Favorites() {
 }
 
 export default Favorites;
+// "Show Favorites Only" button works now 
+// created an unintetnional visual of 2 
+// venue names the one from the selected and the
+// add to favorites 
