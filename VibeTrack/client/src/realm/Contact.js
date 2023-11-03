@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import '../css/settings.css';
 import {  ProSidebar,  Menu,  MenuItem,  SidebarFooter,  SidebarContent,} from "react-pro-sidebar";
 import { FaList, FaRegHeart } from "react-icons/fa";
@@ -11,22 +11,38 @@ import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
 
 export default function Contact() {
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const code = await fetchUser(); // Await the fetchUser function
+        const response = await fetch(`http://localhost:5050/user/${code}`);
+    
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
+    
+        const user = await response.json();
+        if (!user) {
+          window.alert(`User with code ${code} not found`);
+          navigate("/");
+          return;
+        }
+    
+        setForm(user);
+      } catch (error) {
+        console.error(error);
+      }
+    }
   
-  const { fetchUser } = useContext(UserContext);
-
-  const fetchUser = async () => {
-    if (!app.currentUser) return false;
-   try {
-      await app.currentUser.refreshCustomData();
-      setUser(app.currentUser);
-      return app.currentUser.code;
-  } catch (error) {
-    throw error;
-  }
-  }
-
+    fetchData();
+  
+  }, [navigate, fetchUser]);
+  
   const [form, setForm] = useState({
     _id: "",
+    code: "",
     name: "",
     lastName: "",
     phone: "",
@@ -39,36 +55,6 @@ export default function Contact() {
     emergencyEmail2: "", 
   });
   
-  const params = useParams();
-  const navigate = useNavigate();
-  const userCode = params.code; // This will contain the user code from the URL
-
-  useEffect(() => {
-    
-    async function fetchData() {
-      const code = params.code;
-      const response = await fetch(`http://localhost:5050/user/${params.code}`);
-  
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
-  
-      const user = await response.json();
-      if (!user) {
-        window.alert(`User with code ${code} not found`);
-        navigate("/");
-        return;
-      }
-  
-      setForm(user);
-    }
-  
-    fetchData();
-  
-  }, [params.code, navigate, fetchUser]); // Add initializeEmergencyContacts here
-
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
@@ -92,7 +78,7 @@ export default function Contact() {
       emergencyEmail2: form.emergencyEmail2,
     };
     
-    await fetch(`http://localhost:5050/user/${params.code}`, {
+    await fetch(`http://localhost:5050/user/${code}`, {
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
