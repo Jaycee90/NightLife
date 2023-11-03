@@ -34,7 +34,6 @@ export default function Contact() {
       try {
         const currentUser = await fetchUser();
         if (currentUser) {
-          alert(`Your user ID is: ${currentUser.id}`);
           const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
     
           if (!response.ok) {
