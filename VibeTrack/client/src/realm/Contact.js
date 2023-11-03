@@ -15,6 +15,7 @@ export default function Contact() {
   const navigate = useNavigate();
   const code =  fetchUser(); // Await the fetchUser function
 
+  alert(`Your user ID is: ${code}. Keep this with you.`); // Showing a success message with the user ID
   useEffect(() => {
     async function fetchData() {
       try {
