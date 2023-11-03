@@ -22,8 +22,8 @@ import Search from './routes/Search';
 import Calendar from './routes/Calendar';
 import Template from './routes/Template';
 import Safety from './routes/Safety';
-import Profile from './routes/Profile';
-import Contact from './routes/Contact';
+import Profile from './realm/Profile';
+import Contact from './realm/Contact';
 
 
 
@@ -54,16 +54,15 @@ function App() {
             <Route path='/rating/:id' element={<StarRating />} />
             
 
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route element={<PrivateRoute />}>
+                <Route path='/profile/' element={<Profile />} />
+                <Route path='/contact/' element={<Contact />} />
+                <Route path='/userList' element={<UserList />} />
+            </Route>
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route element={<PrivateRoute />}>
-                <Route path='/profile/:code' element={<Profile />} />
-                <Route path='/contact/:code' element={<Contact />} />
-                <Route path='/userList' element={<UserList />} />
-
-            </Route>
        </Routes>
      </UserProvider>
    </BrowserRouter>

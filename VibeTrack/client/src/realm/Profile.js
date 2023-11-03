@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import { useNavigate } from "react-router";
 import '../css/settings.css';
 import { ProSidebar, Menu, MenuItem, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
 import { BiCog } from "react-icons/bi";
-
 import { useContext } from 'react';
-import { UserContext } from '../realm/UserContext';
+import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
+
 export default function Profile() {
   const [form, setForm] = useState({
     _id: "",
@@ -24,43 +24,52 @@ export default function Profile() {
     emergencyName2: "", 
     emergencyEmail2: "", 
   });
+  const navigate = useNavigate();
 
-  const params = useParams();
-
+  const { fetchUser } = useContext(UserContext);
+  
   useEffect(() => {
-    async function fetchData() {
-      const code = params.code.toString();
-      const response = await fetch(`http://localhost:5050/user/${params.code}`);
-
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
+    const fetchData = async () => {
+      try {
+        const currentUser = await fetchUser();
+        if (currentUser) {
+          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+    
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+    
+          const user = await response.json();
+          if (!user) {
+            window.alert(`User with code ${currentUser.id} not found`);
+            navigate("/");
+            return;
+          }
+    
+          setForm(user);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(error);
       }
-
-      const user = await response.json();
-      if (!user) {
-        window.alert(`User with code ${code} not found`);
-        return;
-      }
-
-      setForm(user);
     }
-
+  
     fetchData();
-  }, [params.code]);
-
+  }, [fetchUser, navigate]);
+  
 
   function updateForm(value) {
     return setForm(prev => {
       return { ...prev, ...value };
     });
   }
-
+  
   async function onSubmit(e) {
     e.preventDefault();
     const editedUser = {
-      _id: form._id,
+      _id : form._id,
       code: form.code,
       name: form.name,
       lastName: form.lastName,
@@ -73,34 +82,36 @@ export default function Profile() {
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
     };
-
-    await fetch(`http://localhost:5050/user/${params.code}`, {
+  
+    const currentUser = await fetchUser();
+    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
         'Content-Type': 'application/json'
       },
     });
-
+  
+    // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
 
   const [menuCollapse] = useState(false)
   
   const { logOutUser } = useContext(UserContext);
- const logOut = async () => {
-  try {
-    const loggedOut = await logOutUser();
-    if (loggedOut) {
-      window.location.reload(true);
+  const logOut = async () => {
+    try {
+      const loggedOut = await logOutUser();
+      if (loggedOut) {
+        window.location.reload(true);
+      }
+    } catch (error) {
+      alert(error)
     }
-  } catch (error) {
-    alert(error)
   }
-}
 
   return (
-    <div>
+    <div className="profile-component">
     <div className="grid-settings">
       <div className="grid-settings-left">
         <div id="header">
@@ -108,10 +119,9 @@ export default function Profile() {
             <SidebarContent>
               <Menu iconShape="square">
                 <MenuItem active={true} icon={<FiHome />}>Profile</MenuItem>
-                <MenuItem icon={<BiCog />}>Security</MenuItem>
-                <MenuItem icon={<FaList />}>Contacts</MenuItem>
+                <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
+                <MenuItem icon={<FaList />}><a href={`/contact`}>Contacts</a></MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
-                
               </Menu>
             </SidebarContent>
             <SidebarFooter>
@@ -158,7 +168,7 @@ export default function Profile() {
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -187,7 +197,7 @@ export default function Profile() {
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#747474', borderRadius: '25px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
                 />
               </div>
             </div>
@@ -206,13 +216,14 @@ export default function Profile() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="email" style={{marginLeft:'10px'}}>Email: </label>
             <input
               type="text"
               className="form-control"
               id="email"
               value={form.email}
               onChange={(e) => updateForm({ email: e.target.value })}
+              style={{marginLeft:'10px'}}
             />
           </div>
           <br />
@@ -221,6 +232,7 @@ export default function Profile() {
               type="submit"
               value="Update Information"
               className="btn btn-primary"
+              style={{width:'50%', marginLeft:'30%'}}
             />
           </div>
         </form>
