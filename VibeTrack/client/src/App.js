@@ -52,16 +52,15 @@ function App() {
             <Route path='/invitation' element={<Invitation />} />
             <Route path='/rating/:id' element={<StarRating />} />
 
-            <Route path='/security' element={<Security />} />
-            <Route path='/reset' element={<Reset />} />
-            <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/login" element={<Login />} />
             <Route element={<PrivateRoute />}>
                 <Route path='/profile/' element={<Profile />} />
                 <Route path='/contact/' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
-
             </Route>
+            <Route path='/security' element={<Security />} />
+            <Route path='/reset' element={<Reset />} />
        </Routes>
      </UserProvider>
    </BrowserRouter>
