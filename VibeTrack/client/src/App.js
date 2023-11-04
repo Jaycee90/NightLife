@@ -51,8 +51,7 @@ function App() {
             <Route path='/favorites' element={<Favorites/>} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/rating/:id' element={<StarRating />} />   
-            
+            <Route path='/rating/:id' element={<StarRating />} />  
 
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
