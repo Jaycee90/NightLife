@@ -1,6 +1,5 @@
 
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
-
 html { height: 100%; overflow:auto; }
 
 body {
@@ -15,33 +14,6 @@ body {
 }
 
 
-.nav-flex-row {
-  background-color: var(--spanish-gray);
-  background-size: cover;
-  opacity: 0.75;
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  width: 100%;
-  padding: 0;
-}
-
-.nav-flex-row li {
-    text-decoration: none;
-    list-style-type: none;
-    padding: 20px 15px;
-}
-
-.nav-flex-row li a {
-    font-family: 'Big Shoulders Text', cursive;
-    color: #ffffff;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    font-weight: 300;
-}
 .intro {
   background-size: cover;
   display:block;
@@ -206,8 +178,8 @@ a.instagram {
 .react-calendar { 
   width: 400px;
   max-width: 100%;
-  background-color: #747474;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border-radius: 8px;
   margin-right:20px;
  }
@@ -234,8 +206,8 @@ a.instagram {
   color: #d10000;
  } 
  .react-calendar__month-view__days__day--weekday {
-  color: #000;
- } 
+  color: #000 !important;
+}
  .react-calendar__tile:enabled:hover,
  .react-calendar__tile:enabled:focus {
   background: #f8f8fa;

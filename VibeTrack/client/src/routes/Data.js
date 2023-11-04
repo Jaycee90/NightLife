@@ -110,6 +110,7 @@ function Data(props) {
     }
 
     fetchData();
+
   }, [params.id]);
 
   
@@ -143,7 +144,7 @@ function Data(props) {
   const formattedAmenities = formatAmenities(venueData.amenities);
 
   return (
-    <div className="template-component">
+    <div>
       <div className="about-section">
         <div className="item">
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left', color:'#fff' }}>{venueData.name}</h2>
@@ -247,7 +248,7 @@ function Data(props) {
                 <h4 style={{'color':'#000', 'font-size': '20px', paddingBottom:'10px'}}>Upcoming Events</h4>
                 <div className='app'>
                   <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px', color:'#000'}}>
-                    <Calendar onChange={setDate} value={date} />
+                    <Calendar onChange={setDate} value={date} style={{ color: '#000' }} />
                   </div>
                 </div>
               </div>
