@@ -1,5 +1,4 @@
 .discover-component{
-  
 
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
 
@@ -9,9 +8,6 @@ html { height: 100%; overflow:auto; }
   font-size: var(--fs-5);
   text-transform: uppercase;
   font-family: var(--ff-montserrat);
-  margin-bottom: 8px;
-  padding-top:10px;
-  padding-bottom:10px;
 }
 
 .section-title { margin-bottom: 15px; color:black; }
@@ -23,20 +19,6 @@ html { height: 100%; overflow:auto; }
 .card-text {
   color: black;
   font-size: var(--fs-5);
-}
-
-
-/* font-family: 'Big Shoulders Text', cursive; */
-body{
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;  
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #ffffff;
-  padding:25px;
-  margin: 0;
-  height:100%;
 }
 
 .about-discover {
@@ -52,16 +34,23 @@ body{
     color: black;
     display: block;
     background-color: white;
-    opacity:0.75;
     font-size:1.25em;
     border: 2px solid black;
     border-radius:5px;
     padding: 5px 10px;
 }
 
+.section-intro {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
 .container-title {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   padding-top:75px;
@@ -71,11 +60,10 @@ body{
 
 .container {
   background-size: cover;
-  opacity: 0.75;
   color: black;
-  padding:10px;
-  border-radius: 5px;
+  background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
   font-size: 1em;
+  opacity:1;
 }
 
 .container h1 {
@@ -173,9 +161,6 @@ a.link:hover {
   gap: 10px;
 }
 
-
-.discover { padding-block: var(--section-padding); }
-
 .discover-list,
 .discover-list > li:not(:last-child) { margin-bottom: 30px; }
 
@@ -184,7 +169,6 @@ a.link:hover {
   overflow: hidden;
   border-radius: var(--radius-25);
   height: 300px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .discover-card .card-img { height: 100%; }
@@ -234,21 +218,6 @@ a.link:hover {
 
 .discover .btn { margin-inline: auto; }
 
-
-
-  /**
-   * POPULAR
-   */
-
-  .discover-card .card-content { right: auto; }
-
-
-
-
-  /**
-   * POPULAR
-   */
-
   .discover-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -260,14 +229,5 @@ a.link:hover {
 
   .discover-card .card-content { right: 20px; }
 
-
-
-  /**
-   * POPULAR
-   */
-
   .discover-list { grid-template-columns: repeat(3, 1fr); }
-
-
-
 }

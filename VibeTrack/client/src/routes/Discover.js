@@ -5,7 +5,6 @@ import '../css/discover.css';
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const venuesPerPage = 10;
 
   useEffect(() => {
     async function getVenues() {
@@ -27,6 +26,7 @@ const Discover = () => {
     return;
   }, []);
 
+  const venuesPerPage = 12;
   const indexOfLastVenue = currentPage * venuesPerPage;
   const indexOfFirstVenue = indexOfLastVenue - venuesPerPage;
   const currentVenues = venueData.slice(indexOfFirstVenue, indexOfLastVenue);
@@ -53,13 +53,11 @@ const Discover = () => {
 
   return (
     <div className="discover-component">
-        <div className="container">
-      <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
-          <h2 className="h2 section-title">Discover venues</h2>
-          <p className="section-text">
-          Experience nightlife in San Marcos, TX. Enjoy live music, late-night restaurants, bars, and dog-friendly outdoor decks. There's always something going on around you!
-          </p>
-
+      <div className="section-intro">
+      <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
+      <h2 className="h2 section-title">Discover venues</h2>
+      </div>
+      <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>
           <ul className="discover-list" >
           {currentVenues.map((venueData) => (
                 <div className="discover-card">
@@ -78,7 +76,7 @@ const Discover = () => {
 
                     <p className="card-subtitle">{venueData.address}</p>
                     <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
-
+                    
                     <p className="card-text">{venueData.about.length > 100 ? venueData.about.slice(0, 100) + "..." : venueData.about}</p>
                   </div>
                 </div>
@@ -87,7 +85,7 @@ const Discover = () => {
           <ul className="pagination">
             {renderPageNumbers}
         </ul>
-        </div>
+    </div>
     </div>
   );
 };
