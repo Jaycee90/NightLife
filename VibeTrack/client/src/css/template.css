@@ -228,9 +228,12 @@ a.instagram {
  abbr[title] {
   text-decoration: none;
  }
- /* .react-calendar__month-view__days__day--weekend {
+ .react-calendar__month-view__days__day--weekend {
   color: #d10000;
- } */
+ } 
+ .react-calendar__month-view__days__day--weekday {
+  color: #747474;
+ } 
  .react-calendar__tile:enabled:hover,
  .react-calendar__tile:enabled:focus {
   background: #f8f8fa;
@@ -258,7 +261,7 @@ a.instagram {
   background: black;
   border-radius: 6px;
   font-weight: bold;
-  color: white;
+  color: #fff;
  }
  .react-calendar__tile--active:enabled:hover,
  .react-calendar__tile--active:enabled:focus {
@@ -279,7 +282,7 @@ a.instagram {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   background: black;
-  color: white;
+  color: #747474;
  }
  .react-calendar__tile--rangeEnd {
   border-top-left-radius: 0;
@@ -287,9 +290,8 @@ a.instagram {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   background: black;
-  color: white;
+  color: #747474;
  }
-
 
  .image-gallery-image {
   height: 300px;

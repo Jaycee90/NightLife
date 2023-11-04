@@ -143,7 +143,7 @@ export default function StarRating(props) {
           </div>
 
           <div className="item">
-            <form onSubmit={onSubmit} style={{ color: '#000000' }}>
+            <form onSubmit={onSubmit} style={{ color: '#000000', paddingTop:'10px' }}>
               <div className="form-group">
                 <input
                   type="submit"
