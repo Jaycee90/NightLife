@@ -16,17 +16,19 @@ function SpecialEvent() {
         console.error('Error fetching event data', error);
       });
   }, []);
+
+  
     return (
         <div class="event-container">
            <h1 style={{color:'#000'}}>Upcoming Events</h1>
       <ul style={{color:'#000'}}>
         {eventData.map((event, index) => ( 
           <li key={index}>
-            <div class="event"> </div>
-            <div class="event-left"> </div>
+            <div class="event">
+            <div class="event-left"></div>
             <div class="event-date"> 
-              <h1>Date: {event.day}</h1>
-              <p class="event-description">Event: {event.divText}</p>
+              <p class="event-description">{event.day} {event.divText}</p>
+            </div>
             </div>
           </li>
         ))}
