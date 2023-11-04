@@ -90,7 +90,7 @@ const Security = () => {
                   <div class="logo mb-4"><img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/> </div>
                   <h2 style={{color:'#fff'}} >Forgot your password?</h2>
                   <p class="lead text-light">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
-                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000"}}>
+                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000", borderColor:'#747474',}}>
                     <TextField
                       label="Email"
                       type="email"
@@ -98,7 +98,8 @@ const Security = () => {
                       name="email"
                       value={emailForm.email}
                       onInput={onEmailFormInputChange}
-                      InputLabelProps={{style: { color: '#fff' },
+                      style={{ borderColor:'#747474'  }}
+                      InputLabelProps={{style: { color: '#fff', borderColor:'#747474' },
                       }}
                     />
                     <Button variant="contained" style={{color:'#000', backgroundColor: '#fff'}} onClick={sendResetEmail}>Send Reset Email</Button>
