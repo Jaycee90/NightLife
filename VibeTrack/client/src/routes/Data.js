@@ -148,7 +148,7 @@ function Data(props) {
         <div className="item">
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left', color:'#fff' }}>{venueData.name}</h2>
           {isOpen ? (
-            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#65e0ab', 'marginBottom':'20px', width:'40%'}} className="btn btn-primary">OPEN NOW</button>
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#65e0ab', 'marginBottom':'20px', width:'25%'}} className="btn btn-primary">OPEN NOW</button>
           ) : (
             <button style={{ 'marginLeft':'10px', 'marginTop':'15px','float': 'left', 'textAlign': 'center', 'color': '#fff','fontSize':'15px',  width:'30%', 'marginBottom':'40px'}} className="btn btn-primary">CLOSED</button>
           )}
@@ -168,15 +168,15 @@ function Data(props) {
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
+          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'black', 'font-size': '15px'}}>
+          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>
-          <div className="section-text" style={{ 'float': 'left', 'text-align': 'left', 'color': 'black', 'font-size': '15px', 'columnCount': '4', 'columnGap': '50px' }}>
+          <div className="section-text" style={{ 'float': 'left', 'text-align': 'left', 'color': '#000', 'font-size': '15px', 'columnCount': '4', 'columnGap': '50px' }}>
             {formattedAmenities.map((amenity, index) => (
               <span key={index}>{amenity}<br /></span>
             ))}
@@ -189,6 +189,7 @@ function Data(props) {
               style={{
                 height: "50vh",
                 width: "100%",
+                borderRadius:"10px"
               }}
               center={[29.8833, -97.9414]} //  {[{venueData.latitude}, {venueData.longitude}]} center somewhere else??
               zoom={16}
@@ -206,8 +207,8 @@ function Data(props) {
           </div>
         </div>
           <div class="item3">
-            <h4 style={{'color':'black', 'font-size': '25px','padding-bottom':'10px'}}> Opening Hours</h4>
-            <div style={{ 'margin-left':'130px', 'text-align':'left','color':'black', 'font-size': '15px'}}>
+            <h4 style={{'color':'black', 'font-size': '20px','paddingBottom':'10px'}}> Opening Hours</h4>
+            <div style={{ 'margin-left':'80px', 'textAlign':'left','color':'black', 'font-size': '15px'}}>
               <div style={{'padding-bottom':'10px'}}>
                 <span style={{'display': 'inline-block', 'width': '100px'}}>Monday:</span>{venueData.monday}
               </div>
@@ -233,19 +234,19 @@ function Data(props) {
 
             </div>  
             <div class="item4"> 
-                <h4 style={{'color':'black', 'font-size': '25px'}}> Follow us on</h4>
+                <h4 style={{'color':'#000', 'font-size': '20px'}}> Follow us on</h4>
                 <div class="social-container">
                     <a href={venueData.facebook} className="facebook social"><FontAwesomeIcon icon={faFacebook} size="1x" /></a>
                     <a href={venueData.instagram} className="instagram social"><FontAwesomeIcon icon={faInstagram} size="1x" /></a>
                     <a href={venueData.yelp} className="yelp social"><FontAwesomeIcon icon={faYelp} size="1x" /></a>
 
                 </div>
-                <span style={{'color':'black', 'font-size': '15px'}}>Or call us at {formattedPhoneNumber} <br/>during our open hours.</span> 
+                <span style={{'color':'#000', 'font-size': '15px'}}>Or call us at {formattedPhoneNumber} <br/>during our open hours.</span> 
             </div>
             <div class="item5">
-                <h4 style={{'color':'black', 'font-size': '25px'}}>Upcoming Events</h4>
+                <h4 style={{'color':'#000', 'font-size': '20px', paddingBottom:'10px'}}>Upcoming Events</h4>
                 <div className='app'>
-                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px'}}>
+                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px', color:'#000'}}>
                     <Calendar onChange={setDate} value={date} />
                   </div>
                 </div>
