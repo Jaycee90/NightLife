@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/email_inv.css';
+import '../css/invite.css';
  
 function Invitation() {
   const [venues, setVenues] = useState([]);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import '../css/StarRatings.css';
+import '../css/starRating.css';
 import { FaStar } from "react-icons/fa";
 
 const colors = {

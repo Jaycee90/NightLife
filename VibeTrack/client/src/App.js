@@ -1,34 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./realm/UserContext";
+
+import Home from './routes/Home';
+
+import Signup from "./realm/Signup";
 import Login from "./realm/Login";
 import PrivateRoute from "./realm/Private";
-import Signup from "./realm/Signup";
 import Security from "./realm/Security";
 import Reset from "./realm/Reset";
-
-import Navbar from "./components/navbar";
-import RecordList from "./components/recordList";
-import Edit from "./components/edit";
-import Create from "./components/create";
-import UserList from "./components/userList";
-
-import StarRating from "./routes/StarRatings";
-
-import Discover from './routes/Discover';
-import Data from './routes/Data'; 
-import SpecialEvent from './routes/Special';
-import Search from './routes/Search'; 
-
-import Calendar from './routes/Calendar';
-import Template from './routes/Template';
-import Safety from './routes/Safety';
-import Favorites from "./routes/favorites";
 import Profile from './realm/Profile';
 import Contact from './realm/Contact';
 
-import Home from './routes/Home';
-import SearchLink from "./components/link_search";
-import Invitation from "./routes/email_inv";  
+import Navbar from "./components/navbar";
+import Edit from "./components/edit";
+import Create from "./components/create";
+import RecordList from "./components/recordList";
+import UserList from "./components/userList";
+import StarRating from "./components/starRating";
+
+import Data from './routes/Data'; 
+import Discover from './routes/Discover';
+import Favorites from "./routes/Favorites";
+import Feature from './routes/Feature';
+import Invitation from "./routes/Invitation";  
+import Safety from './routes/Safety';
+import Search from './routes/Search'; 
+import SpecialEvent from './routes/Special';
+import Template from './routes/Template';
 
 function App() {
  return (
@@ -40,10 +38,9 @@ function App() {
             <Route path='/discover' element={<Discover />} />
             <Route path="/data/:id" element={<Data />} />
             <Route path='/specialevent' element={<SpecialEvent/>} />
-            <Route path='/calendar' element={<Calendar/>} />
+            <Route path='/feature' element={<Feature/>} />
             <Route path='/template' element={<Template/>} />
-            <Route path='/search' element={<Search />} /> {/* Use the Search component here */}
-            <Route path='/discover' element={<SearchLink />} />
+            <Route path='/search' element={<Search />} />
             <Route path='/login' element={<Login />} />
             <Route path='/safety' element={<Safety />} />
             <Route path='/recordlist' element={<RecordList />} />

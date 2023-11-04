@@ -9,8 +9,8 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-import '../css/Template.css';
-import StarRating from './StarRatings.js';
+import '../css/template.css';
+import StarRating from '../components/starRating.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX

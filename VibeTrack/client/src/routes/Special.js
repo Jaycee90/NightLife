@@ -1,4 +1,4 @@
-import "../css/Special.css";
+import "../css/special.css";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 

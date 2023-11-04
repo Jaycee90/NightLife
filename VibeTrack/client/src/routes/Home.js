@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import '../css/Home.css';
+import '../css/home.css';
 
 export default function Home() {
   const [randomVenues, setRandomVenues] = useState([]);

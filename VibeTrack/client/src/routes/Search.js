@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import '../css/Search.css';
+import '../css/search.css';
 
 const Record = (props) => (
   <tr>

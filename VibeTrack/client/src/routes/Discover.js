@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import '../css/Discover.css';
+import '../css/discover.css';
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);

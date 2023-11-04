@@ -219,3 +219,10 @@ a.link:hover {
 .pagination li.active a {
   background-color: #747474; 
 }
+
+
+.grid-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}

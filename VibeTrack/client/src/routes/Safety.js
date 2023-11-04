@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../css/Safety.css';
+import '../css/safety.css';
 
 function Safety() {
   const [venues, setVenues] = useState([]);
