@@ -19,7 +19,7 @@ ul {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background: rgba(200, 150, 255, 0.9); /* Light purple background color with transparency */
+  background: #747474;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a card-like effect */
 }
