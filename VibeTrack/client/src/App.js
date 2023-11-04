@@ -25,6 +25,7 @@ import Safety from './routes/Safety';
 import Favorites from "./routes/favorites";
 import Profile from './realm/Profile';
 import Contact from './realm/Contact';
+import Favorites from "./routes/favorites";
 
 import Home from './routes/Home';
 import SearchLink from "./components/link_search";
