@@ -1,52 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import '../css/Safety.css';
 
 function Safety() {
-  const [venues, setVenues] = useState([]); // array of venues
-  const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  // Data for emails to be sent to emergency contact
+  const [venues, setVenues] = useState([]);
+  const [selectedVenues, setSelectedVenues] = useState([]);
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: 'Heres a list of clubs I am visiting tonight',
+    subject: "Here's a list of clubs I am visiting tonight",
     text: '',
   });
-  
+
   useEffect(() => {
-    // Retreive all of teh venues
     const getVenues = async () => {
       try {
         const response = await fetch(`http://localhost:5050/record/`);
 
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
-      }
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          window.alert(message);
+          return;
+        }
 
-      const venueData = await response.json();
-      setVenues(venueData);
+        const venueData = await response.json();
+        setVenues(venueData);
       } catch (error) {
-        console.log('Error fetching venues from database, ', error);
+        console.log('Error fetching venues from the database: ', error);
       }
     };
     getVenues();
   }, []);
 
   const handleInputChange = (e) => {
-    // Update target fields - "to"
     const { name, value } = e.target;
-    setEmailData({ 
-      ...emailData, 
-      [name]: value 
+    setEmailData({
+      ...emailData,
+      [name]: value,
     });
   };
 
   const sendEmail = () => {
-    console.log('sendEmail function called');
-    // Create message with selected venues attached
-    const messageWithSelectedVenues = `Selected Venues:\n${selectedVenues.join('\n')}`
+    const messageWithSelectedVenues = `Selected Venues:\n${selectedVenues.join('\n')}`;
     const emailDataWithVenues = {
       ...emailData,
-      text: messageWithSelectedVenues, // Append selected venues to text
+      text: messageWithSelectedVenues,
     };
     fetch('http://localhost:5050/send-email', {
       method: 'POST',
@@ -67,37 +63,53 @@ function Safety() {
   const handleClickedVenue = (clickedVenue) => {
     if (selectedVenues.includes(clickedVenue)) return;
     else {
-      // Add the new venue that to the list
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
-  }
+  };
 
   return (
-    <div>
-      <h1>Selected Venues</h1> 
-      <ul>
-      {selectedVenues.map((venue, index) => (
-        <li key={index}>
-          {venue}
-        </li>
-      ))}
-      </ul>
-      <input
-        type="email"
-        name="to"
-        placeholder="Recipient"
-        value={emailData.to}
-        onChange={handleInputChange}
-      />
-      <button onClick={sendEmail}>Send Email</button>
-      <ul style={{color:'#000'}}>
-        {venues.map((venue, index) => (
-          <li key={index} onClick={() => handleClickedVenue(venue.name)}>
-            {venue.name}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="intro-container">
+        <h1 className="intro-title">Safety First!</h1>
+        <p className="intro-description">
+          Clubs! Dancing! Drinks! It's all fun, but who knows what will happen. We are here for you
+          to ease the minds of anyone else when you go out tonight! Choose from a list of great clubs you
+          are visiting, and we'll send that information to an emergency contact!
+        </p>
+      </div>
+      <div className="selected-clubs-container">
+        <h1 className="selected-clubs-title">Selected Clubs</h1>
+        <ul className="selected-clubs-list">
+          {selectedVenues.map((venue, index) => (
+            <li key={index} className="selected-clubs-item">
+              {venue}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <input
+          type="email"
+          name="to"
+          placeholder="Emergency Contact"
+          value={emailData.to}
+          onChange={handleInputChange}
+          className="email-input"
+        />
+        <button onClick={sendEmail} className="send-email-button">
+          Send Email
+        </button>
+      </div>
+      <div className="venues-container">
+        <ul className="venues-list">
+          {venues.map((venue, index) => (
+            <li key={index} className="venue-item" onClick={() => handleClickedVenue(venue.name)}>
+              {venue.name}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
