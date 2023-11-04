@@ -4,7 +4,7 @@
 
 body {
   font-family: var(--ff-poppins);
-  background: var(--white);
+  background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%); 
   margin: 0;
   padding: 0;
 }
