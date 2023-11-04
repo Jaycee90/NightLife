@@ -22,6 +22,7 @@ import Search from './routes/Search';
 import Calendar from './routes/Calendar';
 import Template from './routes/Template';
 import Safety from './routes/Safety';
+import Favorites from "./routes/favorites";
 import Profile from './realm/Profile';
 import Contact from './realm/Contact';
 import Favorites from "./routes/favorites";
@@ -47,11 +48,11 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/safety' element={<Safety />} />
             <Route path='/recordlist' element={<RecordList />} />
-            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/edit/:id" element={<Edit />} />         
+            <Route path='/favorites' element={<Favorites/>} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/rating/:id' element={<StarRating />} />            
-            <Route path='/favorites' element={<Favorites/>} />
+            <Route path='/rating/:id' element={<StarRating />} />   
             
 
             <Route exact path="/signup" element={<Signup />} />
