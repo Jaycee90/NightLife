@@ -42,8 +42,8 @@ export default function Home() {
     <div>
       <div className="section-intro">
         <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"125px"}} />
-        <p className="section-subtitle">Uncover places, Discover world</p>
-        <h2 className="h2 section-title">VibeTrack</h2>
+        <p className="section-subtitle" style={{color:"#fff"}}>Uncover places, Discover world</p>
+        <h2 className="h2 section-title" style={{color:"#fff"}}>VibeTrack</h2>
 
         <div className="row-flex" style={{ marginBottom: "10px" }}>
           <div className="link-wrapper">
