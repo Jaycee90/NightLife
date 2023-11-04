@@ -1,4 +1,5 @@
-
+.template-component{
+  
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Text:100,300,400,500,600,700,800,900&display=swap');
 
 html { height: 100%; overflow:auto; }
@@ -13,6 +14,13 @@ body {
   padding:25px;
   height:100%;
 }
+
+.h1, .h2, .h3 {
+  font-weight: var(--fw-800);
+  font-family: var(--ff-montserrat);
+  text-transform: uppercase;
+}
+
 
 
 .nav-flex-row {
@@ -62,13 +70,14 @@ body {
     display: flex;
     align-items: center;
     background-color: #f3f3f3c0;
-    color: #000;
-    font-size: 0.75em;
+    color: white;
+    line-height: 1.6;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 50px 30px;
-    
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 10px;
+    background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 10px;
 }
 
 .link {
@@ -94,7 +103,6 @@ body {
 
 .container {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   border-radius: 5px;
@@ -298,4 +306,6 @@ a.instagram {
   display: inline-block;
   object-fit: contain;
   background-size: cover;
+}
+
 }

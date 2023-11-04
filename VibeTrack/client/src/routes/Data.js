@@ -143,20 +143,20 @@ function Data(props) {
   const formattedAmenities = formatAmenities(venueData.amenities);
 
   return (
-    <div>
+    <div className="template-component">
       <div className="about-section">
         <div className="item">
-          <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left' }}>{venueData.name}</h2>
+          <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left', color:'#fff' }}>{venueData.name}</h2>
           {isOpen ? (
-            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' , 'backgroundColor':'#65e0ab', 'marginBottom':'20px'}} className="btn btn-primary">OPEN NOW</button>
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#65e0ab', 'marginBottom':'20px', width:'40%'}} className="btn btn-primary">OPEN NOW</button>
           ) : (
-            <button style={{ 'marginLeft':'10px', 'marginTop':'15px','float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '1.5em' }} className="btn btn-primary">CLOSED</button>
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px','float': 'left', 'textAlign': 'center', 'color': '#fff','fontSize':'15px',  width:'30%', 'marginBottom':'40px'}} className="btn btn-primary">CLOSED</button>
           )}
-          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
-          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
+          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
+          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           
           <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><StarRating/> 
-          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': 'black', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
+          <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
           </div>
         </div>
         <div className="item" >
@@ -245,7 +245,7 @@ function Data(props) {
             <div class="item5">
                 <h4 style={{'color':'black', 'font-size': '25px'}}>Upcoming Events</h4>
                 <div className='app'>
-                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px',}}>
+                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px'}}>
                     <Calendar onChange={setDate} value={date} />
                   </div>
                 </div>
