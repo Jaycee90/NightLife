@@ -5,22 +5,18 @@
   --spanish-gray: hsl(0, 0%, 70%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
-
-  /**
-   * typography
-   */
-
+  
   --ff-poppins: "Poppins", sans-serif;
   --ff-montserrat: "Montserrat", sans-serif;
 
   --fs-1: calc(20px + 3.5vw);
   --fs-2: calc(18px + 1.6vw);
   --fs-3: calc(16px + 0.45vw);
-  --fs-4: 15px;
-  --fs-5: 14px;
-  --fs-6: 13px;
-  --fs-7: 12px;
-  --fs-8: 11px;
+  --fs-4: 12px;
+  --fs-5: 11px;
+  --fs-6: 10px;
+  --fs-7: 9px;
+  --fs-8: 8px;
   --fw-500: 500;
   --fw-600: 600;
   --fw-700: 700;
@@ -29,16 +25,7 @@
   --section-padding: 60px;
   --radius-15: 15px;
   --radius-25: 25px;
-
 }
-
-
-
-
-
-/*-----------------------------------*\
- * #RESET
-\*-----------------------------------*/
 
 *, *::before, *::after {
   margin: 0;
@@ -50,16 +37,9 @@ li { list-style: none; }
 
 a { text-decoration: none; }
 
-a,
-img,
-span,
-input,
-label,
-button,
-ion-icon { display: block; }
+a, img, span, input, label, button, ion-icon { display: block; }
 
-input,
-button {
+input, button {
   background: none;
   border: none;
   font: inherit;
@@ -78,8 +58,6 @@ html {
 
 body { background: var(--white); }
 
-
-
 .container { padding-inline: 15px; }
 
 .btn {
@@ -92,9 +70,7 @@ body { background: var(--white); }
   transition: var(--transition);
 }
 
-.h1,
-.h2,
-.h3 {
+.h1, .h2, .h3 {
   font-weight: var(--fw-800);
   font-family: var(--ff-montserrat);
   text-transform: uppercase;
@@ -105,8 +81,7 @@ body { background: var(--white); }
   font-size: var(--fs-1);
 }
 
-.h2,
-.h3 { color: var(--gunmetal); }
+.h2,.h3 { color: var(--gunmetal); }
 
 .h2 { font-size: var(--fs-2); }
 
@@ -137,11 +112,6 @@ body { background: var(--white); }
   font-size: var(--fs-5);
 }
 
-
-
-/*-----------------------------------*\
- * #POPULAR
-\*-----------------------------------*/
 
 .popular { padding-block: var(--section-padding); }
 
