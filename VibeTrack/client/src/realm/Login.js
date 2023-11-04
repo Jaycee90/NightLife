@@ -62,7 +62,6 @@ const Login = () => {
  
  return (
   <div class="login-component">
-  <div class="container-fluid">
     <div class="card card-login">
       <div class="card-body">
         <div class="row justify-content-center"  style={{color:'#000'}}>
@@ -129,7 +128,6 @@ const Login = () => {
       </div>
       </div>
     </div>
-  </div>
  );
 }
 
