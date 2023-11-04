@@ -91,7 +91,7 @@ const Login = () => {
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
-              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", borderColor:'#747474', color:'#000', backgroundColor:"#fff"}}>
+              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
                       <TextField
                           label="Email"
