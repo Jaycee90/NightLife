@@ -24,8 +24,7 @@ import Template from './routes/Template';
 import Safety from './routes/Safety';
 import Profile from './realm/Profile';
 import Contact from './realm/Contact';
-
-
+import Favorites from "./routes/favorites";
 
 import Home from './routes/Home';
 import SearchLink from "./components/link_search";
@@ -51,7 +50,8 @@ function App() {
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/rating/:id' element={<StarRating />} />
+            <Route path='/rating/:id' element={<StarRating />} />            
+            <Route path='/favorites' element={<Favorites/>} />
             
 
             <Route exact path="/signup" element={<Signup />} />
