@@ -148,7 +148,7 @@ function Data(props) {
         <div className="item">
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left', color:'#fff' }}>{venueData.name}</h2>
           {isOpen ? (
-            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#65e0ab', 'marginBottom':'20px', width:'40%'}} className="btn btn-primary">OPEN NOW</button>
+            <button style={{ 'marginLeft':'10px', 'marginTop':'15px', 'float': 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#65e0ab', 'marginBottom':'20px', width:'30%'}} className="btn btn-primary">OPEN NOW</button>
           ) : (
             <button style={{ 'marginLeft':'10px', 'marginTop':'15px','float': 'left', 'textAlign': 'center', 'color': '#fff','fontSize':'15px',  width:'30%', 'marginBottom':'40px'}} className="btn btn-primary">CLOSED</button>
           )}
