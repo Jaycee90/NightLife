@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import '../css/home.css';
 
+import '../css/home.css';
 export default function Home() {
   const [randomVenues, setRandomVenues] = useState([]);
   const navigate = useNavigate();
@@ -59,11 +59,10 @@ export default function Home() {
         <div className="container">
           <h2 className="h2 section-title">Discover venues</h2>
           <p className="section-text">
-            Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-            Sit ornare mollitia tenetur, aptent.
+          Experience nightlife in San Marcos, TX. Enjoy live music, late-night restaurants, bars, and dog-friendly outdoor decks. There's always something going on around you!
           </p>
 
-          <ul className="popular-list">
+          <ul className="popular-list" >
             {randomVenues.map((venue, index) => (
               <li key={index}>
                 <div className="popular-card">
@@ -89,7 +88,8 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <button className="btn btn-primary">Discover venues near you</button>
+          <button className="btn btn-primary" style={{width:'50%',backgroundColor: "#747474 ", color:'#fff'}}>Discover even more venues near you</button>
+          
         </div>
       </section>
 
@@ -99,13 +99,7 @@ export default function Home() {
             <h3>Leave Us a Message</h3>
             <p><span>and we will get back to you as soon as possible.</span></p>
             <form className="media-centered">
-              <div className="form-group">
-                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Type in your email..." />
-              </div>
-              <div className="form-group">
-                <input type="text" className="form-control" id="exampleText1" placeholder="Type in your message..." />
-              </div>
-              <button type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary" style={{marginTop:"10px"}}>Leave us a message</button>
             </form>
           </div>
 
