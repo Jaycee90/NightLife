@@ -42,25 +42,18 @@ export default function Home() {
     <div>
       <div className="section-intro">
         <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"125px"}} />
-        <p className="section-subtitle" >Uncover places, Discover world</p>
-        <h2 className="h2 section-title">VibeTrack</h2>
+        <p className="section-subtitle" style={{color:'#fff'}}>Uncover places, discover world</p>
+        <h2 className="h2 section-title" style={{color:'#fff'}}>VibeTrack</h2>
 
         <div className="row-flex" style={{ marginBottom: "10px" }}>
           <div className="link-wrapper">
-            <Button variant="contained" onClick={() => navigate("/login")} style={{ backgroundColor: "#747474" }}>Login</Button>
+            <Button variant="contained" onClick={() => navigate("/login")} style={{ backgroundColor: "#e24e99 " }}>Login</Button>
           </div>
           <div className="link-wrapper">
-            <Button variant="contained" onClick={() => navigate("/signup")} style={{ backgroundColor: "#747474" }}>Signup</Button>
+            <Button variant="contained" onClick={() => navigate("/signup")} style={{ backgroundColor: "#e24e99 " }}>Signup</Button>
           </div>
         </div>
       </div>
-
-      <div className="about-us">
-        <h3> Uncover places, discover world with just easy as a</h3>
-        <div><p>The VibeTrack team is dedicated to serving your nightlife needs. Question about a club? Planning a group trip? Class reunion? Just need someone to talk to?</p>
-        <p>Feel free to reach out to us at any time with any questions or feedback you might have! We’re always happy to help and/or hear your thoughts.</p>
-      
-          </div></div>
 
       <section className="popular" id="destination">
         <div className="container">
