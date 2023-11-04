@@ -57,7 +57,7 @@ export default function Home() {
 
       <section className="popular" id="destination">
         <div className="container">
-          <h2 className="h2 section-title">Popular venues</h2>
+          <h2 className="h2 section-title">Discover venues</h2>
           <p className="section-text">
             Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
             Sit ornare mollitia tenetur, aptent.
