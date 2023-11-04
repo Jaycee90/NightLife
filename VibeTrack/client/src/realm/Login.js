@@ -91,7 +91,7 @@ const Login = () => {
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
-              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
+              <form style={{ display: "flex", flexDirection: "column", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
                       <TextField
                           label="Email"
@@ -101,6 +101,8 @@ const Login = () => {
                           value={form.email}
                           onChange={onFormInputChange}
                           tabindex="1"
+                          style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                          inputProps={{ style: { backgroundColor: "#fff" } }}
                       />
                 </div>
                 <div class="form-group">
