@@ -105,7 +105,7 @@ export default function Home() {
               <div className="form-group">
                 <input type="text" className="form-control" id="exampleText1" placeholder="Type in your message..." />
               </div>
-              <button style={{ "margin-left": "175px" }} type="submit" className="btn btn-primary">Submit</button>
+              <button type="submit" className="btn btn-primary">Submit</button>
             </form>
           </div>
 

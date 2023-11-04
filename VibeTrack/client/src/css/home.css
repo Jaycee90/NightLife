@@ -366,4 +366,5 @@ input[type=text], input[type=email]{
   text-decoration: none;
   margin: 4px 2px;
   font-size: 18px;
+  border-radius:15px;
 }
