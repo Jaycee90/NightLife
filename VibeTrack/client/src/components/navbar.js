@@ -3,22 +3,15 @@ import '../css/navbar.css';
 
 export default function Navbar() {
  return (
-   <div className="navbar-content">
-       <div class = "nav" style={{'padding-bottom':'100px'}}>
-            <ul class="nav-flex-row">
-              <li class="nav-item">
-                <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"30px"}} />
-              </li>
-              <li class="nav-item"><a href="/">Home</a></li>
-              <li class="nav-item"><a href="discover">Discover</a></li>
-              <li class="nav-item"><a href="favorites">Favorites</a></li>
-              <li class="nav-item"><a href="specialevent">Special Event</a></li>
-              <li class="nav-item"><a href="search">Search</a></li> 
-              <li class="nav-item"><a href="safety">Safety</a></li> 
-         </ul>
-
-         
-       </div>
-   </div>
+   <div className="navbar-content" >
+      <div class="navigation-bar" style={{marginBottom:"20px"}}>
+        <a href="home" class="split"><img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"30px"}} /></a>
+        <a href="login">Login</a>
+        <a href="specialevent">Special Event</a>
+        <a href="search">Search</a>
+        <a href="safety">Safety</a>
+        <a href="discover">Discover</a>
+      </div>
+    </div>
  );
 }
