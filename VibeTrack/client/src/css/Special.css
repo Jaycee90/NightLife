@@ -4,7 +4,6 @@
 
 body {
   font-family: var(--ff-poppins);
-  background: var(--white);
   margin: 0;
   padding: 0;
 }

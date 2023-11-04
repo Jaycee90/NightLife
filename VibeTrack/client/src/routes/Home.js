@@ -41,8 +41,8 @@ export default function Home() {
   return (
     <div>
       <div className="section-intro">
-        <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ 'padding-bottom': '25px' }} />
-        <p className="section-subtitle">Uncover places, Discover world</p>
+        <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"125px"}} />
+        <p className="section-subtitle" >Uncover places, Discover world</p>
         <h2 className="h2 section-title">VibeTrack</h2>
 
         <div className="row-flex" style={{ marginBottom: "10px" }}>
@@ -56,19 +56,11 @@ export default function Home() {
       </div>
 
       <div className="about-us">
-        <h3> Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          A quos, voluptatum illum mollitia dolores libero placeat
-          nesciunt quasi adipisci impedit!Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit.
-          A quos, voluptatum illum mollitia dolores libero placeat
-          nesciunt quasi adipisci impedit!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          A quos, voluptatum illum mollitia dolores libero placeat
-          nesciunt quasi adipisci impedit!Lorem ipsum dolor sit.
-        </p>
-      </div>
+        <h3> Uncover places, discover world with just easy as a</h3>
+        <div><p>The VibeTrack team is dedicated to serving your nightlife needs. Question about a club? Planning a group trip? Class reunion? Just need someone to talk to?</p>
+        <p>Feel free to reach out to us at any time with any questions or feedback you might have! We’re always happy to help and/or hear your thoughts.</p>
+      
+          </div></div>
 
       <section className="popular" id="destination">
         <div className="container">
