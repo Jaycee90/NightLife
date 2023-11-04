@@ -124,3 +124,4 @@ export default Favorites;
 // created an unintetnional visual of 2 
 // venue names the one from the selected and the
 // add to favorites 
+// favorite function will be continued/rework on in Sprint 3
