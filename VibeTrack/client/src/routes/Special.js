@@ -42,7 +42,7 @@ function SpecialEvent() {
     }
     return { day, month: monthName, date: dayOfMonth };
   };
-
+  
   return (
     <div className="special-event">
     <div className="event-container" style={{paddingTop:"30px"}}>
@@ -50,6 +50,11 @@ function SpecialEvent() {
         {eventData.map((event, index) => { 
           const { venue, eventName, time } = parseDivText(event.divText);
           const { day, month, date } = parseEventDay(event.day);
+        
+          if (!venue || !eventName || !time || !day || !month || !date) {
+            // Skip rendering if any of the required data is missing
+            return null;
+          }
           return (
             <li key={index}>
                     <div class="event">
