@@ -79,7 +79,7 @@ const Security = () => {
   };
 
   return (
-    <div class="login-component">
+    <div class="login-component"  style={{marginTop:"20px"}}>
     <div class="container-fluid">
       <div class="card card-login">
         <div class="card-body">

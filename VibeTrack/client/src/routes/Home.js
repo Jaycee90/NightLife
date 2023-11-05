@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div  style={{marginTop:"20px"}}>
       <div className="section-intro">
         <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"125px"}} />
         <p className="section-subtitle" style={{color:'#fff'}}>Uncover places, discover world</p>

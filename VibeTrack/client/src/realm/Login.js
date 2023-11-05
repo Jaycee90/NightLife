@@ -61,7 +61,7 @@ const Login = () => {
  };
  
  return (
-  <div class="login-component">
+  <div class="login-component"  style={{marginTop:"20px"}}>
     <div class="card card-login">
       <div class="card-body">
         <div class="row justify-content-center"  style={{color:'#000'}}>

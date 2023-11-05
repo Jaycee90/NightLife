@@ -144,7 +144,7 @@ function Data(props) {
   const formattedAmenities = formatAmenities(venueData.amenities);
 
   return (
-    <div>
+    <div  style={{marginTop:"20px"}}>
       <div className="about-section">
         <div className="item">
           <h2 className="h2 section-title" style={{ 'float': 'left', 'textAlign': 'left', color:'#fff' }}>{venueData.name}</h2>

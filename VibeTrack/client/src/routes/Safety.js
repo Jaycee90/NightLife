@@ -69,7 +69,7 @@ function Safety() {
 
   return (
     <>
-      <div className="intro-container">
+      <div className="intro-container"  style={{marginTop:"20px"}}>
         <h1 className="intro-title">Safety First!</h1>
         <p className="intro-description">
           Clubs! Dancing! Drinks! It's all fun, but who knows what will happen. We are here for you
