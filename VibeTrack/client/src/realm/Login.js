@@ -65,8 +65,8 @@ const Login = () => {
     <div class="card card-login">
       <div class="card-body">
         <div class="row justify-content-center"  style={{color:'#000'}}>
-          <div class="col-lg-6 col-md-12">
-            <div class="padding bg-primary text-center align-items-center d-flex">
+          <div class="col-lg-6 col-md-12" >
+            <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
               <div class="w-100">
                 <div class="logo mb-4">
                   <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
@@ -86,7 +86,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" >
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
