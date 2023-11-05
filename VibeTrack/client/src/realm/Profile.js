@@ -168,7 +168,7 @@ export default function Profile() {
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
+                  style={{ backgroundColor: '#fff', borderRadius: '10px', borderWidth:'thin', borderColor:'#7a7a7a', marginTop:'4px', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px', color:'#7a7a7a' }}
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -197,7 +197,7 @@ export default function Profile() {
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
+                  style={{ backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
                 />
               </div>
             </div>
