@@ -1,6 +1,6 @@
-import "../css/special.css";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "../css/special.css";
 
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
@@ -42,9 +42,9 @@ function SpecialEvent() {
   };
 
   return (
-    <div className="event-container">
+    <div className="event-component">
+      <div className="event-container">
       <h1 style={{color:'#000'}}>Upcoming Events</h1>
-      
       <ul style={{color:'#000'}}>
         {eventData.map((event, index) => { 
           const { venue, eventName, time } = parseDivText(event.divText);
@@ -63,6 +63,7 @@ function SpecialEvent() {
           );
         })}
       </ul>
+    </div>
     </div>
   );
 }
