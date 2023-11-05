@@ -7,6 +7,7 @@ import { scrape } from "./routes/scrape.mjs"; // Import the scrapeData function
 import { sendEmail } from "./routes/email.mjs"; // Import the sendEmail function
 
 const PORT = 5050;
+
 const app = express();
 
 app.use(express.json());
