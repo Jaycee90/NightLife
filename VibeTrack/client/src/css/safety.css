@@ -50,19 +50,21 @@ body {
   }
   
   .selected-clubs-container ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    color: #000;
+    color: #fff;
   }
   
   .selected-clubs-container li {
     cursor: pointer;
     margin: 10px 0;
     padding: 8px;
-    background-color: #ffffff;
+    background-color: #747474;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
+    margin-right: 10px;
   }
   
   input[type="email"] {
@@ -104,9 +106,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     list-style-type: none;
-    grid-gap: 10px;
     margin: 0;
-    padding: 0;
     color: #000;
   }
   
@@ -117,6 +117,7 @@ body {
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 15px;
+    margin-right: 10px;
   }
   
   
