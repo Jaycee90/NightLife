@@ -58,9 +58,8 @@ export default function Home() {
       <section className="popular" id="destination">
         <div className="container">
           <h2 className="h2 section-title">Discover venues</h2>
-          <p className="section-text">
-          Experience nightlife in San Marcos, TX. Enjoy live music, late-night restaurants, bars, and dog-friendly outdoor decks. There's always something going on around you!
-          </p>
+          <p className="section-subtitle" >Experience nightlife in San Marcos, TX. Enjoy live music, late-night restaurants, bars, and dog-friendly outdoor decks. There's always something going on around you! </p>
+
 
           <ul className="popular-list" >
             {randomVenues.map((venue, index) => (
@@ -88,7 +87,7 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <button className="btn btn-primary" style={{width:'50%',backgroundColor: "#747474 ", color:'#fff'}}>Discover even more venues near you</button>
+          <button className="btn btn-primary" style={{width:'50%',backgroundColor: "#747474 ", color:'#fff', borderRadius:"10px"}}>Discover even more venues near you</button>
           
         </div>
       </section>

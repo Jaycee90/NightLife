@@ -276,7 +276,6 @@ body{
 
 .container-title {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   padding-top:75px;
@@ -286,7 +285,6 @@ body{
 
 .container {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   border-radius: 5px;
