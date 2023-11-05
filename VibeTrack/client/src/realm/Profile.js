@@ -132,7 +132,7 @@ export default function Profile() {
           </ProSidebar>
         </div>
       </div>
-      <div className="grid-settings-right">
+      <div className="grid-settings-right" style={{marginTop:'20px'}}>
         <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
         <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="grid-about">
@@ -168,7 +168,7 @@ export default function Profile() {
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -197,7 +197,7 @@ export default function Profile() {
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
                 />
               </div>
             </div>
@@ -223,7 +223,8 @@ export default function Profile() {
               id="email"
               value={form.email}
               onChange={(e) => updateForm({ email: e.target.value })}
-              style={{marginLeft:'10px'}}
+              style={{marginLeft:'12px', width:'99%'}}
+              readOnly
             />
           </div>
           <br />

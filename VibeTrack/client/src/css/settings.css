@@ -21,6 +21,7 @@ body {
   border-radius:15px;
   color: white;
   height: 40px;
+  font-size:15px;
 }
 
 .form-check-inline {
@@ -54,10 +55,13 @@ body {
   gap: 10px;
   padding-right: 20px;
   margin:0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:15px;
 }
 
 .grid-settings left{
-  background-color: #8a8a8a;
+  color: #fff;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .grid-settings right{
@@ -70,7 +74,7 @@ body {
     width: 220px;
   }
   #header .pro-sidebar {
-    height: 100vh;
+    height: 91vh;
   }
   #header .closemenu {
     color: #000;
@@ -93,7 +97,7 @@ body {
     min-width: 80px;
   }
   #header .pro-sidebar-inner {
-    background:  linear-gradient(rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1));
+    background:  rgba(11,10,52,1);
     box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
   }
   #header .pro-sidebar-inner .pro-sidebar-layout {
@@ -109,13 +113,13 @@ body {
     padding: 0 5px;
   }
   #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item {
-    color: #000;
+    color: #fff;
     margin: 10px 0px;
     font-weight: bold;
   }
   #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper {
-    background-color: #8a8a8a;
-    color: #000;
+    background-color: #e24e99;
+    color: #fff;
     border-radius: 3px;
   }
   #header .pro-sidebar-inner .pro-sidebar-layout ul .pro-inner-item .pro-icon-wrapper .pro-item-content {
