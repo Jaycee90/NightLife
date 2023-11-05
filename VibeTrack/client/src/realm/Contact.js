@@ -111,7 +111,6 @@ export default function Contact() {
     }
   }
   
-
   return (
     <div className="profile-component">
       <div class="grid-settings">
@@ -120,7 +119,7 @@ export default function Contact() {
           <ProSidebar collapsed={menuCollapse}>
             <SidebarContent>
               <Menu iconShape="square">
-                <MenuItem icon={<FiHome />}><a href={`/profile/`}>Profile</a></MenuItem>
+                <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
                 <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
@@ -140,7 +139,7 @@ export default function Contact() {
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyName1">Name</label>
+                <label htmlFor="emergencyName1">Contact Name #1</label>
                 <input
                   type="text"
                   className="form-control"
@@ -153,7 +152,7 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail1">Email</label>
+                <label htmlFor="emergencyEmail1">Contact Email #1</label>
                 <input
                   type="text"
                   className="form-control"
@@ -166,7 +165,7 @@ export default function Contact() {
             </div>
             <div className="item">
             <div className="form-group">
-                <label htmlFor="emergencyName2">Name</label>
+                <label htmlFor="emergencyName2">Contact Name #2</label>
                 <input
                   type="text"
                   className="form-control"
@@ -179,7 +178,7 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail2">Email</label>
+                <label htmlFor="emergencyEmail2">Contact Email#2</label>
                 <input
                   type="text"
                   className="form-control"
