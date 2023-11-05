@@ -40,10 +40,20 @@ function SpecialEvent() {
       <ul style={{ color: '#000' }}>
         {eventData.map((event, index) => (
           <li key={index}>
-            <div className="event">
-              <div className="event-left"></div>
-              <div className="event-date">
-                <p className="event-description">{`${event.venue} - ${event.eventName} (${event.time})`}</p>
+                  <div class="event">
+              <div class="event-left">
+                <div class="event-date">{event.day}
+                  {/*
+                  <div class="date">22</div>
+                  <div class="month">Dec</div> */}
+                </div>
+              </div>
+              <div class="event-right">
+                <h3 class="event-title">{event.venue}</h3>
+                <div class="event-description">{event.eventName}</div>
+                <div class="event-timing">
+                  <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> {event.time}
+                </div>
               </div>
             </div>
           </li>
