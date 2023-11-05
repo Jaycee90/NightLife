@@ -1,6 +1,19 @@
 .profile-component{
-  .form-group label {
-    color: black;
+  
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding:25px;
+  margin:0;
+  height:100%;
+}
+
+.form-group label {
+  color: black;
 }
 
 .form-group input {
@@ -22,28 +35,29 @@
 }
 
 .grid-about {
-display: grid;
-grid-template-columns: 50% 50%;
-gap: 10px;
-padding: 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  padding: 10px;
 }
 
 .grid-profile > about {
-background-color: rgba(255, 255, 255, 0.8);
-border-color: #8a8a8a;
-text-align: left;
-padding: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: #8a8a8a;
+  text-align: left;
+  padding: 20px 0;
 }
 
 .grid-settings {
-display: grid;
-grid-template-columns: 20% 80%;
-gap: 10px;
-padding: 10px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  gap: 10px;
+  padding-right: 20px;
+  margin:0;
 }
 
 .grid-settings left{
-    background-color: #8a8a8a;
+  background-color: #8a8a8a;
 }
 
 .grid-settings right{
@@ -79,7 +93,7 @@ padding: 10px;
     min-width: 80px;
   }
   #header .pro-sidebar-inner {
-    background-color: white;
+    background:  linear-gradient(rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1));
     box-shadow: 0.5px 0.866px 2px 0px rgba(0, 0, 0, 0.15);
   }
   #header .pro-sidebar-inner .pro-sidebar-layout {
