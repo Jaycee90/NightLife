@@ -231,7 +231,7 @@ function Search() {
             {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
-                    style={{ height: "70vh", width: "100%"}}
+                    style={{ height: "71vh", width: "100%"}}
                     //center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
                     // Find center between user's coordinates and top 10 closest clubs' coordinates
                     center={calculateMedianCoordinates(locationCoord[0], locationCoord[1],findNearestClubs(locationCoord[0], locationCoord[1], 10))}
