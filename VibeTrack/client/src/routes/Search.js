@@ -85,16 +85,6 @@ function Search() {
         }
     };
 
-    // Custom icon for the marker
-    const icon = new L.Icon({
-        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-    });
-
     // Use useEffect to call getUserLocation when the component mounts
     useEffect(() => {
         getUserLocation();
@@ -132,13 +122,31 @@ function Search() {
         }
     };
 
+    const userMarker = new L.Icon({
+        iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+      
     // Display the user's location marker by default or when no search is performed
     const defaultMarker = locationCoord && !venueFound && !searchQuery && (
-        <Marker position={locationCoord} icon={icon}>
+        <Marker position={locationCoord} icon={userMarker}>
             <Popup>Your Location</Popup>
         </Marker>
     );
 
+
+    // Custom icon for the marker
+    const icon = new L.Icon({
+        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+    });
     // Function to get the top 10 closest clubs' markers
     const getTopClubsMarkers = (userLatitude, userLongitude) => {
         const nearestClubs = findNearestClubs(userLatitude, userLongitude, 10);
@@ -212,7 +220,7 @@ function Search() {
                 <MapContainer
                     style={{ height: "70vh", width: "100%"}}
                     center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
-                    zoom={15}
+                    zoom={13}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
