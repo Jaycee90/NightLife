@@ -7,11 +7,10 @@ body {
 }
 
 .search-container{
-  
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px; 
-  margin: 10px; 
-  border-radius: 10px; 
+  background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
+  margin-bottom:20px;
 }
 
 table {
@@ -41,6 +40,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .grid-map{
   display: grid;
   grid-template-columns: 50% 50%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .grid-button{

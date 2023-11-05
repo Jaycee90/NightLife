@@ -172,9 +172,11 @@ function Search() {
 
 
     return (
+        <div>
+        <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
+        <h2 className="h2 section-title">Discover venues near you</h2>
+        
         <div className="search-container">
-            <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
-            <h2 className="h2 section-title">Discover venues near you</h2>
             <div className="grid-button">
                 <div class="item">{/**prompt a user to search */} 
                     <input
@@ -182,32 +184,34 @@ function Search() {
                         value={searchQuery}
                         onChange={handleSearch}
                         placeholder="Search by venue name"
-                        style={{borderRadius:"10px", height:"40px"}}
+                        style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
                     />
                 </div>
                 <div class="item">
                     <button onClick={getUserLocation} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find venues near me</button>
-                    <p id="locationResult">{locationResult}</p>
                 </div>
                 <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
             </div>
+        </div>
+        <div>
             
+        <div className="grid-map" style={{padding:'10px'}}>
+            <div class="item">
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
+            <div>
+                <h2 style={{color: '#000000'}}>Take a dip at these venues that are closest to you</h2>
+                
             {/* Display search result message */}
+            <p id="locationResult"  style={{color:'#000', opacity:'0'}}>{locationResult}</p>
             {searchQuery && (
-                <p style={{color:'#000'}}>
+                <p style={{color:'#000', opacity:'0'}}>
                     {venueFound
                         ? `Heading to ${searchQuery}`
                         : `Venue "${searchQuery}" not found`}
                 </p>
             )}
-            
-            <div className="grid-map">
-                <div class="item">
-            {/* Display the top 10 closest clubs */}
-            {locationCoord && (
-            <div>
-                <h2 style={{color: '#000000'}}>Take a dip at these venues that are closest to you</h2>
-                <table style={{ marginTop: 20, color: '#000000' }}>
+                <table style={{color: '#000000' }}>
                     <thead>
                         <tr>
                             <th className="nameColumn">Name</th>
@@ -254,7 +258,7 @@ function Search() {
                 </div>
             </div>
 
-
+        </div>
         </div>
     );
 }
