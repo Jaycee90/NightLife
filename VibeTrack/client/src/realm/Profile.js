@@ -138,7 +138,7 @@ export default function Profile() {
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="name">First Name: </label>
+                <label htmlFor="name">First Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -150,7 +150,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="lastName">Last Name: </label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -162,7 +162,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="gender" style={{ color: 'black' }}>Gender: </label>
+                <label htmlFor="gender" style={{ color: 'black' }}>Gender</label>
                 <select
                   className="form-control"
                   id="gender"
@@ -178,7 +178,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="phone">Phone: </label>
+                <label htmlFor="phone">Phone</label>
                 <input
                   type="text"
                   className="form-control"
@@ -190,7 +190,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="birthdate">Birthdate: </label>
+                <label htmlFor="birthdate">Birthdate</label>
                 <input
                   type="date"
                   className="form-control"
@@ -203,7 +203,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="_id">ID (Read Only): </label>
+                <label htmlFor="_id">ID (Read Only)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -216,7 +216,7 @@ export default function Profile() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email" style={{marginLeft:'10px'}}>Email: </label>
+            <label htmlFor="email" style={{marginLeft:'10px'}}>Email</label>
             <input
               type="text"
               className="form-control"

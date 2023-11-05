@@ -134,17 +134,18 @@ export default function Contact() {
           </ProSidebar>
           </div>
         </div>
-        <div class="grid-settings-right">
+        <div class="grid-settings-right"  style={{marginTop:'20px'}}>
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyName1"><b>Emergency Contact #1</b> - Name: </label>
+                <label htmlFor="emergencyName1">Name</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyName1"
+                  placeholder="Name for emergency contact #1"
                   value={form.emergencyName1}
                   onChange={(e) => updateForm({ emergencyName1: e.target.value })}
                 />
@@ -152,11 +153,12 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail1"><b>Emergency Contact #1</b> - Email: </label>
+                <label htmlFor="emergencyEmail1">Email</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyEmail1"
+                  placeholder="Email for emergency contact #1"
                   value={form.emergencyEmail1}
                   onChange={(e) => updateForm({ emergencyEmail1: e.target.value })}
                 />
@@ -164,11 +166,12 @@ export default function Contact() {
             </div>
             <div className="item">
             <div className="form-group">
-                <label htmlFor="emergencyName2"><b>Emergency Contact #2</b> - Name: </label>
+                <label htmlFor="emergencyName2">Name</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyName2"
+                  placeholder=" Name for emergency contact #2"
                   value={form.emergencyName2}
                   onChange={(e) => updateForm({ emergencyName2: e.target.value })}
                 />
@@ -176,11 +179,12 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail2"><b>Emergency Contact #2</b> - Email: </label>
+                <label htmlFor="emergencyEmail2">Email</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyEmail2"
+                  placeholder="Email for emergency contact #2"
                   value={form.emergencyEmail2}
                   onChange={(e) => updateForm({ emergencyEmail2: e.target.value })}
                 />
@@ -190,8 +194,9 @@ export default function Contact() {
             <div className="form-group">
               <input
                 type="submit"
-                value="Update Information"
+                value="Update Contacts"
                 className="btn btn-primary"
+                style={{width:'50%', marginLeft:'30%'}}
               />
             </div>
           </form>
