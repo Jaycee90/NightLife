@@ -142,21 +142,26 @@ function Search() {
     };
           
     return (
-        <div className="main-box">
-            <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
-            <div className="action-box">
-            <button onClick={searchVenue}>Find route</button>
+        <div className="search-container">
+            <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
+            <h2 className="h2 section-title">Discover venues near you</h2>
+            <div className="grid-button">
+                <div class="item">{/**prompt a user to search */} 
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        placeholder="Search by venue name"
+                        style={{borderRadius:"10px", height:"40px"}}
+                    />
+                </div>
+                <div class="item">
+                    <button onClick={getUserLocation} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find venues near me</button>
+                    <p id="locationResult">{locationResult}</p>
+                </div>
+                <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
             </div>
             
-            {/**prompt a user to search */}
-            <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearch}
-                placeholder="Search by venue name"
-                style={{width:'50%'}}
-            />
-
             {/* Display search result message */}
             {searchQuery && (
                 <p style={{color:'#000'}}>
@@ -165,19 +170,13 @@ function Search() {
                         : `Venue "${searchQuery}" not found`}
                 </p>
             )}
-
-            {/* Create a button that triggers the 'getUserLocation' function when clicked */}
-            <div className="action-box">
-            <button onClick={getUserLocation}>Find venues near me</button>
-            <p id="locationResult">{locationResult}</p>
-            </div>
             
             <div className="grid-map">
                 <div class="item">
             {/* Display the top 10 closest clubs */}
             {locationCoord && (
             <div>
-                <h2 className="nearMe">We found 10 closest club near you</h2>
+                <h2 style={{color: '#000000'}}>Take a dip at these venues that are closest to you</h2>
                 <table style={{ marginTop: 20, color: '#000000' }}>
                     <thead>
                         <tr>

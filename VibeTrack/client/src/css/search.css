@@ -1,42 +1,8 @@
 
-.action-box {
-  padding: 10px; 
+.search-container{
+  padding: 20px; 
   margin: 10px; 
-  display: inline-block; 
-  border-radius: 5px; 
-}
-
-.main-box{
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
-.para{
-text-align: center;
-color: black;
-width: 100%;
-padding: 20px;
-font-size: 2em;
-}
-
-.nearMe{
-color: black;
-text-align: center;
-
-}
-
-.para{
-  text-align: center;
-  width: 100%;
-  padding: 20px;
-  font-size: 2em;
-}
-
-.nearMe{
-  color: black;
-  text-align: center;
-
+  border-radius: 10px; 
 }
 
 table {
@@ -66,4 +32,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .grid-map{
   display: grid;
   grid-template-columns: 50% 50%;
+}
+
+.grid-button{
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  grid-gap: 10px;
+  padding:10px;
 }
