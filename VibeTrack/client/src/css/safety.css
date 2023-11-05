@@ -98,11 +98,13 @@ body {
   .venues-container {
     background-color: #f5f5f5;
     padding: 20px;
-    border-radius: 8px;
   }
   
   .venues-container ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     list-style-type: none;
+    grid-gap: 10px;
     margin: 0;
     padding: 0;
     color: #000;
@@ -114,7 +116,7 @@ body {
     padding: 8px;
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 15px;
   }
   
   
