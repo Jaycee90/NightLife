@@ -32,16 +32,22 @@ function Safety() {
   const [selectedVenues, setSelectedVenues] = useState([]);
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: "Here's a list of clubs I am visiting tonight",
+    subject: "I'm visiting these clubs tonight, please keep an eye out for me!",
     text: '',
   });
 
   const classes = useStyles();
   const [values, setValues] = useState(["test"]);
   const [currValue, setCurrValue] = useState("");
+
   const handleKeyUp = (e) => {
     console.log(e.keyCode);
     if (e.keyCode === 13) {
+      const newToValue = [...emailData.to.split(','), e.target.value].join(',');
+      setEmailData({
+        ...emailData,
+        to: newToValue,
+      });
       setValues((oldState) => [...oldState, e.target.value]);
       setCurrValue("");
     }
@@ -77,13 +83,6 @@ function Safety() {
     getVenues();
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEmailData({
-      ...emailData,
-      [name]: value,
-    });
-  };
 
   const sendEmail = () => {
     const messageWithSelectedVenues = `Selected Venues:\n${selectedVenues.join('\n')}`;
@@ -123,22 +122,6 @@ function Safety() {
         <p className="intro-description">Choose from a list of great clubs you are visiting, and we'll drop them a message or alert them if something goes wrong.</p>
       </div>
       <div>	
-        <FormControl classes={{ root: classes.formControlRoot }}>
-				  <div className={"container"}>
-					  {values.map((item,index) => (
-						  <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff'}}/>
-					  ))}
-				  </div>
-				  <Input
-					  value={currValue}
-					  onChange={handleChange}
-					  onKeyDown={handleKeyUp}
-            placeholder="Enter email"
-            style={{background:'#fff', color:'#747474', width:'250px', height:'60px'}}
-            inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
-				  />
-			  </FormControl></div>
-
       <div className="selected-clubs-container">
         <h1 className="selected-clubs-title">Selected Clubs</h1>
         <ul className="selected-clubs-list">
@@ -151,15 +134,26 @@ function Safety() {
       </div>
       <div className="grid-safety">
         <div class="item">
-          <input
+          
+        <FormControl classes={{ root: classes.formControlRoot }}>
+				  <div className={"container"}>
+					  {values.map((item,index) => (
+						  <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff'}}/>
+					  ))}
+				  </div>
+				  <Input
+					  value={currValue}
+					  onChange={handleChange}
+					  onKeyDown={handleKeyUp}
+            placeholder="Enter email"
             type="text"
             name="to"
-            placeholder="Enter emails of your emergency contacts (comma separated)"
-            value={emailData.to}
-            onChange={handleInputChange}
             className="email-input"
-            style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
-        />
+            style={{background:'#fff', color:'#747474', width:'250px', height:'60px'}}
+            inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
+				  />
+			  </FormControl></div>
+
         </div>
         <div class="item">
           <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
