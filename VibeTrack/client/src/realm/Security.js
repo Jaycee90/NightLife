@@ -90,18 +90,19 @@ const Security = () => {
                   <div class="logo mb-4"><img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/> </div>
                   <h2 style={{color:'#fff'}} >Forgot your password?</h2>
                   <p class="lead text-light">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
-                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000", borderColor:'#747474',}}>
-                    <TextField
-                      label="Email"
-                      type="email"
-                      variant="outlined"
-                      name="email"
-                      value={emailForm.email}
-                      onInput={onEmailFormInputChange}
-                      style={{ borderColor:'#747474'  }}
-                      InputLabelProps={{style: { color: '#fff', borderColor:'#747474' },
-                      }}
-                    />
+                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000", borderColor:'#fff',}}>
+                  <TextField
+                    label="Email"
+                    type="email"
+                    variant="outlined"
+                    name="email"
+                    value={emailForm.email}
+                    onInput={onEmailFormInputChange}
+                    inputProps={{
+                      style: { background: '#fff', color: '#747474' },
+                    }}
+                    InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
+                  />
                     <Button variant="contained"  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }} onClick={sendResetEmail}>Send Reset Email</Button>
                   </form>
                 </div>
@@ -126,8 +127,8 @@ const Security = () => {
                         name="password"
                         value={passwordForm.password}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff" } }}
+                        inputProps={{style: { marginBottom: "1rem",background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'} }}
                     />
                     {/* Input field for the token */}
                     <TextField
@@ -136,8 +137,8 @@ const Security = () => {
                         name="token"
                         value={passwordForm.token}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff", color: "#000"} }}
+                        inputProps={{ style: {marginBottom: "1rem", background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
                     />
                     {/* Input field for the token ID */}
                     <TextField
@@ -146,8 +147,8 @@ const Security = () => {
                         name="tokenId"
                         value={passwordForm.tokenId}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
+                        inputProps={{style: {marginBottom: "1rem", background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
                     />
                     {/* Button to trigger the password reset */}
                     <Button variant="contained" color="primary" onClick={resetPasswordWithToken}  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>
