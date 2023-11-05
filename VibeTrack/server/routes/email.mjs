@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
+//process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 export const sendEmail = (to, subject, text) => {
   return new Promise((resolve, reject) => {
     const transporter = nodemailer.createTransport({
