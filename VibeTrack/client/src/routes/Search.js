@@ -157,6 +157,19 @@ function Search() {
         ));
     };
 
+    function calculateMedianCoordinates(userLatitude, userLongitude, closestVenues) {
+        const allLatitudes = [userLatitude, ...closestVenues.map(venue => venue.latitude)];
+        const allLongitudes = [userLongitude, ...closestVenues.map(venue => venue.longitude)];
+    
+        const sortedLatitudes = allLatitudes.sort((a, b) => a - b);
+        const sortedLongitudes = allLongitudes.sort((a, b) => a - b);
+    
+        const medianLatitude = sortedLatitudes[Math.floor(sortedLatitudes.length / 2)];
+        const medianLongitude = sortedLongitudes[Math.floor(sortedLongitudes.length / 2)];
+    
+        return [medianLatitude, medianLongitude];
+    }
+
 
     return (
         <div className="search-container">
@@ -219,7 +232,9 @@ function Search() {
             {mapReady && (
                 <MapContainer
                     style={{ height: "70vh", width: "100%"}}
-                    center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
+                    //center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
+                    // Find center between user's coordinates and top 10 closest clubs' coordinates
+                    center={calculateMedianCoordinates(locationCoord[0], locationCoord[1],findNearestClubs(locationCoord[0], locationCoord[1], 10))}
                     zoom={13}
                 >
                     <TileLayer
