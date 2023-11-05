@@ -22,9 +22,12 @@ body {
   }
   
   .intro-container h1 {
-    font-size: 28px;
+    font-size: var(--fs-2); 
     font-weight: bold;
     margin-bottom: 10px;
+    font-weight: var(--fw-800);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
   }
   
   .intro-container p {
@@ -68,6 +71,8 @@ body {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-size:17px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   button {
@@ -112,3 +117,11 @@ body {
     border-radius: 4px;
   }
   
+  
+.grid-safety{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-gap: 10px;
+  padding:10px;
+  padding-right:20px;
+}

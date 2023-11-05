@@ -85,18 +85,24 @@ function Safety() {
           ))}
         </ul>
       </div>
-      <div>
-        <input
-          type="email"
-          name="to"
-          placeholder="Emergency Contact"
-          value={emailData.to}
-          onChange={handleInputChange}
-          className="email-input"
-        />
-        <button onClick={sendEmail} className="send-email-button">
-          Send Email
-        </button>
+      <div className="grid-safety">
+        <div class="item">
+          <input
+            type="email"
+            name="to"
+            placeholder="Enter emails of your emergency contacts"
+            value={emailData.to}
+            onChange={handleInputChange}
+            className="email-input"
+            style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
+          />
+        </div>
+        <div class="item">
+          <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
+            Send Email
+          </button>
+        </div>
+        
       </div>
       <div className="venues-container">
         <ul className="venues-list">
