@@ -68,14 +68,12 @@ function Safety() {
   };
 
   return (
-    <>
+    <div>
       <div className="intro-container"  style={{marginTop:"20px"}}>
         <h1 className="intro-title">Safety First!</h1>
-        <p className="intro-description">
-          Clubs! Dancing! Drinks! It's all fun, but who knows what will happen. We are here for you
-          to ease the minds of anyone else when you go out tonight! Choose from a list of great clubs you
-          are visiting, and we'll send that information to an emergency contact!
-        </p>
+        <p className="intro-description">Clubs! Dancing! Drinks! It's all fun, but who knows what will happen.</p>
+        <p className="intro-description">We are here for you to ease the minds of anyone else when you go out tonight! </p>
+        <p className="intro-description">Choose from a list of great clubs you are visiting, and we'll drop them a message or alert them if something goes wrong.</p>
       </div>
       <div className="selected-clubs-container">
         <h1 className="selected-clubs-title">Selected Clubs</h1>
@@ -109,7 +107,7 @@ function Safety() {
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
