@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
       flexWrap: "wrap"
     },
     "& > div.container > span": {
-      backgroundColor: "#fff",
+      backgroundColor: "#747474",
       padding: "1px 3px",
       borderRadius: "4px"
     }
@@ -134,7 +134,7 @@ function Safety() {
 					  onChange={handleChange}
 					  onKeyDown={handleKeyUp}
             placeholder="Enter email"
-            style={{background:'#fff', color:'#747474', width:'200px'}}
+            style={{background:'#fff', color:'#747474', width:'250px', height:'60px'}}
             inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
 				  />
 			  </FormControl></div>
