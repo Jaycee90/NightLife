@@ -57,13 +57,17 @@ function SpecialEvent() {
                         <div class="event-date">
                           <div class="date">{date}</div>
                           <div class="month">{month}</div>
+                          <div class="event-timing"><FontAwesomeIcon icon={faClock} style={{marginBottom:'5px', paddingRight:'5px'}}/> {time}</div>
                         </div>
                       </div>
 
                       <div class="event-right">
-                        <h3 class="event-title">{venue} </h3>
-                        <div class="event-description"> {eventName}</div>
-                          <div class="event-timing"><FontAwesomeIcon icon={faClock} />{day} at {time}</div>
+                        <div className="grid-event">
+                          <div class="item"><h3 class="event-title">{venue} </h3></div>
+                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Invite my Friends</div></div>
+                        </div>
+                        <div class="event-description" style={{paddingBottom:'20px'}}>{day}: {eventName} </div>
+                          
                       </div>
                     </div>
             </li>
