@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Chip, FormControl, Input, makeStyles,} from "@material-ui/core";
 import '../css/safety.css';
 
 function Safety() {
@@ -88,14 +89,14 @@ function Safety() {
       <div className="grid-safety">
         <div class="item">
           <input
-            type="email"
+            type="text"
             name="to"
-            placeholder="Enter emails of your emergency contacts"
+            placeholder="Enter emails of your emergency contacts (comma separated)"
             value={emailData.to}
             onChange={handleInputChange}
             className="email-input"
             style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
-          />
+        />
         </div>
         <div class="item">
           <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
