@@ -10,8 +10,6 @@ const Record = (props) => (
   <tr>
     <td>{props.record.name}</td>
     <td>{props.record.address}</td>
-    <td>{props.record.latitude}</td>
-    <td>{props.record.longitude}</td>
     
   </tr>
 );
@@ -147,7 +145,7 @@ function Search() {
         <div className="main-box">
             <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
             <div className="action-box">
-            <button onClick={searchVenue}>Search</button>
+            <button onClick={searchVenue}>Find route</button>
             </div>
             
             {/**prompt a user to search */}
@@ -156,11 +154,12 @@ function Search() {
                 value={searchQuery}
                 onChange={handleSearch}
                 placeholder="Search by venue name"
+                style={{width:'50%'}}
             />
 
             {/* Display search result message */}
             {searchQuery && (
-                <p>
+                <p style={{color:'#000'}}>
                     {venueFound
                         ? `Heading to ${searchQuery}`
                         : `Venue "${searchQuery}" not found`}
@@ -169,21 +168,21 @@ function Search() {
 
             {/* Create a button that triggers the 'getUserLocation' function when clicked */}
             <div className="action-box">
-            <button onClick={getUserLocation}>Your Location:</button>
+            <button onClick={getUserLocation}>Find venues near me</button>
             <p id="locationResult">{locationResult}</p>
             </div>
-
+            
+            <div className="grid-map">
+                <div class="item">
             {/* Display the top 10 closest clubs */}
             {locationCoord && (
             <div>
-                <h2 className="nearMe">Top 10 Closest Clubs</h2>
+                <h2 className="nearMe">We found 10 closest club near you</h2>
                 <table style={{ marginTop: 20, color: '#000000' }}>
                     <thead>
                         <tr>
                             <th className="nameColumn">Name</th>
                             <th className="addressColumn">Address</th>
-                            <th className="nameColumn">Latitude</th>
-                            <th className="nameColumn">Longitude</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -198,10 +197,12 @@ function Search() {
             </div>
             )}
 
+            </div>
+            <div class="item">
             {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
-                    style={{ height: "70vh", width: "100%" }}
+                    style={{ height: "70vh", width: "100%"}}
                     center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
                     zoom={15}
                 >
@@ -218,6 +219,10 @@ function Search() {
                     {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
+                    
+                </div>
+            </div>
+
 
         </div>
     );
