@@ -225,7 +225,13 @@
     }
 
     .card-login .btn-icon.btn-icon-google:before {
-        background-image: url('https://i.imgur.com/1BNQ0NY.png');
+        background-image: url('https://i.imgur.com/X8twDeo.png');
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .card-login .btn-icon.btn-icon-facebook:before {
+        background-image: url('https://i.imgur.com/2OxrlUn.png');
         background-size: 20px;
         background-repeat: no-repeat;
         background-position: center;

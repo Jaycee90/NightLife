@@ -82,7 +82,7 @@ const Reset = () => {
                 inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
             />
             {/* Button to trigger the password reset */}
-            <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
+            <Button variant="contained" color="primary" onClick={resetPasswordWithToken}  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>
                 Reset Password
             </Button>
         </form>

@@ -102,7 +102,7 @@ const Security = () => {
                       InputLabelProps={{style: { color: '#fff', borderColor:'#747474' },
                       }}
                     />
-                    <Button variant="contained" style={{color:'#000', backgroundColor: '#fff'}} onClick={sendResetEmail}>Send Reset Email</Button>
+                    <Button variant="contained"  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }} onClick={sendResetEmail}>Send Reset Email</Button>
                   </form>
                 </div>
                 <div class="help-links" >
@@ -150,7 +150,7 @@ const Security = () => {
                         inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
                     />
                     {/* Button to trigger the password reset */}
-                    <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
+                    <Button variant="contained" color="primary" onClick={resetPasswordWithToken}  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>
                         Reset Password
                     </Button>
                 </form>
