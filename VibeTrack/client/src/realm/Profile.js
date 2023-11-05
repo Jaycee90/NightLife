@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../css/settings.css';
 import { ProSidebar, Menu, MenuItem, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
@@ -8,6 +7,7 @@ import { BiCog } from "react-icons/bi";
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
+import '../css/settings.css';
 
 export default function Profile() {
   const [form, setForm] = useState({
