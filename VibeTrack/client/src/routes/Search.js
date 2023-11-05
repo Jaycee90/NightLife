@@ -6,13 +6,21 @@ import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
 
-const Record = (props) => (
-  <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.address}</td>
-    
-  </tr>
-);
+const Record = (props) => {
+    function trimAddress(address) {  
+        const trimmedAddress = address.replace(/^(.*?)\s\w{2}\s\d{5}$/, '$1').replace(/,\s*$/, '');
+        // const trimmedAddress = address.replace(/\sSan Marcos,\sTX\s\d{5}$/, '');
+        return trimmedAddress.trim();
+    }
+    const trimmedAddress = trimAddress(props.record.address);
+  
+    return (
+      <tr>
+        <td>{props.record.name}</td>
+        <td>{trimmedAddress}</td>
+      </tr>
+    );
+  };
 
 function Search() {
     // state variables
@@ -140,7 +148,8 @@ function Search() {
             </Marker>
         ));
     };
-          
+
+
     return (
         <div className="search-container">
             <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
