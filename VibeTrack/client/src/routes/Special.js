@@ -44,6 +44,9 @@ function SpecialEvent() {
   };
   
   return (
+    <div>
+    <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
+    <h2 className="h2 section-title">Discover upcoming events</h2>
     <div className="special-event">
     <div className="event-container" style={{paddingTop:"30px"}}>
       <ul style={{color:'#000'}}>
@@ -69,7 +72,7 @@ function SpecialEvent() {
                       <div class="event-right">
                         <div className="grid-event">
                           <div class="item"><h3 class="event-title">{venue} </h3></div>
-                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Invite my Friends</div></div>
+                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div></div>
                         </div>
                         <div class="event-description" style={{paddingBottom:'20px'}}>{day}: {eventName} </div>
                           
@@ -81,6 +84,8 @@ function SpecialEvent() {
       </ul>
     </div>
     </div>
+    </div>
+    
   );
 }
 

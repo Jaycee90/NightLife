@@ -114,3 +114,14 @@ ul {
   display: grid;
   grid-template-columns: 70% 30%;
 }
+
+.section-title { margin-bottom: 15px; color:black;
+  text-align: center; }
+
+.section-subtitle {
+  color: black;
+  font-size: var(--fs-5);
+  text-transform: uppercase;
+  font-family: var(--ff-montserrat);
+  text-align: center;
+}

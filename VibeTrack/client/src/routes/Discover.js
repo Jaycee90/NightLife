@@ -53,10 +53,8 @@ const Discover = () => {
 
   return (
     <div className="discover-component">
-      <div className="section-intro">
       <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
       <h2 className="h2 section-title">Discover venues</h2>
-      </div>
       <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>
           <ul className="discover-list" >
           {currentVenues.map((venueData) => (
