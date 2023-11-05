@@ -4,11 +4,9 @@ import axios from 'axios';
 
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
-  // When a user clicks on the special event link, this function will be the first thing that happens
-  // Making a request to out local host where our stored data is held then bring that data back here
-  
+
   useEffect(() => {
-    axios.get('http://localhost:5050/scrape') // Adjust the URL to match your server's address
+    axios.get('http://localhost:5050/scrape')
       .then((response) => {
         setEventData(response.data);
       })
@@ -16,23 +14,69 @@ function SpecialEvent() {
         console.error('Error fetching event data', error);
       });
   }, []);
-    return (
-        <div class="event-container">
-           <h1 style={{color:'#000'}}>Upcoming Events</h1>
+
+  const parseDivText = (divText) => {
+    const parts = divText.split(' - ');
+    if (parts.length !== 2) {
+      return { venue: '', eventName: '', time: '' }; // Return empty values if format is incorrect
+    }
+    const [venue, rest] = parts;
+    const [eventName, time] = rest.split(' (');
+    if (!eventName || !time) {
+      return { venue: '', eventName: '', time: '' }; // Return empty values if format is incorrect
+    }
+    return { venue, eventName, time: time.slice(0, -1) }; // Remove the trailing ')'
+  };
+  
+  const parseEventDay = (eventDay) => {
+    const parts = eventDay.split(' - ');
+    if (parts.length !== 2) {
+      return { day: '', month: '', date: '' }; // Return empty values if format is incorrect
+    }
+    const [day, date] = parts;
+    const [monthName, dayOfMonth] = date.split(' ');
+    if (!monthName || !dayOfMonth) {
+      return { day: '', month: '', date: '' }; // Return empty values if format is incorrect
+    }
+    return { day, month: monthName, date: dayOfMonth };
+  };
+
+  return (
+    <div>
+      
+    <div className="event-container">
+      <h1 style={{color:'#000'}}>Upcoming Events</h1>
       <ul style={{color:'#000'}}>
-        {eventData.map((event, index) => ( 
-          <li key={index}>
-            <div class="event"> </div>
-            <div class="event-left"> </div>
-            <div class="event-date"> 
-              <h1>Date: {event.day}</h1>
-              <p class="event-description">Event: {event.divText}</p>
-            </div>
-          </li>
-        ))}
+        {eventData.map((event, index) => { 
+          const { venue, eventName, time } = parseDivText(event.divText);
+          const { day, month, date } = parseEventDay(event.day);
+          return (
+            <li key={index}>
+                    <div class="event">
+                      <div class="event-left">
+                        <div class="event-date">
+                          <div class="date">{date}</div>
+                          <div class="month">{month}</div>
+                        </div>
+                      </div>
+
+                      <div class="event-right">
+                        <h3 class="event-title">{venue}</h3>
+
+                        <div class="event-description"> {eventName}</div>
+
+                        <div class="event-timing">
+                          <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> {day} {time}
+                        </div>
+                      </div>
+                    </div>
+            </li>
+          );
+        })}
       </ul>
-      </div>
-      );
-};
+    </div>
+    </div>
+  );
+}
 
 export default SpecialEvent;
