@@ -38,7 +38,7 @@ function Safety() {
 
   const classes = useStyles();
   const [values, setValues] = useState(["test"]);
-  const [currValue, setCurrValue] = useState("");
+  const [currentValue, setCurrentValue] = useState("");
 
   const handleKeyUp = (e) => {
     console.log(e.keyCode);
@@ -49,12 +49,12 @@ function Safety() {
         to: newToValue,
       });
       setValues((oldState) => [...oldState, e.target.value]);
-      setCurrValue("");
+      setCurrentValue("");
     }
   };
 
   const handleChange = (e) => {
-    setCurrValue(e.target.value);
+    setCurrentValue(e.target.value);
   };
 
   const handleDelete = ( item, index) =>{
@@ -142,7 +142,7 @@ function Safety() {
 					  ))}
 				  </div>
 				  <Input
-					  value={currValue}
+					  value={currentValue}
 					  onChange={handleChange}
 					  onKeyDown={handleKeyUp}
             placeholder="Enter email"
