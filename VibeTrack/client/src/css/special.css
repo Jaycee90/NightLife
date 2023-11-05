@@ -1,20 +1,22 @@
-/* Special.css */
-
-/* Reset and basic styles */
-
 body {
   font-family: var(--ff-poppins);
   margin: 0;
   padding: 0;
-}
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* Event container styles with light purple background */
 
+.special-event{
+  background-repeat:no-repeat;  
+  background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+}
 .event-container {
   font-family: "Roboto", sans-serif;
   width: 800px;
@@ -31,8 +33,9 @@ ul {
 .event-container .event {
   box-shadow: 0 4px 16px -8px rgba(0, 0, 0, 0.4);
   display: flex;
-  border-radius: 8px;
-  margin: 32px 0;
+  border-radius: 15px;
+  background-color:#fff;
+  margin: 20px 0;
 }
 
 .event .event-left {
@@ -50,7 +53,7 @@ ul {
 }
 
 .event .event-left .date {
-  font-size: 56px;
+  font-size: 48px;
 }
 
 .event .event-left .month {
@@ -59,7 +62,7 @@ ul {
 }
 
 .event .event-right {
-  background-image: #fff;
+  width:100%;
   display: flex;
   color: #000;
   height:150px;
@@ -69,12 +72,13 @@ ul {
 }
 
 .event .event-right h3.event-title {
-  font-size: 24px;
+  font-size: 20px;
   margin: 24px 0 10px 0;
   color: #ffffff;
+  width:450px;
   background-color: #747474;
-  border-radius:25px;
-  padding:10px;
+  border-radius:15px;
+  padding:5px;
   text-transform: uppercase;
 }
 
@@ -83,8 +87,9 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 130px;
+  width: 200px;
   padding: 8px;
+  color:#fff;
   border-radius: 16px;
   margin: 24px 0;
   font-size: 14px;

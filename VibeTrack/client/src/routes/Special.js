@@ -1,6 +1,8 @@
 import "../css/special.css";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
@@ -42,10 +44,8 @@ function SpecialEvent() {
   };
 
   return (
-    <div>
-      
-    <div className="event-container">
-      <h1 style={{color:'#000'}}>Upcoming Events</h1>
+    <div className="special-event">
+    <div className="event-container" style={{paddingTop:"30px"}}>
       <ul style={{color:'#000'}}>
         {eventData.map((event, index) => { 
           const { venue, eventName, time } = parseDivText(event.divText);
@@ -61,13 +61,9 @@ function SpecialEvent() {
                       </div>
 
                       <div class="event-right">
-                        <h3 class="event-title">{venue}</h3>
-
+                        <h3 class="event-title">{venue} </h3>
                         <div class="event-description"> {eventName}</div>
-
-                        <div class="event-timing">
-                          <img src="https://i.imgur.com/P0ajz6E.png" alt="" /> {day} {time}
-                        </div>
+                          <div class="event-timing"><FontAwesomeIcon icon={faClock} />{day} at {time}</div>
                       </div>
                     </div>
             </li>
