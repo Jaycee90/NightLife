@@ -91,36 +91,6 @@ export default function Home() {
           
         </div>
       </section>
-
-      <div className="container">
-        <div className="grid-contact">
-          <div className="item">
-            <h3>Leave Us a Message</h3>
-            <p><span>and we will get back to you as soon as possible.</span></p>
-            <form className="media-centered">
-              <button type="submit" className="btn btn-primary" style={{marginTop:"10px"}}>Leave us a message</button>
-            </form>
-          </div>
-
-          <div className="item">
-            <h3>Supervisor</h3>
-            <p>
-              <span>Instructor: Dr. Ted Lehr</span>
-              <span>D.I. Assistant: Mirna Elizondo</span>
-              <span>Grader: Sara Davidson</span>
-            </p>
-          </div>
-
-          <div className="item">
-            <h3>Contact</h3>
-            <p>
-              <span>(512) 245-2111</span>
-              <span>601 University Dr</span>
-              <span>San Marcos, TX 78666</span>
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

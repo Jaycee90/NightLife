@@ -17,10 +17,11 @@ import Create from "./components/create";
 import RecordList from "./components/recordList";
 import UserList from "./components/userList";
 import StarRating from "./components/starRating";
+import Footer from './components/footer';
 
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
-import Favorites from "./routes/Favorites";
+import Favorites from "./routes/Favorite";
 import Feature from './routes/Feature';
 import Invitation from "./routes/Invitation";  
 import Safety from './routes/Safety';
@@ -60,6 +61,7 @@ function App() {
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
        </Routes>
+      <Footer />
      </UserProvider>
    </BrowserRouter>
  );
