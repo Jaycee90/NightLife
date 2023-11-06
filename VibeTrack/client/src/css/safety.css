@@ -54,7 +54,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     list-style-type: none;
     margin: 0;
-    color: #fff;
+    color: #000;
   }
   
   .selected-clubs-container li {
@@ -125,6 +125,5 @@ body {
   display: grid;
   grid-template-columns: 70% 30%;
   grid-gap: 10px;
-  padding:10px;
   padding-right:20px;
 }

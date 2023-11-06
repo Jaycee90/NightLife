@@ -1,31 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Chip, FormControl, Input, makeStyles,} from "@material-ui/core";
+import { Chip} from "@material-ui/core";
 import '../css/safety.css';
 
-const useStyles = makeStyles((theme) => ({
-  formControlRoot: {
-    display: "flex",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    gap: "8px",
-    flexWrap: "wrap",
-  flexDirection: "row",
-  padding:4,
-  borderRadius:'4px',
-    "&> div.container": {
-      gap: "6px",
-      display: "flex",
-      flexDirection: "row",
-      backgroundColor: "#fff",
-      flexWrap: "wrap"
-    },
-    "& > div.container > span": {
-      backgroundColor: "#747474",
-      padding: "1px 3px",
-      borderRadius: "4px"
-    }
-  }
-}));
 
 function Safety() {
   const [venues, setVenues] = useState([]);
@@ -36,8 +12,7 @@ function Safety() {
     text: '',
   });
 
-  const classes = useStyles();
-  const [values, setValues] = useState(["test"]);
+  const [values, setValues] = useState(["vibetracktxt@gmail.com"]);
   const [currentValue, setCurrentValue] = useState("");
 
   const handleKeyUp = (e) => {
@@ -132,35 +107,31 @@ function Safety() {
           ))}
         </ul>
       </div>
-      <div className="grid-safety">
+      <div style={{paddingLeft:'20px', marginTop:'20px'}}>
+      {values.map((item,index) => (
+            <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
+          ))}
+      </div>
+      <div className="grid-safety" style={{padding:'20px'}}>
         <div class="item">
-          
-        <FormControl classes={{ root: classes.formControlRoot }}>
-				  <div className={"container"}>
-					  {values.map((item,index) => (
-						  <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff'}}/>
-					  ))}
-				  </div>
-				  <Input
+				  <input
 					  value={currentValue}
 					  onChange={handleChange}
 					  onKeyDown={handleKeyUp}
             placeholder="Enter email"
-            type="text"
+            type="email"
             name="to"
             className="email-input"
-            style={{background:'#fff', color:'#747474', width:'250px', height:'60px'}}
-            inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
+            style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474', borderColor:'#747474'}}
+            inputProps={{ style: { backgroundColor: "#fff", color:'#747474', borderColor:'#747474' } }}
 				  />
-			  </FormControl></div>
-
         </div>
         <div class="item">
           <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
-            Send Email
+            Send safety notification
           </button>
         </div>
-        
+      </div> 
       </div>
       <div className="venues-container">
         <ul className="venues-list">
