@@ -17,6 +17,7 @@ import Create from "./components/create";
 import RecordList from "./components/recordList";
 import UserList from "./components/userList";
 import StarRating from "./components/starRating";
+import Footer from './components/Footer';
 
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
@@ -60,6 +61,7 @@ function App() {
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />
        </Routes>
+      <Footer />
      </UserProvider>
    </BrowserRouter>
  );
