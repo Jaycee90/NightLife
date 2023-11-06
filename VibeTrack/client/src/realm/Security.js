@@ -87,7 +87,7 @@ const Security = () => {
             <div class="col-lg-6 col-md-12">
               <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
                 <div class="w-100">
-                  <div class="logo mb-4"><img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/> </div>
+                  <div class="logo mb-4"><img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid"/> </div>
                   <h2 style={{color:'#fff'}} >Forgot your password?</h2>
                   <p class="lead text-light">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
                   <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000", borderColor:'#fff',}}>

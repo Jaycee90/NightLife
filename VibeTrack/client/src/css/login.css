@@ -4,6 +4,8 @@
     }
 
     .form-group input {
+        
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff;
     border-radius:25px;
     border-color:#fff;
@@ -25,6 +27,7 @@
     /*https://github.com/nauvalazhar/login*/
     html, body {
         min-height: 100%;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .card-login {
@@ -35,6 +38,7 @@
         box-shadow: 0 4px 30px rgba(0,0,0,.05);
         border-radius: 0;
 
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         width: 800px;
         margin: 0 auto;
         position: relative;

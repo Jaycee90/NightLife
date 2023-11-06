@@ -85,6 +85,7 @@ body {
   }
   
   .venues-container li {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
     margin: 10px 0;
     padding: 8px;
