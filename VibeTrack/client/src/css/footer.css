@@ -1,5 +1,42 @@
 .footer-component{
-    body{
-        
-    }
+.Box {
+    background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
+    bottom: 0;
+    padding-top:20px;
+}
+
+.FooterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 60px;
+}
+
+.Row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+    grid-gap: 20px;
+}
+
+.FooterLink {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.Heading {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
 }
