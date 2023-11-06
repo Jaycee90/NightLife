@@ -61,16 +61,15 @@ const Login = () => {
  };
  
  return (
-  <div class="login-component">
-  <div class="container-fluid">
+  <div class="login-component"  style={{marginTop:"20px"}}>
     <div class="card card-login">
       <div class="card-body">
         <div class="row justify-content-center"  style={{color:'#000'}}>
-          <div class="col-lg-6 col-md-12">
-            <div class="padding bg-primary text-center align-items-center d-flex">
+          <div class="col-lg-6 col-md-12" >
+            <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
               <div class="w-100">
                 <div class="logo mb-4">
-                  <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
+                  <img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid"/>
                 </div>
                 <h4 class="text-light mb-2">Don't waste your time</h4>
                 <p class="lead text-light">Login quickly with Google one-tap sign-in.</p>
@@ -87,11 +86,11 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-6 col-md-12" >
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
-              <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", borderColor:'#747474', color:'#000', backgroundColor:"#fff"}}>
+              <form style={{ display: "flex", flexDirection: "column", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
                       <TextField
                           label="Email"
@@ -101,6 +100,8 @@ const Login = () => {
                           value={form.email}
                           onChange={onFormInputChange}
                           tabindex="1"
+                          style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                          inputProps={{ style: { backgroundColor: "#fff" } }}
                       />
                 </div>
                 <div class="form-group">
@@ -119,7 +120,7 @@ const Login = () => {
                     <div class="float-right"><a href="/security">Forgot Password?</a>
                     </div>
                 </div>
-                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Login</Button>
+                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3" style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>Login</Button>
               </form>
             </div>
           </div>
@@ -127,7 +128,6 @@ const Login = () => {
       </div>
       </div>
     </div>
-  </div>
  );
 }
 

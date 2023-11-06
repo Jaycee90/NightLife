@@ -111,7 +111,6 @@ export default function Contact() {
     }
   }
   
-
   return (
     <div className="profile-component">
       <div class="grid-settings">
@@ -120,7 +119,7 @@ export default function Contact() {
           <ProSidebar collapsed={menuCollapse}>
             <SidebarContent>
               <Menu iconShape="square">
-                <MenuItem icon={<FiHome />}><a href={`/profile/`}>Profile</a></MenuItem>
+                <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
                 <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
                 <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
@@ -134,17 +133,18 @@ export default function Contact() {
           </ProSidebar>
           </div>
         </div>
-        <div class="grid-settings-right">
+        <div class="grid-settings-right"  style={{marginTop:'20px'}}>
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyName1"><b>Emergency Contact #1</b> - Name: </label>
+                <label htmlFor="emergencyName1">Contact Name #1</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyName1"
+                  placeholder="Name for emergency contact #1"
                   value={form.emergencyName1}
                   onChange={(e) => updateForm({ emergencyName1: e.target.value })}
                 />
@@ -152,11 +152,12 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail1"><b>Emergency Contact #1</b> - Email: </label>
+                <label htmlFor="emergencyEmail1">Contact Email #1</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyEmail1"
+                  placeholder="Email for emergency contact #1"
                   value={form.emergencyEmail1}
                   onChange={(e) => updateForm({ emergencyEmail1: e.target.value })}
                 />
@@ -164,11 +165,12 @@ export default function Contact() {
             </div>
             <div className="item">
             <div className="form-group">
-                <label htmlFor="emergencyName2"><b>Emergency Contact #2</b> - Name: </label>
+                <label htmlFor="emergencyName2">Contact Name #2</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyName2"
+                  placeholder=" Name for emergency contact #2"
                   value={form.emergencyName2}
                   onChange={(e) => updateForm({ emergencyName2: e.target.value })}
                 />
@@ -176,11 +178,12 @@ export default function Contact() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="emergencyEmail2"><b>Emergency Contact #2</b> - Email: </label>
+                <label htmlFor="emergencyEmail2">Contact Email#2</label>
                 <input
                   type="text"
                   className="form-control"
                   id="emergencyEmail2"
+                  placeholder="Email for emergency contact #2"
                   value={form.emergencyEmail2}
                   onChange={(e) => updateForm({ emergencyEmail2: e.target.value })}
                 />
@@ -190,8 +193,9 @@ export default function Contact() {
             <div className="form-group">
               <input
                 type="submit"
-                value="Update Information"
+                value="Update Contacts"
                 className="btn btn-primary"
+                style={{width:'50%', marginLeft:'30%'}}
               />
             </div>
           </form>

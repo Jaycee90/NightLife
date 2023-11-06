@@ -6,15 +6,21 @@ import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
 
-const Record = (props) => (
-  <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.address}</td>
-    <td>{props.record.latitude}</td>
-    <td>{props.record.longitude}</td>
-    
-  </tr>
-);
+const Record = (props) => {
+    function trimAddress(address) {  
+        const trimmedAddress = address.replace(/^(.*?)\s\w{2}\s\d{5}$/, '$1').replace(/,\s*$/, '');
+        // const trimmedAddress = address.replace(/\sSan Marcos,\sTX\s\d{5}$/, '');
+        return trimmedAddress.trim();
+    }
+    const trimmedAddress = trimAddress(props.record.address);
+  
+    return (
+      <tr>
+        <td>{props.record.name}</td>
+        <td>{trimmedAddress}</td>
+      </tr>
+    );
+  };
 
 function Search() {
     // state variables
@@ -79,16 +85,6 @@ function Search() {
         }
     };
 
-    // Custom icon for the marker
-    const icon = new L.Icon({
-        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-    });
-
     // Use useEffect to call getUserLocation when the component mounts
     useEffect(() => {
         getUserLocation();
@@ -126,13 +122,31 @@ function Search() {
         }
     };
 
+    const userMarker = new L.Icon({
+        iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+      
     // Display the user's location marker by default or when no search is performed
     const defaultMarker = locationCoord && !venueFound && !searchQuery && (
-        <Marker position={locationCoord} icon={icon}>
+        <Marker position={locationCoord} icon={userMarker}>
             <Popup>Your Location</Popup>
         </Marker>
     );
 
+
+    // Custom icon for the marker
+    const icon = new L.Icon({
+        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+    });
     // Function to get the top 10 closest clubs' markers
     const getTopClubsMarkers = (userLatitude, userLongitude) => {
         const nearestClubs = findNearestClubs(userLatitude, userLongitude, 10);
@@ -142,48 +156,66 @@ function Search() {
             </Marker>
         ));
     };
-          
-    return (
-        <div className="main-box">
-            <p className="para">Ready to make the dance floor jealous? Let's vibe!</p>
-            <div className="action-box">
-            <button onClick={searchVenue}>Search</button>
-            </div>
-            
-            {/**prompt a user to search */}
-            <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearch}
-                placeholder="Search by venue name"
-            />
 
+    function calculateMedianCoordinates(userLatitude, userLongitude, closestVenues) {
+        const allLatitudes = [userLatitude, ...closestVenues.map(venue => venue.latitude)];
+        const allLongitudes = [userLongitude, ...closestVenues.map(venue => venue.longitude)];
+    
+        const sortedLatitudes = allLatitudes.sort((a, b) => a - b);
+        const sortedLongitudes = allLongitudes.sort((a, b) => a - b);
+    
+        const medianLatitude = sortedLatitudes[Math.floor(sortedLatitudes.length / 2)];
+        const medianLongitude = sortedLongitudes[Math.floor(sortedLongitudes.length / 2)];
+    
+        return [medianLatitude, medianLongitude];
+    }
+
+
+    return (
+        <div>
+        <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
+        <h2 className="h2 section-title">Discover venues near you</h2>
+        
+        <div className="search-container">
+            <div className="grid-button">
+                <div class="item">{/**prompt a user to search */} 
+                    <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        placeholder="Search by venue name"
+                        style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
+                    />
+                </div>
+                <div class="item">
+                    <button onClick={getUserLocation} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find venues near me</button>
+                </div>
+                <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
+            </div>
+        </div>
+        <div>
+            
+        <div className="grid-map" style={{padding:'10px'}}>
+            <div class="item">
+            {/* Display the top 10 closest clubs */}
+            {locationCoord && (
+            <div>
+                <h2 style={{color: '#000000'}}>Take a dip at these venues that are closest to you</h2>
+                
             {/* Display search result message */}
+            <p id="locationResult"  style={{color:'#000', opacity:'0'}}>{locationResult}</p>
             {searchQuery && (
-                <p>
+                <p style={{color:'#000', opacity:'0'}}>
                     {venueFound
                         ? `Heading to ${searchQuery}`
                         : `Venue "${searchQuery}" not found`}
                 </p>
             )}
-
-            {/* Create a button that triggers the 'getUserLocation' function when clicked */}
-            <div className="action-box">
-            <button onClick={getUserLocation}>Your Location:</button>
-            <p id="locationResult">{locationResult}</p>
-            </div>
-
-            {/* Display the top 10 closest clubs */}
-            {locationCoord && (
-            <div>
-                <h2 className="nearMe">Top 10 Closest Clubs</h2>
-                <table style={{ marginTop: 20, color: '#000000' }}>
+                <table style={{color: '#000000' }}>
                     <thead>
                         <tr>
                             <th className="nameColumn">Name</th>
                             <th className="addressColumn">Address</th>
-                            <th className="nameColumn">Latitude</th>
-                            <th className="nameColumn">Longitude</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -198,12 +230,16 @@ function Search() {
             </div>
             )}
 
+            </div>
+            <div class="item">
             {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
-                    style={{ height: "70vh", width: "100%" }}
-                    center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
-                    zoom={15}
+                    style={{ height: "71vh", width: "100%"}}
+                    //center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
+                    // Find center between user's coordinates and top 10 closest clubs' coordinates
+                    center={calculateMedianCoordinates(locationCoord[0], locationCoord[1],findNearestClubs(locationCoord[0], locationCoord[1], 10))}
+                    zoom={13}
                 >
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -218,7 +254,11 @@ function Search() {
                     {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
+                    
+                </div>
+            </div>
 
+        </div>
         </div>
     );
 }

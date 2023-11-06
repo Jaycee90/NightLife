@@ -69,8 +69,6 @@ body{
   margin: 0;
 }
 
-.container { padding-inline: 15px; }
-
 .btn {
   color: var(--white);
   text-transform: uppercase;
@@ -105,17 +103,25 @@ body{
   color: black;
   font-size: var(--fs-5);
   text-transform: uppercase;
-  font-family: var(--ff-montserrat);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 8px;
   padding-top:10px;
   padding-bottom:10px;
 }
 
-.section-title { margin-bottom: 15px; color:black; }
+.section-title { 
+  font-size: var(--fs-2); 
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-weight: var(--fw-800);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+ }
 
 .section-text {
   color: black;
   margin-bottom: 30px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .card-text {
@@ -133,7 +139,8 @@ body{
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-25);
-  height: 430px;
+  height: 300px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .popular-card .card-img { height: 100%; }
@@ -277,7 +284,6 @@ body{
 
 .container-title {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   padding-top:75px;
@@ -287,11 +293,11 @@ body{
 
 .container {
   background-size: cover;
-  opacity: 0.75;
   color: black;
   padding:10px;
   border-radius: 5px;
   font-size: 1em;
+  padding-inline: 25px; 
 }
 
 .container h1 {
@@ -366,4 +372,5 @@ input[type=text], input[type=email]{
   text-decoration: none;
   margin: 4px 2px;
   font-size: 18px;
+  border-radius:15px;
 }

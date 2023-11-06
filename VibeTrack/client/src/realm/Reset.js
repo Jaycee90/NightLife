@@ -48,7 +48,7 @@ const Reset = () => {
     };
 
     return (
-        <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:'#000', backgroundColor:"#fff"}}>
+        <form style={{ display: "flex", flexDirection: "column", maxWidth: "300px", margin: "auto", color:'#000', backgroundColor:"#fff", borderColor:'#747474'}}>
             <h1 style={{marginBottom:"10px"}}>Reset Password</h1>
             {/* Input field for the new password */}
             <TextField
@@ -58,8 +58,8 @@ const Reset = () => {
                 name="password"
                 value={passwordForm.password}
                 onChange={onFormInputChange}
-                style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                inputProps={{ style: { backgroundColor: "#fff" } }}
+                style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000', borderColor:'#747474'}}
+                inputProps={{ style: { backgroundColor: "#fff", borderColor:'#747474' } }}
             />
             {/* Input field for the token */}
             <TextField
@@ -82,7 +82,7 @@ const Reset = () => {
                 inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
             />
             {/* Button to trigger the password reset */}
-            <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
+            <Button variant="contained" color="primary" onClick={resetPasswordWithToken}  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>
                 Reset Password
             </Button>
         </form>

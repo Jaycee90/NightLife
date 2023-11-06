@@ -39,7 +39,7 @@ const Signup = () => {
  };
  
  return (
-  <div class="login-component">
+  <div class="login-component"  style={{marginTop:"20px"}}>
   <div class="container-fluid">
     <div class="card card-login">
       <div class="card-body">
@@ -74,21 +74,21 @@ const Signup = () => {
                 />
                 <div class="float-left"><a href="/login">Already have an acocunt? Login</a></div>
                 </div>
-                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3">Signup</Button>
+                <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3" style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>Signup</Button>
               </form>
             </div>
           </div>
           <div class="col-lg-6 col-md-12">
-            <div class="padding bg-primary text-center align-items-center d-flex">
+            <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
               <div class="w-100">
                 <div class="logo mb-4">
-                  <img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/>
+                  <img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid"/>
                 </div>
                 <h4 class="text-light mb-2">Don't waste your time</h4>
                 <p class="lead text-light">Create an account quickly with a single click.</p>
                 <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Google</button>
                 <p class="lead text-light">- or -</p>
-                <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>Sign-up with Facebook</button>
+                <button class="btn btn-block btn-icon btn-icon-facebook mb-3" style={{color:'#000'}}>Sign-up with Facebook</button>
               </div>
 
               <div class="help-links" >

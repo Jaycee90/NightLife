@@ -79,29 +79,31 @@ const Security = () => {
   };
 
   return (
-    <div class="login-component">
+    <div class="login-component"  style={{marginTop:"20px"}}>
     <div class="container-fluid">
       <div class="card card-login">
         <div class="card-body">
           <div class="row justify-content-center"  style={{color:'#000'}}>
             <div class="col-lg-6 col-md-12">
-              <div class="padding bg-primary text-center align-items-center d-flex">
+              <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
                 <div class="w-100">
-                  <div class="logo mb-4"><img src="https://i.imgur.com/1BNQ0NY.png" alt="kodinger logo" class="img-fluid"/> </div>
+                  <div class="logo mb-4"><img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid"/> </div>
                   <h2 style={{color:'#fff'}} >Forgot your password?</h2>
                   <p class="lead text-light">Don't fret! Just type in your email and we will send you a code to reset your password!</p>
-                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000"}}>
-                    <TextField
-                      label="Email"
-                      type="email"
-                      variant="outlined"
-                      name="email"
-                      value={emailForm.email}
-                      onInput={onEmailFormInputChange}
-                      InputLabelProps={{style: { color: '#fff' },
-                      }}
-                    />
-                    <Button variant="contained" style={{color:'#000', backgroundColor: '#fff'}} onClick={sendResetEmail}>Send Reset Email</Button>
+                  <form style={{display: "flex",flexDirection: "column",maxWidth: "300px",margin: "auto",color: "#000", borderColor:'#fff',}}>
+                  <TextField
+                    label="Email"
+                    type="email"
+                    variant="outlined"
+                    name="email"
+                    value={emailForm.email}
+                    onInput={onEmailFormInputChange}
+                    inputProps={{
+                      style: { background: '#fff', color: '#747474' },
+                    }}
+                    InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
+                  />
+                    <Button variant="contained"  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }} onClick={sendResetEmail}>Send Reset Email</Button>
                   </form>
                 </div>
                 <div class="help-links" >
@@ -125,8 +127,8 @@ const Security = () => {
                         name="password"
                         value={passwordForm.password}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff" } }}
+                        inputProps={{style: { marginBottom: "1rem",background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'} }}
                     />
                     {/* Input field for the token */}
                     <TextField
@@ -135,8 +137,8 @@ const Security = () => {
                         name="token"
                         value={passwordForm.token}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff", color: "#000"} }}
+                        inputProps={{ style: {marginBottom: "1rem", background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
                     />
                     {/* Input field for the token ID */}
                     <TextField
@@ -145,11 +147,11 @@ const Security = () => {
                         name="tokenId"
                         value={passwordForm.tokenId}
                         onChange={onPasswordFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#000'}}
-                        inputProps={{ style: { backgroundColor: "#fff", color: "#000" } }}
+                        inputProps={{style: {marginBottom: "1rem", background: '#fff', color: '#747474' },}}
+                        InputLabelProps={{ style: { borderColor: '#fff', color: '#747474'  } }}
                     />
                     {/* Button to trigger the password reset */}
-                    <Button variant="contained" color="primary" onClick={resetPasswordWithToken}>
+                    <Button variant="contained" color="primary" onClick={resetPasswordWithToken}  style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>
                         Reset Password
                     </Button>
                 </form>

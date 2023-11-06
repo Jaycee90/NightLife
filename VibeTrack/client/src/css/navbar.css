@@ -17,7 +17,7 @@
   
   .navigation-bar {
     overflow: hidden;
-    background-color: #333;
+    background: linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 73%, rgba(226,100,172,1) 100%);
   }
   
   .navigation-bar a {
@@ -35,7 +35,7 @@
   }
   
   .navigation-bar a:hover {
-    background-color: #ddd;
+    background-color: rgba(226,100,172,0.5);
     color: black;
   }
 

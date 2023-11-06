@@ -5,7 +5,6 @@ import '../css/discover.css';
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const venuesPerPage = 10;
 
   useEffect(() => {
     async function getVenues() {
@@ -27,12 +26,13 @@ const Discover = () => {
     return;
   }, []);
 
+  const venuesPerPage = 12;
   const indexOfLastVenue = currentPage * venuesPerPage;
   const indexOfFirstVenue = indexOfLastVenue - venuesPerPage;
   const currentVenues = venueData.slice(indexOfFirstVenue, indexOfLastVenue);
 
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(venueData.length / venuesPerPage); i++) {
+  for (let i = 1; i <= (Math.ceil(venueData.length / venuesPerPage)); i++) {
     pageNumbers.push(i);
   }
 
@@ -52,33 +52,38 @@ const Discover = () => {
   ));
 
   return (
-    <div>
-      <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
+    <div className="discover-component">
+      <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
       <h2 className="h2 section-title">Discover venues</h2>
-      <section className="clublist" id="destination">
-        <div className="container">
+      <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>
+          <ul className="discover-list" >
           {currentVenues.map((venueData) => (
-            <div className="clublist-card" style={{marginBottom: '15px'}} key={venueData._id}>
-              <figure className="card-img"><img src={venueData.image} alt={venueData.name} loading="lazy" /></figure>
-              <div className="card-content">
-                <div className="grid-clublist">
-                  <div className="item">
-                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
+                <div className="discover-card">
+                  <figure className="card-img">
+                    <img src={venueData.image} alt={venueData.name} loading="lazy" />
+                  </figure>
+
+                  <div className="card-content">
+                    <div className="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
                     <p className="card-subtitle">{venueData.address}</p>
-                  </div>
-                  <div className="item">
-                    <p className="card-text">{venueData.about.length > 300 ? venueData.about.slice(0, 300) + "..." : venueData.about}</p>
+                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
+                    
+                    <p className="card-text">{venueData.about.length > 100 ? venueData.about.slice(0, 100) + "..." : venueData.about}</p>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
-          <button className="btn btn-primary">Discover More</button>
+            ))}
+          </ul>
           <ul className="pagination">
             {renderPageNumbers}
         </ul>
-        </div>
-      </section>
+    </div>
     </div>
   );
 };

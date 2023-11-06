@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import '../css/settings.css';
 import { ProSidebar, Menu, MenuItem, SidebarFooter, SidebarContent } from "react-pro-sidebar";
 import { FaList, FaRegHeart } from "react-icons/fa";
 import { FiHome, FiLogOut } from "react-icons/fi";
@@ -8,6 +7,7 @@ import { BiCog } from "react-icons/bi";
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
+import '../css/settings.css';
 
 export default function Profile() {
   const [form, setForm] = useState({
@@ -132,13 +132,13 @@ export default function Profile() {
           </ProSidebar>
         </div>
       </div>
-      <div className="grid-settings-right">
+      <div className="grid-settings-right" style={{marginTop:'20px'}}>
         <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
         <form onSubmit={onSubmit} style={{ color: '#000000' }}>
           <div className="grid-about">
             <div className="item">
               <div className="form-group">
-                <label htmlFor="name">First Name: </label>
+                <label htmlFor="name">First Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -150,7 +150,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="lastName">Last Name: </label>
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -162,13 +162,13 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="gender" style={{ color: 'black' }}>Gender: </label>
+                <label htmlFor="gender" style={{ color: 'black' }}>Gender</label>
                 <select
                   className="form-control"
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', marginTop:'4px', color: 'white', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#fff', borderRadius: '10px', borderWidth:'thin', borderColor:'#7a7a7a', marginTop:'4px', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px', color:'#7a7a7a' }}
                 >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
@@ -178,7 +178,7 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="phone">Phone: </label>
+                <label htmlFor="phone">Phone</label>
                 <input
                   type="text"
                   className="form-control"
@@ -190,20 +190,20 @@ export default function Profile() {
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="birthdate">Birthdate: </label>
+                <label htmlFor="birthdate">Birthdate</label>
                 <input
                   type="date"
                   className="form-control"
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#8a8a8a', borderRadius: '15px', color: 'white', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '17px' }}
+                  style={{ backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
                 />
               </div>
             </div>
             <div className="item">
               <div className="form-group">
-                <label htmlFor="_id">ID (Read Only): </label>
+                <label htmlFor="_id">ID (Read Only)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -216,14 +216,15 @@ export default function Profile() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email" style={{marginLeft:'10px'}}>Email: </label>
+            <label htmlFor="email" style={{marginLeft:'10px'}}>Email</label>
             <input
               type="text"
               className="form-control"
               id="email"
               value={form.email}
               onChange={(e) => updateForm({ email: e.target.value })}
-              style={{marginLeft:'10px'}}
+              style={{marginLeft:'12px', width:'99%'}}
+              readOnly
             />
           </div>
           <br />

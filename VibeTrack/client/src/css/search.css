@@ -1,47 +1,16 @@
-
-.action-box {
-  border: 1px solid #ccc; 
-  padding: 10px; 
-  margin: 10px; 
-  display: inline-block; 
-  border-radius: 5px; 
-  background-color: rgb(198, 56, 56);
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
-.main-box{
-  border: 2px solid green;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-  background-color: rgb(207, 205, 223);
-}
-
-.para{
-text-align: center;
-color: green;
-width: 100%;
-padding: 20px;
-font-size: 2em;
-}
-
-.nearMe{
-color: black;
-text-align: center;
-
-}
-
-.para{
-  text-align: center;
-  color: green;
-  width: 100%;
-  padding: 20px;
-  font-size: 2em;
-}
-
-.nearMe{
-  color: black;
-  text-align: center;
-
+.search-container{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px; 
+  background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
+  margin-bottom:20px;
 }
 
 table {
@@ -67,3 +36,16 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 tr:nth-child(even) {background-color: #f2f2f2;}
+
+.grid-map{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid-button{
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  grid-gap: 10px;
+  padding:10px;
+}

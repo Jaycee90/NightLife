@@ -1,14 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import { Chip} from "@material-ui/core";
 import '../css/safety.css';
+
 
 function Safety() {
   const [venues, setVenues] = useState([]);
   const [selectedVenues, setSelectedVenues] = useState([]);
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: "Here's a list of clubs I am visiting tonight",
+    subject: "I'm visiting these clubs tonight, please keep an eye out for me!",
     text: '',
   });
+
+  const [values, setValues] = useState(["vibetracktxt@gmail.com"]);
+  const [currentValue, setCurrentValue] = useState("");
+
+  const handleKeyUp = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+      const newToValue = [...emailData.to.split(','), e.target.value].join(',');
+      setEmailData({
+        ...emailData,
+        to: newToValue,
+      });
+      setValues((oldState) => [...oldState, e.target.value]);
+      setCurrentValue("");
+    }
+  };
+
+  const handleChange = (e) => {
+    setCurrentValue(e.target.value);
+  };
+
+  const handleDelete = ( item, index) =>{
+    let arr = [...values]
+    arr.splice(index,1)
+    console.log(item)
+    setValues(arr)
+  }
 
   useEffect(() => {
     const getVenues = async () => {
@@ -30,13 +59,6 @@ function Safety() {
     getVenues();
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEmailData({
-      ...emailData,
-      [name]: value,
-    });
-  };
 
   const sendEmail = () => {
     const messageWithSelectedVenues = `Selected Venues:\n${selectedVenues.join('\n')}`;
@@ -67,49 +89,64 @@ function Safety() {
     }
   };
 
+  const handleDeleteVenue = (venue) => {
+    setSelectedVenues(prevSelectedVenues =>
+      prevSelectedVenues.filter(v => v !== venue)
+    );
+  }
+
+
   return (
-    <>
-      <div className="intro-container">
+    <div>
+      <div className="intro-container"  style={{marginTop:"20px"}}>
         <h1 className="intro-title">Safety First!</h1>
-        <p className="intro-description">
-          Clubs! Dancing! Drinks! It's all fun, but who knows what will happen. We are here for you
-          to ease the minds of anyone else when you go out tonight! Choose from a list of great clubs you
-          are visiting, and we'll send that information to an emergency contact!
-        </p>
+        <p className="intro-description">Clubs! Dancing! Drinks! It's all fun, but who knows what will happen.</p>
+        <p className="intro-description">We are here for you to ease the minds of anyone else when you go out tonight! </p>
+        <p className="intro-description">Choose from a list of great clubs you are visiting, and we'll drop them a message or alert them if something goes wrong.</p>
       </div>
-      <div className="selected-clubs-container">
-        <h1 className="selected-clubs-title">Selected Clubs</h1>
-        <ul className="selected-clubs-list">
-          {selectedVenues.map((venue, index) => (
-            <li key={index} className="selected-clubs-item">
-              {venue}
-            </li>
+      <div>	
+      <div style={{paddingLeft:'20px', marginTop:'20px'}}>
+      {values.map((item,index) => (
+            <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
           ))}
-        </ul>
       </div>
-      <div>
-        <input
-          type="email"
-          name="to"
-          placeholder="Emergency Contact"
-          value={emailData.to}
-          onChange={handleInputChange}
-          className="email-input"
-        />
-        <button onClick={sendEmail} className="send-email-button">
-          Send Email
-        </button>
+      <div className="grid-safety" style={{padding:'20px'}}>
+        <div class="item">
+				  <input
+					  value={currentValue}
+					  onChange={handleChange}
+					  onKeyDown={handleKeyUp}
+            placeholder="Enter email"
+            type="email"
+            name="to"
+            className="email-input"
+            style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474', borderColor:'#747474'}}
+            inputProps={{ style: { backgroundColor: "#fff", color:'#747474', borderColor:'#747474' } }}
+				  />
+        </div>
+        <div class="item">
+          <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
+            Send safety notification
+          </button>
+        </div>
+      </div> 
+      </div>
+      
+      <div className="selected-clubs-container">
+        {selectedVenues.map((venue,index) => (
+            <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#e24e99', color:'#fff', marginRight:'10px'}}/>
+          ))}
       </div>
       <div className="venues-container">
         <ul className="venues-list">
           {venues.map((venue, index) => (
             <li key={index} className="venue-item" onClick={() => handleClickedVenue(venue.name)}>
-              {venue.name}
+              {venue.name.length > 25 ? venue.name.slice(0, 25) + "..." : venue.name}
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
 
