@@ -38,6 +38,7 @@ function Safety() {
     console.log(item)
     setValues(arr)
   }
+
   useEffect(() => {
     const getVenues = async () => {
       try {
@@ -87,13 +88,12 @@ function Safety() {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
-
-  const handleDeleteVenue = ( venue, index) =>{
-    let arr = [...values]
-    arr.splice(index,1)
-    console.log(venue)
-    setValues(arr)
+  const handleDeleteVenue = (venue) => {
+    setSelectedVenues(prevSelectedVenues =>
+      prevSelectedVenues.filter(v => v !== venue)
+    );
   }
+
 
   return (
     <div>
@@ -106,7 +106,6 @@ function Safety() {
       <div>	
       <div className="selected-clubs-container">
         <h1 className="selected-clubs-title">Selected Clubs</h1>
-
         {selectedVenues.map((venue,index) => (
             <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
           ))}
