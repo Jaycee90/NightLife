@@ -88,6 +88,13 @@ function Safety() {
     }
   };
 
+  const handleDeleteVenue = ( venue, index) =>{
+    let arr = [...values]
+    arr.splice(index,1)
+    console.log(venue)
+    setValues(arr)
+  }
+
   return (
     <div>
       <div className="intro-container"  style={{marginTop:"20px"}}>
@@ -99,13 +106,10 @@ function Safety() {
       <div>	
       <div className="selected-clubs-container">
         <h1 className="selected-clubs-title">Selected Clubs</h1>
-        <ul className="selected-clubs-list">
-          {selectedVenues.map((venue, index) => (
-            <li key={index} className="selected-clubs-item">
-              {venue}
-            </li>
+
+        {selectedVenues.map((venue,index) => (
+            <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
           ))}
-        </ul>
       </div>
       <div style={{paddingLeft:'20px', marginTop:'20px'}}>
       {values.map((item,index) => (
