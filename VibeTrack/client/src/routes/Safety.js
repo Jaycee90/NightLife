@@ -88,6 +88,7 @@ function Safety() {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
+  
   const handleDeleteVenue = (venue) => {
     setSelectedVenues(prevSelectedVenues =>
       prevSelectedVenues.filter(v => v !== venue)
