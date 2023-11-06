@@ -141,7 +141,7 @@ function Safety() {
         <ul className="venues-list">
           {venues.map((venue, index) => (
             <li key={index} className="venue-item" onClick={() => handleClickedVenue(venue.name)}>
-              {venue.name.length > 25 ? venue.name.slice(0, 20) + "..." : venue.name}
+              {venue.name.length > 25 ? venue.name.slice(0, 25) + "..." : venue.name}
             </li>
           ))}
         </ul>
