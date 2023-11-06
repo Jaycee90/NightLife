@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhone, faEnvelope, faComment } from "@fortawesome/free-solid-svg-icons";
 import '../css/footer.css';
 
 export default function Footer() {
@@ -12,9 +14,12 @@ export default function Footer() {
 					<div className="Column">
 						<p className="Heading">Leave Us a Message</p>
 						<a href="#" className="FooterLink">and we will get back to you as soon as possible.</a>
+                        <form className="media-centered">
+                        <button type="submit" className="btn btn-primary" style={{fontSize:'12px', backgroundColor: "#e24e99 ", borderRadius:'15px',}}>Leave us a message</button>
+                        </form>
 					</div>
 					<div className="Column">
-						<p className="Heading">Supervisor</p>
+						<p className="Heading">Supervisors</p>
 						<a href="#" className="FooterLink">Instructor: Dr. Ted Lehr</a>
 						<a href="#" className="FooterLink">D.I.Assistant: Mirna Elizondo</a>
 						<a href="#" className="FooterLink">Grader: Sarah Davidson</a>
@@ -28,12 +33,16 @@ export default function Footer() {
 					</div>
 					<div className="Column">
 						<p className="Heading">Contact</p>
-						<a href="#" className="FooterLink">(512) 245-2111</a>
-						<a href="#" className="FooterLink">601 University Dr</a>
-						<a href="#" className="FooterLink">San Marcos, TX 78666</a>
+						<a href="#" className="FooterLink">
+                        <FontAwesomeIcon icon={faPhone} size="1x" style={{paddingRight:'5px'}}/>Phone: (512) 245-2111</a>
+						<a href="#" className="FooterLink">
+                        <FontAwesomeIcon icon={faEnvelope} size="1x" style={{paddingRight:'5px'}}/>Email: vibetracktxt@gmail.com</a>
+						<a href="#" className="FooterLink">
+                        <FontAwesomeIcon  icon={faComment} size="1x" style={{paddingRight:'5px'}}/>Chat with our AI bot</a>
 					</div>
 				</div>
 			</div>
+            <p className="Disclaimer">Copyright © 2023 Vibetrack · Terms · Privacy Policy · Contact Us</p>
 		</div>
         </div>
 	);

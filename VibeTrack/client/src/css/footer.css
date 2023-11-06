@@ -10,7 +10,7 @@ body {
     padding:25px;
     height:100%;
   }
-.h1{
+.Box h1{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .Box {
@@ -61,5 +61,14 @@ body {
     font-weight: bold;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border-bottom: 1px solid #fff;
+}
+
+.Disclaimer{
+    margin-bottom: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    border-top: 1px solid #fff;
+    padding-top:10px;
+    text-align: center;
 }
 }
