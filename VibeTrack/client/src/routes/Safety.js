@@ -88,7 +88,7 @@ function Safety() {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
-  
+
   const handleDeleteVenue = (venue) => {
     setSelectedVenues(prevSelectedVenues =>
       prevSelectedVenues.filter(v => v !== venue)
@@ -105,12 +105,6 @@ function Safety() {
         <p className="intro-description">Choose from a list of great clubs you are visiting, and we'll drop them a message or alert them if something goes wrong.</p>
       </div>
       <div>	
-      <div className="selected-clubs-container">
-        <h1 className="selected-clubs-title">Selected Clubs</h1>
-        {selectedVenues.map((venue,index) => (
-            <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
-          ))}
-      </div>
       <div style={{paddingLeft:'20px', marginTop:'20px'}}>
       {values.map((item,index) => (
             <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
@@ -137,11 +131,17 @@ function Safety() {
         </div>
       </div> 
       </div>
+      
+      <div className="selected-clubs-container">
+        {selectedVenues.map((venue,index) => (
+            <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#e24e99', color:'#fff', marginRight:'10px'}}/>
+          ))}
+      </div>
       <div className="venues-container">
         <ul className="venues-list">
           {venues.map((venue, index) => (
             <li key={index} className="venue-item" onClick={() => handleClickedVenue(venue.name)}>
-              {venue.name}
+              {venue.name.length > 25 ? venue.name.slice(0, 20) + "..." : venue.name}
             </li>
           ))}
         </ul>
