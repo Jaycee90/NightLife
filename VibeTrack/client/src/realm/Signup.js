@@ -39,7 +39,7 @@ const Signup = () => {
  };
  
  return (
-  <div class="login-component"  style={{marginTop:"20px"}}>
+  <div class="login-component"  style={{marginTop:"20px", marginBottom:'30px'}}>
   <div class="container-fluid">
     <div class="card card-login">
       <div class="card-body">

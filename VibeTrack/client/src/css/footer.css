@@ -12,6 +12,7 @@ body {
   }
 .Box h1{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:20px;
 }
 .Box {
     background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
@@ -24,10 +25,12 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1500px;
+    max-width: 1550px;
     margin: 0 auto;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 10px;
+    font-size: 10px;    
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .Column {
@@ -40,7 +43,7 @@ body {
 
 .Row {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
     grid-gap: 20px;
 
 }
@@ -54,7 +57,7 @@ body {
 }
 
 .Heading {
-    font-size: 20px;
+    font-size: 17px;
     color: #fff;
     margin-bottom: 20px;
     padding-bottom: 10px;

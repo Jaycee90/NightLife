@@ -10,6 +10,7 @@ body {
   padding:25px;
   margin:0;
   height:100%;
+  
 }
 
 .form-group label {
@@ -60,6 +61,7 @@ body {
   margin:0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size:15px;
+  height: 92vh;
 }
 
 .grid-settings left{
@@ -77,7 +79,7 @@ body {
     width: 220px;
   }
   #header .pro-sidebar {
-    height: 91vh;
+    height: 92vh;
   }
   #header .closemenu {
     color: #000;

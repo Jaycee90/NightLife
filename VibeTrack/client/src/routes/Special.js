@@ -44,7 +44,7 @@ function SpecialEvent() {
   };
   
   return (
-    <div>
+    <div  style={{marginBottom:'20px'}}>
     <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
     <h2 className="h2 section-title">Discover upcoming events</h2>
     <div className="special-event">

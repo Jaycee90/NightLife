@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="footer-component">
             
 		<div className="Box">
-			<h1 style={{textAlign: "center",paddingBottom: "20px",}}>Uncover places, discover world!</h1>
+			<h1 style={{textAlign: "center",paddingBottom: "20px"}}>Uncover places, discover world!</h1>
 			<div className="FooterContainer">
 				<div className="Row">
 					<div className="Column">

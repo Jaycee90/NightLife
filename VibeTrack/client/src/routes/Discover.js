@@ -52,7 +52,7 @@ const Discover = () => {
   ));
 
   return (
-    <div className="discover-component">
+    <div className="discover-component" style={{marginBottom:'40px'}}>
       <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
       <h2 className="h2 section-title">Discover venues</h2>
       <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>

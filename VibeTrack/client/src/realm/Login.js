@@ -26,7 +26,7 @@ const Login = () => {
  // Redirect user to a specified location (default to home)
  const redirectNow = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
-   navigate(redirectTo ? redirectTo : "/");
+   navigate(redirectTo ? redirectTo : "/profile");
  }
  
  // Load user data if user is not already logged in
@@ -61,7 +61,7 @@ const Login = () => {
  };
  
  return (
-  <div class="login-component"  style={{marginTop:"20px"}}>
+  <div class="login-component"  style={{marginTop:"20px", marginBottom:'30px'}}>
     <div class="card card-login">
       <div class="card-body">
         <div class="row justify-content-center"  style={{color:'#000'}}>
