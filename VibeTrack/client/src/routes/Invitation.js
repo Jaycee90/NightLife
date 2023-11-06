@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Chip} from "@material-ui/core";
 import '../css/invite.css';
  
 function Invitation() {
@@ -6,21 +7,48 @@ function Invitation() {
   const [selectedVenues, setSelectedVenues] = useState([]);
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: "Hey, Join me and let's have Fun!",
+    subject: "Hey, join me at these clubs and let's have some fun!",
     text: '',
   });
- 
+
+  const [values, setValues] = useState(["vibetracktxt@gmail.com"]);
+  const [currentValue, setCurrentValue] = useState("");
+
+  const handleKeyUp = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+      const newToValue = [...emailData.to.split(','), e.target.value].join(',');
+      setEmailData({
+        ...emailData,
+        to: newToValue,
+      });
+      setValues((oldState) => [...oldState, e.target.value]);
+      setCurrentValue("");
+    }
+  };
+
+  const handleChange = (e) => {
+    setCurrentValue(e.target.value);
+  };
+
+  const handleDelete = ( item, index) =>{
+    let arr = [...values]
+    arr.splice(index,1)
+    console.log(item)
+    setValues(arr)
+  }
+
   useEffect(() => {
     const getVenues = async () => {
       try {
         const response = await fetch(`http://localhost:5050/record/`);
- 
+
         if (!response.ok) {
           const message = `An error occurred: ${response.statusText}`;
           window.alert(message);
           return;
         }
- 
+
         const venueData = await response.json();
         setVenues(venueData);
       } catch (error) {
@@ -29,15 +57,8 @@ function Invitation() {
     };
     getVenues();
   }, []);
- 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEmailData({
-      ...emailData,
-      [name]: value,
-    });
-  };
- 
+
+
   const sendEmail = () => {
     const messageWithSelectedVenues = `Selected Venues:\n${selectedVenues.join('\n')}`;
     const emailDataWithVenues = {
@@ -59,55 +80,71 @@ function Invitation() {
         console.error('Error:', error);
       });
   };
- 
+
   const handleClickedVenue = (clickedVenue) => {
     if (selectedVenues.includes(clickedVenue)) return;
     else {
       setSelectedVenues([...selectedVenues, clickedVenue]);
     }
   };
+
+  const handleDeleteVenue = (venue) => {
+    setSelectedVenues(prevSelectedVenues =>
+      prevSelectedVenues.filter(v => v !== venue)
+    );
+  }
+
  
   return (
-    <>
-      <div className="intro-container">
-        <h1 className="intro-title">Invite Your Loved Ones!</h1>
-        <p className="intro-description">
-          Some amazing clubs that you can join tonight and have fun with your friends. 
-        </p>
+    <div>
+      <div className="intro-container"  style={{marginTop:"20px"}}>
+        <h1 className="intro-title">Clubbing is always more fun with friends</h1>
+        <p className="intro-description">There's plenty of amazing clubs that you can join tonight and have fun with your friends.</p>
+        <p className="intro-description">Choose from a list of great clubs you are planning to visit tonight, and we'll drop them an invitation to hop along!</p>
       </div>
-      <div className="selected-clubs-container">
-        <h1 className="selected-clubs-title">Selected Clubs</h1>
-        <ul className="selected-clubs-list">
-          {selectedVenues.map((venue, index) => (
-            <li key={index} className="selected-clubs-item">
-              {venue}
-            </li>
+      <div>	
+      <div style={{paddingLeft:'20px', marginTop:'20px'}}>
+      {values.map((item,index) => (
+            <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
           ))}
-        </ul>
       </div>
-      <div>
-        <input
-          type="email"
-          name="to"
-          placeholder="Emergency Contact"
-          value={emailData.to}
-          onChange={handleInputChange}
-          className="email-input"
-        />
-        <button onClick={sendEmail} className="send-email-button">
-          <strong>Send Email</strong>
-        </button>
+      <div className="grid-safety" style={{padding:'20px'}}>
+        <div class="item">
+				  <input
+					  value={currentValue}
+					  onChange={handleChange}
+					  onKeyDown={handleKeyUp}
+            placeholder="Enter email"
+            type="email"
+            name="to"
+            className="email-input"
+            style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474', borderColor:'#747474'}}
+            inputProps={{ style: { backgroundColor: "#fff", color:'#747474', borderColor:'#747474' } }}
+				  />
+        </div>
+        <div class="item">
+          <button onClick={sendEmail} className="send-email-button"  style={{borderRadius:"10px",  height:"40px", marginTop:'10px'}}>
+            Send my invitation
+          </button>
+        </div>
+      </div> 
+      </div>
+      
+      <div className="selected-clubs-container">
+        {selectedVenues.map((venue,index) => (
+            <Chip  size="small" onDelete={()=>handleDeleteVenue(venue,index)} label={venue} style={{backgroundColor:'#e24e99', color:'#fff', marginRight:'10px'}}/>
+          ))}
       </div>
       <div className="venues-container">
         <ul className="venues-list">
           {venues.map((venue, index) => (
             <li key={index} className="venue-item" onClick={() => handleClickedVenue(venue.name)}>
-              {venue.name}
+              {venue.name.length > 25 ? venue.name.slice(0, 25) + "..." : venue.name}
             </li>
           ))}
         </ul>
       </div>
-    </>
+    </div>
   );
 }
  
