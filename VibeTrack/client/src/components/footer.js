@@ -21,7 +21,7 @@ export default function Footer() {
 					</div>
 					<div className="Column">
 						<p className="Heading">About Us</p>
-						<a href="#" className="FooterLink">Meet the Teamo</a>
+						<a href="#" className="FooterLink">Meet the Team</a>
 						<a href="#" className="FooterLink">Our Vision</a>
 					</div>
 					<div className="Column">
