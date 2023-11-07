@@ -27,15 +27,15 @@ function Invitation() {
     }
   };
 
-  const handleChange = (e) => {
+  const handleEmailChange = (e) => {
     setCurrentValue(e.target.value);
   };
-
-  const handleDelete = ( item, index) =>{
-    let arr = [...values]
-    arr.splice(index,1)
-    console.log(item)
-    setValues(arr)
+  
+  const handleEmailDelete = (item, index) =>{
+    let arr = [...values]; // Create a copy of 'values' array
+    arr.splice(index,1); // Remove one item from the 'values' array at specified 'index'
+    console.log(item);
+    setValues(arr); // Update 'values' state with the modified array
   }
 
   useEffect(() => {
@@ -82,15 +82,15 @@ function Invitation() {
   };
 
   const handleClickedVenue = (clickedVenue) => {
-    if (selectedVenues.includes(clickedVenue)) return;
+    if (selectedVenues.includes(clickedVenue)) return; // Check if venue is already selected
     else {
-      setSelectedVenues([...selectedVenues, clickedVenue]);
+      setSelectedVenues([...selectedVenues, clickedVenue]); // Add venue to selectedVenues state
     }
   };
 
   const handleDeleteVenue = (venue) => {
     setSelectedVenues(prevSelectedVenues =>
-      prevSelectedVenues.filter(v => v !== venue)
+      prevSelectedVenues.filter(v => v !== venue) // Filter out the 'v' element from the array
     );
   }
 
@@ -105,14 +105,14 @@ function Invitation() {
       <div>	
       <div style={{paddingLeft:'20px', marginTop:'20px'}}>
       {values.map((item,index) => (
-            <Chip  size="small" onDelete={()=>handleDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
+            <Chip  size="small" onDelete={()=>handleEmailDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
           ))}
       </div>
       <div className="grid-safety" style={{padding:'20px'}}>
         <div class="item">
 				  <input
 					  value={currentValue}
-					  onChange={handleChange}
+					  onChange={handleEmailChange}
 					  onKeyDown={handleKeyUp}
             placeholder="Enter email"
             type="email"

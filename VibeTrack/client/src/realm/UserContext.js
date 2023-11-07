@@ -24,11 +24,8 @@ export const UserProvider = ({ children }) => {
  const emailPasswordSignup = async (email, password) => {
    try {
      await app.emailPasswordAuth.registerUser(email, password);
-      // Since we are automatically confirming our users, we are going to log in
-      // the user using the same credentials once the signup is complete.
       // return emailPasswordLogin(email, password);
-
-      // The user is automatically confirmed, no need to manually confirm.
+      // The user is automatically confirmed and log in.
       const authenticatedUser = await emailPasswordLogin(email, password);
       return authenticatedUser;
    } catch (error) {

@@ -8,33 +8,34 @@ const Signup = () => {
  const navigate = useNavigate(); // Hook for navigating between routes
  const location = useLocation(); // Hook for getting the current location
  
- const { emailPasswordSignup } = useContext(UserContext); // Destructuring and accessing the signup function from the context
- const [form, setForm] = useState({
+ const { emailPasswordSignup } = useContext(UserContext); // Get acess to the signup function from the context
+ const [form, setForm] = useState({  // State to manage form input
    email: "",
    password: "",
-   name: "", // New field for first name
-   lastName: ""   // New field for last name
+   name: "", 
+   lastName: ""  
  });
- 
+
+ // Handle changes in form input fields
  const onFormInputChange = (event) => {
    const { name, value } = event.target;
-   setForm({ ...form, [name]: value }); // Updating the form state with the new input value
+   setForm({ ...form, [name]: value }); 
  };
  
  const redirectNow = () => {
-   const redirectTo = location.search.replace("?redirectTo=", ""); // Extracting the redirectTo parameter from the URL
-   navigate(redirectTo ? redirectTo : "/"); // Navigating to the redirectTo path or the default path if not provided
+   const redirectTo = location.search.replace("?redirectTo=", "");
+   navigate(redirectTo ? redirectTo : "/login"); 
  }
- 
- const onSubmit = async () => {
+
+ const onSubmit = async () => { // Handle form submission for login
    try {
-     const user = await emailPasswordSignup(form.email, form.password); // Calling the signup function
+     const user = await emailPasswordSignup(form.email, form.password); // Call the signup function
      if (user) {
-        alert(`Your user ID is: ${user.id}. Keep this with you.`); // Showing a success message with the user ID
-       redirectNow(); // Redirecting after successful signup
+        // alert(`Your user ID is: ${user.id}. Keep this with you.`);
+        redirectNow();
      }
    } catch (error) {
-     alert(error); // Handling and alerting any errors that occur during signup
+     alert(error); 
    }
  };
  

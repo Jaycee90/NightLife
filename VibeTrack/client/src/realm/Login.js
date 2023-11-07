@@ -11,8 +11,7 @@ const Login = () => {
  // Retrieve user, fetchUser, and emailPasswordLogin functions from UserContext
  const { user, fetchUser, emailPasswordLogin } = useContext(UserContext);
  
- // State to manage form input
- const [form, setForm] = useState({
+ const [form, setForm] = useState({ // State to manage form input
    email: "",
    password: ""
  });
@@ -23,7 +22,6 @@ const Login = () => {
    setForm({ ...form, [name]: value });
  };
  
- // Redirect user to a specified location (default to home)
  const redirectNow = () => {
    const redirectTo = location.search.replace("?redirectTo=", "");
    navigate(redirectTo ? redirectTo : "/profile");
