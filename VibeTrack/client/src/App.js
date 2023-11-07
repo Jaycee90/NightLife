@@ -27,7 +27,6 @@ import Invitation from "./routes/Invitation";
 import Safety from './routes/Safety';
 import Search from './routes/Search'; 
 import SpecialEvent from './routes/Special';
-import Template from './routes/Template';
 
 function App() {
  return (
@@ -40,7 +39,6 @@ function App() {
             <Route path="/data/:id" element={<Data />} />
             <Route path='/specialevent' element={<SpecialEvent/>} />
             <Route path='/feature' element={<Feature/>} />
-            <Route path='/template' element={<Template/>} />
             <Route path='/search' element={<Search />} />
             <Route path='/login' element={<Login />} />
             <Route path='/safety' element={<Safety />} />

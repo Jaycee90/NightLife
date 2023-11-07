@@ -87,6 +87,7 @@ export default function StarRating(props) {
     async function onSubmit(e) {
       e.preventDefault();
       const editedVenue = {
+        // Need to include otherwise venue's fields will be wiped upon submit
         _id : form._id,
         id : form.id,
         name: form.name,
@@ -106,7 +107,8 @@ export default function StarRating(props) {
         yelp: form.yelp,
         amenities: form.amenities,
         tags: form.tags,
-        price: form.price,
+        price: form.price, 
+
         rating: calculateNewRating(currentValue, form.rating, form.review),
         review: parseFloat(form.review) + 1,
       };
