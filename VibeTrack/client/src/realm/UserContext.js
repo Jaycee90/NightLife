@@ -53,13 +53,12 @@ const passwordReset = async (token, tokenId, password) => {
   }
 };
 
- // Function to fetch the user (if the user is already logged in) from local storage
+// Function to fetch the user (if the user is already logged in) from local storage
+// so that we can use it in our app across different components.
  const fetchUser = async () => {
    if (!app.currentUser) return false;
    try {
      await app.currentUser.refreshCustomData();
-     // Now, if we have a user, we are setting it to our user context
-     // so that we can use it in our app across different components.
      setUser(app.currentUser);
      return app.currentUser;
    } catch (error) {
@@ -67,7 +66,7 @@ const passwordReset = async (token, tokenId, password) => {
    }
  }
  
- // Function to logout user from our App Services app
+// Function to logout user from our App Services app
  const logOutUser = async () => {
    if (!app.currentUser) return false;
    try {

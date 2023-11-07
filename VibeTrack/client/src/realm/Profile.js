@@ -92,13 +92,13 @@ export default function Profile() {
       },
     });
   
-    // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
 
   const [menuCollapse] = useState(false)
   
   const { logOutUser } = useContext(UserContext);
+
   const logOut = async () => {
     try {
       const loggedOut = await logOutUser();

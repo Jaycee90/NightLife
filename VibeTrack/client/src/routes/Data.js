@@ -47,8 +47,7 @@ function timeStringToMinutes(timeString) {
 
   let [hours, minutes] = timePart.split(':').map(Number);
 
-  if (hours === 12) {
-    // If it's 12:00 PM, set hours to 12 (no change)
+  if (hours === 12) { // If it's 12:00 PM, set hours to 12 (no change)
   } else if (timeString.toLowerCase().includes('pm')) {
     hours += 12; // Add 12 hours for PM times (except 12:00 PM)
   }
@@ -59,7 +58,7 @@ function timeStringToMinutes(timeString) {
 
 function formatAmenities(amenitiesString) {
   if (!amenitiesString) {
-    return []; // or you can return a default value, an empty array in this case
+    return []; 
   }
   
   const amenitiesList = amenitiesString.split(',');
@@ -143,6 +142,7 @@ function Data(props) {
 
   const formattedAmenities = formatAmenities(venueData.amenities);
 
+  window.scrollTo({ top: 0, behavior: 'smooth' }); 
   return (
     <div  style={{marginTop:"20px"}}>
       <div className="about-section">

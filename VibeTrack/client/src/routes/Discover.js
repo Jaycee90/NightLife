@@ -21,7 +21,7 @@ const Discover = () => {
     }
 
     getVenues();
-    window.scrollTo({ top: 0, behavior: 'smooth' }); // Doesn't work like pageClick?
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     return;
   }, []);
