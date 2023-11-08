@@ -2,16 +2,14 @@
 > A nightclub tracker web app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
  <!-- > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
 
-**Update**: As of September 28, 2023, we decided to change our project from a mobile app to a web-based app. This is because there has been some issues when it comes to configuring/compiling/deploying the starter app. We also take account of the factor that having a web-based app for our project would be more beneficial to our future resume as it is easier for employer or anyone to see it on public domain.
-
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
 * [Features](#features)
 * [Screenshots](#screenshots)
 * [Project Status](#project-status)
-* [Sprint 1](#sprint-1)
 * [Sprint 2](#sprint-2)
+* [Sprint 1](#sprint-1)
 * [Room for Improvement](#room-for-improvement)
 * [Contact](#contact)
 <!-- * [Setup](#setup) -->
@@ -30,6 +28,7 @@
 ## Technologies Used
 * React - version 18.2.0
 * MongoDB - version 7.0
+	* Realm Java SDK - 
 * Language
 	* JavaScript
 	* HTML, CSS
@@ -91,6 +90,70 @@ npm start
 ![Output](https://i.imgur.com/Uznj5Rz.png)
 
 * Note: Run ```npm i @material-ui/core --legacy-peer-deps``` on client server if needed (to resolve conflict in dependencies version).
+
+- - - -
+<a name="sprint-2"></a>
+## Sprint 2 Review
+### Review and Retrospective
+* For this sprint, our primary goal is to implement the our major planned features, such as login/signup, search, safety alert/invitation. We also implemented additional functions that aim to enhance the user experience (rating, feedback, recommendation).
+* [Sprint 2 Retrospective](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Retrospective.md)
+* Burnup report
+![Burnup Chart](https://i.imgur.com/GnqQ1Yi.png)
+
+### Screenshots
+* __Homepage__ and __Discover__ and __Special Event__ 
+![Homepage, Discover and Special Event](https://i.imgur.com/vV0zUhs.png)
+
+* __Signup__ and __Password Reset__ 
+![Signup and Password Reset](https://i.imgur.com/iqKOYVT.png)
+
+* __Venue__,  __Search__, __User Profile__, and __Emergency Contact__ 
+![Venue, Search, User Profile and Emergency Contact](https://i.imgur.com/slPczc9.png)
+
+* __Invitation__ and __Safety__ 
+![Invitation and Safety](https://i.imgur.com/2fbKizV.png)
+
+### Contributions
+* __Isaiah__: Implemented a feature to send an email to an emergency contact
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#isaiah) 
+* __Benu__: Implemented functions that aim to enhance and personalize user experiences, such as rating venue, getting recommendation, sending feedback, etc.
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#benu) 
+* __Michelle__: Implemented login and signup feature. Further expanded the database and worked on the interface for a more professional design.
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#michelle) 
+* __Nilu__: Implemented a feature of sending email to friends or families to join clubs & added CSS style to the page. Also, I successfully added the data from web scraping inside the container of my special event. 
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#nilu) 
+* __Jayce__: Implemented a search feature where we have a function to sort the top 10 nearest clubs to the user, a function to search a deserted club by name and I incorporated the clubs marker on map. Also worked on css to stylize our search feature.
+	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#jayce) 
+
+### Next Steps
+* __Isaiah__: 
+	* Implement mini Alert button into each Venue page
+	* Deploy application to Firebase/Heroku/etc.
+
+* __Benu__:
+	* Further modify the favorites to show current ratings of venues
+	* Finish the feedback function
+	* Implement more functions to enhance user experience.
+
+* __Michelle__: 
+	* Work with Jayce to combine the Discover and Search feature together. 
+	* Improve on user-related features to enhance security.
+	* Patch up Benu�s user experience enhancing functions into assigned component
+	* Look into using OpenAI for chatbox as customer support.
+
+* __Nilu__:
+	* Connect Special Event feature with react-calendar for each venue page
+	* Implement mini Invite button into Special Event page
+ 
+* __Jayce__:
+	* Implement filter by tag feature
+	* Further implement search feature
+	* Implement SimpleGMap into application (if free) to show route
+
+
+### Issues to Resolve
+* Database: Reformat venue.address so that it can be trimmed and look nicer in Search/Discover function
+* Data: Data page changes parameter when clicking on other feature (e..g go to Safety), need to consider path restriction
 - - - -
 <a name="sprint-1"></a>
 
@@ -98,6 +161,9 @@ npm start
 ### Review and Retrospective
 * For this sprint, our primary goal is to set up a web application for our nightclub tracker project with basic interface and features (Map, Calendar, Special Events). We are also working on the Database feature but will focus more onto that in Sprint 2.
 * [Sprint 1 Retrospective](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint1_Retrospective.md)
+* Burnup report
+![Burnup Chart](https://i.imgur.com/33S2DqW.png)
+
 ### Screenshots
 * __Homepage__ and __Discover__ (displaying all venue entries in our database)
 ![Homepage and Discover](https://i.imgur.com/T4wKCAL.png)
@@ -145,70 +211,6 @@ npm start
 * Route: If on localhost:3000/data/ and then click on Record List/Create/etc. on navigation bar, route will redirect to localhost:3000/data/recordList, etc.
 
 - - - -
-<a name="sprint-2"></a>
-## Sprint 2 Review
-### Review and Retrospective
-* For this sprint, our primary goal is to implement the our major planned features, such as login/signup, search, safety alert/invitation. We also implemented additional functions that aim to enhance the user experience (rating, feedback, recommendation).
-* [Sprint 2 Retrospective](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Retrospective.md)
-### Screenshots
-* __Homepage__ and __Discover__ and __Special Event__ 
-![Homepage, Discover and Special Event](https://i.imgur.com/vV0zUhs.png)
-
-* __Signup__ and __Password Reset__ 
-![Signup and Password Reset](https://i.imgur.com/iqKOYVT.png)
-
-* __Signup__ and __Password Reset__ 
-![Signup and Password Reset](https://i.imgur.com/iqKOYVT.png)
-
-* __Venue__,  __Search__, __User Profile__, and __Emergency Contact__ 
-![Venue, Search, User Profile and Emergency Contact](https://i.imgur.com/slPczc9.png)
-
-* __Invitation__ and __Safety__ 
-![Invitation and Safety](https://i.imgur.com/2fbKizV.png)
-
-### Contributions
-* __Isaiah__: Implemented a feature to send an email to an emergency contact
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#isaiah) 
-* __Benu__: Implemented functions that aim to enhance and personalize user experiences, such as rating venue, getting recommendation, sending feedback, etc.
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#benu) 
-* __Michelle__: Implemented login and signup feature. Further expanded the database and worked on the interface for a more professional design.
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#michelle) 
-* __Nilu__: Implemented a feature of sending email to friends or families to join clubs & added CSS style to the page. Also, I successfully added the data from web scraping inside the container of my special event. 
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#nilu) 
-* __Jayce__: Implemented a search feature where we have a function to sort the top 10 nearest clubs to the user, a function to search a deserted club by name and I incorporated the clubs marker on map. Also worked on css to stylize our search feature.
-	* [Jira task documentation](https://bitbucket.org/cs3398f23romulans/vibetrack/src/development/Document/Sprint2_Jira.md#jayce) 
-
-### Next Steps
-* __Isaiah__: 
-	* Implement mini Alert button into each Venue page
-	* Deploy application to Firebase/Heroku/etc.
-
-* __Benu__:
-	* Further modify the favorites to show current ratings of venues
-	* Finish the feedback function
-	* Implement more functions to enhance user experience.
-
-* __Michelle__: 
-	* Work with Jayce to combine the Discover and Search feature together. 
-	* Improve on user-related features to enhance security.
-	* Patch up Benu’s user experience enhancing functions into assigned component
-	* Look into using OpenAI for chatbox as customer support.
-
-* __Nilu__:
-	* Connect Special Event feature with react-calendar for each venue page
-	* Implement mini Invite button into Special Event page
- 
-* __Jayce__:
-	* Implement filter by tag feature
-	* Further implement search feature
-	* Implement SimpleGMap into application (if free) to show route
-
-
-### Issues to Resolve
-* Database: Reformat venue.address so that it can be trimmed and look nicer in Search/Discover function
-* Data: Data page changes parameter when clicking on other feature (e..g go to Safety), need to consider path restriction
-
-- - - -
 <a name="room-for-improvement"></a>
 ## Room for Improvement <!-- Include areas you believe need improvement / could be improved. Also add TODOs for future development. -->
 - Given that this is a course project, we have limited time to develop it to our full vision. Nevertheless, our goal is to develop a functional, user-friendly web app that offers information about nightclubs in the Austin area. If we choose to pursue this project beyond the classroom, we aspire to broaden its reach, potentially extending the database across the country for a more expansive impact.
@@ -220,11 +222,11 @@ To do: TBA...
 
 <a name="contact"></a>
 ## Contact Team
-- Isaiah Gage (frb32@txstate.edu)
-- Benu Liburd (bjl98@txstate.edu)
-- Michelle Nguyen (rnb90@txstate.edu)
-- Nilu Sah (zys5@txstate.edu)
-- Jayce Turambe (jnn56@txstate.edu)
+* Isaiah Gage (frb32@txstate.edu)
+* Benu Liburd (bjl98@txstate.edu)
+* Michelle Nguyen (rnb90@txstate.edu)
+* Nilu Sah (zys5@txstate.edu)
+* Jayce Turambe (jnn56@txstate.edu)
 
 	<!--<a name="acknowledgements"></a> -->
 	<!--## Acknowledgements -->
