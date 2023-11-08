@@ -34,7 +34,7 @@
   "price": "$",
   "rating": "4.2",
   "tags": "Bars,Pool Halls",
-  "review": 207
+  "review": 208
 },
 {
   "_id": {
@@ -51,7 +51,7 @@
   },
   "website": "https://www.chancesrbarsm.com/",
   "image": [
-    "https://i.imgur.com/6EIGn97.jpg",
+    "https://i.imgur.com/NxRk7dm.png",
     "https://i.imgur.com/E63OIGc.png",
     "https://i.imgur.com/52ky36U.jpg",
     "https://i.imgur.com/OZUb7xZ.jpg",
@@ -413,8 +413,8 @@
   "yelp": "https://www.yelp.com/biz/zelicks-san-marcos",
   "amenities": "No Reservations,Accepts Credit Cards,Not Accepts Android Pay,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Casual,Moderate Noise,Good for Groups,Pool Table,Private Lot Parking,Free Wi-Fi,Best nights on Tuesday, Friday, Saturday,Happy Hour Specials,Full Bar,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Open to All,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Dancing,Bike Parking",
   "price": "Bars",
-  "rating": 4.6,
-  "review": 755,
+  "rating": "4.6",
+  "review": 756,
   "tags": "$$"
 },
 {
@@ -450,8 +450,8 @@
   "amenities": "Takes Reservations,Offers Takeout,No Delivery,Many Vegetarian Options,Accepts Credit Cards,Not Accepts Apple Pay,Not Accepts Cryptocurrency,Outdoor Seating,Romantic, Intimate, Classy, Casual,Quiet,Casual Dress,Good for Groups,Good for Dinner,Street Parking, Private Lot Parking,Waiter Service,Free Wi-Fi,Best nights on Saturday,Happy Hour Specials,Beer & Wine Only,Smoking Outside Only,Wheelchair Accessible,Gender-neutral restrooms,Heated Outdoor Seating,Covered Outdoor Seating,Not Good For Kids,Not Good For Dancing,No Drive-Thru,Dogs Not Allowed,No TV,Bike Parking,Compostable containers available",
   "facebook": null,
   "price": "$$",
-  "rating": 4.7,
-  "review": 456,
+  "rating": "4.7",
+  "review": 457,
   "tags": "Wine Bars,Pizza,Tapas,Small Plates",
   "longitude": -97.93679
 },
@@ -1212,8 +1212,8 @@
   "yelp": "https://www.yelp.com/biz/red-bus-food-park-and-bar-san-marcos",
   "amenities": "Offers Delivery,Offers Takeout,Pescatarian Options,Vegan Options,Accepts Credit Cards,Accepts Android Pay,Accepts Apple Pay,Outdoor Seating,Good For Kids,Street Parking, Private Lot Parking,Free Wi-Fi,Live Music,Beer & Wine Only,Smoking Outside Only,Dogs Allowed,Wheelchair Accessible,TV,Latinx-owned,Women-owned,Open to All,No Happy Hour,Bike Parking",
   "price": "$",
-  "rating": 4.8,
-  "review": 21,
+  "rating": "4.8",
+  "review": 22,
   "tags": "Bars,Food Truck,Karaoke"
 },
 {

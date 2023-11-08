@@ -85,12 +85,12 @@ npm start
 * Start Client server (on another seperate terminal):
 ```
 cd VibeTrack/client
-npm install
+npm install 
 npm start
 ```
 ![Output](https://i.imgur.com/Uznj5Rz.png)
 
-
+* Note: Run ```npm i @material-ui/core --legacy-peer-deps``` on client server if needed (to resolve conflict in dependencies version).
 - - - -
 <a name="sprint-1"></a>
 
