@@ -168,7 +168,7 @@ a.link:hover {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-25);
-  height: 300px;
+  height: 250px;
 }
 
 .discover-card .card-img { height: 100%; }
@@ -218,18 +218,18 @@ a.link:hover {
 
 .discover .btn { margin-inline: auto; }
 
-  .discover-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
+.discover-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
 
-  .discover-list > li:not(:last-child) { margin-bottom: 0; }
+.discover-list > li:not(:last-child) { margin-bottom: 0; }
 
-  .discover-card .card-content { right: 20px; }
+.discover-card .card-content { right: 20px; }
 
-  .discover-list { grid-template-columns: repeat(3, 1fr); }
+.discover-list { grid-template-columns: repeat(3, 1fr); }
 }
 
 .grid-discover-search{

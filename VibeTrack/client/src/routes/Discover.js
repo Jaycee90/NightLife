@@ -79,21 +79,24 @@ const Discover = () => {
         setSearchQuery(event.target.value);
     };
     
-
   return (
     <div className="discover-component" style={{marginBottom:'40px'}}>
       <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
       <h2 className="h2 section-title">Discover venues</h2>
       <div className="grid-discover-search">
-        <div class="item">
+
+        <div class="item" style={{marginLeft:'10px'}}>
         <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={handleSearch}
-                        placeholder="Search by venue name"
-                        style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
-                    />
+          type="text"
+          value={searchQuery}
+          onChange={handleSearch}
+          placeholder="Search by name"
+          style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474', }}
+        />
+        <button onClick={searchQuery} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find venue</button>
+
         </div>
+
         <div class="item">
       <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>
           <ul className="discover-list" >
