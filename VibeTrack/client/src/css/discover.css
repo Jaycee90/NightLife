@@ -231,3 +231,12 @@ a.link:hover {
 
   .discover-list { grid-template-columns: repeat(3, 1fr); }
 }
+
+.grid-discover-search{
+  display: grid;
+  grid-template-columns: 20% 80%;
+  gap: 30px;
+  margin-bottom: 50px;
+  padding-right:20px;
+  margin-right:20px;
+}
