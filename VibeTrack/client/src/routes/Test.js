@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/discover.css';
+import Fuse from 'fuse.js';
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
