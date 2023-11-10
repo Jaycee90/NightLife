@@ -95,26 +95,30 @@ const Discover = () => {
 
         getRecords();
     }, []);
-
     const searchVenue = () => {
-        const foundVenue = records.find(record =>
-            record.name.toLowerCase() === searchQuery.toLowerCase()
-        );
-
-        if (foundVenue) {
-            setFoundVenueDetails({
-                name: foundVenue.name,
-                address: foundVenue.address,
-                about: foundVenue.about,
-                image: foundVenue.image,
-            });
-            setVenueFound(true);
-        } else {
-            setVenueFound(false);
-            setFoundVenueDetails(null);
-        }
-    };
-
+      const fuse = new Fuse(records, {
+          keys: ['name'],
+          includeScore: true,
+          threshold: 0.3, // Adjust this threshold based on your preference
+      });
+  
+      const searchResults = fuse.search(searchQuery);
+  
+      if (searchResults.length > 0) {
+          const foundVenue = searchResults[0].item;
+          setFoundVenueDetails({
+              name: foundVenue.name,
+              address: foundVenue.address,
+              about: foundVenue.about,
+              image: foundVenue.image,
+          });
+          setVenueFound(true);
+      } else {
+          setVenueFound(false);
+          setFoundVenueDetails(null);
+      }
+  };
+  
     const handleSearch = (event) => {
         setSearchQuery(event.target.value);
     };
