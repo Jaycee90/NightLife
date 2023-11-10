@@ -170,7 +170,7 @@ const Discover = () => {
                     <p className="card-subtitle">{foundVenueDetails.address}</p>
                     <h3 className="h3 card-title"><Link to={`/data/${foundVenueDetails._id}`}>{foundVenueDetails.name}</Link></h3>
                     
-                    <p className="card-text">{foundVenueDetails.about.length > 100 ? foundVenueDetails.about.slice(0, 100) + "..." : foundVenueDetails.about}</p>
+                    <p className="card-text">{foundVenueDetails.about.length > 80 ? foundVenueDetails.about.slice(0, 80) + "..." : foundVenueDetails.about}</p>
                   </div>
                 </div></ul>
                                     </div>
@@ -202,7 +202,7 @@ const Discover = () => {
                     <p className="card-subtitle">{venueData.address}</p>
                     <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
                     
-                    <p className="card-text">{venueData.about.length > 100 ? venueData.about.slice(0, 100) + "..." : venueData.about}</p>
+                    <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
                   </div>
                 </div>
             ))}
