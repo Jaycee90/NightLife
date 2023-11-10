@@ -11,7 +11,7 @@ function Test() {
     try {
       const response = await fetch(`http://localhost:5050/record/search/${searchQuery}`);
       if (!response.ok) {
-        throw new Error(`An error has occurred: ${response.statusText}`);
+        throw new Error(`An error has occurred: ${response.statusText}. ${searchQuery}`);
       }
       const data = await response.json();
       setResults(data);

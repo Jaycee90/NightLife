@@ -94,15 +94,20 @@ router.delete("/:id", async (req, res) => {
 });
 
 
-// This section will help you get a single record by id
 router.get("/search/:text", async (req, res) => {
-  let collection = await db.collection("Venues");
-  let query = {text: req.params.text};
-  let results = await collection.find({ $text: { $search: query } }).toArray();
-  res.send(results).status(200);
-  
-  if (!results) res.send("Not found").status(404);
-  else res.send(results).status(200);
+  try {
+    let collection = await db.collection("Venues");
+    let results = await collection.find({ $text: { $search: req.params.text } });
+
+    if (!results || results.length === 0) {
+      res.status(404).send("Not found");
+    } else {
+      res.status(200).send(results);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 export default router;
