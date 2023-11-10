@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Trie from "./trie.js";
-import "../css/search.css";
+import "../css/searchbar.css";
 
 const dictionary = {
   words: ['hello','helium','world','car','carpet','test','this','that','those','working','is']
@@ -59,7 +59,9 @@ function SearchBar() {
   };
 
   return (
-    <div className="App">
+    <div className="search-component">
+      
+    <div className="search-bar">
       <input
         type="text"
         name="search-bar"
@@ -75,6 +77,7 @@ function SearchBar() {
         id="search-bar2"
         value={suggestion}
       />
+    </div>
     </div>
   );
 }
