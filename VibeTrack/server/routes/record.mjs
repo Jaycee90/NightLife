@@ -95,19 +95,11 @@ router.delete("/:id", async (req, res) => {
 
 
 router.get("/search/:text", async (req, res) => {
-  try {
-    let collection = await db.collection("Venues");
-    let results = await collection.find({ $text: { $search: req.params.text } });
+  let collection = await db.collection("Venues");
+  let result = await collection.find({ $text: { $search:  "cheatham" } }).toArray();
 
-    if (!results || results.length === 0) {
-      res.status(404).send("Not found");
-    } else {
-      res.status(200).send(results);
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal Server Error");
-  }
+  if (!result) res.send("Not found").status(404);
+  else res.send(result).status(200);
 });
 
 export default router;

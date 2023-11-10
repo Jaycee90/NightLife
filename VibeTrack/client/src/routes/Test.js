@@ -21,6 +21,7 @@ function Test() {
       // Parse the response as JSON and update the 'results' state
       const data = await response.json();
       setResults(data);
+      
     } catch (error) {
       // If an error occurs during the fetch or parsing, handle it here
       console.error(error);
@@ -44,6 +45,7 @@ function Test() {
           // Parse the response as JSON and updateW the 'results' state
           const data = await response.json();
           setResults(data);
+          
         } catch (error) {
           // If an error occurs during the fetch or parsing, handle it here
           console.error(error);
