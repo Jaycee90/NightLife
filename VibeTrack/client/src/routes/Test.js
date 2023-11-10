@@ -137,16 +137,17 @@ const Discover = () => {
         </div>
 
         <div class="item">
-      <div class="container" style={{paddingTop:'40px', paddingLeft:'20px', paddingRight:'20px'}}>
+      <div class="container" style={{paddingTop:'20px', paddingLeft:'20px', paddingRight:'20px'}}>
         
       <div>
           {searchQuery && (
-                    <div >
-                        {venueFound ? (
-                            <div>
-                                <p>{`Heading to ${searchQuery}`}</p>
-                                {foundVenueDetails && (
-                                    <div style={{ padding: '10px', color:'#000'}}>
+          <div >
+              {venueFound ? (
+                  <div>
+                      {foundVenueDetails && (
+                          <div>
+                            
+          <ul className="discover-list" >
                 <div className="discover-card">
                   <figure className="card-img">
                     <img src={foundVenueDetails.image} alt={foundVenueDetails.name} loading="lazy" />
@@ -166,7 +167,7 @@ const Discover = () => {
                     
                     <p className="card-text">{foundVenueDetails.about.length > 100 ? foundVenueDetails.about.slice(0, 100) + "..." : foundVenueDetails.about}</p>
                   </div>
-                </div>
+                </div></ul>
                                     </div>
                                     
                                 )}
