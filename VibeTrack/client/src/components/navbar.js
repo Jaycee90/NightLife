@@ -10,6 +10,7 @@ export default function Navbar() {
         <a href="favorites">Favorite</a>
         <a href="specialevent">Special Event</a>
         <a href="search">Search</a>
+        <a href="tripfinder">Trip Finder</a>
         <a href="invitation">Invitation</a>
         <a href="safety">Safety</a>
         <a href="discover">Discover</a>

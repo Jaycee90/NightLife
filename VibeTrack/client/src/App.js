@@ -25,7 +25,8 @@ import Favorites from "./routes/Favorite";
 import Feature from './routes/Feature';
 import Invitation from "./routes/Invitation";  
 import Safety from './routes/Safety';
-import Search from './routes/Search'; 
+import Search from './routes/Search';
+import TripFinder from './routes/Trip';
 import SpecialEvent from './routes/Special';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path='/specialevent' element={<SpecialEvent/>} />
             <Route path='/feature' element={<Feature/>} />
             <Route path='/search' element={<Search />} />
+            <Route path='/tripfinder' element={<TripFinder />} /> 
             <Route path='/login' element={<Login />} />
             <Route path='/safety' element={<Safety />} />
             <Route path='/recordlist' element={<RecordList />} />
