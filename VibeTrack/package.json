@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "@babel/runtime": "^7.23.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.14",
     "axios": "^1.5.1",
+    "babel-runtime": "^6.26.0",
     "cheerio": "^1.0.0-rc.12",
     "cors": "^2.8.5",
     "crypto-browserify": "^3.12.0",
@@ -12,6 +14,10 @@
     "i": "^0.3.7",
     "mongodb": "^6.2.0",
     "querystring-es3": "^0.2.1",
-    "realm-web": "^2.0.0"
+    "realm-web": "^2.0.0",
+    "simplegmaps-js": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0"
   }
 }
