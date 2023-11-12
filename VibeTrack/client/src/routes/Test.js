@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/discover.css';
 import Fuse from 'fuse.js';
 
-const Discover = () => {
+const Test = () => {
   const [venueData, setVenueData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [records, setRecords] = useState([]);
@@ -228,4 +228,4 @@ const Discover = () => {
   );
 };
 
-export default Discover;
+export default Test;
