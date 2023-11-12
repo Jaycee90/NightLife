@@ -19,6 +19,8 @@ import UserList from "./components/userList";
 import StarRating from "./components/starRating";
 import Footer from './components/footer';
 
+import Calendar from './components/calendar';
+
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
 import Favorites from "./routes/Favorite";
@@ -52,6 +54,7 @@ function App() {
             <Route path='/rating/:id' element={<StarRating />} />
             
             <Route path='/test' element={<Test />} />    
+            <Route path='/calendar' element={<Calendar />} />
 
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
