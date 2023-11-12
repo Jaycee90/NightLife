@@ -150,51 +150,49 @@ const Discover = () => {
             
       <h2 className="h2 result-title" style={{color:'#fff', fontSize:'25px', paddingBottom:'20px'}}>Search Results</h2>
       {venueFound ? (
-  <div>
-    {foundVenues && foundVenues.length > 0 ? (
-      <div>
-        <ul className="discover-list">
-          {foundVenues.map((foundVenue) => (
-            <div className="discover-card" key={foundVenue._id}>
-              <figure className="card-img">
-                <img src={foundVenue.image} alt={foundVenue.name} loading="lazy" />
-              </figure>
+        <div>
+          {foundVenues && foundVenues.length > 0 ? (
+            <div>
+              <ul className="discover-list">
+                {foundVenues.map((foundVenue) => (
+                  <div className="discover-card" key={foundVenue._id}>
+                    <figure className="card-img">
+                      <img src={foundVenue.image} alt={foundVenue.name} loading="lazy" />
+                    </figure>
 
-              <div className="card-content">
-                <div className="card-rating">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
+                    <div className="card-content">
+                      <div className="card-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                      </div>
 
-                <p className="card-subtitle">{foundVenue.address}</p>
-                <h3 className="h3 card-title">
-                  <Link to={`/data/${foundVenue._id}`}>{foundVenue.name}</Link>
-                </h3>
+                      <p className="card-subtitle">{foundVenue.address}</p>
+                      <h3 className="h3 card-title">
+                        <Link to={`/data/${foundVenue._id}`}>{foundVenue.name}</Link>
+                      </h3>
 
-                <p className="card-text">
-                  {foundVenue.about.length > 80 ? foundVenue.about.slice(0, 80) + "..." : foundVenue.about}
-                </p>
-              </div>
-            </div>
-          ))}
-        </ul>
-      </div>
-    ) : (
-      <p style={{ color: '#fff', paddingBottom: '20px' }}>{`No results found for "${searchQuery}"`}</p>
-    )}
-  </div>
-) : (
-  <p style={{ color: '#fff', paddingBottom: '20px' }}>{`Searching for "${searchQuery}"...`}</p>
-)}
-
-                        
-                <hr style={{color:'#fff', marginBottom:'30px', marginRight:'20px', opacity:'0.5'}}/>
+                      <p className="card-text">
+                        {foundVenue.about.length > 80 ? foundVenue.about.slice(0, 80) + "..." : foundVenue.about}
+                      </p>
                     </div>
-                )}
-          </div>
+                  </div>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p style={{ color: '#fff', paddingBottom: '20px' }}>{`No results found for "${searchQuery}"`}</p>
+          )}
+        </div>
+      ) : (
+        <p style={{ color: '#fff', paddingBottom: '20px', fontSize:'15px' }}>{`Searching for "${searchQuery}"...`}</p>
+      )}
+        <hr style={{color:'#fff', marginBottom:'30px', marginRight:'20px', opacity:'0.5'}}/>
+            </div>
+        )}
+      </div>
           
           <ul className="discover-list" style={{marginRight:'10px'}}>
           {currentVenues.map((venueData) => (
