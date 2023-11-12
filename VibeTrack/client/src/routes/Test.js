@@ -8,28 +8,11 @@ function Test(){
     const [date, setDate] = useState(new Date());
 
     return (
-      <div className='test-component'>
-        <h1 className='text-center'>React Calendar with Range</h1>
-        <div className='calendar-container'>
-          <Calendar
-            onChange={setDate}
-            value={date}
-            selectRange={true}
-          />
-        </div>
-        {date.length > 0 ? (
-          <p className='text-center'>
-            <span className='bold'>Start:</span>{' '}
-            {date[0].toDateString()}
-            &nbsp;|&nbsp;
-            <span className='bold'>End:</span> {date[1].toDateString()}
-          </p>
-        ) : (
-          <p className='text-center'>
-            <span className='bold'>Default selected date:</span>{' '}
-            {date.toDateString()}
-          </p>
-        )}
+      <div className='test-component' style={{padding:'20px'}}>
+       <h4 style={{'color':'#000', 'font-size': '20px', paddingBottom:'10px'}}>Upcoming Events</h4>
+                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px', color:'#000'}}>
+                    <Calendar onChange={setDate} value={date} style={{ color: '#000' }} />
+                </div>
       </div>
     );
   };
