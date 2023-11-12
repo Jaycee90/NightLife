@@ -142,11 +142,13 @@ const Discover = () => {
         </div>
 
         <div class="item">
-      <div class="container" style={{paddingTop:'20px', paddingLeft:'20px', paddingRight:'20px'}}>
+      <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
         
       <div>
           {searchQuery && (
-          <div >
+          <div>
+            
+      <h2 className="h2 result-title" style={{color:'#fff', fontSize:'25px', paddingBottom:'20px'}}>Search Results</h2>
               {venueFound ? (
                   <div>
                       {foundVenueDetails && (
@@ -178,12 +180,15 @@ const Discover = () => {
                                 )}
                             </div>
                         ) : (
-                            <p>{`Venue "${searchQuery}" not found`}</p>
+                            <p style={{color:'#fff', paddingBottom:'20px'}}>{`Searching for "${searchQuery}"...`}</p>
                         )}
+                        
+                <hr style={{color:'#fff', marginBottom:'30px', marginRight:'20px', opacity:'0.5'}}/>
                     </div>
                 )}
           </div>
-          <ul className="discover-list" >
+          
+          <ul className="discover-list" style={{marginRight:'10px'}}>
           {currentVenues.map((venueData) => (
                 <div className="discover-card">
                   <figure className="card-img">
