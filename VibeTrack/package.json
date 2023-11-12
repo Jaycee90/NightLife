@@ -3,6 +3,7 @@
     "@babel/runtime": "^7.23.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.14.14",
     "axios": "^1.5.1",
     "babel-runtime": "^6.26.0",
@@ -14,6 +15,9 @@
     "i": "^0.3.7",
     "mongodb": "^6.2.0",
     "querystring-es3": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-script-tag": "^1.1.2",
     "realm-web": "^2.0.0",
     "simplegmaps-js": "^2.3.2"
   },
