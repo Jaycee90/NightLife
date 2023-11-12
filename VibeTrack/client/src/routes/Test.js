@@ -129,16 +129,19 @@ const Discover = () => {
       <h2 className="h2 section-title">Discover venues</h2>
       <div className="grid-discover-search">
 
-        <div class="item" style={{marginLeft:'10px'}}>
+        <div class="item" >
+          <div class="container-search">
           <input
               type="text"
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search by venue name"
-              style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474' }}
+              style={{ borderRadius: "10px", height: "40px", fontSize:'15px', background: '#fff', color: '#747474' }}
           />
-        <button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues</button>
+        <button onClick={searchVenue} style={{  backgroundColor: "#e24e99 ", borderRadius:'10px', fontSize:'15px', marginTop:'10px'}}>Find venues</button>
 
+        <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
+          </div>
         </div>
 
         <div class="item">
