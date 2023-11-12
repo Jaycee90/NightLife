@@ -28,6 +28,8 @@ import Safety from './routes/Safety';
 import Search from './routes/Search'; 
 import SpecialEvent from './routes/Special';
 
+import Test from './routes/Test';
+
 function App() {
  return (
    <BrowserRouter>
@@ -47,13 +49,15 @@ function App() {
             <Route path='/favorites' element={<Favorites/>} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/rating/:id' element={<StarRating />} />  
+            <Route path='/rating/:id' element={<StarRating />} />
+            
+            <Route path='/test' element={<Test />} />    
 
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route element={<PrivateRoute />}>
-                <Route path='/profile/' element={<Profile />} />
-                <Route path='/contact/' element={<Contact />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/contact' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
             </Route>
             <Route path='/security' element={<Security />} />

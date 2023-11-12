@@ -54,7 +54,6 @@ html { height: 100%; overflow:auto; }
   color: black;
   padding:10px;
   padding-top:75px;
-  border-radius: 5px;
   font-size: 1em;
 }
 
@@ -64,6 +63,7 @@ html { height: 100%; overflow:auto; }
   background:  linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%);
   font-size: 1em;
   opacity:1;
+  border-radius:0px;
 }
 
 .container h1 {
@@ -168,7 +168,7 @@ a.link:hover {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-25);
-  height: 300px;
+  height: 250px;
 }
 
 .discover-card .card-img { height: 100%; }
@@ -185,7 +185,7 @@ a.link:hover {
   left: 20px;
   right: 20px;
   background: var(--white);
-  border-radius: var(--radius-25);
+  border-radius: 25px;
   padding: 20px;
 }
 
@@ -218,16 +218,35 @@ a.link:hover {
 
 .discover .btn { margin-inline: auto; }
 
-  .discover-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 50px;
-  }
+.discover-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 50px;
+}
 
-  .discover-list > li:not(:last-child) { margin-bottom: 0; }
+.discover-list > li:not(:last-child) { margin-bottom: 0; }
 
-  .discover-card .card-content { right: 20px; }
+.discover-card .card-content { right: 20px; }
 
-  .discover-list { grid-template-columns: repeat(3, 1fr); }
+.discover-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid-discover-search{
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-bottom: 50px;
+}
+
+
+
+.container-search {
+  background-size: cover;
+  color: black;
+  background-color:  rgba(2,0,36,1);
+  font-size: 1em;
+  opacity:1;
+  border-radius:0px;
+  padding:20px;
+  height: 100%;
 }

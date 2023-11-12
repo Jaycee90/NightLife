@@ -137,7 +137,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ name: e.target.value })}
           />
         </div>
-        {/*<div className="form-group">
+        <div className="form-group">
           <label htmlFor="address">Address: </label>
           <input
             type="text"
@@ -147,6 +147,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ address: e.target.value })}
           />
         </div>
+        {/*
         <div className="form-group">
           <label htmlFor="about">About: </label>
           <input
