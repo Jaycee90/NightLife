@@ -1,8 +1,5 @@
-// import React, { useEffect, useState, useRef } from "react";
 import React from "react";
-//import L from "leaflet";
 import {TileLayer, MapContainer, LayersControl} from "react-leaflet";
-//import { Button } from "@material-ui/core";
 import RoutingControl from './RoutingControl'
 
 const maps = {
@@ -10,10 +7,6 @@ const maps = {
 };
 
 const TripFinder = () => {
-  // const [map, setMap] = useState(null);
-  // const [start, setStart] = useState([29.8822, -97.9414])
-  // const [end, setEnd] = useState([30.2500, -97.7500])
-
   return (
     <>
       <MapContainer
@@ -21,9 +14,8 @@ const TripFinder = () => {
         zoom={3}
         zoomControl={false}
         style={{ height: "71vh", width: "100%", padding: 0 }}
-        //whenCreated={map => setMap(map)}
+        
         whenCreated={map => {
-          // You can use map directly if needed
           console.log("Map created:", map);
         }}
       >
