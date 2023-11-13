@@ -14,7 +14,7 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
     lineOptions: {
       styles: [
         {
-          color: '#000080',
+          color,
         },
       ],
     },
