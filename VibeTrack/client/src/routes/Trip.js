@@ -18,19 +18,37 @@ function TripFinder() {
 
       // Add a tile layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
+      // Create a custom icon
+      const customIcon = L.icon({
+        iconUrl: 'https://i.imgur.com/wOs7nJb.png',
+        iconSize: [32, 32], // set icon size
+        iconAnchor: [16, 32], // set anchor to half of the icon size
+        popupAnchor: [0, -32] // set popup anchor to show above the marker
+      });
+  
+      // Add markers with custom icon
+      const marker1 = L.marker([28.8833, -97.9414], { icon: customIcon }).addTo(map);
+      const marker2 = L.marker([28.7433, -97.9414], { icon: customIcon }).addTo(map);
+      // Add popups to markers
+      marker1.bindPopup('Name of Venue 1.<br>Address of Venue 1.').openPopup();
+      marker2.bindPopup('Name of Venue 2.<br>Address of Venue 2.').openPopup();
+
+      L.marker([29.8833, -97.9414]).addTo(map)
+        .bindPopup('Name of Venues.<br> here address of venue.')
+        .openPopup();
       // Add the routing control
       L.Routing.control({
         router: router,
         waypoints: [
-          L.latLng(51.505, -0.09),
-          L.latLng(51.51, -0.1)
+          L.latLng(28.8833, -97.9414),
+          L.latLng(28.7433, -97.9414)
         ]
       }).addTo(map);
     }
-  }, []); // Empty dependency array ensures the effect runs once on mount
+  }, []);
 
   return (
     <div>
