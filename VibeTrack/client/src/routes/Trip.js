@@ -13,6 +13,8 @@ const TripFinder = () => {
 
   return (
     <>
+      <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
+      <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
       <MapContainer
         center={[29.8822, -97.9414]}
         zoom={3}
