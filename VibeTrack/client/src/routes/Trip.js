@@ -20,7 +20,7 @@ const TripFinder = () => {
         center={[29.8822, -97.9414]}
         zoom={3}
         zoomControl={false}
-        style={{ height: "100vh", width: "100%", padding: 0 }}
+        style={{ height: "71vh", width: "100%", padding: 0 }}
         //whenCreated={map => setMap(map)}
         whenCreated={map => {
           // You can use map directly if needed

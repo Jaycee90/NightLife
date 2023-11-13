@@ -1,9 +1,11 @@
 .leaflet-routing-container, .leaflet-routing-error {
     width: 320px;
-    background-color: rgb(151, 24, 24);
+    background-color: white;
     padding-top: 4px;
     transition: all 0.2s ease;
     box-sizing: border-box;
+    color: black;
+    border: 1px solid #ccc;
 }
 
 .leaflet-control-container .leaflet-routing-container-hide {
@@ -32,6 +34,7 @@
     max-height: 320px;
     overflow-y: auto;
     transition: all 0.2s ease;
+    color: black;
 }
 
 .leaflet-control-container .leaflet-routing-container-hide .leaflet-routing-alt, 
@@ -107,19 +110,20 @@
     width: 303px;
     width: calc(100% - 4px);
     line-height: 1.67;
-    border: 1px solid #ccc;
+    border: 1px solid black;
 }
 
 .leaflet-routing-geocoders button {
     font: bold 18px 'Lucida Console', Monaco, monospace;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 4px;
-    background-color: white;
+    background-color: #eee;
     margin: 0;
     margin-right: 3px;
     float: right;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    color: black;
 }
 
 .leaflet-routing-add-waypoint:after {
@@ -132,7 +136,7 @@
 }
 
 .leaflet-routing-geocoders button:hover {
-    background-color: #eee;
+    background-color: #ddd;
 }
 
 .leaflet-routing-geocoders input,.leaflet-routing-remove-waypoint,.leaflet-routing-geocoder {
@@ -150,9 +154,9 @@
 
 .leaflet-routing-geocoder-result table {
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 0 0 4px 4px;
-    background-color: rgb(97, 91, 91);
+    background-color: #fff;
     cursor: pointer;
 }
 
@@ -201,7 +205,7 @@
 }
 
 .leaflet-routing-remove-waypoint:hover {
-    color: black;
+    color: red;
 }
 
 .leaflet-routing-instruction-distance {
@@ -213,7 +217,7 @@
     top: 0;
     right: 6px;
     font-size: 24px;
-    color: #ccc;
+    color: black;
     font-weight: bold;
 }
 
