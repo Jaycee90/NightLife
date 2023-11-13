@@ -1,18 +1,24 @@
-
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import '../css/calendar.css';
 import 'react-calendar/dist/Calendar.css';
 
-function EventCalendar() {
+function getSunday(date) {
+  const day = date.getDay();
+  const diff = 7 - day; // adjust for the next Sunday
+  const nextSunday = new Date(date.getFullYear(), date.getMonth(), date.getDate() + diff);
+  return nextSunday;
+}
 
-  const [date, setDate] = useState([
-    new Date(2023, 11, 2),
-    new Date(2023, 11, 22),
-  ]);
+function EventCalendar() {
+  const today = new Date();
+  const sunday = getSunday(today);
+
+  const [date, setDate] = useState([today, sunday]);
+
   return (
     <div className="calendar-component">
-<div className='calendar-container'>
+      <div className='calendar-container'>
         <Calendar
           onChange={setDate}
           value={date}
@@ -21,6 +27,6 @@ function EventCalendar() {
       </div>
     </div>
   );
-};
+}
 
 export default EventCalendar;
