@@ -1,11 +1,9 @@
 
 // Import React and useState hook from the 'react' library.
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css"; // Import the CSS for Leaflet Routing Machine
-import { control } from "leaflet-routing-machine"; // Import the Leaflet Routing Machine control
 import '../css/search.css';
 
 const Record = (props) => {
@@ -33,10 +31,7 @@ function Search() {
     const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query.
     const [venueFound, setVenueFound] = useState(false);
     const [foundVenueLocation, setFoundVenueLocation] = useState(null);
-    const [routingControl, setRoutingControl] = useState(null);//state variable to hold the routing control instance
 
-    // A ref to hold the map instance
-    const mapRef = useRef();
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -175,40 +170,6 @@ function Search() {
     
         return [medianLatitude, medianLongitude];
     }
-
-    const initializeRoutingControl = () => {
-        const routing = L.Routing.control({
-            waypoints: [
-                L.latLng(locationCoord[0], locationCoord[1]),
-                L.latLng(foundVenueLocation[0], foundVenueLocation[1]),
-            ],
-            routeWhileDragging: true,
-        });
-        setRoutingControl(routing);
-        mapRef.current.addControl(routing);
-    };
-
-    useEffect(() => {
-        if (foundVenueLocation) {
-            const routing = L.Routing.control({
-                waypoints: [
-                    L.latLng(locationCoord[0], locationCoord[1]),
-                    L.latLng(foundVenueLocation[0], foundVenueLocation[1]),
-                ],
-                routeWhileDragging: true,
-            });
-            setRoutingControl(routing);
-            const currentMapRef = mapRef.current;
-            currentMapRef.addControl(routing);
-    
-            // Cleanup function
-            return () => {
-                if (routingControl) {
-                    currentMapRef.removeControl(routingControl);
-                }
-            };
-        }
-    }, [foundVenueLocation, routingControl, locationCoord]);
     
 
     return (
@@ -275,7 +236,6 @@ function Search() {
             {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
             {mapReady && (
                 <MapContainer
-                    ref={mapRef}
                     style={{ height: "71vh", width: "100%"}}
                     //center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
                     // Find center between user's coordinates and top 10 closest clubs' coordinates
