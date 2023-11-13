@@ -152,7 +152,7 @@
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 0 0 4px 4px;
-    background-color: white;
+    background-color: rgb(97, 91, 91);
     cursor: pointer;
 }
 
