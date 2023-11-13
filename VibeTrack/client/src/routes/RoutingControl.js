@@ -18,6 +18,19 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
         },
       ],
     },
+
+    createMarker: (i, waypoint, nWps) => {
+      // Create a custom marker here
+      const marker = L.marker(waypoint.latLng, {
+        icon: new L.Icon({
+          iconUrl: 'https://i.imgur.com/wOs7nJb.png',
+          iconSize: [25, 41],
+        }),
+        draggable: true
+      });
+      return marker;
+    },
+    
   });
 
   return instance;
