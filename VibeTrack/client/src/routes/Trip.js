@@ -1,4 +1,7 @@
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from "react";
+
+
 import {TileLayer, MapContainer, LayersControl} from "react-leaflet";
 import RoutingControl from './RoutingControl';
 
@@ -7,6 +10,27 @@ const maps = {
 };
 
 const TripFinder = () => {
+  // New state variable for trip records
+  const [tripRecords, setTripRecords] = useState([]); 
+
+    // Fetch trip records from the database when the component mounts
+    useEffect(() => {
+      async function fetchTripRecords() {
+        try {
+          const response = await fetch(`http://localhost:5050/record/`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const tripData = await response.json();
+          setTripRecords(tripData);
+        } catch (error) {
+          console.error("Error fetching trip records:", error.message);
+        }
+      }
+  
+      fetchTripRecords(); // Call the function to fetch trip records
+    }, []); // Empty dependency array ensures this useEffect runs only once on mount
+
   const start = [29.8822, -97.9414];
   const end = [30.2500, -97.7500];
 
@@ -46,6 +70,17 @@ const TripFinder = () => {
           </LayersControl.BaseLayer>
         </LayersControl>
       </MapContainer>
+
+      
+      {/* Render trip records on the page */}
+      <div>
+        <h3>Your Trip Records:</h3>
+        <ul>
+          {tripRecords.map((trip) => (
+            <li key={trip._id}>{trip.name}</li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };
