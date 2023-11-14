@@ -1,7 +1,6 @@
 import React from "react";
 import {TileLayer, MapContainer, LayersControl} from "react-leaflet";
 import RoutingControl from './RoutingControl';
-//import L from "leaflet";
 
 const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
