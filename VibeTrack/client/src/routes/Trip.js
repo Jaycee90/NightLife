@@ -74,8 +74,8 @@ const TripFinder = () => {
       
       {/* Render trip records on the page */}
       <div>
-        <h3>Your Trip Records:</h3>
-        <ul>
+        <h2 style={{color: '#000000'}}>San Marcos Trip Records</h2>
+        <ul style={{color: '#000000'}}>
           {tripRecords.map((trip) => (
             <li key={trip._id}>{trip.name}</li>
           ))}
