@@ -1,9 +1,7 @@
-//import React from "react";
 import React, { useState, useEffect } from "react";
-
-
-import {TileLayer, MapContainer, LayersControl} from "react-leaflet";
+import {TileLayer, MapContainer, LayersControl, Marker, Popup} from "react-leaflet";
 import RoutingControl from './RoutingControl';
+import L from "leaflet";
 
 const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -11,7 +9,8 @@ const maps = {
 
 const TripFinder = () => {
   // New state variable for trip records
-  const [tripRecords, setTripRecords] = useState([]); 
+  const [tripRecords, setTripRecords] = useState([]);
+  const [markers, setMarkers] = useState([]);
 
     // Fetch trip records from the database when the component mounts
     useEffect(() => {
@@ -23,6 +22,14 @@ const TripFinder = () => {
           }
           const tripData = await response.json();
           setTripRecords(tripData);
+
+          // Create markers for each venue
+          const venueMarkers = tripData.map((trip) => ({
+            position: [trip.latitude, trip.longitude],
+            popupContent: `${trip.name}<br>${trip.address}`
+          }));
+          setMarkers(venueMarkers);
+
         } catch (error) {
           console.error("Error fetching trip records:", error.message);
         }
@@ -33,6 +40,14 @@ const TripFinder = () => {
 
   const start = [29.8822, -97.9414];
   const end = [30.2500, -97.7500];
+
+  const venueMarker = new L.Icon({
+    iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
 
   return (
     <>
@@ -60,6 +75,13 @@ const TripFinder = () => {
           color={'#757de8'} 
         />
 
+        {/* Render venue markers on the map */}
+        {markers.map((marker, index) => (
+          <Marker key={index} position={marker.position} icon={venueMarker}>
+            <Popup>{marker.popupContent}</Popup>
+          </Marker>
+        ))}
+
 
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="Map">
@@ -70,16 +92,27 @@ const TripFinder = () => {
           </LayersControl.BaseLayer>
         </LayersControl>
       </MapContainer>
-
       
       {/* Render trip records on the page */}
       <div>
         <h2 style={{color: '#000000'}}>San Marcos Trip Records</h2>
-        <ul style={{color: '#000000'}}>
-          {tripRecords.map((trip) => (
-            <li key={trip._id}>{trip.name}</li>
-          ))}
-        </ul>
+        
+        <table style={{ color: '#000000' }}>
+          <thead>
+            <tr>
+              <th className="nameColumn">Name</th>
+              <th className="addressColumn">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tripRecords.map((trip) => (
+              <tr key={trip._id}>
+                <td>{trip.name}</td>
+                <td>{trip.address}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
