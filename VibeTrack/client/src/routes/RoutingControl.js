@@ -37,12 +37,21 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
         draggable: true
       });
 
-      // // Add a popup to the marker
-      // const popupContent = i === 0
-      // ? `Your location<br><span class="math-inline">${start.address}</span>`
-      // : `Your destination<br><span class="math-inline">${end.address}</span>`;
+      // Add a popup to the marker
+      const popupContent = i === 0
+      ? `Your location<br><span class="math-inline">${start.address}</span>`
+      : `Your destination<br><span class="math-inline">${end.address}</span>`;
 
-      // marker.bindPopup(popupContent);
+      marker.bindPopup(popupContent);
+      // Update the popup content for the start marker with coordinates
+      if (i === 0) {
+        marker.bindPopup(`Your location<br>Coordinates: ${waypoint.latLng.toString()}`);
+      }
+
+      // Update the popup content for the end marker with coordinates
+      if (i === nWps - 1) {
+        marker.bindPopup(`Your destination<br>Coordinates: ${waypoint.latLng.toString()}`);
+      }
 
 
       return marker;

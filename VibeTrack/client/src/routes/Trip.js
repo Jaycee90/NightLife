@@ -113,7 +113,7 @@ const TripFinder = () => {
         {/* Pass in our custom control layer here, inside of the map container */}
         {/* *************** */}
         <RoutingControl 
-          position={'topright'} 
+          position={'topleft'} 
           start={start} 
           end={end} 
           // start={[29.8822, -97.9414]} 
