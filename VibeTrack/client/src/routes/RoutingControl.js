@@ -37,12 +37,12 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
         draggable: true
       });
 
-      // Add a popup to the marker
-      const popupContent = i === 0
-      ? `Your location<br><span class="math-inline">${start.address}</span>`
-      : `Your destination<br><span class="math-inline">${end.address}</span>`;
+      // // Add a popup to the marker
+      // const popupContent = i === 0
+      // ? `Your location<br><span class="math-inline">${start.address}</span>`
+      // : `Your destination<br><span class="math-inline">${end.address}</span>`;
 
-marker.bindPopup(popupContent);
+      // marker.bindPopup(popupContent);
 
 
       return marker;

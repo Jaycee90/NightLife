@@ -12,34 +12,80 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
 
-    // Fetch trip records from the database when the component mounts
-    useEffect(() => {
-      async function fetchTripRecords() {
-        try {
-          const response = await fetch(`http://localhost:5050/record/`);
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          const tripData = await response.json();
-          setTripRecords(tripData);
+  const [start, setStartLocation] = useState([29.8822, -97.9414]); // Default start location
+  const [end, setEndLocation] = useState([29.8822, -97.9514]); // Default end location 
 
-          // Create markers for each venue
-          const venueMarkers = tripData.map((trip) => ({
-            position: [trip.latitude, trip.longitude],
-            popupContent: `${trip.name}<br>${trip.address}`
-          }));
-          setMarkers(venueMarkers);
 
-        } catch (error) {
-          console.error("Error fetching trip records:", error.message);
-        }
+  const fetchTripRecords = async () => {
+    try {
+      const response = await fetch(`http://localhost:5050/record/`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      const tripData = await response.json();
+      setTripRecords(tripData);
   
-      fetchTripRecords(); // Call the function to fetch trip records
-    }, []); // Empty dependency array ensures this useEffect runs only once on mount
+      // Create markers for each venue
+      const venueMarkers = tripData.map((trip) => ({
+        position: [trip.latitude, trip.longitude],
+        popupContent: `${trip.name}  ${trip.address}`
+      }));
+      setMarkers(venueMarkers);
 
-  const start = [29.8822, -97.9414];
-  const end = [30.2500, -97.7500];
+      // Update end location based on user input or geocoding
+      setEndLocation([37.4224, -122.1667]);
+  
+    } catch (error) {
+      console.error("Error fetching trip records:", error.message);
+    }
+  };
+  
+  useEffect(() => {
+    // Requesting user location permission and setting the start location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setStartLocation([latitude, longitude]); // Set start location to the user's current position
+      }, (error) => {
+        console.error("Error getting user location:", error.message);
+      });
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  
+    fetchTripRecords(); // Call the function to fetch trip records
+  }, []);
+  
+
+
+    // // Fetch trip records from the database when the component mounts
+    // useEffect(() => {
+    //   async function fetchTripRecords() {
+    //     try {
+    //       const response = await fetch(`http://localhost:5050/record/`);
+    //       if (!response.ok) {
+    //         throw new Error(`HTTP error! Status: ${response.status}`);
+    //       }
+    //       const tripData = await response.json();
+    //       setTripRecords(tripData);
+
+    //       // Create markers for each venue
+    //       const venueMarkers = tripData.map((trip) => ({
+    //         position: [trip.latitude, trip.longitude],
+    //         popupContent: `${trip.name}<br>${trip.address}`
+    //       }));
+    //       setMarkers(venueMarkers);
+
+    //     } catch (error) {
+    //       console.error("Error fetching trip records:", error.message);
+    //     }
+    //   }
+  
+    //   fetchTripRecords(); // Call the function to fetch trip records
+    // }, []); // Empty dependency array ensures this useEffect runs only once on mount
+
+  //const start = [29.8822, -97.9414];
+  //const end = [30.2500, -97.7500];
 
   const venueMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
@@ -54,7 +100,7 @@ const TripFinder = () => {
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
       <MapContainer
-        center={[29.8822, -97.9414]}
+        center={[29.8822, -97.9514]}
         zoom={3}
         zoomControl={false}
         style={{ height: "71vh", width: "100%", padding: 0 }}
