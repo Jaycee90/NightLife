@@ -12,8 +12,8 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
 
-  const [start, setStartLocation] = useState([29.8822, -97.9414]); // Default start location
-  const [end, setEndLocation] = useState([29.8822, -97.9514]); // Default end location 
+  const [start, setStartLocation] = useState([29.8833, -97.9414]); // Default start location to get the initial route
+  const [end, setEndLocation] = useState([29.8822, -97.9414]); // Default end location 
 
 
   const fetchTripRecords = async () => {
@@ -36,7 +36,7 @@ const TripFinder = () => {
             {trip.address}<br/>
             {trip.website && (
               <a href={trip.website} target="_blank" rel="noopener noreferrer">
-                Visit Website
+                Visit our Website
               </a>
             )}
             </p>
@@ -46,29 +46,34 @@ const TripFinder = () => {
       setMarkers(venueMarkers);
 
       // Update end location based on user input or geocoding
-      setEndLocation([37.4224, -122.1667]);
+      setEndLocation([29.8822, -97.9414]);
   
     } catch (error) {
       console.error("Error fetching trip records:", error.message);
     }
   };
-  
-  useEffect(() => {
-    // Requesting user location permission and setting the start location
+
+  const setStartLocationToUser = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const { latitude, longitude } = position.coords;
-        setStartLocation([latitude, longitude]); // Set start location to the user's current position
-      }, (error) => {
-        console.error("Error getting user location:", error.message);
-      });
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setStartLocation([latitude, longitude]);
+        },
+        (error) => {
+          console.error("Error getting user location:", error.message);
+        }
+      );
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
+  };
   
+  useEffect(() => {
+    setStartLocationToUser(); // Call the function to set start location to user's current position
     fetchTripRecords(); // Call the function to fetch trip records
   }, []);
-
+  
   const venueMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
     iconSize: [25, 41],
@@ -82,10 +87,10 @@ const TripFinder = () => {
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
       <MapContainer
-        center={[29.8822, -97.9514]}
-        zoom={3}
+        center={[29.8833, -97.9414]}
+        zoom={13}
         zoomControl={false}
-        style={{ height: "71vh", width: "100%", padding: 0 }}
+        style={{ height: "100vh", width: "100%", padding: 0 }}
         
         whenCreated={map => {
           console.log("Map created:", map);
