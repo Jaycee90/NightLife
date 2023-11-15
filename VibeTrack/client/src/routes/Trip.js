@@ -28,7 +28,14 @@ const TripFinder = () => {
       // Create markers for each venue
       const venueMarkers = tripData.map((trip) => ({
         position: [trip.latitude, trip.longitude],
-        popupContent: `${trip.name}  ${trip.address}`
+        popupContent: (
+          <div>
+            {/* Display the first image in the popup */}
+            {trip.image.length > 0 && <img src={trip.image[0]} alt={trip.name} style={{ width: "100%" }} />}
+            <p><strong>{trip.name}</strong><br />
+            {trip.address}</p>
+          </div>
+        ),
       }));
       setMarkers(venueMarkers);
 
@@ -55,37 +62,6 @@ const TripFinder = () => {
   
     fetchTripRecords(); // Call the function to fetch trip records
   }, []);
-  
-
-
-    // // Fetch trip records from the database when the component mounts
-    // useEffect(() => {
-    //   async function fetchTripRecords() {
-    //     try {
-    //       const response = await fetch(`http://localhost:5050/record/`);
-    //       if (!response.ok) {
-    //         throw new Error(`HTTP error! Status: ${response.status}`);
-    //       }
-    //       const tripData = await response.json();
-    //       setTripRecords(tripData);
-
-    //       // Create markers for each venue
-    //       const venueMarkers = tripData.map((trip) => ({
-    //         position: [trip.latitude, trip.longitude],
-    //         popupContent: `${trip.name}<br>${trip.address}`
-    //       }));
-    //       setMarkers(venueMarkers);
-
-    //     } catch (error) {
-    //       console.error("Error fetching trip records:", error.message);
-    //     }
-    //   }
-  
-    //   fetchTripRecords(); // Call the function to fetch trip records
-    // }, []); // Empty dependency array ensures this useEffect runs only once on mount
-
-  //const start = [29.8822, -97.9414];
-  //const end = [30.2500, -97.7500];
 
   const venueMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
@@ -116,8 +92,6 @@ const TripFinder = () => {
           position={'topleft'} 
           start={start} 
           end={end} 
-          // start={[29.8822, -97.9414]} 
-          // end={[30.2500, -97.7500]} 
           color={'#757de8'} 
         />
 
@@ -127,7 +101,6 @@ const TripFinder = () => {
             <Popup>{marker.popupContent}</Popup>
           </Marker>
         ))}
-
 
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="Map">
