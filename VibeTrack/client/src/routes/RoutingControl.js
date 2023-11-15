@@ -45,12 +45,12 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
       marker.bindPopup(popupContent);
       // Update the popup content for the start marker with coordinates
       if (i === 0) {
-        marker.bindPopup(`Your location<br>Coordinates: ${waypoint.latLng.toString()}`);
+        marker.bindPopup(`Your location`);
       }
 
       // Update the popup content for the end marker with coordinates
       if (i === nWps - 1) {
-        marker.bindPopup(`Your destination<br>Coordinates: ${waypoint.latLng.toString()}`);
+        marker.bindPopup(`Drag me to your happy place!`);
       }
 
 

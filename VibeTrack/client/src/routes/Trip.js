@@ -33,7 +33,13 @@ const TripFinder = () => {
             {/* Display the first image in the popup */}
             {trip.image.length > 0 && <img src={trip.image[0]} alt={trip.name} style={{ width: "100%" }} />}
             <p><strong>{trip.name}</strong><br />
-            {trip.address}</p>
+            {trip.address}<br/>
+            {trip.website && (
+              <a href={trip.website} target="_blank" rel="noopener noreferrer">
+                Visit Website
+              </a>
+            )}
+            </p>
           </div>
         ),
       }));
