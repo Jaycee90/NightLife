@@ -21,6 +21,7 @@
     "i": "^0.3.7",
     "ionicons": "^7.1.2",
     "leaflet": "1.9.4",
+    "leaflet-routing-machine": "^3.2.12",
     "react": "^18.2.0",
     "react-calendar": "4.6.0",
     "react-css-modules": "^4.7.11",
