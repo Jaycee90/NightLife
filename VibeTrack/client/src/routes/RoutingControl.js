@@ -42,7 +42,16 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
       ? `Your location<br><span class="math-inline">${start.address}</span>`
       : `Your destination<br><span class="math-inline">${end.address}</span>`;
 
-marker.bindPopup(popupContent);
+      marker.bindPopup(popupContent);
+      // Update the popup content for the start marker with coordinates
+      if (i === 0) {
+        marker.bindPopup(`Your location`);
+      }
+
+      // Update the popup content for the end marker with coordinates
+      if (i === nWps - 1) {
+        marker.bindPopup(`Drag me to your happy place!`);
+      }
 
 
       return marker;
