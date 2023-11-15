@@ -2,26 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import '../css/discover.css';
 import Fuse from 'fuse.js';
-//import { MENU_ITEMS, VENUE_FEATURES, VENUE_TYPE } from '../components/tags.js';
-
-const TAG_MENU = [
-  'American (New)',
-  'American (Traditional)',
-  'Breakfast & Brunch',
-  'Burgers',
-  'Chicken Wings',
-  'Coffee & Tea',
-  'Comfort Food',
-  'Desserts',
-  'Irish',
-  'Mexican',
-  'Pizza',
-  'Small Plates',
-  'Sushi',
-  'Tapas',
-  'Tex-Mex',
-  'Wine',
-];
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
@@ -30,8 +10,6 @@ const Discover = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [venueFound, setVenueFound] = useState(false);
   const [foundVenues, setFoundVenueDetails] = useState(null);
-  
-  const [selectedTags, setSelectedTags] = useState([]);
 
   useEffect(() => {
     async function getVenues() {
@@ -142,37 +120,6 @@ const Discover = () => {
     </li>
   ));
   
-  
-  const allTags = TAG_MENU;
-
-
-  const handleTagChange = (event) => {
-    const tag = event.target.value;
-    setSelectedTags((prevTags) => {
-      if (prevTags.includes(tag)) {
-        return prevTags.filter((t) => t !== tag);
-      } else {
-        return [...prevTags, tag];
-      }
-    });
-  };
-  const tagCheckboxes = allTags.map((tag) => (
-    <label key={tag}>
-      <input
-        type="checkbox"
-        value={tag}
-        checked={selectedTags.includes(tag)}
-        onChange={handleTagChange}
-      />
-      {tag}
-    </label>
-  ));
-  
-  const filteredVenues = venueData.filter((venue) => {
-    const venueTags = venue.tags.split(',');
-    return selectedTags.every((tag) => venueTags.includes(tag));
-  });
-  
   return (
     <div className="discover-component" style={{marginBottom:'40px'}}>
       <p className="section-subtitle" >Discover all nightclubs and venues in the San Marcos area </p>
@@ -246,58 +193,7 @@ const Discover = () => {
             </div>
         )}
       </div>
-
-      <div>
-          {searchQuery && (
-          <div>
-            
-      <h2 className="h2 result-title" style={{color:'#fff', fontSize:'25px', paddingBottom:'20px'}}>Search Results</h2>
-      {venueFound ? (
-        <div>
-          {filteredVenues && filteredVenues.length > 0 ? (
-            <div>
-              <ul className="discover-list">
-                {filteredVenues.map((foundVenue) => (
-                  <div className="discover-card" key={filteredVenues._id}>
-                    <figure className="card-img">
-                      <img src={filteredVenues.image} alt={filteredVenues.name} loading="lazy" />
-                    </figure>
-
-                    <div className="card-content">
-                      <div className="card-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                      </div>
-
-                      <p className="card-subtitle">{filteredVenues.address}</p>
-                      <h3 className="h3 card-title">
-                        <Link to={`/data/${filteredVenues._id}`}>{filteredVenues.name}</Link>
-                      </h3>
-
-                      <p className="card-text">
-                        {filteredVenues.about.length > 80 ? filteredVenues.about.slice(0, 80) + "..." : filteredVenues.about}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </ul>
-            </div>
-          ) : (
-            <p style={{ color: '#fff', paddingBottom: '20px' }}>{`No results found for "${searchQuery}"`}</p>
-          )}
-        </div>
-      ) : (
-        <p style={{ color: '#fff', paddingBottom: '20px', fontSize:'15px' }}>{`Searching for "${searchQuery}"...`}</p>
-      )}
-        <hr style={{color:'#fff', marginBottom:'30px', marginRight:'20px', opacity:'0.5'}}/>
-            </div>
-        )}
-      </div>
-
-
+          
           <ul className="discover-list" style={{marginRight:'10px'}}>
           {currentVenues.map((venueData) => (
                 <div className="discover-card">
