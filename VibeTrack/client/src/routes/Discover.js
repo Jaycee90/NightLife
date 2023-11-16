@@ -272,8 +272,8 @@ const Discover = () => {
       <ul className="discover-list" style={{marginRight:'10px'}}>
 
 {/* Display venues without tags */}
-{venueData
-  .filter((venue) => matchTags(venue.tags, tags))
+{currentVenues
+  .filter((venueData) => matchTags(venueData.tags, tags))
   .map((venueData) => (
     <div  className="discover-card" key={`card-${id}`}>
             <figure className="card-img">
