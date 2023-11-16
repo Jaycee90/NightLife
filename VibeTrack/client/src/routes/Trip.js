@@ -12,9 +12,9 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
 
-  const [start, setStartLocation] = useState([29.8833, -97.9414]); // Default start location to get the initial route
+  const [start, setStartLocation] = useState(null); // User's location
   const [end, setEndLocation] = useState([29.8822, -97.9414]); // Default end location to connet the initial route
-
+  
 
   const fetchTripRecords = async () => {
     try {
@@ -58,7 +58,7 @@ const TripFinder = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          setStartLocation([latitude, longitude]);
+          setStartLocation([latitude, longitude]);// Set user's location as the start location
         },
         (error) => {
           console.error("Error getting user location:", error.message);
@@ -99,12 +99,6 @@ const TripFinder = () => {
         {/* *************** */}
         {/* Pass in our custom control layer here, inside of the map container */}
         {/* *************** */}
-        <RoutingControl 
-          position={'topleft'} 
-          start={start} 
-          end={end} 
-          color={'#757de8'} 
-        />
 
         {/* Render venue markers on the map */}
         {markers.map((marker, index) => (
@@ -121,6 +115,15 @@ const TripFinder = () => {
             />
           </LayersControl.BaseLayer>
         </LayersControl>
+        {/* Conditional rendering of RoutingControl */}
+        {start && (
+          <RoutingControl 
+            position={'topleft'} 
+            start={start} 
+            end={end} 
+            color={'#757de8'} 
+          />
+        )}
       </MapContainer>
       
       {/* Render trip records on the page */}

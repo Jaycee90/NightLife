@@ -19,8 +19,8 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
   const instance = L.Routing.control({
     position,
     waypoints: [
-      start,
-      end
+      L.latLng(start),
+      L.latLng(end),
     ],
     lineOptions: {
       styles: [
