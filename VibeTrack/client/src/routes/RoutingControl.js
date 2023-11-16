@@ -12,15 +12,15 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
   });
 
   const endIcon = new L.Icon({
-    iconUrl: 'https://i.imgur.com/wOs7nJb.png',
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
     iconSize: [25, 41],
   });
 
   const instance = L.Routing.control({
     position,
     waypoints: [
-      start,
-      end
+      L.latLng(start),
+      L.latLng(end),
     ],
     lineOptions: {
       styles: [
