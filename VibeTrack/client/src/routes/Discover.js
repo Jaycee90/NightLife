@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/discover.css';
 import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
-//Stoppoint
+//Stoppoint stop
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
