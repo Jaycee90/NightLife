@@ -101,7 +101,7 @@ function Test() {
   const uniqueTags = Array.from(new Set(projects.flatMap((proj) => proj.tags)));
 
   return (
-    <div className="test-component" style={{padding:'100px'}}>
+    <div className="test-component" style={{ padding: '100px' }}>
       <div className='tags-container'>
         <h1 className='tag-filter'>Tags filtered</h1>
         <div>
@@ -126,30 +126,22 @@ function Test() {
             key={`unique-tag-${id}-${tag}`}
             type='button'
             onClick={addTag(tag)}
+            style={{width:'100px'}}
           >
             #{tag}
           </button>
         ))}
       </div>
 
-      {/* Display projects */}
+      {/* Display projects without tags */}
       {projects
         .filter((proj) => matchTags(proj.tags, tags))
-        .map(({ title, description, tags }) => (
+        .map(({ title, description }) => (
           <div key={`card-${id}`} className='card'>
             <div>
               <p>{title}</p>
               <p>{description}</p>
             </div>
-            {tags.map((tag) => (
-              <button
-                key={`add-button-${id}-${tag}`}
-                type='button'
-                onClick={addTag(tag)}
-              >
-                #{tag}
-              </button>
-            ))}
           </div>
         ))}
     </div>
