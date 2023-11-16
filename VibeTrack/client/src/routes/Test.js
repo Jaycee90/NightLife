@@ -2,7 +2,7 @@ import { useState, useCallback, useId } from 'react';
 import '../css/test.css';
 
 function Test() {
-  const [tags, setTags] = useState(['game']);
+  const [tags, setTags] = useState([]);
 
   const id = useId();
 
@@ -111,6 +111,7 @@ function Test() {
                   key={`close-button-${id}-${tag}`}
                   className='close'
                   onClick={deleteTag(tag)}
+                  style={{width:'120px', marginBottom:'10px'}}
                 >
                   {tag} &nbsp; x
                 </button>
@@ -126,7 +127,7 @@ function Test() {
             key={`unique-tag-${id}-${tag}`}
             type='button'
             onClick={addTag(tag)}
-            style={{width:'100px'}}
+            style={{width:'90px'}}
           >
             #{tag}
           </button>
