@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useId } from 'react';
-import '../css/test.css';
+import { Link } from "react-router-dom";
+import '../css/discover.css';
 
 function Test() {
   // State to manage selected tags
@@ -20,8 +21,8 @@ function Test() {
           throw new Error(`An error occurred: ${response.statusText}`);
         }
 
-        const records = await response.json();
-        setVenueData(records);
+        const venueData = await response.json();
+        setVenueData(venueData);
       } catch (error) {
         window.alert(error.message);
       }
@@ -58,52 +59,76 @@ function Test() {
   const uniqueTags = Array.from(new Set(venueData.flatMap((venue) => venue.tags)));
 
   return (
-    <div className="test-component" style={{ padding: '100px' }}>
-      <div className='tags-container'>
-        <h1 className='tag-filter'>Tags filtered</h1>
-        <div>
-          {/* Display selected tags */}
-          {tags.length > 0
+    <div  className="discover-component" style={{marginBottom:'40px'}}>
+    <h2 className="h2 section-title">Filter by tags</h2>
+
+    {tags.length > 0
             ? tags.map((tag) => (
                 <button
                   key={`close-button-${id}-${tag}`}
                   className='close'
                   onClick={deleteTag(tag)}
-                  style={{ width: '120px', marginBottom: '10px' }}
+                  style={{ width: '100px', marginBottom: '12px', fontSize:'10px', backgroundColor: "#e24e99" }}
                 >
                   {tag} &nbsp; x
                 </button>
               ))
             : 'No tags selected'}
-        </div>
-      </div>
 
-      {/* Display unique tags as buttons */}
-      <div className='unique-tags'>
-        {uniqueTags.map((tag) => (
-          <button
-            key={`unique-tag-${id}-${tag}`}
-            type='button'
-            onClick={addTag(tag)}
-            style={{ width: '90px' }}
-          >
-            #{tag}
-          </button>
-        ))}
-      </div>
+      <div className="grid-discover-search">
+        <div className="item">{/* Display selected tags */}
+        
+        <div class="container-search" style={{paddingRight:"20px"}}>
+        {/* Display unique tags as buttons */}
+        
+        <div className='unique-tags'>
+            {uniqueTags.map((tag) => (
+            <button
+                key={`unique-tag-${id}-${tag}`}
+                type='button'
+                onClick={addTag(tag)}
+                style={{ width: '100px', fontSize:'12px',  backgroundColor: "#e24e99"}}
+            >
+                {tag}
+            </button>
+            ))}
+        </div>
+        </div>
+        </div>
+        <div className="item">
+        <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
+
+        <ul className="discover-list" style={{marginRight:'10px'}}>
 
       {/* Display venues without tags */}
       {venueData
         .filter((venue) => matchTags(venue.tags, tags))
-        .map(({ name, description }) => (
-          <div key={`card-${id}`} className='card'>
-            <div>
-              {/* Display venue information */}
-              <p>{name}</p>
-              <p>{description}</p>
-            </div>
+        .map((venueData) => (
+          <div  className="discover-card" key={`card-${id}`}>
+                  <figure className="card-img">
+                    <img src={venueData.image} alt={venueData.name} loading="lazy" />
+                  </figure>
+
+                  <div className="card-content">
+                    <div className="card-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <p className="card-subtitle">{venueData.address}</p>
+                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
+                    
+                    <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
+                  </div>
           </div>
         ))}
+        </ul>
+        </div>
+    </div>
+    </div>
     </div>
   );
 }
