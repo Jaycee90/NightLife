@@ -137,7 +137,9 @@ export default function Edit() {
             onChange={(e) => updateForm({ name: e.target.value })}
           />
         </div>
-        {/*<div className="form-group">
+        
+        {/*
+        <div className="form-group">
           <label htmlFor="address">Address: </label>
           <input
             type="text"
@@ -276,7 +278,7 @@ export default function Edit() {
             value={form.instagram}
             onChange={(e) => updateForm({ instagram: e.target.value })}
           />
-        </div>*/}
+        </div>
         <div className="form-group">
           <label htmlFor="yelp">Yelp: </label>
           <input
@@ -287,26 +289,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ yelp: e.target.value })}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="tags">Tags: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="tags"
-            value={form.tags}
-            onChange={(e) => updateForm({ tags: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="price">Price: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="price"
-            value={form.price}
-            onChange={(e) => updateForm({ price: e.target.value })}
-          />
-        </div>
+        
         <div className="form-group">
           <label htmlFor="rating">Rating: </label>
           <input
@@ -325,6 +308,27 @@ export default function Edit() {
             id="review"
             value={form.review}
             onChange={(e) => updateForm({ review: e.target.value })}
+          />
+        </div>
+        */}
+        <div className="form-group">
+          <label htmlFor="tags">Tags: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="tags"
+            value={form.tags}
+            onChange={(e) => updateForm({ tags: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="price"
+            value={form.price}
+            onChange={(e) => updateForm({ price: e.target.value })}
           />
         </div>
         <div className="form-group">

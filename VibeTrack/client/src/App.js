@@ -19,6 +19,8 @@ import UserList from "./components/userList";
 import StarRating from "./components/starRating";
 import Footer from './components/footer';
 
+import Calendar from './components/calendar';
+
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
 import Favorites from "./routes/Favorite";
@@ -28,6 +30,8 @@ import Safety from './routes/Safety';
 import Search from './routes/Search';
 import TripFinder from './routes/Trip';
 import SpecialEvent from './routes/Special';
+
+import Test from './routes/Test';
 
 function App() {
  return (
@@ -49,13 +53,16 @@ function App() {
             <Route path='/favorites' element={<Favorites/>} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
-            <Route path='/rating/:id' element={<StarRating />} />  
+            <Route path='/rating/:id' element={<StarRating />} />
+            
+            <Route path='/test' element={<Test />} />    
+            <Route path='/calendar' element={<Calendar />} />
 
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
             <Route element={<PrivateRoute />}>
-                <Route path='/profile/' element={<Profile />} />
-                <Route path='/contact/' element={<Contact />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/contact' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
             </Route>
             <Route path='/security' element={<Security />} />

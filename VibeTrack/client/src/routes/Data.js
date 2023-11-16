@@ -5,12 +5,11 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faFacebook,faInstagram,faYelp} from "@fortawesome/free-brands-svg-icons";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/template.css';
 import StarRating from '../components/starRating.js';
+import EventCalendar from '../components/calendar.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -113,7 +112,6 @@ function Data(props) {
   }, [params.id]);
 
   
-  const [date, setDate] = useState(new Date());
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
 
@@ -246,12 +244,8 @@ function Data(props) {
             </div>
             <div class="item5">
                 <h4 style={{'color':'#000', 'font-size': '20px', paddingBottom:'10px'}}>Upcoming Events</h4>
-                <div className='app'>
-                  <div className='calendar-container' style={{'font-size': '15px','margin-left':'50px', color:'#000'}}>
-                    <Calendar onChange={setDate} value={date} style={{ color: '#000' }} />
-                  </div>
+                <EventCalendar/>
                 </div>
-              </div>
         </div>
       </div>
     </div>
