@@ -87,9 +87,7 @@ function Test() {
 
   const deleteTag = useCallback(
     (tagId) => () => {
-      const tagsFiltered = tags.filter((tag) => {
-        return tag !== tagId;
-      });
+      const tagsFiltered = tags.filter((tag) => tag !== tagId);
       setTags(tagsFiltered);
     },
     [tags]
@@ -99,49 +97,61 @@ function Test() {
     return target.every((tag) => current.includes(tag));
   };
 
+  // Extract unique tags
+  const uniqueTags = Array.from(new Set(projects.flatMap((proj) => proj.tags)));
+
   return (
-    <div className="test-component">
+    <div className="test-component" style={{padding:'100px'}}>
       <div className='tags-container'>
-      <h1 className='tag-filter'>Tags filtered</h1>
-      <div>
-        {tags.length > 0
-          ? tags.map((tag) => {
-              return (
+        <h1 className='tag-filter'>Tags filtered</h1>
+        <div>
+          {tags.length > 0
+            ? tags.map((tag) => (
                 <button
-                  key={`close-button-${id}`}
+                  key={`close-button-${id}-${tag}`}
                   className='close'
                   onClick={deleteTag(tag)}
                 >
                   {tag} &nbsp; x
                 </button>
-              );
-            })
-          : 'No tags selected'}
+              ))
+            : 'No tags selected'}
+        </div>
       </div>
+
+      {/* Display unique tags */}
+      <div className='unique-tags'>
+        {uniqueTags.map((tag) => (
+          <button
+            key={`unique-tag-${id}-${tag}`}
+            type='button'
+            onClick={addTag(tag)}
+          >
+            #{tag}
+          </button>
+        ))}
+      </div>
+
+      {/* Display projects */}
       {projects
         .filter((proj) => matchTags(proj.tags, tags))
-        .map(({ title, description, tags }) => {
-          return (
-            <div key={`card-${id}`} className='card'>
-              <div>
-                <p>{title}</p>
-                <p>{description}</p>
-              </div>
-              {tags.map((tag) => {
-                return (
-                  <button
-                    key={`add-button-${id}`}
-                    type='button'
-                    onClick={addTag(tag)}
-                  >
-                    #{tag}
-                  </button>
-                );
-              })}
+        .map(({ title, description, tags }) => (
+          <div key={`card-${id}`} className='card'>
+            <div>
+              <p>{title}</p>
+              <p>{description}</p>
             </div>
-          );
-        })}
-    </div>
+            {tags.map((tag) => (
+              <button
+                key={`add-button-${id}-${tag}`}
+                type='button'
+                onClick={addTag(tag)}
+              >
+                #{tag}
+              </button>
+            ))}
+          </div>
+        ))}
     </div>
   );
 }
