@@ -153,7 +153,7 @@ function Search() {
         const nearestClubs = findNearestClubs(userLatitude, userLongitude, 10);
         return nearestClubs.map((club, index) => (
             <Marker key={index} position={[club.latitude, club.longitude]} icon={icon}>
-                <Popup>{club.name}</Popup>
+                <Popup>{club.name}<br/>{club.address}</Popup>
             </Marker>
         ));
     };
