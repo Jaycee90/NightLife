@@ -4,21 +4,21 @@
     }
     button {
         padding: 5px;
-        background-color: #cfeed6;
+        background-color: #a3a3a3;
         border-radius: 10%;
         margin: 5px;
         color: #000;
       }
       
       button:hover {
-        background-color: #cfeed67f;
+        background-color: #f1f1f1;
         color: #000;
       }
       
       .card {
         padding: 20px;
         width: 100%;
-        background-color: rgb(255, 215, 175);
+        background-color:#747474;
         margin: 10px 0;
         color: #000;
       }
@@ -26,7 +26,7 @@
       .close {
         border: none;
         padding: 10px;
-        background-color: #cfeed6;
+        background-color: #747474;
         margin: 0 10px;
         color: #000;
       }
