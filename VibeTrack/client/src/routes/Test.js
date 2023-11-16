@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect, useId } from 'react';
 import { Link } from "react-router-dom";
 import '../css/discover.css';
-import { isMenuItem, isVenueType, isVenueFeature, categorizeTags } from '../components/tag.js';
+import { categorizeTags } from '../components/tag.js';
 
 function Test() {
   // State to manage selected tags
