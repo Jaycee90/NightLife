@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import '../css/create.css';
 
-
+// solved issues with css not rendering -> new broswer or clean cache
 export default function Create() {
   const [form, setForm] = useState({ // Define a state variable 'form'
     name: "",
