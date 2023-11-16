@@ -89,21 +89,20 @@ function Test() {
             key={`unique-tag-${id}-${tag}`}
             type='button'
             onClick={addTag(tag)}
-            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99"}}
+            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
           >
             {tag}
           </button>
         ))}
       </div>
 
-      <p style={{color:'#fff'}}>Venue Feature</p>
-      <div className='unique-tags'>
+      <div className='unique-tags' style={{marginTop:'20px'}}>
         {categorizedTags.venueFeatures.map((tag) => (
           <button
             key={`unique-tag-${id}-${tag}`}
             type='button'
             onClick={addTag(tag)}
-            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99"}}
+            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
           >
             {tag}
           </button>
