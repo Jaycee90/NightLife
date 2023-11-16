@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useId } from 'react';
 import { Link } from "react-router-dom";
 import '../css/discover.css';
+import { isMenuItem, isVenueType, isVenueFeature, categorizeTags } from '../components/tag.js';
 
 function Test() {
   // State to manage selected tags
@@ -58,6 +59,7 @@ function Test() {
   // Extract unique tags from all venues
   const uniqueTags = Array.from(new Set(venueData.flatMap((venue) => venue.tags)));
 
+  const categorizedTags = categorizeTags(uniqueTags);
   return (
     <div  className="discover-component" style={{marginBottom:'40px'}}>
     <h2 className="h2 section-title">Filter by tags</h2>
@@ -81,19 +83,34 @@ function Test() {
         <div class="container-search" style={{paddingRight:"20px"}}>
         {/* Display unique tags as buttons */}
         
-        <div className='unique-tags'>
-            {uniqueTags.map((tag) => (
-            <button
-                key={`unique-tag-${id}-${tag}`}
-                type='button'
-                onClick={addTag(tag)}
-                style={{ width: '100px', fontSize:'12px',  backgroundColor: "#e24e99"}}
-            >
-                {tag}
-            </button>
-            ))}
+         <div className='unique-tags'>
+        {categorizedTags.venueType.map((tag) => (
+          <button
+            key={`unique-tag-${id}-${tag}`}
+            type='button'
+            onClick={addTag(tag)}
+            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99"}}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
+
+      <p style={{color:'#fff'}}>Venue Feature</p>
+      <div className='unique-tags'>
+        {categorizedTags.venueFeatures.map((tag) => (
+          <button
+            key={`unique-tag-${id}-${tag}`}
+            type='button'
+            onClick={addTag(tag)}
+            style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99"}}
+          >
+            {tag}
+          </button>
+        ))}
+      </div>
         </div>
-        </div>
+        
         </div>
         <div className="item">
         <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
