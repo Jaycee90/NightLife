@@ -74,7 +74,13 @@
   "price": "$$",
   "rating": "4.7",
   "review": 457,
-  "tags": "Wine Bar,Pizza,Tapas,Small Plates",
+  "tags": [
+    "Wine Bar",
+    "Pizza",
+    "Tapas",
+    "Small Plates",
+    "Bar"
+  ],
   "longitude": -97.93679,
   "id": "patiodolcetto"
 },
@@ -114,7 +120,9 @@
   "price": "$",
   "rating": 4.5,
   "review": 273,
-  "tags": "Music Venue"
+  "tags": [
+    "Music Venue"
+  ]
 },
 {
   "_id": {
@@ -153,7 +161,9 @@
   "price": "$$",
   "rating": 4.1,
   "review": 141,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -191,7 +201,11 @@
   "price": "$",
   "rating": "4.8",
   "review": 22,
-  "tags": "Bar,Food Truck,Karaoke"
+  "tags": [
+    "Bar",
+    "Food Truck",
+    "Karaoke"
+  ]
 },
 {
   "_id": {
@@ -230,7 +244,10 @@
   "price": "$",
   "rating": 4.6,
   "review": 815,
-  "tags": "Coffee & Tea,Desserts"
+  "tags": [
+    "Coffee & Tea",
+    "Desserts"
+  ]
 },
 {
   "_id": {
@@ -267,7 +284,10 @@
   "price": "$",
   "rating": 3.8,
   "review": 61,
-  "tags": "Bar,Karaoke"
+  "tags": [
+    "Bar",
+    "Karaoke"
+  ]
 },
 {
   "_id": {
@@ -306,7 +326,11 @@
   "price": "$",
   "rating": 4.1,
   "review": 360,
-  "tags": "Mexican,Burgers,Tex-Mex"
+  "tags": [
+    "Mexican",
+    "Burgers",
+    "Tex-Mex"
+  ]
 },
 {
   "_id": {
@@ -343,7 +367,9 @@
   "price": "$$",
   "rating": "4.6",
   "review": 756,
-  "tags": "Bar",
+  "tags": [
+    "Bar"
+  ],
   "id": "zelicks"
 },
 {
@@ -383,7 +409,10 @@
   "price": "$$",
   "rating": 4.7,
   "review": 331,
-  "tags": "Brewery,Pub"
+  "tags": [
+    "Brewery",
+    "Pub"
+  ]
 },
 {
   "_id": {
@@ -422,7 +451,13 @@
   "price": "$$",
   "rating": 4.1,
   "review": 689,
-  "tags": "American (Traditional),Mexican,Sports Bar,Bar,Grill"
+  "tags": [
+    "American (Traditional)",
+    "Mexican",
+    "Sports Bar",
+    "Bar",
+    "Grill"
+  ]
 },
 {
   "_id": {
@@ -456,7 +491,10 @@
   "price": "$",
   "rating": 3.5,
   "review": 46,
-  "tags": "Lounge,Bar"
+  "tags": [
+    "Lounge",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -495,7 +533,12 @@
   "price": "$$$",
   "rating": 4.6,
   "review": 703,
-  "tags": "Lounge,American (New),Cocktail Bar"
+  "tags": [
+    "Lounge",
+    "American (New)",
+    "Cocktail Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -530,7 +573,11 @@
   "price": "$",
   "rating": 3.9,
   "review": 239,
-  "tags": "Dive Bar,Pool Hall"
+  "tags": [
+    "Dive Bar",
+    "Pool Hall",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -568,7 +615,10 @@
   "price": "$",
   "rating": 4.1,
   "review": 105,
-  "tags": "Beer Bar"
+  "tags": [
+    "Beer Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -606,7 +656,9 @@
   "price": "$",
   "rating": 4.3,
   "review": 338,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -644,7 +696,12 @@
   "price": "$",
   "rating": 4.6,
   "review": 233,
-  "tags": "Bar,Mini Golf,Venue,Event Space"
+  "tags": [
+    "Bar",
+    "Mini Golf",
+    "Venue",
+    "Event Space"
+  ]
 },
 {
   "_id": {
@@ -683,7 +740,11 @@
   "price": "$$",
   "rating": 3.9,
   "review": 804,
-  "tags": "American (New),Gastropub"
+  "tags": [
+    "American (New)",
+    "Gastropub",
+    "Pub"
+  ]
 },
 {
   "_id": {
@@ -720,7 +781,13 @@
   "price": "$$",
   "rating": 4.6,
   "review": 182,
-  "tags": "Gastropub,Lounge,Cocktail Bar"
+  "tags": [
+    "Gastropub",
+    "Lounge",
+    "Cocktail Bar",
+    "Bar",
+    "Pub"
+  ]
 },
 {
   "_id": {
@@ -759,7 +826,11 @@
   "price": "$",
   "rating": 4.5,
   "review": 98,
-  "tags": "Cocktail Bar,Lounge"
+  "tags": [
+    "Lounge",
+    "Cocktail Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -797,7 +868,12 @@
   "price": "$$",
   "rating": 4.4,
   "review": 635,
-  "tags": "Irish,Burgers,Sport Bar"
+  "tags": [
+    "Irish",
+    "Burgers",
+    "Sport Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -835,7 +911,9 @@
   "price": "$",
   "rating": 4.4,
   "review": 253,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -874,7 +952,11 @@
   "price": "$$",
   "rating": 4.4,
   "review": 1730,
-  "tags": "Breakfast & Brunch,American (New),Comfort Food"
+  "tags": [
+    "Breakfast & Brunch",
+    "American (New)",
+    "Comfort Food"
+  ]
 },
 {
   "_id": {
@@ -913,7 +995,12 @@
   "price": "$$",
   "rating": 4.7,
   "review": 52,
-  "tags": "Tiki Bar,Cocktail Bar,Lounge"
+  "tags": [
+    "Tiki Bar",
+    "Cocktail Bar",
+    "Lounge",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -951,7 +1038,9 @@
   "price": "$",
   "rating": 3.1,
   "review": 141,
-  "tags": "Music Venue"
+  "tags": [
+    "Music Venue"
+  ]
 },
 {
   "_id": {
@@ -989,7 +1078,9 @@
   "price": "$",
   "rating": 3.8,
   "review": 103,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1027,7 +1118,10 @@
   "price": "$",
   "rating": 4.7,
   "review": 334,
-  "tags": "Dive Bar"
+  "tags": [
+    "Dive Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1061,7 +1155,9 @@
   "price": "$",
   "rating": "4.3",
   "review": 3,
-  "tags": "Bar",
+  "tags": [
+    "Bar"
+  ],
   "yelp": null
 },
 {
@@ -1101,7 +1197,12 @@
   "price": "$$",
   "rating": 4.4,
   "review": 1852,
-  "tags": "Cinema,Bowling,Arcade,Bar"
+  "tags": [
+    "Cinema",
+    "Bowling",
+    "Arcade",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1139,7 +1240,10 @@
   "price": "$$",
   "rating": 4.7,
   "review": 158,
-  "tags": "Beer Bar"
+  "tags": [
+    "Beer Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1177,7 +1281,9 @@
   "price": "$$",
   "rating": 4.8,
   "review": 150,
-  "tags": "Cafe"
+  "tags": [
+    "Cafe"
+  ]
 },
 {
   "_id": {
@@ -1216,7 +1322,11 @@
   "price": "$$",
   "rating": 4.3,
   "review": 153,
-  "tags": "Sport Bar,Lounge"
+  "tags": [
+    "Sport Bar",
+    "Lounge",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1252,7 +1362,10 @@
   "price": "$",
   "rating": 4.8,
   "review": 94,
-  "tags": "Bar,Music Venue",
+  "tags": [
+    "Bar",
+    "Music Venue"
+  ],
   "yelp": null
 },
 {
@@ -1292,7 +1405,11 @@
   "price": "$",
   "rating": 4.7,
   "review": 603,
-  "tags": "Music Venue,Dive Bar"
+  "tags": [
+    "Music Venue",
+    "Dive Bar",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1329,7 +1446,11 @@
   "price": "$",
   "rating": 4.5,
   "review": 137,
-  "tags": "Cocktail Bar,Lounge"
+  "tags": [
+    "Cocktail Bar",
+    "Lounge",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1367,7 +1488,11 @@
   "price": "$$",
   "rating": 2,
   "review": 23,
-  "tags": "Beer Bar,Wine"
+  "tags": [
+    "Beer Bar",
+    "Wine",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1405,7 +1530,10 @@
   "price": "$",
   "rating": 4.4,
   "review": 416,
-  "tags": "American (Traditional),Bar"
+  "tags": [
+    "American (Traditional)",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1443,7 +1571,12 @@
   "price": "$$",
   "rating": 4,
   "review": 137,
-  "tags": "Pizza,Sport Bar,Chicken Wings"
+  "tags": [
+    "Pizza",
+    "Sport Bar",
+    "Chicken Wings",
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1477,7 +1610,9 @@
   "price": "",
   "rating": "3.5",
   "review": 4,
-  "tags": null,
+  "tags": [
+    ""
+  ],
   "yelp": null
 },
 {
@@ -1517,7 +1652,9 @@
   "price": "$",
   "rating": 3.3,
   "review": 69,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1556,7 +1693,10 @@
   "price": "$$",
   "rating": 4.9,
   "review": 238,
-  "tags": "Brewery,Pub"
+  "tags": [
+    "Brewery",
+    "Pub"
+  ]
 },
 {
   "_id": {
@@ -1593,7 +1733,11 @@
   "price": "$$",
   "rating": 4.7,
   "review": 631,
-  "tags": "Sushi,Cocktail Bar",
+  "tags": [
+    "Sushi",
+    "Cocktail Bar",
+    "Bar"
+  ],
   "yelp": null
 },
 {
@@ -1632,7 +1776,9 @@
   "price": "$$",
   "rating": 4.2,
   "review": 114,
-  "tags": "Bar"
+  "tags": [
+    "Bar"
+  ]
 },
 {
   "_id": {
@@ -1671,7 +1817,10 @@
   "price": "$$",
   "rating": 4.5,
   "review": 1186,
-  "tags": "Burgers,Pub"
+  "tags": [
+    "Burgers",
+    "Pub"
+  ]
 },
 {
   "_id": {
@@ -1706,5 +1855,9 @@
   "price": "$$",
   "rating": "3.4",
   "review": 94,
-  "tags": "Sake Bar,Karaoke"
+  "tags": [
+    "Sake Bar",
+    "Karaoke",
+    "Bar"
+  ]
 }]
