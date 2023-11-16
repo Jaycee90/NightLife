@@ -13,7 +13,7 @@ const TripFinder = () => {
   const [markers, setMarkers] = useState([]);
 
   const [start, setStartLocation] = useState([29.8833, -97.9414]); // Default start location to get the initial route
-  const [end, setEndLocation] = useState([29.8822, -97.9414]); // Default end location 
+  const [end, setEndLocation] = useState([29.8822, -97.9414]); // Default end location to connet the initial route
 
 
   const fetchTripRecords = async () => {
