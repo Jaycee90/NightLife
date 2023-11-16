@@ -173,7 +173,7 @@ const Discover = () => {
 
         {/* Display selected tags */}
         
-        <div class="container-search" style={{paddingRight:"20px"}}>
+        
         {/* Display unique tags as buttons */}
         
          <div className='unique-tags'>
@@ -202,7 +202,7 @@ const Discover = () => {
         ))}
       </div>
           </div>
-        </div>
+        
         </div>
         <div class="item">
       <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
@@ -219,37 +219,7 @@ const Discover = () => {
                 </button>
               ))
             : 'No tags selected'}
-      <div>
-      <ul className="discover-list" style={{marginRight:'10px'}}>
-
-{/* Display venues without tags */}
-{venueData
-  .filter((venue) => matchTags(venue.tags, tags))
-  .map((venueData) => (
-    <div  className="discover-card" key={`card-${id}`}>
-            <figure className="card-img">
-              <img src={venueData.image} alt={venueData.name} loading="lazy" />
-            </figure>
-
-            <div className="card-content">
-              <div className="card-rating">
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-                <ion-icon name="star"></ion-icon>
-              </div>
-
-              <p className="card-subtitle">{venueData.address}</p>
-              <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
-              
-              <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
-            </div>
-    </div>
-  ))}
-  </ul>
-      </div>
-      <div>
+            <div>
           {searchQuery && (
           <div>
             
@@ -299,31 +269,36 @@ const Discover = () => {
         )}
       </div>
           
-          <ul className="discover-list" style={{marginRight:'10px'}}>
-          {currentVenues.map((venueData) => (
-                <div className="discover-card">
-                  <figure className="card-img">
-                    <img src={venueData.image} alt={venueData.name} loading="lazy" />
-                  </figure>
+      <ul className="discover-list" style={{marginRight:'10px'}}>
 
-                  <div className="card-content">
-                    <div className="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
+{/* Display venues without tags */}
+{venueData
+  .filter((venue) => matchTags(venue.tags, tags))
+  .map((venueData) => (
+    <div  className="discover-card" key={`card-${id}`}>
+            <figure className="card-img">
+              <img src={venueData.image} alt={venueData.name} loading="lazy" />
+            </figure>
 
-                    <p className="card-subtitle">{venueData.address}</p>
-                    <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
-                    
-                    <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
-                  </div>
-                </div>
-            ))}
-          </ul>
-          <ul className="pagination">
+            <div className="card-content">
+              <div className="card-rating">
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+                <ion-icon name="star"></ion-icon>
+              </div>
+
+              <p className="card-subtitle">{venueData.address}</p>
+              <h3 className="h3 card-title"><Link to={`/data/${venueData._id}`}>{venueData.name}</Link></h3>
+              
+              <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
+            </div>
+    </div>
+  ))}
+  </ul>
+  
+  <ul className="pagination">
             {renderPageNumbers}
         </ul>
     </div>
