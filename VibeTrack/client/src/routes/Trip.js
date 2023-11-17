@@ -97,12 +97,7 @@ const TripFinder = () => {
         console.error("Venue not found in the database");
         // Handle the case where the venue is not found in the database
       }
-    } else {
-      setEndLocation(end);
-    }
-  
-    // Optionally, trigger route calculation and map update
-    // Your additional logic here...
+    } 
   };
   
   
@@ -153,7 +148,7 @@ const TripFinder = () => {
           </LayersControl.BaseLayer>
         </LayersControl>
         {/* Conditional rendering of RoutingControl */}
-        {start && (
+        {start && end && (
           <RoutingControl 
             position={'topleft'} 
             start={start} 
@@ -185,6 +180,19 @@ const TripFinder = () => {
           </tbody>
         </table>
       </div>
+
+
+      {/* <div>
+        <label htmlFor="endLocation">Set End Location: </label>
+        <input
+          type="text"
+          id="endLocation"
+          value={end}
+          onChange={(event) => setEndLocation(event.target.value)}
+          placeholder="Type venue name for end location"
+        />
+        <button onClick={handleRouting}>Set as End Location</button>
+      </div> */}
 
     </>
   );
