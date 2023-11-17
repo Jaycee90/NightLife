@@ -8,14 +8,17 @@ const maps = {
 };
 
 const TripFinder = () => {
-  // New state variable for trip records
+  // State variables
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
 
   const [start, setStartLocation] = useState(null); // User's location
   //const [end, setEndLocation] = useState([29.8833, -97.9414]); // Default end location to connet the initial route
   const [end, setEndLocation] = useState("");
+  
+  
 
+  // Fetch trip records from the server
   const fetchTripRecords = async () => {
     try {
       const response = await fetch(`http://localhost:5050/record/`);
@@ -44,9 +47,6 @@ const TripFinder = () => {
         ),
       }));
       setMarkers(venueMarkers);
-
-      // Update end location based on user input or geocoding
-      setEndLocation([29.8822, -97.9414]);
   
     } catch (error) {
       console.error("Error fetching trip records:", error.message);
@@ -73,6 +73,7 @@ const TripFinder = () => {
     setStartLocationToUser(); // Call the function to set start location to user's current position
     fetchTripRecords(); // Call the function to fetch trip records
   }, []);
+
   
   const venueMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
@@ -82,10 +83,46 @@ const TripFinder = () => {
     shadowSize: [41, 41],
   });
 
+  const handleRouting = () => {
+    // Use the end location directly if it's not a string (already coordinates)
+    if (typeof end === 'string') {
+      // Find the venue in your database using the end string
+      const foundVenue = tripRecords.find(venue => venue.name.toLowerCase() === end.toLowerCase());
+  
+      if (foundVenue) {
+        // Use the found venue's coordinates as the end location
+        const newEndLocation = [foundVenue.latitude, foundVenue.longitude];
+        setEndLocation(newEndLocation);
+      } else {
+        console.error("Venue not found in the database");
+        // Handle the case where the venue is not found in the database
+      }
+    } else {
+      setEndLocation(end);
+    }
+  
+    // Optionally, trigger route calculation and map update
+    // Your additional logic here...
+  };
+  
+  
   return (
     <>
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
+      {/* Input for setting end location */}
+      <div>
+        <label htmlFor="endLocation">Set End Location: </label>
+        <input
+          type="text"
+          id="endLocation"
+          value={end}
+          onChange={(event) => setEndLocation(event.target.value)}
+          placeholder="Type venue name for end location"
+        />
+        <button onClick={handleRouting}>Set as End Location</button>
+      </div>
+      
       <MapContainer
         center={[29.8833, -97.9414]}
         zoom={13}
@@ -121,7 +158,8 @@ const TripFinder = () => {
             position={'topleft'} 
             start={start} 
             end={end} 
-            color={'#757de8'} 
+            color={'#757de8'}
+            onRouting={handleRouting}
           />
         )}
       </MapContainer>
@@ -147,6 +185,7 @@ const TripFinder = () => {
           </tbody>
         </table>
       </div>
+
     </>
   );
 };
