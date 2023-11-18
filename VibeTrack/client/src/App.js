@@ -10,6 +10,7 @@ import Security from "./realm/Security";
 import Reset from "./realm/Reset";
 import Profile from './realm/Profile';
 import Contact from './realm/Contact';
+import Favorite from "./realm/Favorite";
 
 import Navbar from "./components/navbar";
 import Edit from "./components/edit";
@@ -23,7 +24,6 @@ import Calendar from './components/calendar';
 
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
-import Favorites from "./routes/Favorite";
 import Feature from './routes/Feature';
 import Invitation from "./routes/Invitation";  
 import Safety from './routes/Safety';
@@ -50,7 +50,6 @@ function App() {
             <Route path='/safety' element={<Safety />} />
             <Route path='/recordlist' element={<RecordList />} />
             <Route path="/edit/:id" element={<Edit />} />         
-            <Route path='/favorites' element={<Favorites/>} />
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
             <Route path='/rating/:id' element={<StarRating />} />
@@ -64,6 +63,7 @@ function App() {
                 <Route path='/profile' element={<Profile />} />
                 <Route path='/contact' element={<Contact />} />
                 <Route path='/userList' element={<UserList />} />
+                <Route path='/favorite' element={<Favorite/>} />
             </Route>
             <Route path='/security' element={<Security />} />
             <Route path='/reset' element={<Reset />} />

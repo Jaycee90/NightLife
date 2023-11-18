@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../css/favorites.css';
 
-function Favorites() {
+function Favorite() {
   const [venues, setVenues] = useState([]); 
   const [selectedVenues, setSelectedVenues] = useState([]); 
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(true);
@@ -104,4 +104,4 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+export default Favorite;

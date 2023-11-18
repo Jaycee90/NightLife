@@ -121,7 +121,7 @@ export default function Profile() {
                 <MenuItem active={true} icon={<FiHome />}>Profile</MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
                 <MenuItem icon={<FaList />}><a href={`/contact`}>Contacts</a></MenuItem>
-                <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
+                <MenuItem icon={<FaRegHeart />}><a href={`/favorite`}>Favorite</a></MenuItem>
               </Menu>
             </SidebarContent>
             <SidebarFooter>
