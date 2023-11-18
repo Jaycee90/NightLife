@@ -8,14 +8,15 @@ const maps = {
 };
 
 const TripFinder = () => {
-  // New state variable for trip records
+  // State variables
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
-
   const [start, setStartLocation] = useState(null); // User's location
-  const [end, setEndLocation] = useState([29.8833, -97.9414]); // Default end location to connet the initial route
-  
+  const [foundVenueLocation, setFoundVenueLocation] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query
+  const [shouldRenderMap, setShouldRenderMap] = useState(true); //keeps track of whether the map should re-render
 
+  // Fetch trip records from the server
   const fetchTripRecords = async () => {
     try {
       const response = await fetch(`http://localhost:5050/record/`);
@@ -44,21 +45,20 @@ const TripFinder = () => {
         ),
       }));
       setMarkers(venueMarkers);
-
-      // Update end location based on user input or geocoding
-      setEndLocation([29.8822, -97.9414]);
   
     } catch (error) {
       console.error("Error fetching trip records:", error.message);
     }
   };
 
+  // Extract the user's coordinates and set then to start point
   const setStartLocationToUser = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
           setStartLocation([latitude, longitude]);// Set user's location as the start location
+          setFoundVenueLocation([latitude, longitude]);
         },
         (error) => {
           console.error("Error getting user location:", error.message);
@@ -73,6 +73,22 @@ const TripFinder = () => {
     setStartLocationToUser(); // Call the function to set start location to user's current position
     fetchTripRecords(); // Call the function to fetch trip records
   }, []);
+
+  // Function to update the search query
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  // Function to search for a specific venue by name
+  const searchVenue = () => {
+    const foundVenue = tripRecords.find(record =>
+      record.name.toLowerCase() === searchQuery.toLowerCase()
+    );
+  
+    if (foundVenue) {
+      setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
+      setShouldRenderMap(!shouldRenderMap); 
+    }
+  };
   
   const venueMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
@@ -86,7 +102,25 @@ const TripFinder = () => {
     <>
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
+      
+      {/* Input for setting end location */}
+      <div className="search-container">
+        <div className="grid-button">
+          <div class="item">{/**prompt a user to search */}
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearch}
+              placeholder="Search by venue name"
+              style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
+            />
+          </div>
+          <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
+        </div>
+      </div>
+
       <MapContainer
+        key={shouldRenderMap} // Add a key to trigger a re-render when the key changes
         center={[29.8833, -97.9414]}
         zoom={13}
         zoomControl={false}
@@ -116,19 +150,19 @@ const TripFinder = () => {
           </LayersControl.BaseLayer>
         </LayersControl>
         {/* Conditional rendering of RoutingControl */}
-        {start && (
+        {start && foundVenueLocation && (
           <RoutingControl 
             position={'topleft'} 
             start={start} 
-            end={end} 
-            color={'#757de8'} 
+            end={foundVenueLocation} 
+            color={'#757de8'}
           />
         )}
       </MapContainer>
       
       {/* Render trip records on the page */}
       <div>
-        <h2 style={{color: '#000000'}}>San Marcos Trip Records</h2>
+        <h2 style={{color: '#000000', margin: '10px', textAlign:'center'}}>Explore San Marcos Trip Records for your next adventure inspiration.</h2>
         
         <table style={{ color: '#000000' }}>
           <thead>
