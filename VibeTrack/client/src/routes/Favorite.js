@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../css/favorites.css';
 
 function Favorites() {
@@ -51,10 +53,8 @@ function Favorites() {
           {selectedVenues.map((venue, index) => (
             <li key={index} style={{ color: 'blue' }}>
               {venue}
-              <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
-                <button onClick={() => removeFromFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
-                  Remove from Favorites
-                </button>
+              <div style={{ display: 'inline-block', padding: '5px', margin: '5px' }}>
+                <FontAwesomeIcon icon={faHeart} onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }} />
               </div>
             </li>
           ))}
@@ -63,25 +63,21 @@ function Favorites() {
         <ul style={{ color: '#000' }}>
           {showFavoritesOnly
             ? selectedVenues.map((venue, index) => (
-                <li key={index} style={{ color: 'blue' }}>
+                <li key={index} style={{}}>
                   <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
                     {venue}
-                    <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
-                      <button onClick={() => removeFromFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
-                        Remove from Favorites
-                      </button>
+                    <div style={{display: 'inline-block', padding: '5px', margin: '5px' }}>
+                      <FontAwesomeIcon icon={faHeart} onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }} />
                     </div>
                   </div>
                 </li>
               ))
             : venues.map((venue, index) => (
-                <li key={index} style={{ color: 'blue' }}>
+                <li key={index} style={{}}>
                   <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
                     {venue.name}
-                    <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
-                      <button onClick={() => addToFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
-                        Add to Favorites
-                      </button>
+                    <div style={{ display: 'inline-block', padding: '5px', margin: '5px' }}>
+                      <FontAwesomeIcon icon={faHeart} onClick={() => addToFavorites(venue)} style={{ cursor: 'pointer' }} />
                     </div>
                   </div>
                 </li>
