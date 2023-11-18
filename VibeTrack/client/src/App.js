@@ -30,6 +30,7 @@ import Safety from './routes/Safety';
 import Search from './routes/Search';
 import TripFinder from './routes/Trip';
 import SpecialEvent from './routes/Special';
+import NotFound from './routes/NotFound';
 
 import Test from './routes/Test';
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path='/invitation' element={<Invitation />} />
             <Route path='/rating/:id' element={<StarRating />} />
+            <Route path= '*' element = {<NotFound/>}/>
             
             <Route path='/test' element={<Test />} />    
             <Route path='/calendar' element={<Calendar />} />
