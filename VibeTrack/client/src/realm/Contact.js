@@ -122,7 +122,7 @@ export default function Contact() {
                 <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
                 <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
-                <MenuItem icon={<FaRegHeart />}><a href={`/favorite`}>Favorite</a></MenuItem>
+                <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
               </Menu>
             </SidebarContent>
             <SidebarFooter>

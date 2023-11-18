@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import '../css/favorites.css';
+import '../css/settings.css';
 
+import {  ProSidebar,  Menu,  MenuItem,  SidebarFooter,  SidebarContent,} from "react-pro-sidebar";
+import { FaList, FaRegHeart } from "react-icons/fa";
+import { FiHome, FiLogOut } from "react-icons/fi";
+import { BiCog } from "react-icons/bi";
+
+import "react-pro-sidebar/dist/css/styles.css";
+
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
 function Favorite() {
   const [venues, setVenues] = useState([]); 
   const [selectedVenues, setSelectedVenues] = useState([]); 
@@ -54,53 +63,74 @@ function Favorite() {
     setSelectedVenues(selectedVenues.filter((v) => v !== venue));
   };
 
+
+  const [menuCollapse] = useState(false);
+
+  const { logOutUser } = useContext(UserContext);
+  const logOut = async () => {
+    try {
+      const loggedOut = await logOutUser();
+      if (loggedOut) {
+        window.location.reload(true);
+      }
+    } catch (error) {
+      alert(error)
+    }
+  }
   return (
-    <div className="favorite-container">
-      <div className="left-content">
-        <h1>Selected Venues</h1>
-        <ul>W
+    
+    <div className="profile-component">
+      <div class="grid-settings">
+        <div class="grid-settings-left">
+          <div id="header">
+          <ProSidebar collapsed={menuCollapse}>
+            <SidebarContent>
+              <Menu iconShape="square">
+                <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
+                <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
+                <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
+                <MenuItem icon={<FaRegHeart />}><a href={`/favorite`}>Favorite</a></MenuItem>
+              </Menu>
+            </SidebarContent>
+            <SidebarFooter>
+              <Menu iconShape="square">
+                <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
+              </Menu>
+            </SidebarFooter>
+          </ProSidebar>
+          </div>
+        </div>
+        <div class="grid-settings-right"  style={{marginTop:'20px'}}>
+          <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
+          
+        <ul>
           {selectedVenues.map((venue, index) => (
-            <li key={index} style={{ color: 'blue' }}>
+            <li key={index}  style={{backgroundColor:'#e24e99', color:'#fff', height:'40px', paddingTop:'10px',marginRight:'10px', borderColor:'#e24e99', borderRadius:'25px', paddingLeft:'10px'}}>
               {venue}
-              <div style={{ display: 'inline-block', padding: '5px', margin: '5px' }}>
+              <div style={{ display: 'inline-block', marginBottom:'20px', marginRight:'10px', float:'right'}}>
                 <FontAwesomeIcon icon={faHeart} onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }} />
               </div>
             </li>
           ))}
         </ul>
-
-        <ul style={{ color: '#000' }}>
-          {showFavoritesOnly
-            ? selectedVenues.map((venue, index) => (
-                <li key={index} style={{}}>
-                  <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
-                    {venue}
-                    <div style={{display: 'inline-block', padding: '5px', margin: '5px' }}>
-                      <FontAwesomeIcon icon={faHeart} onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }} />
-                    </div>
-                  </div>
-                </li>
-              ))
-            : venues.map((venue, index) => (
-                <li key={index} style={{}}>
-                  <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
-                    {venue.name}
-                    <div style={{ display: 'inline-block', padding: '5px', margin: '5px' }}>
-                      <FontAwesomeIcon icon={faHeart} onClick={() => addToFavorites(venue)} style={{ cursor: 'pointer' }} />
-                    </div>
-                  </div>
-                </li>
-              ))
-          }
-        </ul>
-      </div>
-
-      <div className="right-content">
         <button onClick={toggleFavoritesDisplay}>
           {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
         </button>
-      </div>
+        
+      <div className="favorite-container">
+        <ul  className="favorite-list"> 
+        {venues.map((venue, index) => (
+            <li key={index} onClick={() => addToFavorites(venue)} >
+              {venue.name} <FontAwesomeIcon icon={faHeart} onClick={() => addToFavorites(venue)} style={{  cursor: 'pointer' , display: 'inline-block', marginBottom:'20px', marginRight:'10px', float:'right'}}/> 
+              
+            </li>
+        ))}
+        </ul>
+        </div>
     </div>
+        </div>
+      </div>
+
   );
 }
 
