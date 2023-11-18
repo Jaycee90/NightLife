@@ -23,7 +23,7 @@ const Record = (props) => {
   };
 
 function Search() {
-    // state variables
+    // Initialize state variables.
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
