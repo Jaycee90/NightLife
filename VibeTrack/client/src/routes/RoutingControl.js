@@ -39,8 +39,8 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
 
       // Add a popup to the marker
       const popupContent = i === 0
-      ? `Your location<br><span class="math-inline">${start.address}</span>`
-      : `Your destination<br><span class="math-inline">${end.address}</span>`;
+        ? `Your location<br><span class="math-inline">${start.address}</span>`
+        : `Your destination<br><span class="math-inline">${end.address}</span>`;
 
       marker.bindPopup(popupContent);
       // Update the popup content for the start marker with coordinates

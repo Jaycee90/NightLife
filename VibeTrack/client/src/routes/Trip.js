@@ -12,7 +12,10 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [start, setStartLocation] = useState(null); // User's location
-  const [end, setEndLocation] = useState([]);
+  //const [end, setEndLocation] = useState(null);
+  const [foundVenueLocation, setFoundVenueLocation] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query
+  const [venueFound, setVenueFound] = useState(false);
 
 
   // Fetch trip records from the server
@@ -56,6 +59,7 @@ const TripFinder = () => {
         (position) => {
           const { latitude, longitude } = position.coords;
           setStartLocation([latitude, longitude]);// Set user's location as the start location
+          setFoundVenueLocation([latitude, longitude]);
         },
         (error) => {
           console.error("Error getting user location:", error.message);
@@ -80,40 +84,50 @@ const TripFinder = () => {
     shadowSize: [41, 41],
   });
 
-  const setEndLocationVenue = () => {
-    if (typeof end === 'string') {
-      const foundVenue = tripRecords.find((venue) => venue.name.toLowerCase() === end.toLowerCase());
 
-      if (foundVenue) {
-        const newEndLocation = [foundVenue.latitude, foundVenue.longitude];
-        setEndLocation(newEndLocation);
-      } else {
-        console.error("Venue not found in the database");
-      }
+  // Function to update the search query
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  // Function to search for a specific venue by name
+  const searchVenue = () => {
+    const foundVenue = tripRecords.find(record =>
+      record.name.toLowerCase() === searchQuery.toLowerCase()
+    );
+  
+    if (foundVenue) {
+      setVenueFound(true);
+      setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
     } else {
-      console.error("Invalid end location format");
+      setVenueFound(false);
     }
   };
 
+
+  
   return (
     <>
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
       
       {/* Input for setting end location */}
-      <div>
-        <label htmlFor="endLocation" style={{ color: 'black' }}>Set End Location:{" "} </label>
-        <input
-          type="text"
-          id="endLocation"
-          value={end}
-          onChange={(event) => setEndLocation(event.target.value)}
-          placeholder="Type venue name for end location"
-          style={{ backgroundColor: 'purple', color: 'black' }}
-        />
-        <button onClick={setEndLocationVenue}>Extract Coordinates</button>
-      </div>
       
+      <div className="search-container">
+        <div className="grid-button">
+          <div class="item">{/**prompt a user to search */}
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={handleSearch}
+              placeholder="Search by venue name"
+              style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
+            />
+          </div>
+          <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
+        </div>
+      </div>
+
+
       <MapContainer
         center={[29.8833, -97.9414]}
         zoom={13}
@@ -144,11 +158,11 @@ const TripFinder = () => {
           </LayersControl.BaseLayer>
         </LayersControl>
         {/* Conditional rendering of RoutingControl */}
-        {start && end && (
+        {start && foundVenueLocation && (
           <RoutingControl 
             position={'topleft'} 
             start={start} 
-            end={end} 
+            end={foundVenueLocation} 
             color={'#757de8'}
           />
         )}
@@ -176,18 +190,7 @@ const TripFinder = () => {
         </table>
       </div>
 
-      {/* <div>
-        <label htmlFor="endLocation" style={{ color: 'black' }}>Set End Location:{" "} </label>
-        <input
-          type="text"
-          id="endLocation"
-          value={end}
-          onChange={(event) => setEndLocation(event.target.value)}
-          placeholder="Type venue name for end location"
-          style={{ backgroundColor: 'purple', color: 'black' }}
-        />
-        <button onClick={setEndLocationVenue}>Set as End Location</button>
-      </div> */}
+  
 
     </>
   );
