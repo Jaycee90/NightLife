@@ -11,12 +11,9 @@ const TripFinder = () => {
   // State variables
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
-
   const [start, setStartLocation] = useState(null); // User's location
-  //const [end, setEndLocation] = useState([29.8833, -97.9414]); // Default end location to connet the initial route
-  const [end, setEndLocation] = useState("");
-  
-  
+  const [end, setEndLocation] = useState([]);
+
 
   // Fetch trip records from the server
   const fetchTripRecords = async () => {
@@ -83,39 +80,38 @@ const TripFinder = () => {
     shadowSize: [41, 41],
   });
 
-  const handleRouting = () => {
-    // Use the end location directly if it's not a string (already coordinates)
+  const setEndLocationVenue = () => {
     if (typeof end === 'string') {
-      // Find the venue in your database using the end string
-      const foundVenue = tripRecords.find(venue => venue.name.toLowerCase() === end.toLowerCase());
-  
+      const foundVenue = tripRecords.find((venue) => venue.name.toLowerCase() === end.toLowerCase());
+
       if (foundVenue) {
-        // Use the found venue's coordinates as the end location
         const newEndLocation = [foundVenue.latitude, foundVenue.longitude];
         setEndLocation(newEndLocation);
       } else {
         console.error("Venue not found in the database");
-        // Handle the case where the venue is not found in the database
       }
-    } 
+    } else {
+      console.error("Invalid end location format");
+    }
   };
-  
-  
+
   return (
     <>
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
+      
       {/* Input for setting end location */}
       <div>
-        <label htmlFor="endLocation">Set End Location: </label>
+        <label htmlFor="endLocation" style={{ color: 'black' }}>Set End Location:{" "} </label>
         <input
           type="text"
           id="endLocation"
           value={end}
           onChange={(event) => setEndLocation(event.target.value)}
           placeholder="Type venue name for end location"
+          style={{ backgroundColor: 'purple', color: 'black' }}
         />
-        <button onClick={handleRouting}>Set as End Location</button>
+        <button onClick={setEndLocationVenue}>Extract Coordinates</button>
       </div>
       
       <MapContainer
@@ -154,7 +150,6 @@ const TripFinder = () => {
             start={start} 
             end={end} 
             color={'#757de8'}
-            onRouting={handleRouting}
           />
         )}
       </MapContainer>
@@ -181,17 +176,17 @@ const TripFinder = () => {
         </table>
       </div>
 
-
       {/* <div>
-        <label htmlFor="endLocation">Set End Location: </label>
+        <label htmlFor="endLocation" style={{ color: 'black' }}>Set End Location:{" "} </label>
         <input
           type="text"
           id="endLocation"
           value={end}
           onChange={(event) => setEndLocation(event.target.value)}
           placeholder="Type venue name for end location"
+          style={{ backgroundColor: 'purple', color: 'black' }}
         />
-        <button onClick={handleRouting}>Set as End Location</button>
+        <button onClick={setEndLocationVenue}>Set as End Location</button>
       </div> */}
 
     </>
