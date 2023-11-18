@@ -15,8 +15,8 @@ const TripFinder = () => {
   //const [end, setEndLocation] = useState(null);
   const [foundVenueLocation, setFoundVenueLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query
-  const [venueFound, setVenueFound] = useState(false);
-
+  
+  const [shouldRenderMap, setShouldRenderMap] = useState(true);
 
   // Fetch trip records from the server
   const fetchTripRecords = async () => {
@@ -84,7 +84,6 @@ const TripFinder = () => {
     shadowSize: [41, 41],
   });
 
-
   // Function to update the search query
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -96,14 +95,10 @@ const TripFinder = () => {
     );
   
     if (foundVenue) {
-      setVenueFound(true);
       setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
-    } else {
-      setVenueFound(false);
+      setShouldRenderMap(!shouldRenderMap); 
     }
   };
-
-
   
   return (
     <>
@@ -111,7 +106,6 @@ const TripFinder = () => {
       <h2 className="h2 section-title">Party time! Hit the road, let's roll!</h2>
       
       {/* Input for setting end location */}
-      
       <div className="search-container">
         <div className="grid-button">
           <div class="item">{/**prompt a user to search */}
@@ -129,6 +123,7 @@ const TripFinder = () => {
 
 
       <MapContainer
+        key={shouldRenderMap} // Add a key to trigger a re-render when the key changes
         center={[29.8833, -97.9414]}
         zoom={13}
         zoomControl={false}
