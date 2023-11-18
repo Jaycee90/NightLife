@@ -5,7 +5,6 @@ function Favorites() {
   const [venues, setVenues] = useState([]); // array of venue objects
   const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // state to toggle favorites display
-  const [confirmationVenue, setConfirmationVenue] = useState(null); // confirmation state
   const [favoriteVenues, setFavoriteVenues] = useState([]);
 
   useEffect(() => {
@@ -40,17 +39,8 @@ function Favorites() {
     }
   };
 
-  const requestRemoveConfirmation = (venue) => {
-    setConfirmationVenue(venue);
-  };
-
-  const cancelRemoveConfirmation = () => {
-    setConfirmationVenue(null);
-  };
-
-  const confirmRemoveFromFavorites = (venue) => {
+  const removeFromFavorites = (venue) => {
     setSelectedVenues(selectedVenues.filter((v) => v !== venue));
-    setConfirmationVenue(null); // Clear the confirmation
   };
 
   return (
@@ -62,23 +52,13 @@ function Favorites() {
             <li key={index} style={{ color: 'blue' }}>
               {venue}
               <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
-                <button onClick={() => requestRemoveConfirmation(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
+                <button onClick={() => removeFromFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
                   Remove from Favorites
                 </button>
               </div>
             </li>
           ))}
         </ul>
-
-        {confirmationVenue && (
-          <div>
-            <p>Are you sure you want to remove {confirmationVenue} from favorites?</p>
-            <button onClick={() => confirmRemoveFromFavorites(confirmationVenue)}>
-              Yes
-            </button>
-            <button onClick={cancelRemoveConfirmation}>No</button>
-          </div>
-        )}
 
         <ul style={{ color: '#000' }}>
           {showFavoritesOnly
@@ -87,7 +67,7 @@ function Favorites() {
                   <div style={{ background: 'black', color: 'white', padding: '5px', margin: '5px' }}>
                     {venue}
                     <div style={{ background: 'blue', display: 'inline-block', padding: '5px', margin: '5px' }}>
-                      <button onClick={() => requestRemoveConfirmation(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
+                      <button onClick={() => removeFromFavorites(venue)} style={{ background: 'transparent', border: 'none', color: 'white' }}>
                         Remove from Favorites
                       </button>
                     </div>
@@ -120,8 +100,3 @@ function Favorites() {
 }
 
 export default Favorites;
-// "Show Favorites Only" button works now 
-// created an unintetnional visual of 2 
-// venue names the one from the selected and the
-// add to favorites 
-// favorite function will be continued/rework on in Sprint 3
