@@ -4,9 +4,9 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import '../css/favorites.css';
 
 function Favorites() {
-  const [venues, setVenues] = useState([]); // array of venue objects
-  const [selectedVenues, setSelectedVenues] = useState([]); // array of venues to be sent
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false); // state to toggle favorites display
+  const [venues, setVenues] = useState([]); 
+  const [selectedVenues, setSelectedVenues] = useState([]); 
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(true);
   const [favoriteVenues, setFavoriteVenues] = useState([]);
 
   useEffect(() => {
@@ -23,6 +23,15 @@ function Favorites() {
 
         const venueData = await response.json();
         setVenues(venueData);
+        
+      // Add "VibeTrack" to the selectedVenues initially
+      setSelectedVenues((prevSelectedVenues) => {
+        if (!prevSelectedVenues.includes("VibeTrack")) {
+          return ["VibeTrack", ...prevSelectedVenues];
+        }
+        return prevSelectedVenues;
+      });
+
       } catch (error) {
         console.log('Error fetching venues from the database, ', error);
       }
@@ -49,7 +58,7 @@ function Favorites() {
     <div className="favorite-container">
       <div className="left-content">
         <h1>Selected Venues</h1>
-        <ul>
+        <ul>W
           {selectedVenues.map((venue, index) => (
             <li key={index} style={{ color: 'blue' }}>
               {venue}
