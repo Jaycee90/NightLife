@@ -12,11 +12,9 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [start, setStartLocation] = useState(null); // User's location
-  //const [end, setEndLocation] = useState(null);
   const [foundVenueLocation, setFoundVenueLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query
-  
-  const [shouldRenderMap, setShouldRenderMap] = useState(true);
+  const [shouldRenderMap, setShouldRenderMap] = useState(true); //keeps track of whether the map should re-render
 
   // Fetch trip records from the server
   const fetchTripRecords = async () => {
@@ -53,6 +51,7 @@ const TripFinder = () => {
     }
   };
 
+  // Extract the user's coordinates and set then to start point
   const setStartLocationToUser = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -75,15 +74,6 @@ const TripFinder = () => {
     fetchTripRecords(); // Call the function to fetch trip records
   }, []);
 
-  
-  const venueMarker = new L.Icon({
-    iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-  });
-
   // Function to update the search query
   const handleSearch = (event) => {
     setSearchQuery(event.target.value);
@@ -100,6 +90,14 @@ const TripFinder = () => {
     }
   };
   
+  const venueMarker = new L.Icon({
+    iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+
   return (
     <>
       <p className="section-subtitle" >Ready to make the dance floor jealous? Let's vibe!</p>
@@ -120,7 +118,6 @@ const TripFinder = () => {
           <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
         </div>
       </div>
-
 
       <MapContainer
         key={shouldRenderMap} // Add a key to trigger a re-render when the key changes
@@ -165,7 +162,7 @@ const TripFinder = () => {
       
       {/* Render trip records on the page */}
       <div>
-        <h2 style={{color: '#000000'}}>San Marcos Trip Records</h2>
+        <h2 style={{color: '#000000', margin: '10px', textAlign:'center'}}>Explore San Marcos Trip Records for your next adventure inspiration.</h2>
         
         <table style={{ color: '#000000' }}>
           <thead>
@@ -184,9 +181,6 @@ const TripFinder = () => {
           </tbody>
         </table>
       </div>
-
-  
-
     </>
   );
 };
