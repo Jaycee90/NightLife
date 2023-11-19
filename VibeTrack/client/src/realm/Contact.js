@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import '../css/settings.css';
-import {  ProSidebar,  Menu,  MenuItem,  SidebarFooter,  SidebarContent,} from "react-pro-sidebar";
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut } from "react-icons/fi";
-import { BiCog } from "react-icons/bi";
-
+import UserBar from '../components/userbar.js';
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
 import "react-pro-sidebar/dist/css/styles.css";
@@ -97,8 +93,6 @@ export default function Contact() {
     window.alert("Information updated successfully!");
   }
 
-  const [menuCollapse] = useState(false);
-
   const { logOutUser } = useContext(UserContext);
   const logOut = async () => {
     try {
@@ -115,23 +109,7 @@ export default function Contact() {
     <div className="profile-component">
       <div class="grid-settings">
         <div class="grid-settings-left">
-          <div id="header">
-          <ProSidebar collapsed={menuCollapse}>
-            <SidebarContent>
-              <Menu iconShape="square">
-                <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
-                <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
-                <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
-                <MenuItem icon={<FaRegHeart />}>Favorite</MenuItem>
-              </Menu>
-            </SidebarContent>
-            <SidebarFooter>
-              <Menu iconShape="square">
-                <MenuItem icon={<FiLogOut />}  onClick={logOut}>Logout</MenuItem>
-              </Menu>
-            </SidebarFooter>
-          </ProSidebar>
-          </div>
+          <UserBar  logOut={logOut}/>
         </div>
         <div class="grid-settings-right"  style={{marginTop:'20px'}}>
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
