@@ -193,10 +193,6 @@ function Favorite() {
               </li>
             ))}
           </ul>
-
-          <div style={{ marginTop: '20px', color:'#000' }}>
-          <p>Favorited Venues: {allVenues}</p>
-        </div>
           <div>
               <button  onClick={onSubmit} style={{backgroundColor: '#e24e99',color: '#fff'}}>Save my Favorites
               </button>
