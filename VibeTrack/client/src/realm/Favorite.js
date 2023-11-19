@@ -46,17 +46,9 @@ function Favorite() {
     setShowFavoritesOnly(!showFavoritesOnly);
   };
 
-  const addToFavorites = (venue) => {
-    if (!selectedVenues.includes(venue.name)) {
-      setSelectedVenues([...selectedVenues, venue.name]);
-      setFavoriteVenues([...favoriteVenues, venue.name]);
-    }
-  };
-
   const removeFromFavorites = (venue) => {
     setSelectedVenues(selectedVenues.filter((v) => v !== venue));
   };
-
 
   const { logOutUser } = useContext(UserContext);
   const logOut = async () => {
@@ -69,6 +61,7 @@ function Favorite() {
       alert(error);
     }
   };
+
   const [form, setForm] = useState({
     _id: "",
     code: "",
@@ -156,48 +149,124 @@ function Favorite() {
     // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
+  
+const addToFavorites = async (venue) => {
+    try {
+      if (!selectedVenues.includes(venue.name)) {
+        setSelectedVenues([...selectedVenues, venue.name]);
 
+        // Find the venue object based on the name
+        const selectedVenueObject = venues.find((v) => v.name === venue.name);
+
+        // Update the favoriteVenues state (if needed)
+        setFavoriteVenues([...favoriteVenues, venue.name]);
+
+        // Fetch the current user to get the user ID
+        const currentUser = await fetchUser();
+
+        // Update the user's favorite field with the venue's _id
+        await fetch(`http://localhost:5050/user/${currentUser.id}`, {
+          method: "PATCH",
+          body: JSON.stringify({
+            favorite: [...form.favorite, selectedVenueObject._id],
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        });
+      }
+    } catch (error) {
+      console.error('Error adding venue to favorites:', error);
+    }
+  };
   return (
     <div className="profile-component">
       <div class="grid-settings">
         <div class="grid-settings-left">
-          <UserBar  logOut={logOut}/>
+          <UserBar logOut={logOut} />
         </div>
         <div class="grid-settings-right" style={{ marginTop: '20px' }}>
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>
             Favorite Venues
           </h3>
 
-          <div className="grid-favorite" style={{paddingBottom:'10px'}}>
+          <div className="grid-favorite" style={{ paddingBottom: '10px' }}>
             <div class="item">
               {showFavoritesOnly && (
                 <div>
-                  <select id="venueDropdown" onChange={(e) => addToFavorites({ name: e.target.value })}>
-                    <option value="" disabled selected>Select a venue...</option>
-                    {venues.map((venue, index) => (<option key={index} value={venue.name}>{venue.name}</option>
+                  <select
+                    id="venueDropdown"
+                    onChange={(e) => addToFavorites({ name: e.target.value })}
+                  >
+                    <option value="" disabled selected>
+                      Select a venue...
+                    </option>
+                    {venues.map((venue, index) => (
+                      <option key={index} value={venue.name}>
+                        {venue.name}
+                      </option>
                     ))}
                   </select>
                 </div>
               )}
             </div>
             <div class="item">
-              <button onClick={toggleFavoritesDisplay} style={{backgroundColor: '#e24e99',color: '#fff'}}>
-                {showFavoritesOnly ? 'Add more to my Favorites': 'Show my Favorites Only'}
+              <button
+                onClick={toggleFavoritesDisplay}
+                style={{
+                  backgroundColor: '#e24e99',
+                  color: '#fff',
+                  marginRight: '10px',
+                }}
+              >
+                {showFavoritesOnly
+                  ? 'Add more to my Favorites'
+                  : 'Show my Favorites Only'}
+              </button>
+              <button
+                onClick={onSubmit}
+                style={{ backgroundColor: '#4CAF50', color: '#fff' }}
+              >
+                Save My Favorites
               </button>
             </div>
           </div>
 
           <ul>
             {selectedVenues.map((venue, index) => (
-              <li key={index} style={{backgroundColor: '#fff',borderRadius: '10px',border: '1px solid #7a7a7a',color: '#747474', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
+              <li
+                key={index}
+                style={{
+                  backgroundColor: '#fff',
+                  borderRadius: '10px',
+                  border: '1px solid #7a7a7a',
+                  color: '#747474',
+                  height: '40px',
+                  paddingTop: '10px',
+                  marginRight: '10px',
+                  marginBottom: '10px',
+                  paddingLeft: '10px',
+                }}
+                onChange={(e) => updateForm({ favorite: e.target.favorite })}
+              >
                 {venue}
-                <div style={{ display: 'inline-block', marginBottom: '20px', marginRight: '10px', float: 'right', }}>
-                  <FontAwesomeIcon icon={faHeart}onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }}/>
+                <div
+                  style={{
+                    display: 'inline-block',
+                    marginBottom: '20px',
+                    marginRight: '10px',
+                    float: 'right',
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={faHeart}
+                    onClick={() => removeFromFavorites(venue)}
+                    style={{ cursor: 'pointer' }}
+                  />
                 </div>
               </li>
             ))}
           </ul>
-
         </div>
       </div>
     </div>
