@@ -6,6 +6,7 @@ import '../css/settings.css';
 import 'react-pro-sidebar/dist/css/styles.css';
 
 import { useContext } from 'react';
+import { useNavigate } from "react-router";
 import { UserContext } from './UserContext';
 
 function Favorite() {
@@ -68,6 +69,93 @@ function Favorite() {
       alert(error);
     }
   };
+  const [form, setForm] = useState({
+    _id: "",
+    code: "",
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthdate: "",
+    gender: "",
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
+    favorite:"",
+  });
+  const navigate = useNavigate();
+
+  const { fetchUser } = useContext(UserContext);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const currentUser = await fetchUser();
+        if (currentUser) {
+          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+    
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+    
+          const user = await response.json();
+          if (!user) {
+            window.alert(`User with code ${currentUser.id} not found`);
+            navigate("/");
+            return;
+          }
+    
+          setForm(user);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    }
+  
+    fetchData();
+  }, [fetchUser, navigate]);
+  
+
+  function updateForm(value) {
+    return setForm(prev => {
+      return { ...prev, ...value };
+    });
+  }
+  
+  async function onSubmit(e) {
+    e.preventDefault();
+    const editedUser = {
+      _id : form._id,
+      code: form.code,
+      name: form.name,
+      lastName: form.lastName,
+      phone: form.phone,
+      email: form.email,
+      birthdate: form.birthdate,
+      gender: form.gender,
+      emergencyName1: form.emergencyName1,
+      emergencyEmail1: form.emergencyEmail1,
+      emergencyName2: form.emergencyName2,
+      emergencyEmail2: form.emergencyEmail2,
+      favorite: form.favorite
+    };
+  
+    const currentUser = await fetchUser();
+    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
+      method: "PATCH",
+      body: JSON.stringify(editedUser),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+  
+    // Optionally, you can show a message to indicate that the update was successful.
+    window.alert("Information updated successfully!");
+  }
 
   return (
     <div className="profile-component">

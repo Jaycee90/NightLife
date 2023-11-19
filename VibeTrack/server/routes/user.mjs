@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
     emergencyEmail1: req.body.emergencyEmail1,
     emergencyName2: req.body.emergencyName2,
     emergencyEmail2: req.body.emergencyEmail2,
+    favorite: req.body.favorite,
   };
   let collection = await db.collection("User");
   let result = await collection.insertOne(newDocument);
@@ -57,6 +58,7 @@ router.patch("/:code", async (req, res) => {
       emergencyEmail1: req.body.emergencyEmail1,
       emergencyName2: req.body.emergencyName2,
       emergencyEmail2: req.body.emergencyEmail2,
+      favorite: req.body.favorite,
     }
   };
 
