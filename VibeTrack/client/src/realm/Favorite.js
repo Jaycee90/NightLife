@@ -122,11 +122,6 @@ function Favorite() {
     fetchData();
   }, [fetchUser, navigate]);
   
-  function updateForm(value) {
-    return setForm(prev => {
-      return { ...prev, ...value };
-    });
-  }
   async function onSubmit(e) {
     e.preventDefault();
     const editedUser = {
@@ -142,7 +137,7 @@ function Favorite() {
       emergencyEmail1: form.emergencyEmail1,
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
-      favorite: form.favorite,
+      favorite: allVenues,
     };
   
     const currentUser = await fetchUser();
@@ -202,25 +197,9 @@ function Favorite() {
           <div style={{ marginTop: '20px', color:'#000' }}>
           <p>Favorited Venues: {allVenues}</p>
         </div>
-        <form>
-        <div className="form-group" onSubmit={onSubmit} >
-                <input
-                  type="text"
-                  className="form-control"
-                  id="favorite"
-                  placeholder="Favorite venues go here"
-                  value={form.favorite}
-                  onChange={(e) => updateForm({ favorite: e.target.value })}
-                />
-              </div>
-              <input
-                type="submit"
-                value="Update my Favorites"
-                className="btn btn-primary"
-                style={{width:'50%', marginLeft:'30%', backgroundColor: '#e24e99',color: '#fff'}}
-              />
-              </form>
           <div>
+              <button  onClick={onSubmit} style={{backgroundColor: '#e24e99',color: '#fff'}}>Save my Favorites
+              </button>
             </div>
         </div>
       </div>
