@@ -75,7 +75,7 @@ function Favorite() {
     emergencyEmail1: "", 
     emergencyName2: "", 
     emergencyEmail2: "", 
-    favorite:"",
+    favorite:[],
   });
   const navigate = useNavigate();
 
