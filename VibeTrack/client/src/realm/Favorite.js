@@ -7,6 +7,7 @@ import 'react-pro-sidebar/dist/css/styles.css';
 
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
+import { useNavigate } from "react-router";
 
 function Favorite() {
   const [venues, setVenues] = useState([]);
@@ -68,7 +69,95 @@ function Favorite() {
       alert(error);
     }
   };
+
   const allVenues = selectedVenues.join(',');
+
+  const [form, setForm] = useState({
+    _id: "",
+    code: "",
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthdate: "",
+    gender: "",
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
+    favorite: "",
+  });
+  const navigate = useNavigate();
+
+  const { fetchUser } = useContext(UserContext);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const currentUser = await fetchUser();
+        if (currentUser) {
+          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+    
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+    
+          const user = await response.json();
+          if (!user) {
+            window.alert(`User with code ${currentUser.id} not found`);
+            navigate("/");
+            return;
+          }
+    
+          setForm(user);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    }
+  
+    fetchData();
+  }, [fetchUser, navigate]);
+  
+  function updateForm(value) {
+    return setForm(prev => {
+      return { ...prev, ...value };
+    });
+  }
+  async function onSubmit(e) {
+    e.preventDefault();
+    const editedUser = {
+      _id : form._id,
+      code: form.code,
+      name: form.name,
+      lastName: form.lastName,
+      phone: form.phone,
+      email: form.email,
+      birthdate: form.birthdate,
+      gender: form.gender,
+      emergencyName1: form.emergencyName1,
+      emergencyEmail1: form.emergencyEmail1,
+      emergencyName2: form.emergencyName2,
+      emergencyEmail2: form.emergencyEmail2,
+      favorite: form.favorite,
+    };
+  
+    const currentUser = await fetchUser();
+    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
+      method: "PATCH",
+      body: JSON.stringify(editedUser),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+  
+    // Optionally, you can show a message to indicate that the update was successful.
+    window.alert("Information updated successfully!");
+  }
+
   return (
     <div className="profile-component">
       <div class="grid-settings">
@@ -113,9 +202,25 @@ function Favorite() {
           <div style={{ marginTop: '20px', color:'#000' }}>
           <p>Favorited Venues: {allVenues}</p>
         </div>
+        <form>
+        <div className="form-group" onSubmit={onSubmit} >
+                <input
+                  type="text"
+                  className="form-control"
+                  id="favorite"
+                  placeholder="Favorite venues go here"
+                  value={form.favorite}
+                  onChange={(e) => updateForm({ favorite: e.target.value })}
+                />
+              </div>
+              <input
+                type="submit"
+                value="Update my Favorites"
+                className="btn btn-primary"
+                style={{width:'50%', marginLeft:'30%', backgroundColor: '#e24e99',color: '#fff'}}
+              />
+              </form>
           <div>
-              <button onClick={toggleFavoritesDisplay} style={{backgroundColor: '#e24e99',color: '#fff'}}>Save my Favorites
-              </button>
             </div>
         </div>
       </div>

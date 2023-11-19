@@ -20,6 +20,7 @@ export default function Contact() {
     emergencyEmail1: "", 
     emergencyName2: "", 
     emergencyEmail2: "", 
+    favorite: "",
   });
   const navigate = useNavigate();
 
@@ -78,6 +79,7 @@ export default function Contact() {
       emergencyEmail1: form.emergencyEmail1,
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
+      favorite: form.favorite,
     };
   
     const currentUser = await fetchUser();
