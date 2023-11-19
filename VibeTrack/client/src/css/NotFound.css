@@ -1,11 +1,11 @@
 .not-found-container {
     text-align: center;
-    padding: 20px;
+    padding: 40px; /* Increase padding for additional vertical space */
     border: 1px solid #ccc;
     border-radius: 8px;
-    max-width: 600px; /* Adjust the max-width to your desired value */
-    width: 100%; /* Set width to 100% to take up the entire width */
-    margin: 0 auto;
+    max-width: 600px;
+    width: 100%;
+    margin: 20vh auto; /* Adjust margin for vertical positioning */
   }
   
   .not-found-title {
@@ -22,4 +22,5 @@
     margin-top: 10px;
     /* Add any specific button styles here */
   }
+  
   
