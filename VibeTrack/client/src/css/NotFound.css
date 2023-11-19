@@ -3,17 +3,18 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    max-width: 400px;
+    max-width: 600px; /* Adjust the max-width to your desired value */
+    width: 100%; /* Set width to 100% to take up the entire width */
     margin: 0 auto;
   }
   
   .not-found-title {
     font-size: 1.5em;
-    /* Add any other title-specific styles here */
+    color: blue; /* Set title color to blue */
   }
   
   .not-found-message {
-    /* Add any specific styles for the message */
+    color: blue; /* Set message color to blue */
   }
   
   .not-found-button {
@@ -21,3 +22,4 @@
     margin-top: 10px;
     /* Add any specific button styles here */
   }
+  
