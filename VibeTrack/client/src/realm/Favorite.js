@@ -88,8 +88,8 @@ function Favorite() {
               <Menu iconShape="square">
                 <MenuItem icon={<FiHome />}><a href={`/profile`}>Profile</a></MenuItem>
                 <MenuItem icon={<BiCog />}><a href="/security">Security</a></MenuItem>
-                <MenuItem  active={true} icon={<FaList />}>Contact</MenuItem>
-                <MenuItem icon={<FaRegHeart />}><a href={`/favorite`}>Favorite</a></MenuItem>
+                <MenuItem icon={<FaList />}><a href={`/contact`}>Contact</a></MenuItem>
+                <MenuItem  active={true} icon={<FaRegHeart />}><a href={`/favorite`}>Favorite</a></MenuItem>
               </Menu>
             </SidebarContent>
             <SidebarFooter>
@@ -101,11 +101,11 @@ function Favorite() {
           </div>
         </div>
         <div class="grid-settings-right"  style={{marginTop:'20px'}}>
-          <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
+          <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Favorite Venues</h3>
           
         <ul>
           {selectedVenues.map((venue, index) => (
-            <li key={index}  style={{backgroundColor:'#e24e99', color:'#fff', height:'40px', paddingTop:'10px',marginRight:'10px', borderColor:'#e24e99', borderRadius:'25px', paddingLeft:'10px'}}>
+            <li key={index}  style={{backgroundColor:'#e24e99', color:'#fff', height:'40px', paddingTop:'10px',marginRight:'10px', marginBottom:'10px', borderColor:'#e24e99', borderRadius:'25px', paddingLeft:'10px'}}>
               {venue}
               <div style={{ display: 'inline-block', marginBottom:'20px', marginRight:'10px', float:'right'}}>
                 <FontAwesomeIcon icon={faHeart} onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }} />
@@ -114,19 +114,17 @@ function Favorite() {
           ))}
         </ul>
         <button onClick={toggleFavoritesDisplay}>
-          {showFavoritesOnly ? 'Show All Venues' : 'Show Favorites Only'}
+          {showFavoritesOnly ? 'Add more to my Favorites' : 'Show my Favorites Only'}
         </button>
-        
-      <div className="favorite-container">
-        <ul  className="favorite-list"> 
-        {venues.map((venue, index) => (
-            <li key={index} onClick={() => addToFavorites(venue)} >
-              {venue.name} <FontAwesomeIcon icon={faHeart} onClick={() => addToFavorites(venue)} style={{  cursor: 'pointer' , display: 'inline-block', marginBottom:'20px', marginRight:'10px', float:'right'}}/> 
-              
-            </li>
-        ))}
-        </ul>
-        </div>
+        <div style={{paddingTop:'10px', paddingBottom:'10px'}}>
+        <select id="venueDropdown" onChange={(e) => addToFavorites({ name: e.target.value })}>
+          <option value="" disabled selected>Select a venue...</option>
+          {venues.map((venue, index) => (
+            <option key={index} value={venue.name}>{venue.name}</option>
+          ))}
+        </select>
+      </div>
+
     </div>
         </div>
       </div>

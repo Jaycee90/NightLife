@@ -61,7 +61,7 @@ body {
   margin:0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size:15px;
-  height: 92vh;
+  height: 100%;
 }
 
 .grid-settings left{
@@ -79,7 +79,7 @@ body {
     width: 220px;
   }
   #header .pro-sidebar {
-    height: 92vh;
+    height: 100%;
   }
   #header .closemenu {
     color: #000;
@@ -164,5 +164,13 @@ body {
     margin-right: 10px;
     padding-left: 10px;
   }
+ 
+#venueDropdown {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 10px;
   
+  border: 1px solid #ccc; 
+  border-radius: 15px;
+} 
 }
