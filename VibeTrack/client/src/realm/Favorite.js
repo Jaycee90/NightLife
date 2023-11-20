@@ -124,7 +124,7 @@ function Favorite() {
 
   // erorr: currentFavorite is null -> MongoDB field's value is Null upon creation
   const currentFavorite = form.favorite || '';
-  
+
   function seperateFavorite(currentFavorite) {
     const venuesArray = currentFavorite.split(',');
     
@@ -178,7 +178,7 @@ function Favorite() {
       emergencyEmail1: form.emergencyEmail1,
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
-      favorite: userFavorite(combineVenues, form.favorite),
+      favorite: userFavorite(combineVenues, currentFavorite),
     };
   
     const currentUser = await fetchUser();
