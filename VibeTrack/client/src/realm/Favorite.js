@@ -153,14 +153,15 @@ function Favorite() {
     window.alert("Information updated successfully!");
   }
 
-  function seperateFavorite(inputString) {
-    const venuesArray = inputString.split(',');
+  const currentFavorite = form.favorite;
+  function seperateFavorite(currentFavorite) {
+    const venuesArray = currentFavorite.split(',');
   
     // Map over the array and return each venue on a new line
     const formattedString = venuesArray.map((venue, index) => (
       <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
         {venue} 
-        <FontAwesomeIcon icon={faHeart}onClick={() => removeSelection(venue)} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
+        <FontAwesomeIcon icon={faHeart} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
       </p>
     ));
     return formattedString;
@@ -212,7 +213,7 @@ function Favorite() {
           </div>
           
       <div style={{ marginTop: '20px' }}>
-        {seperateFavorite(form.favorite)}
+        {seperateFavorite(currentFavorite)}
       </div>
 
           <ul>
