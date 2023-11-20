@@ -137,7 +137,7 @@ function Favorite() {
       emergencyEmail1: form.emergencyEmail1,
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
-      favorite: combineVenues,
+      favorite: userFavorite(combineVenues, form.favorite),
     };
   
     const currentUser = await fetchUser();
@@ -152,6 +152,7 @@ function Favorite() {
     // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
+  
   function seperateFavorite(inputString) {
     const venuesArray = inputString.split(',');
   
@@ -163,6 +164,21 @@ function Favorite() {
       </p>
     ));
     return formattedString;
+  }
+
+  function userFavorite(combineVenues, favoriteVenue) {
+    // Split the input strings into arrays using commas as the separator
+    const combineArray = combineVenues.split(',');
+    const favoriteArray = favoriteVenue.split(',');
+  
+    // Combine the arrays and remove duplicates
+    const combinedSet = new Set([...combineArray, ...favoriteArray]);
+    const uniqueCombinedArray = [...combinedSet];
+  
+    // Join the array into a string separated by commas
+    const result = uniqueCombinedArray.join(',');
+  
+    return result;
   }
   
   return (
