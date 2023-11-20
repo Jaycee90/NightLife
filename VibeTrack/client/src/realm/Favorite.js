@@ -46,14 +46,14 @@ function Favorite() {
     setShowFavoritesOnly(!showFavoritesOnly);
   };
 
-  const addToFavorites = (venue) => {
+  const addSelection = (venue) => {
     if (!selectedVenues.includes(venue.name)) {
       setSelectedVenues([...selectedVenues, venue.name]);
       setFavoriteVenues([...favoriteVenues, venue.name]);
     }
   };
 
-  const removeFromFavorites = (venue) => {
+  const removeSelection = (venue) => {
     setSelectedVenues(selectedVenues.filter((v) => v !== venue));
   };
 
@@ -152,7 +152,7 @@ function Favorite() {
     // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
-  
+
   function seperateFavorite(inputString) {
     const venuesArray = inputString.split(',');
   
@@ -160,7 +160,7 @@ function Favorite() {
     const formattedString = venuesArray.map((venue, index) => (
       <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
         {venue} 
-        <FontAwesomeIcon icon={faHeart}onClick={() => removeFromFavorites(venue)} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
+        <FontAwesomeIcon icon={faHeart}onClick={() => removeSelection(venue)} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
       </p>
     ));
     return formattedString;
@@ -196,7 +196,7 @@ function Favorite() {
             <div class="item">
               {showFavoritesOnly && (
                 <div>
-                  <select id="venueDropdown" onChange={(e) => addToFavorites({ name: e.target.value })}>
+                  <select id="venueDropdown" onChange={(e) => addSelection({ name: e.target.value })}>
                     <option value="" disabled selected>Select a venue...</option>
                     {venues.map((venue, index) => (<option key={index} value={venue.name}>{venue.name}</option>
                     ))}
@@ -205,7 +205,7 @@ function Favorite() {
               )}
             </div>
             <div class="item">
-              <button onClick={toggleFavoritesDisplay} style={{backgroundColor: '#e24e99',color: '#fff'}}>
+              <button onClick={toggleFavoritesDisplay} style={{backgroundColor: '#fff',borderRadius: '10px',border: '1px solid #7a7a7a',color: '#747474',}}>
                 {showFavoritesOnly ? 'Show my Favorites Only':'Add more to my Favorites'}
               </button>
             </div>
@@ -220,13 +220,13 @@ function Favorite() {
               <li key={index} style={{backgroundColor: '#fff',borderRadius: '10px',border: '1px solid #7a7a7a',color: '#747474', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
                 {venue}
                 <div style={{ display: 'inline-block', marginBottom: '20px', marginRight: '10px', float: 'right', }}>
-                  <FontAwesomeIcon icon={faHeart}onClick={() => removeFromFavorites(venue)} style={{ cursor: 'pointer' }}/>
+                  <FontAwesomeIcon icon={faHeart}onClick={() => removeSelection(venue)} style={{ cursor: 'pointer' }}/>
                 </div>
               </li>
             ))}
           </ul>
           <div>
-              <button  onClick={onSubmit} style={{backgroundColor: '#e24e99',color: '#fff'}}>Save my Favorites
+              <button  onClick={onSubmit} style={{backgroundColor: '#fff',borderRadius: '10px',border: '1px solid #7a7a7a',color: '#747474',}}>Save my Favorites
               </button>
             </div>
         </div>
