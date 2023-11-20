@@ -8,6 +8,7 @@ function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
   const [friendEmail, setFriendEmail] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectedVenue, setSelectedVenue] = useState(null);
   const [emailData, setEmailData] = useState({
     to: '',
     subject: "Hey, join me at this event!",
@@ -15,7 +16,8 @@ function SpecialEvent() {
   });
  
   // Open the pop up
-  const openModal = () => {
+  const openModal = (venue) => {
+    setSelectedVenue(venue);
     setShowModal(true);
   }
   // Close the pop up
@@ -23,8 +25,8 @@ function SpecialEvent() {
     setShowModal(false);
   }
  
-  const sendEmail = () => {
-    const messageWithSelectedVenues = 'Location';
+  const sendEmail = (venueName) => {
+    const messageWithSelectedVenues = `Location: ${venueName}`;
     const emailDataWithVenues = {
       ...emailData,
       to: friendEmail,
@@ -46,7 +48,6 @@ function SpecialEvent() {
       });
       closeModal();
   };
- 
   useEffect(() => {
     axios.get('http://localhost:5050/scrape')
       .then((response) => {
@@ -113,7 +114,9 @@ function SpecialEvent() {
                       <div class="event-right">
                         <div className="grid-event">
                           <div class="item"><h3 class="event-title">{venue} </h3></div>
-                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div></div>
+                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div>
+                          <button onClick={() => openModal(venue)}>Invite Friends</button>
+                          </div>
                         </div>
                         <div class="event-description" style={{paddingBottom:'20px'}}>{day}: {eventName} </div>
                           
@@ -123,7 +126,6 @@ function SpecialEvent() {
           );
         })}
       </ul>
- 
     </div>
     </div>
     {showModal && (
@@ -137,7 +139,7 @@ function SpecialEvent() {
               value={friendEmail}
               onChange={(e) => setFriendEmail(e.target.value)}
             />
-            <button onClick={sendEmail}>Submit</button>
+            <button onClick={() => sendEmail(selectedVenue)}>Submit</button>
           </div>
         </div>
       )}
