@@ -121,11 +121,37 @@ function Favorite() {
   
     fetchData();
   }, [fetchUser, navigate]);
+
+  // erorr: currentFavorite is null -> MongoDB field's value is Null upon creation
+  const currentFavorite = form.favorite || '';
   
-  function userFavorite(combineVenues, favoriteVenue) {
+  function seperateFavorite(currentFavorite) {
+    const venuesArray = currentFavorite.split(',');
+    
+    // Map over the array and return each non-empty, trimmed venue on a new line
+    const formattedString = venuesArray.map((venue, index) => {
+      // Trim the venue
+      const trimmedVenue = venue.trim();
+  
+      // Check if the trimmed venue is not empty
+      if (trimmedVenue !== "") {
+        return (
+          <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
+            {trimmedVenue} 
+            <FontAwesomeIcon icon={faHeart} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
+          </p>
+        );
+      } else {
+        return null; // Skip creating a paragraph for empty venue
+      }
+    });
+  
+    return formattedString;
+  }  
+  function userFavorite(combineVenues, userVenues) {
     // Split the input strings into arrays using commas as the separator
     const combineArray = combineVenues.split(',');
-    const favoriteArray = favoriteVenue.split(',');
+    const favoriteArray = userVenues.split(',');
   
     // Combine the arrays and remove duplicates
     const combinedSet = new Set([...combineArray, ...favoriteArray]);
@@ -168,31 +194,6 @@ function Favorite() {
     window.alert("Information updated successfully!");
   }
 
-  // erorr: currentFavorite is null -> MongoDB field's value is Null upon creation
-  const currentFavorite = form.favorite;
-  function seperateFavorite(currentFavorite) {
-    const venuesArray = currentFavorite.split(',');
-    
-    // Map over the array and return each non-empty, trimmed venue on a new line
-    const formattedString = venuesArray.map((venue, index) => {
-      // Trim the venue
-      const trimmedVenue = venue.trim();
-  
-      // Check if the trimmed venue is not empty
-      if (trimmedVenue !== "") {
-        return (
-          <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
-            {trimmedVenue} 
-            <FontAwesomeIcon icon={faHeart} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
-          </p>
-        );
-      } else {
-        return null; // Skip creating a paragraph for empty venue
-      }
-    });
-  
-    return formattedString;
-  }
   
   
 
