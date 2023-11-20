@@ -3,10 +3,51 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from '@fortawesome/free-solid-svg-icons';
-
+ 
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
-
+  const [friendEmail, setFriendEmail] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedVenue, setSelectedVenue] = useState(null);
+  const [emailData, setEmailData] = useState({
+    to: '',
+    subject: "Hey, join me at this event!",
+    text: '',
+  });
+ 
+  // Open the pop up
+  const openModal = (venue) => {
+    setSelectedVenue(venue);
+    setShowModal(true);
+  }
+  // Close the pop up
+  const closeModal = () => {
+    setShowModal(false);
+  }
+ 
+  const sendEmail = (venueName) => {
+    const messageWithSelectedVenues = `Location: ${venueName}`;
+    const emailDataWithVenues = {
+      ...emailData,
+      to: friendEmail,
+      text: messageWithSelectedVenues,
+    };
+    fetch('http://localhost:5050/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailDataWithVenues),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log('Email sent:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      closeModal();
+  };
   useEffect(() => {
     axios.get('http://localhost:5050/scrape')
       .then((response) => {
@@ -16,7 +57,7 @@ function SpecialEvent() {
         console.error('Error fetching event data', error);
       });
   }, []);
-
+ 
   const parseDivText = (divText) => {
     const parts = divText.split(' - ');
     if (parts.length !== 2) {
@@ -50,7 +91,7 @@ function SpecialEvent() {
     <div className="special-event">
     <div className="event-container" style={{paddingTop:"30px"}}>
       <ul style={{color:'#000'}}>
-        {eventData.map((event, index) => { 
+        {eventData.map((event, index) => {
           const { venue, eventName, time } = parseDivText(event.divText);
           const { day, month, date } = parseEventDay(event.day);
         
@@ -66,13 +107,16 @@ function SpecialEvent() {
                           <div class="date">{date}</div>
                           <div class="month">{month}</div>
                           <div class="event-timing"><FontAwesomeIcon icon={faClock} style={{marginBottom:'5px', paddingRight:'5px'}}/> {time}</div>
+                          <button onClick={openModal}>Invite Friends</button>
                         </div>
                       </div>
-
+ 
                       <div class="event-right">
                         <div className="grid-event">
                           <div class="item"><h3 class="event-title">{venue} </h3></div>
-                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div></div>
+                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div>
+                          <button onClick={() => openModal(venue)}>Invite Friends</button>
+                          </div>
                         </div>
                         <div class="event-description" style={{paddingBottom:'20px'}}>{day}: {eventName} </div>
                           
@@ -84,9 +128,23 @@ function SpecialEvent() {
       </ul>
     </div>
     </div>
+    {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>Invite a Friend</h2>
+            <input
+              type="email"
+              placeholder="Enter friend's email"
+              value={friendEmail}
+              onChange={(e) => setFriendEmail(e.target.value)}
+            />
+            <button onClick={() => sendEmail(selectedVenue)}>Submit</button>
+          </div>
+        </div>
+      )}
     </div>
-    
   );
 }
-
+ 
 export default SpecialEvent;
