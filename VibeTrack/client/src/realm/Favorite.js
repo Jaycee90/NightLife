@@ -153,6 +153,7 @@ function Favorite() {
     window.alert("Information updated successfully!");
   }
 
+  // erorr: currentFavorite is null
   const currentFavorite = form.favorite;
   function seperateFavorite(currentFavorite) {
     const venuesArray = currentFavorite.split(',');
