@@ -153,7 +153,7 @@ function Favorite() {
     window.alert("Information updated successfully!");
   }
 
-  // erorr: currentFavorite is null
+  // erorr: currentFavorite is null -> MongoDB field's value is Null upon creation
   const currentFavorite = form.favorite;
   function seperateFavorite(currentFavorite) {
     const venuesArray = currentFavorite.split(',');
