@@ -122,6 +122,21 @@ function Favorite() {
     fetchData();
   }, [fetchUser, navigate]);
   
+  function userFavorite(combineVenues, favoriteVenue) {
+    // Split the input strings into arrays using commas as the separator
+    const combineArray = combineVenues.split(',');
+    const favoriteArray = favoriteVenue.split(',');
+  
+    // Combine the arrays and remove duplicates
+    const combinedSet = new Set([...combineArray, ...favoriteArray]);
+    const uniqueCombinedArray = [...combinedSet];
+  
+    // Join the array into a string separated by commas
+    const result = uniqueCombinedArray.join(',');
+  
+    return result;
+  }
+  
   async function onSubmit(e) {
     e.preventDefault();
     const editedUser = {
@@ -157,32 +172,30 @@ function Favorite() {
   const currentFavorite = form.favorite;
   function seperateFavorite(currentFavorite) {
     const venuesArray = currentFavorite.split(',');
+    
+    // Map over the array and return each non-empty, trimmed venue on a new line
+    const formattedString = venuesArray.map((venue, index) => {
+      // Trim the venue
+      const trimmedVenue = venue.trim();
   
-    // Map over the array and return each venue on a new line
-    const formattedString = venuesArray.map((venue, index) => (
-      <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
-        {venue} 
-        <FontAwesomeIcon icon={faHeart} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
-      </p>
-    ));
+      // Check if the trimmed venue is not empty
+      if (trimmedVenue !== "") {
+        return (
+          <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
+            {trimmedVenue} 
+            <FontAwesomeIcon icon={faHeart} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
+          </p>
+        );
+      } else {
+        return null; // Skip creating a paragraph for empty venue
+      }
+    });
+  
     return formattedString;
   }
+  
+  
 
-  function userFavorite(combineVenues, favoriteVenue) {
-    // Split the input strings into arrays using commas as the separator
-    const combineArray = combineVenues.split(',');
-    const favoriteArray = favoriteVenue.split(',');
-  
-    // Combine the arrays and remove duplicates
-    const combinedSet = new Set([...combineArray, ...favoriteArray]);
-    const uniqueCombinedArray = [...combinedSet];
-  
-    // Join the array into a string separated by commas
-    const result = uniqueCombinedArray.join(',');
-  
-    return result;
-  }
-  
   return (
     <div className="profile-component">
       <div class="grid-settings">
