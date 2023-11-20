@@ -61,7 +61,7 @@ body {
   margin:0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size:15px;
-  height: 92vh;
+  height: 100vh;
 }
 
 .grid-settings left{
@@ -73,13 +73,18 @@ body {
     background-color: #fff;
 }
 
+.grid-favorite{
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
 /*Taken from: https://medium.com/how-to-react/create-a-sidebar-menu-in-react-js-3463b306ca9a*/
 #header {
     position: absolute;
     width: 220px;
   }
   #header .pro-sidebar {
-    height: 92vh;
+    height: 100vh;
   }
   #header .closemenu {
     color: #000;
@@ -137,4 +142,39 @@ body {
   #header .logo {
     padding: 20px;
   }  
+
+  
+  .favorite-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .favorite-container ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    list-style-type: none;
+    margin: 0;
+    color: #000;
+  }
+  
+  .favorite-container li {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size:12px;
+    margin-right: 10px;
+    padding-left: 10px;
+  }
+ 
+#venueDropdown {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc; 
+  border-radius: 10px;
+} 
 }
