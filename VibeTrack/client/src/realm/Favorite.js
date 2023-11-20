@@ -70,7 +70,7 @@ function Favorite() {
     }
   };
 
-  const allVenues = selectedVenues.join(',');
+  const combineVenues = selectedVenues.join(',');
 
   const [form, setForm] = useState({
     _id: "",
@@ -137,7 +137,7 @@ function Favorite() {
       emergencyEmail1: form.emergencyEmail1,
       emergencyName2: form.emergencyName2,
       emergencyEmail2: form.emergencyEmail2,
-      favorite: allVenues,
+      favorite: combineVenues,
     };
   
     const currentUser = await fetchUser();
@@ -152,7 +152,19 @@ function Favorite() {
     // Optionally, you can show a message to indicate that the update was successful.
     window.alert("Information updated successfully!");
   }
-
+  function seperateFavorite(inputString) {
+    const venuesArray = inputString.split(',');
+  
+    // Map over the array and return each venue on a new line
+    const formattedString = venuesArray.map((venue, index) => (
+      <p key={index} style={{backgroundColor: '#e24e99',borderRadius: '10px',border: '1px solid #e24e99',color: '#fff', height: '40px',paddingTop: '10px',marginRight: '10px',marginBottom: '10px',paddingLeft: '10px'}}>
+        {venue} 
+        <FontAwesomeIcon icon={faHeart}onClick={() => removeFromFavorites(venue)} style={{display: 'inline-block', marginBottom: '20px', marginRight: '10px', color:'#fff', float: 'right',  cursor: 'pointer' }}/>
+      </p>
+    ));
+    return formattedString;
+  }
+  
   return (
     <div className="profile-component">
       <div class="grid-settings">
@@ -182,6 +194,10 @@ function Favorite() {
               </button>
             </div>
           </div>
+          
+      <div style={{ marginTop: '20px' }}>
+        {seperateFavorite(form.favorite)}
+      </div>
 
           <ul>
             {selectedVenues.map((venue, index) => (
