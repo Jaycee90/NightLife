@@ -1,0 +1,26 @@
+.not-found-container {
+    text-align: center;
+    padding: 40px; /* Increase padding for additional vertical space */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    margin: 20vh auto; /* Adjust margin for vertical positioning */
+  }
+  
+  .not-found-title {
+    font-size: 1.5em;
+    color: blue; /* Set title color to blue */
+  }
+  
+  .not-found-message {
+    color: blue; /* Set message color to blue */
+  }
+  
+  .not-found-button {
+    padding: 10px;
+    margin-top: 10px;
+
+  }
+   
+  
