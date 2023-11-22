@@ -115,7 +115,7 @@ function SpecialEvent() {
                         <div className="grid-event">
                           <div class="item"><h3 class="event-title">{venue} </h3></div>
                           <div class="item" style={{paddingLeft:'20px'}}>
-                          <div> <button style={{marginTop:'25px', height:'33px'}} onClick={() => openModal(venue)}>Share this Event!</button></div>
+                          <div> <button style={{marginTop:'25px', height:'33px', backgroundColor:'#e24e99', color:'#fff'}} onClick={() => openModal(venue)}>Share this Event!</button></div>
                          
                           </div>
                         </div>
@@ -132,15 +132,17 @@ function SpecialEvent() {
     {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal} style={{float:'right', width:'10px', backgroundColor:'#fff', marginTop:'5px'}}>&times;</span>
-            <h2>Invite a Friend</h2>
+            <span className="close" onClick={closeModal} style={{float:'right', width:'10px', backgroundColor:'#fff', marginTop:'5px', top:'5px'}}>&times;</span>
+            <h2 style={{color:'#747474'}}>Invite a Friend</h2>
             <input
               type="email"
-              placeholder="Enter friend's email"
+              placeholder="Enter email"
               value={friendEmail}
               onChange={(e) => setFriendEmail(e.target.value)}
+              style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#747474' }}
+              inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
             />
-            <button onClick={() => sendEmail(selectedVenue)}>Submit</button>
+            <button style={{ backgroundColor:'#e24e99', color:'#fff', borderRadius:'10px', width:'50%', marginLeft:'150px'}} onClick={() => sendEmail(selectedVenue)}>Submit</button>
           </div>
         </div>
       )}
