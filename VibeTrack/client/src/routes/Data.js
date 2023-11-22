@@ -33,7 +33,7 @@ function convertHoursToMinutes(openingHours) {
 
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
-  if (closingTime < 720){ // Add 1440 minutes (24 hours) to closingTime if AM
+  if (closingTime < openingTime){ // Add 1440 minutes (24 hours) to closingTime if AM
     closingTime += 1440;
   }
 
@@ -117,7 +117,9 @@ function Data(props) {
 
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
-  const currentTime = now.getHours() * 60 + now.getMinutes(); 
+  const currentHours = now.getHours();
+  const currentMinutes = now.getMinutes();
+  const currentTime = currentHours <= 4 ? (currentHours + 24) * 60 + currentMinutes : currentHours * 60 + currentMinutes;
   
   // Assigns the openingTime and closingTime based on the current day of the week (unconventially, will fix eventually)
   let openingTime, closingTime;
@@ -168,9 +170,7 @@ function Data(props) {
         <div className="grid-container">
         <div class="item1">
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-          A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-          Sit ornar mollitia tenetur, aptent.</p>
+          Current time: {currentTime}. Opening hours: {openingTime} , Closing hours: {closingTime}</p>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
