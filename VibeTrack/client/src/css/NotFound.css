@@ -9,17 +9,21 @@
   }
   
   .not-found-title {
-    font-size: 1.5em;
-    color: blue; /* Set title color to blue */
+    font-size: 2em;
+    color: #747474;
+    padding:20px;
   }
   
   .not-found-message {
-    color: blue; /* Set message color to blue */
+    color: #747474;
+    padding:20px;
   }
   
   .not-found-button {
     padding: 10px;
     margin-top: 10px;
+    background-color: #e24e99;
+    color: #fff;
 
   }
    
