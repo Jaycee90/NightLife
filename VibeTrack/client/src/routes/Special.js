@@ -3,19 +3,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { Chip} from "@material-ui/core";
  
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
-  const [friendEmail, setFriendEmail] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedVenue, setSelectedVenue] = useState(null);
   // eslint-disable-next-line
   const [emailData, setEmailData] = useState({
     to: '',
-    subject: "Hey, join me at this event!",
+    subject: "Hey, join me at this event and let's have some fun!",
     text: '',
   });
- 
+
+  const [values, setValues] = useState(["vibetracktxt@gmail.com"]);
+  // eslint-disable-next-line
+  const [currentValue, setCurrentValue] = useState("");
+
   // Open the pop up
   const openModal = (venue) => {
     setSelectedVenue(venue);
@@ -26,13 +30,37 @@ function SpecialEvent() {
     setShowModal(false);
   }
  
+  const handleKeyUp = (e) => {
+    console.log(e.keyCode);
+    if (e.keyCode === 13) {
+      const newToValue = [...emailData.to.split(','), e.target.value].join(',');
+      setEmailData({
+        ...emailData,
+        to: newToValue,
+      });
+      setValues((oldState) => [...oldState, e.target.value]);
+      setCurrentValue("");
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setCurrentValue(e.target.value);
+  };
+  
+  const handleEmailDelete = (item, index) =>{
+    let arr = [...values]; // Create a copy of 'values' array
+    arr.splice(index,1); // Remove one item from the 'values' array at specified 'index'
+    console.log(item);
+    setValues(arr); // Update 'values' state with the modified array
+  }
+  
   const sendEmail = (venueName) => {
-    const messageWithSelectedVenues = `Location: ${venueName}`;
+    const messageWithSelectedVenues = `I'm attending this event ${venueName}! Join me!`;
     const emailDataWithVenues = {
       ...emailData,
-      to: friendEmail,
       text: messageWithSelectedVenues,
     };
+
     fetch('http://localhost:5050/send-email', {
       method: 'POST',
       headers: {
@@ -134,11 +162,19 @@ function SpecialEvent() {
           <div className="modal-content">
             <span className="close" onClick={closeModal} style={{float:'right', width:'10px', backgroundColor:'#fff', marginTop:'5px', top:'5px'}}>&times;</span>
             <h2 style={{color:'#747474'}}>Invite a Friend</h2>
+            <div style={{paddingLeft:'20px', marginTop:'20px'}}>
+            {values.map((item,index) => (
+                  <Chip  size="small" onDelete={()=>handleEmailDelete(item,index)} label={item} style={{backgroundColor:'#747474', color:'#fff', marginRight:'10px'}}/>
+                ))}
+            </div>
             <input
+              onChange={handleEmailChange}
+              onKeyDown={handleKeyUp}
               type="email"
               placeholder="Enter email"
-              value={friendEmail}
-              onChange={(e) => setFriendEmail(e.target.value)}
+              name="to"
+              value={currentValue}
+              className="email-input"
               style={{ marginBottom: "1rem", backgroundColor:"#fff", color:'#747474' }}
               inputProps={{ style: { backgroundColor: "#fff", color:'#747474' } }}
             />
