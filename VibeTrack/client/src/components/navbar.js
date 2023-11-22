@@ -24,6 +24,7 @@ export default function Navbar() {
         <a href="invitation">Invitation</a>
         <a href="safety">Safety</a>
         <a href="discover">Discover</a>
+        <a href="Feedback">Feedback</a>
         
        
       </div>
