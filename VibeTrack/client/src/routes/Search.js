@@ -140,7 +140,6 @@ function Search() {
 
     // Custom icon for the marker
     const icon = new L.Icon({
-        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
