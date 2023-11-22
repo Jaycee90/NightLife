@@ -9,6 +9,7 @@ function SpecialEvent() {
   const [friendEmail, setFriendEmail] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedVenue, setSelectedVenue] = useState(null);
+  // eslint-disable-next-line
   const [emailData, setEmailData] = useState({
     to: '',
     subject: "Hey, join me at this event!",
@@ -107,15 +108,15 @@ function SpecialEvent() {
                           <div class="date">{date}</div>
                           <div class="month">{month}</div>
                           <div class="event-timing"><FontAwesomeIcon icon={faClock} style={{marginBottom:'5px', paddingRight:'5px'}}/> {time}</div>
-                          <button onClick={openModal}>Invite Friends</button>
                         </div>
                       </div>
  
                       <div class="event-right">
                         <div className="grid-event">
                           <div class="item"><h3 class="event-title">{venue} </h3></div>
-                          <div class="item" style={{paddingLeft:'20px'}}><div class="event-button">Share this Event!</div>
-                          <button onClick={() => openModal(venue)}>Invite Friends</button>
+                          <div class="item" style={{paddingLeft:'20px'}}>
+                          <div> <button style={{marginTop:'25px', height:'33px'}} onClick={() => openModal(venue)}>Share this Event!</button></div>
+                         
                           </div>
                         </div>
                         <div class="event-description" style={{paddingBottom:'20px'}}>{day}: {eventName} </div>
@@ -131,7 +132,7 @@ function SpecialEvent() {
     {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
+            <span className="close" onClick={closeModal} style={{float:'right', width:'10px', backgroundColor:'#fff', marginTop:'5px'}}>&times;</span>
             <h2>Invite a Friend</h2>
             <input
               type="email"
