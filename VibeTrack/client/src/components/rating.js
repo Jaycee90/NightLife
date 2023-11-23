@@ -8,9 +8,7 @@ const colors = {
     grey: "#a9a9a9"
 };
 
-export default function StarRating(props) {
-    const [currentValue, setCurrentValue] = useState(0);
-    
+export default function StarRating(props) {    
     const params = useParams();
 
     const [form, setForm] = useState({
@@ -60,45 +58,6 @@ export default function StarRating(props) {
       fetchData();
     }, [params.id]);
 
-    // Function to handle form submission
-    async function onSubmit(e) {
-      e.preventDefault();
-      const editedVenue = {
-        // Need to include otherwise venue's fields will be wiped upon submit
-        _id : form._id,
-        id : form.id,
-        name: form.name,
-        address: form.address,
-        about: form.about,
-        phone: form.phone,
-        website: form.website,
-        monday: form.monday,
-        tuesday: form.tuesday,
-        wednesday: form.wednesday,
-        thursday: form.thursday,
-        friday: form.friday,
-        saturday: form.saturday,
-        sunday: form.sunday,
-        facebook: form.facebook,
-        instagram: form.instagram,
-        yelp: form.yelp,
-        amenities: form.amenities,
-        tags: form.tags,
-        price: form.price, 
-
-        rating: form.rating,
-        review: form.review,
-      };
-      
-      await fetch(`http://localhost:5050/record/${params.id}`, {
-        method: "PATCH",
-        body: JSON.stringify(editedVenue),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-      });
-    }
-  
     const stars = Array(5).fill(0);    
 
      return (
@@ -106,23 +65,18 @@ export default function StarRating(props) {
             <div className="grid-rating">
                 <div className="item">
                     <div className="stars">
-                        {stars.map((value, index) => (
-                            <FaStar
-                                key={index}
-                                size={24}
-                                onClick={() => handleClick(index + 1)}
-                                onMouseOver={() => handleMouseOver(index + 1)}
-                                onMouseLeave={handleMouseLeave}
-                                color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
-                                style={{
-                                    marginRight: 10,
-                                    cursor: "pointer"
-                                }}
-                            />
-                        ))}
+                    {stars.map((value, index) => (
+                        <FaStar
+                            key={index}
+                            size={24}
+                            color={index < Math.ceil(form.rating) ? colors.orange : colors.grey}
+                            style={{
+                                marginRight: 10,
+                            }}
+                        />
+                    ))}
                     </div>
                 </div>
-
             </div>
         </div>
     );

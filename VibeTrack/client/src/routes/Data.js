@@ -10,6 +10,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
+import Rating from '../components/rating.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -169,6 +170,7 @@ function Data(props) {
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
+          <Rating/>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Current time: {currentTime}. Opening hours: {openingTime} , Closing hours: {closingTime}</p>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
