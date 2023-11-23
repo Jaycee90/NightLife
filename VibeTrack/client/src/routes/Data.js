@@ -172,8 +172,6 @@ function Data(props) {
         <div class="item1">
           <Rating/>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
-          Current time: {currentTime}. Opening hours: {openingTime} , Closing hours: {closingTime}</p>
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
           Sit ornar mollitia tenetur, aptent.</p>

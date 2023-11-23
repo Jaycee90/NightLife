@@ -65,16 +65,28 @@ export default function StarRating(props) {
             <div className="grid-rating">
                 <div className="item">
                     <div className="stars">
-                    {stars.map((value, index) => (
-                        <FaStar
-                            key={index}
-                            size={24}
-                            color={index < Math.ceil(form.rating) ? colors.orange : colors.grey}
-                            style={{
-                                marginRight: 10,
-                            }}
-                        />
-                    ))}
+                    {stars.map((value, index) => {
+    // Get the decimal part of form.rating
+    const decimalPart = form.rating - Math.floor(form.rating);
+
+    // Set a threshold for rounding up
+    const roundUpThreshold = 0.5;
+
+    // Determine whether to round up or down based on the threshold
+    const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(form.rating) : Math.floor(form.rating);
+
+    return (
+        <FaStar
+            key={index}
+            size={24}
+            color={index < roundedRating ? colors.orange : colors.grey}
+            style={{
+                marginRight: 10,
+            }}
+        />
+    );
+})}
+
                     </div>
                 </div>
             </div>
