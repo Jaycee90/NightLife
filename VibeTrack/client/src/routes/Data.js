@@ -143,6 +143,21 @@ function Data(props) {
 
   const formattedAmenities = formatAmenities(venueData.amenities);
 
+  const [showModal, setShowModal] = useState(false);
+  // eslint-disable-next-line
+  const [selectedVenue, setSelectedVenue] = useState(null);
+
+  // Open the pop up
+  const openModal = (venueData) => {
+    setSelectedVenue(venueData);
+    setShowModal(true);
+  }
+
+  // Close the pop up
+  const closeModal = () => {
+    setShowModal(false);
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' }); 
   return (
     <div  style={{marginTop:"20px"}}>
@@ -157,16 +172,28 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           
-          <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><StarRating/> 
+          <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><Rating/> 
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
-          </div>
-        </div>
+          </div> 
+          <button onClick={() => openModal(venueData)} style={{ marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%'}} className="btn btn-primary">LEAVE A RATING</button>
+
+          </div> 
         <div className="item" >
           <ImageGallery items={images}
           showPlayButton={false} // Set to true or false based on your preference
           showFullscreenButton={false}/></div>
       </div>
-
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+            <h2 style={{ color: '#747474' }}>Submit a rating</h2>
+            <div style={{ marginTop: '20px' }}>
+            <StarRating/>
+            </div>
+           </div>
+        </div>
+      )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
