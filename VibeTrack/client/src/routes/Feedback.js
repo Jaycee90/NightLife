@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Chip } from "@material-ui/core";
 import '../css/safety.css';
 
@@ -34,18 +34,21 @@ function Feedback() {
     setValues(arr);
   }
 
-  const sendEmail = () => {
-    const messageWithSelectedVenues = `Selected Venues:\n${values.join('\n')}`;
-    const emailDataWithVenues = {
+  const handleFeedbackChange = (e) => {
+    setEmailData({
       ...emailData,
-      text: messageWithSelectedVenues,
-    };
+      text: e.target.value,
+    });
+  };
+
+  const sendEmail = () => {
+    // Removed the part related to selected venues
     fetch('http://localhost:5050/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(emailDataWithVenues),
+      body: JSON.stringify(emailData),
     })
       .then((response) => response.text())
       .then((data) => {
@@ -71,6 +74,15 @@ function Feedback() {
         </div>
         <div className="grid-safety" style={{ padding: '20px' }}>
           <div className="item">
+            <textarea
+              value={emailData.text}
+              onChange={handleFeedbackChange}
+              placeholder="Enter your feedback"
+              className="feedback-textbox"
+              style={{ borderRadius: "10px", minHeight: "80px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
+            />
+          </div>
+          <div className="item">
             <input
               value={currentValue}
               onChange={handleEmailChange}
@@ -95,3 +107,4 @@ function Feedback() {
 }
 
 export default Feedback;
+
