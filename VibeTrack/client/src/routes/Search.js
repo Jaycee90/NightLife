@@ -204,7 +204,7 @@ function Search() {
             
         <div className="grid-map" style={{padding:'10px'}}>
             <div class="item">
-            {/* Display the top 10 closest clubs */}
+            {/* Display the top 10 closest clubs in San Marcos area*/}
             {locationCoord && (
             <div>
                 <h2 style={{color: '#000000'}}>Take a dip at these venues that are closest to you</h2>
