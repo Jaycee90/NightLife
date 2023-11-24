@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Chip } from "@material-ui/core";
-import '../css/safety.css';
+import '../css/Feedback.css';
 
 function Feedback() {
   const [emailData, setEmailData] = useState({
@@ -42,6 +42,7 @@ function Feedback() {
   };
 
   const sendEmail = () => {
+    // Removed the part related to selected venues
     fetch('http://localhost:5050/send-email', {
       method: 'POST',
       headers: {
@@ -73,6 +74,15 @@ function Feedback() {
         </div>
         <div className="grid-safety" style={{ padding: '20px' }}>
           <div className="item">
+            <textarea
+              value={emailData.text}
+              onChange={handleFeedbackChange}
+              placeholder="Enter your feedback"
+              className="feedback-textbox"
+              style={{ borderRadius: "10px", minHeight: "80px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
+            />
+          </div>
+          <div className="item">
             <input
               value={currentValue}
               onChange={handleEmailChange}
@@ -83,15 +93,6 @@ function Feedback() {
               className="email-input"
               style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
               inputProps={{ style: { backgroundColor: "#fff", color: '#747474', borderColor: '#747474' } }}
-            />
-          </div>
-          <div className="item">
-            <textarea
-              value={emailData.text}
-              onChange={handleFeedbackChange}
-              placeholder="Enter your feedback"
-              className="feedback-textbox"
-              style={{ borderRadius: "10px", minHeight: "80px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
             />
           </div>
           <div className="item">
@@ -106,5 +107,3 @@ function Feedback() {
 }
 
 export default Feedback;
-
-
