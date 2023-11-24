@@ -87,6 +87,7 @@ function Data(props) {
     amenities: "",
   });
 
+
   const params = useParams();
 
   useEffect(() => {
@@ -144,6 +145,16 @@ function Data(props) {
   const formattedAmenities = formatAmenities(venueData.amenities);
 
   const [showModal, setShowModal] = useState(false);
+  const [showModalAlert, setShowModalAlert] = useState(false);
+  
+  const [emailData, setEmailData] = useState({
+    to: '',
+    subject: "I'm visiting these clubs tonight, please keep an eye out for me!",
+    text: "",
+  });
+ 
+  
+  const [userLocation, setUserLocation] = useState(null);
   // eslint-disable-next-line
   const [selectedVenue, setSelectedVenue] = useState(null);
 
@@ -152,10 +163,67 @@ function Data(props) {
     setSelectedVenue(venueData);
     setShowModal(true);
   }
-
   // Close the pop up
   const closeModal = () => {
     setShowModal(false);
+  }
+
+  // Get the location of the user
+  const handleAlertButtonClick = async () => {
+    try {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+
+      const location = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      };
+
+      console.log("User Location:", location);
+      setUserLocation(location);
+      openModalAlert();
+    } catch (error) {
+      console.error("Error getting user location:", error.message);
+      // Handle error, show a message to the user, or provide an alternative method.
+    }
+  };
+  const sendEmail = () => {
+    const locationString = JSON.stringify(userLocation);
+    const message = `Location of the user is ${locationString}`;
+    
+  
+    setEmailData((prevData) => ({
+      ...prevData,
+      text: message,
+    }));
+  
+    console.log("After state update:", emailData);
+  
+    fetch('http://localhost:5050/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailData),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        console.log('Email sent:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  
+    closeAlertModal();
+  };
+  
+
+  const openModalAlert = () => {
+    setShowModalAlert(true);
+  }
+  const closeAlertModal = () => {
+    setShowModalAlert(false);
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' }); 
@@ -176,7 +244,7 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
           </div> 
           <button onClick={() => openModal(venueData)} style={{ marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%'}} className="btn btn-primary">LEAVE A RATING</button>
-
+          <button onClick={handleAlertButtonClick}>Alert</button>
           </div> 
         <div className="item" >
           <ImageGallery items={images}
@@ -193,6 +261,18 @@ function Data(props) {
             </div>
            </div>
         </div>
+      )}
+      {showModalAlert && (
+        <>
+          <input
+  placeholder="Enter email"
+  type="email"
+  name="to"
+  onChange={(e) => setEmailData((prevData) => ({ ...prevData, to: e.target.value }))}
+/>
+
+          <button onClick={sendEmail}>Submit</button>
+        </>
       )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
