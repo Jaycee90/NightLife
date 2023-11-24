@@ -12,6 +12,8 @@ ul {
 }
 .modal {
   position: fixed;
+  width:50vw;
+  border-radius: 15px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

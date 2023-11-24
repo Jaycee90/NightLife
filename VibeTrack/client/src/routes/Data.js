@@ -10,6 +10,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
+import Rating from '../components/rating.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -33,7 +34,7 @@ function convertHoursToMinutes(openingHours) {
 
   let [openingTime, closingTime] = openingHours.split(' - ').map(timeStringToMinutes);
 
-  if (closingTime < 720){ // Add 1440 minutes (24 hours) to closingTime if AM
+  if (closingTime < openingTime){ // Add 1440 minutes (24 hours) to closingTime if AM
     closingTime += 1440;
   }
 
@@ -117,7 +118,9 @@ function Data(props) {
 
   const now = new Date();
   const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, ...
-  const currentTime = now.getHours() * 60 + now.getMinutes(); 
+  const currentHours = now.getHours();
+  const currentMinutes = now.getMinutes();
+  const currentTime = currentHours <= 4 ? (currentHours + 24) * 60 + currentMinutes : currentHours * 60 + currentMinutes;
   
   // Assigns the openingTime and closingTime based on the current day of the week (unconventially, will fix eventually)
   let openingTime, closingTime;
@@ -140,6 +143,21 @@ function Data(props) {
 
   const formattedAmenities = formatAmenities(venueData.amenities);
 
+  const [showModal, setShowModal] = useState(false);
+  // eslint-disable-next-line
+  const [selectedVenue, setSelectedVenue] = useState(null);
+
+  // Open the pop up
+  const openModal = (venueData) => {
+    setSelectedVenue(venueData);
+    setShowModal(true);
+  }
+
+  // Close the pop up
+  const closeModal = () => {
+    setShowModal(false);
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' }); 
   return (
     <div  style={{marginTop:"20px"}}>
@@ -154,23 +172,32 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.address}</p>
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.about}</p>
           
-          <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><StarRating/> 
+          <div style={{  'display':'block', 'float': 'left', 'textAlign': 'left', 'width': '90%'  }}><Rating/> 
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
-          </div>
-        </div>
+          </div> 
+          <button onClick={() => openModal(venueData)} style={{ marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%'}} className="btn btn-primary">LEAVE A RATING</button>
+
+          </div> 
         <div className="item" >
           <ImageGallery items={images}
           showPlayButton={false} // Set to true or false based on your preference
           showFullscreenButton={false}/></div>
       </div>
-
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+            <h2 style={{ color: '#747474' }}>Submit a rating</h2>
+            <div style={{ marginTop: '20px' }}>
+            <StarRating/>
+            </div>
+           </div>
+        </div>
+      )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
-          <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-          A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-          Sit ornar mollitia tenetur, aptent.</p>
+          <Rating/>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
