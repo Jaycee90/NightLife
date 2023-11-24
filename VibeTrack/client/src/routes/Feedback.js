@@ -4,7 +4,7 @@ import '../css/Feedback.css';
 
 function Feedback() {
   const [emailData, setEmailData] = useState({
-    to: '',
+    to: 'vibetracktxt@gmail.com',
     subject: 'This is feedback for the website',
     text: '',
   });
