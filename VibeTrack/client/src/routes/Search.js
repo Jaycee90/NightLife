@@ -1,4 +1,3 @@
-
 // Import React and useState hook from the 'react' library.
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
@@ -23,7 +22,7 @@ const Record = (props) => {
   };
 
 function Search() {
-    // state variables
+    // Initialize state variables.
     const [locationResult, setLocationResult] = useState('');
     const [locationCoord, setLocationCoord] = useState(null);
     const [mapReady, setMapReady] = useState(false);
@@ -141,7 +140,6 @@ function Search() {
 
     // Custom icon for the marker
     const icon = new L.Icon({
-        //iconUrl: "https://i.imgur.com/yyb78tO.png", 
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
@@ -153,8 +151,16 @@ function Search() {
         const nearestClubs = findNearestClubs(userLatitude, userLongitude, 10);
         return nearestClubs.map((club, index) => (
             <Marker key={index} position={[club.latitude, club.longitude]} icon={icon}>
-                <Popup>{club.name}<br/>{club.address}</Popup>
+                <Popup>
+                   {club.image.length > 0 && <img src={club.image[0]} alt={club.name} style={{ width: "100%" }} />}
+                    <p><strong>{club.name}</strong><br />
+                        {club.address}<br/>
+                        {club.website && (<a href={club.website} target="_blank" rel="noopener noreferrer">Visit our Website</a>)}
+                    </p>
+                </Popup>
             </Marker>
+
+
         ));
     };
 
@@ -191,7 +197,7 @@ function Search() {
                 <div class="item">
                     <button onClick={getUserLocation} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find venues near me</button>
                 </div>
-                <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find route</button></div>
+                <div class="item"><button onClick={searchVenue} style={{borderRadius:"10px",  height:"40px", marginTop:'4px'}}>Find location</button></div>
             </div>
         </div>
         <div>
@@ -208,7 +214,7 @@ function Search() {
             {searchQuery && (
                 <p style={{color:'#000', opacity:'0'}}>
                     {venueFound
-                        ? `Heading to ${searchQuery}`
+                        ? `${searchQuery}`
                         : `Venue "${searchQuery}" not found`}
                 </p>
             )}
@@ -237,7 +243,7 @@ function Search() {
             {mapReady && (
                 <MapContainer
                     style={{ height: "71vh", width: "100%"}}
-                    //center={(foundVenueLocation && foundVenueLocation) || (locationCoord || [0, 0])}
+                
                     // Find center between user's coordinates and top 10 closest clubs' coordinates
                     center={calculateMedianCoordinates(locationCoord[0], locationCoord[1],findNearestClubs(locationCoord[0], locationCoord[1], 10))}
                     zoom={13}
@@ -249,7 +255,7 @@ function Search() {
                     {defaultMarker}
                     {foundVenueLocation && (
                         <Marker position={foundVenueLocation} icon={icon}>
-                            <Popup>{`Heading to ${searchQuery}`}</Popup>
+                            <Popup>{searchQuery}</Popup>
                         </Marker>
                     )}
                     {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
