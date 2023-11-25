@@ -5,7 +5,7 @@ import Fuse from 'fuse.js';
 const NavSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [foundVenueDetails, setFoundVenueDetails] = useState(null);
-  
+  // eslint-disable-next-line
   const [venueData, setVenueData] = useState(null);
 
   useEffect(() => {
@@ -66,6 +66,7 @@ const NavSearch = () => {
   // This useEffect will trigger the search when the searchQuery changes
   useEffect(() => {
     searchVenue();
+    // eslint-disable-next-line
   }, [searchQuery]);
 
   return (
@@ -80,9 +81,6 @@ const NavSearch = () => {
             style={{ backgroundColor:"#fff" , color:'#747474', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px'}}
             inputProps={{ style: { backgroundColor: "#fff", color:'#747474'} }}
         />
-        <button type="submit" onClick={searchVenue}>
-          Search
-        </button>
       </form>
 
       {/* Display search results */}
