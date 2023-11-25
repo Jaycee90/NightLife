@@ -37,24 +37,28 @@ const NavSearch = () => {
   const searchVenue = async () => {
     try {
       const response = await fetch(`http://localhost:5050/record/`);
-
+  
       if (!response.ok) {
         throw new Error(`An error occurred: ${response.statusText}`);
       }
-
+  
       const records = await response.json();
-
+  
       const fuse = new Fuse(records, {
         keys: ['name'],
         includeScore: true,
         threshold: 0.3,
       });
-
+  
       const searchResults = fuse.search(searchQuery);
-
+  
       if (searchResults.length > 0) {
-        const foundVenues = searchResults.map((result) => result.item);
-        setFoundVenueDetails(foundVenues);
+        // Find the result with the lowest score (most matched)
+        const mostMatchedVenue = searchResults.reduce((prev, current) => {
+          return prev.score < current.score ? prev : current;
+        }).item;
+  
+        setFoundVenueDetails([mostMatchedVenue]);
       } else {
         setFoundVenueDetails(null);
       }
@@ -62,6 +66,7 @@ const NavSearch = () => {
       window.alert(error.message);
     }
   };
+  
 
   // This useEffect will trigger the search when the searchQuery changes
   useEffect(() => {
