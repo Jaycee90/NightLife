@@ -82,14 +82,14 @@ const NavSearch = () => {
             inputProps={{ style: { backgroundColor: "#fff", color:'#747474'} }}
         />
       </form>
-
+        <div>
       {/* Display search results */}
       {foundVenueDetails &&
         foundVenueDetails.map((venueData) => (
           <div key={venueData._id}>
             <Link to={`/data/${venueData._id}`}>{venueData.name}</Link>
           </div>
-        ))}
+        ))}</div>
     </div>
   );
 };
