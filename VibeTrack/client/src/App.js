@@ -19,7 +19,6 @@ import RecordList from "./components/recordList";
 import UserList from "./components/userList";
 import StarRating from "./components/starRating";
 import Footer from './components/footer';
-import NavSearch from './components/navSearch';
 
 import Data from './routes/Data'; 
 import Discover from './routes/Discover';
@@ -55,7 +54,6 @@ function App() {
             <Route exact path='/rating/:id' element={<StarRating />} />  
             <Route exact path='*' element={<NotFound />} />  
             <Route exact path='/feedback' element={<Feedback />} />
-            <Route exact path='/navsearch' element={<NavSearch />} />
             {/*<Route exact path='/test' element={<Test />} /> */}
 
             <Route exact path="/signup" element={<Signup />} />

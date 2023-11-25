@@ -77,6 +77,8 @@ const NavSearch = () => {
           placeholder="Search for venues..."
           value={searchQuery}
           onChange={handleSearch}
+            style={{ backgroundColor:"#fff" , color:'#747474', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px'}}
+            inputProps={{ style: { backgroundColor: "#fff", color:'#747474'} }}
         />
         <button type="submit" onClick={searchVenue}>
           Search
