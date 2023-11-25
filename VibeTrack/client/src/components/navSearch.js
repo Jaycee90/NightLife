@@ -73,7 +73,7 @@ const NavSearch = () => {
   return (
     <div>
       {/* Add a form to input search query */}
-      <form onSubmit={(e) => { e.preventDefault(); searchVenue(); }} style={{ position: 'relative', paddingRight:'30px', marginRight:'30px' }}>
+      <form onSubmit={(e) => { e.preventDefault(); searchVenue(); }} style={{ position: 'relative', paddingRight:'30px', }}>
         <input
           type="text"
           placeholder="Search for venues..."
@@ -84,9 +84,9 @@ const NavSearch = () => {
         />
         
       </form>
-      <button type="submit" onClick={searchVenue} style={{ position:'absolute', right: '5px', top: '0px', transform: 'translateY(-50%)', background: 'transparent', border: 'none' }}>
-          <FaSearch style={{ color:'#fff' }} />
-        </button>
+        <button type="submit" onClick={searchVenue} style={{ height:'10px', position:'absolute', left: '50%', padding:'10px',  top: '10px',background: 'transparent', border: 'none' }}>          
+        <FaSearch style={{ color:'#fff' }} />
+          </button>
     </div>
   );
 };
