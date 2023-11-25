@@ -18,6 +18,7 @@ export default function Navbar() {
             />
         </form>
         </a>
+        <a href="Feedback">Feedback</a>
         <a href="specialevent">Special Event</a>
         <a href="search">Search</a>
         <a href="tripfinder">Trip Finder</a>
