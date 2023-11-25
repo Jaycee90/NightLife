@@ -9,7 +9,7 @@ export default function Navbar() {
         
         {/*eslint-disable-next-line*/} 
         <a> 
-        <form action="/test">
+        <form action="/navSearch">
           <input 
             type="text" 
             placeholder="Search for venues... "
@@ -18,6 +18,7 @@ export default function Navbar() {
             />
         </form>
         </a>
+        
         <a href="Feedback">Feedback</a>
         <a href="specialevent">Special Event</a>
         <a href="search">Search</a>
