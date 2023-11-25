@@ -76,7 +76,7 @@ function Feedback() {
   };
 
   return (
-    <div>
+    <div className="feedback-component">
       <div className="intro-container" style={{ marginTop: "20px" }}>
         <h1 className="intro-title">Send us your feedback!</h1>
         <p className="intro-description">Here at VibeTrack, we value your feedback!</p>
@@ -92,7 +92,7 @@ function Feedback() {
           <div className="item">
             
           <div className="horizontal-radios">
-              <label style= {{color:'#000'}}>Satisfaction Rating: </label>
+              <label style= {{color:'#000'}}>Overall, how satisfied are you with the user experience here at VibeTrack? </label>
               {[1, 2, 3, 4, 5].map((rating) => (
                 <label key={rating} style= {{color:'#000'}}>
                   <input
@@ -112,32 +112,32 @@ function Feedback() {
               onChange={handleFeedbackChange}
               placeholder="Tell us how we can improve"
               className="feedback-textbox"
-              style={{ borderRadius: "10px", fontSize:'15px', minHeight: "80px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
+              style={{ borderRadius: "10px", fontSize:'15px',  fontFamily: 'Segoe UI', minHeight: "100px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', border: '1px solid #747474', }}
             />
           </div>
-          <div className="item">
+          <div className="item" style={{'marginTop':'25px'}}>
           <input
               value={userName}
               onChange={handleUserNameChange}
               placeholder="Enter your name"
               type="text"
               name="name"
-              className="name-input"
-              style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
+              className="feedback-input"
+              style={{ borderRadius: "10px", height: "40px", marginBottom:'20px', fontSize:'15px',  fontFamily: 'Segoe UI',  background: '#fff', color: '#747474', border: '1px solid #747474', }}
             />
             <input
               value={currentValue}
               onChange={handleEmailChange}
               onKeyDown={handleKeyUp}
               placeholder="Enter email for receipt"
-              type="email"
+              type="text"
               name="to"
-              className="email-input"
-              style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
+              className="feedback-input"
+              style={{ borderRadius: "10px", height: "40px", fontSize:'15px',  fontFamily: 'Segoe UI',  background: '#fff', color: '#747474', border: '1px solid #747474', }}
             />
           </div>
         </div>
-        <div style={{padding:'20px'}}><button onClick={sendEmail} className="send-email-button" style={{ borderRadius: "10px", height: "40px", marginTop: '10px', backgroundColor:'#e24e99' }}>
+        <div style={{paddingBottom:'20px', paddingLeft:'10px', paddingRight:'10px'}}><button onClick={sendEmail} className="send-email-button" style={{ borderRadius: "10px", height: "40px", marginTop: '10px', backgroundColor:'#e24e99' }}>
               Submit your feedback
             </button></div>
         

@@ -13,10 +13,8 @@ export default function Footer() {
 				<div className="Row">
 					<div className="Column">
 						<p className="Heading">Leave Us a Message</p>
-						<a href="/" className="FooterLink">and we will get back to you as soon as possible.</a>
-                        <form className="media-centered">
-                        <button type="submit" className="btn btn-primary" style={{fontSize:'12px', backgroundColor: "#e24e99 ", borderRadius:'15px',}}>Leave us a message</button>
-                        </form>
+						<a href="/feedback" className="FooterLink">and we will get back to you as soon as possible.</a>
+                        <a href="/feedback" className="FooterLink"><button className="btn btn-primary" style={{fontSize:'12px', backgroundColor: "#e24e99 ", borderRadius:'15px',}}>Leave us a message</button></a>
 					</div>
 					<div className="Column">
 						<p className="Heading">Supervisors</p>

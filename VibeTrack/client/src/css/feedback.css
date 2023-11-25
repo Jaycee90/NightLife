@@ -1,5 +1,5 @@
-/* Add this CSS to your component or a separate CSS file */
-
+.feedback-component{
+    /* Add this CSS to your component or a separate CSS file */
 .horizontal-radios {
     display: flex;
     gap: 10px; /* Adjust the gap as needed */
@@ -8,16 +8,20 @@
   .horizontal-radios label {
     display: flex;
     align-items: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
   .horizontal-radios input {
     margin-right: 5px; /* Adjust the margin as needed */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
     
   .grid-feedback{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: grid;
     grid-template-columns: 60% 40%;
     grid-gap: 10px;
     padding-right:20px;
   }
+}
