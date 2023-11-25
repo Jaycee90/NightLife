@@ -244,7 +244,16 @@ function Data(props) {
           <p style={{ 'float': 'left', 'textAlign': 'left', 'color': '#fff', 'fontSize': '15px', 'width': '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
           </div> 
           <button onClick={() => openModal(venueData)} style={{ marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%'}} className="btn btn-primary">LEAVE A RATING</button>
-          <button onClick={handleAlertButtonClick}>Alert</button>
+          <button onClick={handleAlertButtonClick} style={{
+        backgroundColor: 'blue',
+        color: 'white',
+        padding: '10px 20px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+      }}
+    >
+      Alert
+    </button>
           </div> 
         <div className="item" >
           <ImageGallery items={images}
@@ -271,7 +280,21 @@ function Data(props) {
   onChange={(e) => setEmailData((prevData) => ({ ...prevData, to: e.target.value }))}
 />
 
-          <button onClick={sendEmail}>Submit</button>
+<button
+      onClick={sendEmail}
+      style={{
+        backgroundColor: '#4CAF50', // Green background color
+        color: 'white',
+        padding: '10px 20px',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        border: 'none', // Remove button border
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Add a subtle box shadow
+        fontSize: '16px', // Adjust font size
+      }}
+    >
+      Submit
+    </button>
         </>
       )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
