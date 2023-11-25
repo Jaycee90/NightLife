@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Chip } from "@material-ui/core";
+import '../css/feedback.css';
 
 function Feedback() {
   const [emailData, setEmailData] = useState({
@@ -10,7 +11,8 @@ function Feedback() {
 
   const [values, setValues] = useState(["vibetracktxt@gmail.com"]);
   const [currentValue, setCurrentValue] = useState("");
-  const [userName, setUserName] = useState(""); // New state for user's name
+  const [userName, setUserName] = useState("");
+  const [satisfactionRating, setSatisfactionRating] = useState(3); // Default to a neutral rating
 
   const handleKeyUp = (e) => {
     if (e.keyCode === 13) {
@@ -39,6 +41,10 @@ function Feedback() {
     });
   };
 
+  const handleSatisfactionChange = (e) => {
+    setSatisfactionRating(parseInt(e.target.value, 10));
+  };
+
   const handleEmailDelete = (item, index) => {
     let arr = [...values];
     arr.splice(index, 1);
@@ -46,8 +52,8 @@ function Feedback() {
   };
 
   const sendEmail = () => {
-    // Concatenate the user's name with emailData.text before sending
-    const emailTextWithUserName = `${emailData.text}\n\nName: ${userName}`;
+    // Concatenate the user's name and satisfaction rating with emailData.text before sending
+    const emailTextWithUserInfo = `${emailData.text}\n\nName: ${userName}\nSatisfaction Rating: ${satisfactionRating}`;
 
     // Removed the part related to selected venues
     fetch('http://localhost:5050/send-email', {
@@ -57,7 +63,7 @@ function Feedback() {
       },
       body: JSON.stringify({
         ...emailData,
-        text: emailTextWithUserName,
+        text: emailTextWithUserInfo,
       }),
     })
       .then((response) => response.text())
@@ -82,17 +88,43 @@ function Feedback() {
             <Chip size="small" onDelete={() => handleEmailDelete(item, index)} label={item} style={{ backgroundColor: '#747474', color: '#fff', marginRight: '10px' }} />
           ))}
         </div>
-        <div className="grid-safety" style={{ padding: '20px' }}>
+        <div className="grid-feedback" style={{ padding: '20px' }}>
           <div className="item">
+            
+          <div className="horizontal-radios">
+              <label style= {{color:'#000'}}>Satisfaction Rating: </label>
+              {[1, 2, 3, 4, 5].map((rating) => (
+                <label key={rating} style= {{color:'#000'}}>
+                  <input
+                    type="radio"
+                    name="satisfaction"
+                    value={rating}
+                    checked={satisfactionRating === rating}
+                    onChange={handleSatisfactionChange}
+                    style= {{color:'#000'}}
+                  />
+                  {rating}
+                </label>
+              ))}
+            </div>
             <textarea
               value={emailData.text}
               onChange={handleFeedbackChange}
               placeholder="Tell us how we can improve"
               className="feedback-textbox"
-              style={{ borderRadius: "10px", fontSize:'15px', minHeight: "100px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
+              style={{ borderRadius: "10px", fontSize:'15px', minHeight: "80px", width: "100%", resize: "vertical", marginTop: '10px', padding: '10px', background: '#fff', color: '#747474', borderColor: '#747474' }}
             />
           </div>
           <div className="item">
+          <input
+              value={userName}
+              onChange={handleUserNameChange}
+              placeholder="Enter your name"
+              type="text"
+              name="name"
+              className="name-input"
+              style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
+            />
             <input
               value={currentValue}
               onChange={handleEmailChange}
@@ -102,25 +134,14 @@ function Feedback() {
               name="to"
               className="email-input"
               style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
-              inputProps={{ style: { backgroundColor: "#fff", color: '#747474', borderColor: '#747474' } }}
             />
-            <input
-              value={userName}
-              onChange={handleUserNameChange}
-              placeholder="Enter your name"
-              type="text"
-              name="name"
-              className="email-input"
-              style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474', borderColor: '#747474' }}
-              inputProps={{ style: { backgroundColor: "#fff", color: '#747474', borderColor: '#747474' } }}
-            />
-          </div>
-          <div className="item">
-            <button onClick={sendEmail} className="send-email-button" style={{ borderRadius: "10px", height: "40px", marginTop: '10px', backgroundColor:'#e24e99' }}>
-              Submit your feedback
-            </button>
           </div>
         </div>
+        <div style={{padding:'20px'}}><button onClick={sendEmail} className="send-email-button" style={{ borderRadius: "10px", height: "40px", marginTop: '10px', backgroundColor:'#e24e99' }}>
+              Submit your feedback
+            </button></div>
+        
+        
       </div>
     </div>
   );
