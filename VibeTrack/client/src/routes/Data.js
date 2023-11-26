@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +11,6 @@ import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
-import { NetworkError } from './NetworkError.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -87,9 +86,9 @@ function Data(props) {
     moreabout:"",
   });
 
-  const [error, setError] = useState(false); // Unconditionally call useState
 
   const params = useParams();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     async function fetchData() {
@@ -99,31 +98,26 @@ function Data(props) {
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
           window.alert(message);
-          setError(true); // Set error state to true
+          navigate("/error");
           return;
         }
 
         const venue = await response.json();
         if (!venue) {
           window.alert(`Venue with id ${params.id} not found`);
-          setError(true); // Set error state to true
+          navigate("/error");
           return;
         }
 
         setVenueData(venue);
       } catch (error) {
         console.error('Network error:', error);
-        setError(true); // Set error state to true
+        navigate("/error");
       }
     }
 
     fetchData();
-  }, [params.id]); // Only dependencies, not including setError
-
-  if (error) {
-    // Render the NetworkError component when an error occurs
-    return <NetworkError />;
-  }
+  }, [params.id, navigate]); // Include navigate as a dependency
 
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);

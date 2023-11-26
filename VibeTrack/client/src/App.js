@@ -29,6 +29,7 @@ import Search from './routes/Search';
 import TripFinder from './routes/Trip';
 import SpecialEvent from './routes/Special';
 import NotFound from './routes/NotFound';
+import NetworkError from "./routes/NetworkError";
 // eslint-disable-next-line
 import Test from './routes/Test';
 import Feedback from './routes/Feedback';
@@ -53,7 +54,8 @@ function App() {
             <Route exact path="/create" element={<Create />} />
             <Route exact path='/invitation' element={<Invitation />} />
             <Route exact path='/rating/:id' element={<StarRating />} />  
-            <Route exact path='*' element={<NotFound />} />  
+            <Route exact path='*' element={<NotFound />} />    
+            <Route exact path='/error' element={<NetworkError />} />  
             <Route exact path='/feedback' element={<Feedback />} />
             {/*<Route exact path='/test' element={<Test />} /> */}
 
