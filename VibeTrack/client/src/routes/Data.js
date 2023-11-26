@@ -264,7 +264,7 @@ return (
         <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{
           marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '10px'
         }} className="btn btn-primary">
-          Alert
+          Alert Me
         </button>
       </div>
       <div className="item" >
@@ -276,10 +276,12 @@ return (
     {showModal && (
       <div className="modal">
         <div className="modal-content">
-          <span className="close" onClick={closeModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+          <span className="close" onClick={closeModal} style={{ position: 'absolute', top: '10px',  right: '10px', width: '10px', backgroundColor: '#fff', cursor: 'pointer', zIndex: 1, }}>&times;</span>
 
           <h2 style={{ color: '#747474' }}>Submit a rating</h2>
           <div style={{ marginTop: '20px' }}>
+            
+          <p style={{color:'#747474', fontFamily:'Segoe UI', paddingBottom:'20px'}}>Let others know what you think about {venueData.name} !</p>
             <StarRating />
           </div>
         </div>
@@ -289,7 +291,7 @@ return (
     {showModalAlert && (
       <div className="modal">
         <div className="modal-content">
-          <span className="close" onClick={closeAlertModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+          <span className="close" onClick={closeAlertModal} style={{ position: 'absolute', top: '10px',  right: '10px', width: '10px', backgroundColor: '#fff', cursor: 'pointer', zIndex: 1, }}>&times;</span>
 
           <h2 style={{ color: '#747474' }}>Send an alert to your emergency contacts</h2>
           <input
@@ -301,7 +303,7 @@ return (
             inputProps={{ style: { backgroundColor: "#fff", color: '#747474' } }}
           />
           <button
-            onClick={sendEmail} style={{ backgroundColor: '#e24e99', color: '#fff', borderRadius: '10px', width: '50%', marginLeft: '150px' }}>
+            onClick={sendEmail} style={{ backgroundColor: '#e24e99', color: '#000', borderRadius: '10px', width: '50%', marginLeft: '150px' }}>
             Submit
           </button>
         </div>
