@@ -109,6 +109,15 @@ body{
   padding-bottom:10px;
 }
 
+.section-text {
+  color: black;
+  font-size: 15px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 8px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
 .section-title { 
   font-size: var(--fs-2); 
   font-weight: bold;
@@ -119,7 +128,7 @@ body{
  }
 
 .section-text {
-  color: black;
+  color: #747474;
   margin-bottom: 30px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -130,7 +139,7 @@ body{
 }
 
 
-.popular { padding-block: var(--section-padding); }
+.popular { padding:10px; }
 
 .popular-list,
 .popular-list > li:not(:last-child) { margin-bottom: 30px; }
@@ -271,6 +280,47 @@ body{
   gap: 10px;
 }
 
+.about-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
+.hr-style{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: 'center';
+  width:50%;
+  margin-top:20px;
+  color: #747474;
+  border: 1px solid #747474;
+}
+
+.circle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height:150px;
+  width:150px;
+  align-self: 'center';
+}
 .link {
     color: black;
     display: block;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -83,33 +83,41 @@ function Data(props) {
     instagram: "",
     yelp: "",
     amenities: "",
+    moreabout:"",
   });
 
+
   const params = useParams();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`http://localhost:5050/record/${params.id}`);
+      try {
+        const response = await fetch(`http://localhost:5050/record/${params.id}`);
 
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          window.alert(message);
+          navigate("/error");
+          return;
+        }
+
+        const venue = await response.json();
+        if (!venue) {
+          window.alert(`Venue with id ${params.id} not found`);
+          navigate("/error");
+          return;
+        }
+
+        setVenueData(venue);
+      } catch (error) {
+        console.error('Network error:', error);
+        navigate("/error");
       }
-
-      const venue = await response.json();
-      if (!venue) {
-        window.alert(`Venue with id ${params.id} not found`);
-        return;
-      }
-
-      setVenueData(venue);
     }
 
     fetchData();
-
-  }, [params.id]);
-
+  }, [params.id, navigate]); // Include navigate as a dependency
 
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);

@@ -1,10 +1,7 @@
-import React from 'react';
-import '../css/login.css';
-// add comment to merge into development. new commentS
-function Test() {
-    return (
-        <div></div>
-    );
-};
 
+// Import React and useState hook from the 'react' library.
+import '../css/search.css';
+
+  
+function Test() {}
 export default Test;

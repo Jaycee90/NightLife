@@ -55,6 +55,31 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="container">
+          <h2 className="h2 section-title">What we do</h2>
+          <div className="about-project">
+            <div className="item">
+              <img src="https://i.imgur.com/Pqg9FDn.png" className="circle" alt="Placeholder" loading="lazy"/>
+              <hr className="hr-style"/>
+              <h3  style={{marginTop:'20px'}}>Find Events</h3>
+              <p className="section-text">Wondering what’s going on this weekend? VibeTrack curates a list of events happening in the San Marcos area.</p>
+            </div>
+            <div className="item">
+              <img src="https://i.imgur.com/Pqg9FDn.png" className="circle" alt="Placeholder" loading="lazy"/>
+              <hr className="hr-style"/>
+              <h3  style={{marginTop:'20px'}}>Find Events</h3>
+              <p className="section-text">Wondering what’s going on this weekend? Discotech curates a list of events happening in the San Marcos area.</p>  
+            </div>
+            <div className="item">
+              <img src="https://i.imgur.com/Pqg9FDn.png"  className="circle" alt="Placeholder" loading="lazy"/>
+              <hr className="hr-style"/>
+              <h3  style={{marginTop:'20px'}}>Find Events</h3>
+              <p className="section-text">Wondering what’s going on this weekend? Discotech curates a list of events happening in the San Marcos area.</p>
+              </div>
+          </div>
+      </div>
+      
+      <hr className="hr-style"/>
       <section className="popular" id="destination">
         <div className="container">
           <h2 className="h2 section-title">Discover venues</h2>
@@ -87,8 +112,7 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <button className="btn btn-primary" style={{width:'50%',backgroundColor: "#747474 ", color:'#fff', borderRadius:"10px"}}>Discover even more venues near you</button>
-          
+          <button className="btn btn-primary" style={{width:'50%',backgroundColor: "#e24e99 ", color:'#fff', borderRadius:"10px", marginBottom:'20px', }}>Discover even more venues near you</button>
         </div>
       </section>
     </div>
