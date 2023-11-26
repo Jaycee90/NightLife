@@ -5,6 +5,8 @@ import L from "leaflet"; // Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
 import { useNavigate } from "react-router-dom";
+// eslint-disable-next-line
+import TripFinder from './Trip.js';
 
 const Record = (props) => {
   function trimAddress(address) {
@@ -29,10 +31,13 @@ function Search() {
   const [mapReady, setMapReady] = useState(false);
   const [records, setRecords] = useState([]);
   const [searchQuery, setSearchQuery] = useState(''); // state variable to hold the search query.
+  // eslint-disable-next-line
   const [venueFound, setVenueFound] = useState(false);
+  // eslint-disable-next-line
   const [foundVenueLocation, setFoundVenueLocation] = useState(null);
 
   // Use the useHistory hook from React Router to access the history object
+  // eslint-disable-next-line
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -120,13 +125,7 @@ function Search() {
     );
 
     if (foundVenue) {
-      setVenueFound(true);
-      setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
-
-      // Redirect to the TripFinder component with the venue name as a parameter
-      navigate(`/tripfinder/${foundVenue.name}`);
-    } else {
-      setVenueFound(false);
+        console.log("Found");
     }
   };
 
@@ -182,7 +181,7 @@ function Search() {
 
     return [medianLatitude, medianLongitude];
     }
-    
+
     return (
             <div>
               <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
@@ -202,7 +201,7 @@ function Search() {
                   <div class="item">
                     <button onClick={getUserLocation} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
                   </div>
-                  <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find location</button></div>
+                  <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
                 </div>
               </div>
               <div>
@@ -273,9 +272,8 @@ function Search() {
               </div>
               {/* Link to the TripFinder component */}
               {venueFound && (
-                <button onClick={searchVenue}>
-                  View Route to TripFinder
-                </button>
+                // ???
+                <></>
               )}
             </div>
           );
