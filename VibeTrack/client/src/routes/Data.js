@@ -228,7 +228,22 @@ const openModalAlert = () => {
 const closeAlertModal = () => {
   setShowModalAlert(false);
 }
+const renderMoreAbout = () => {
+  if (!venueData.moreabout) {
+    return null;
+  }
 
+  // Split moreabout into an array of sentences
+
+  const sentences = venueData.moreabout.split(/(?<=\.)\s+/);
+  // Render each sentence in a separate <p> tag
+  return sentences.map((sentence, index) => (
+    <p key={index} style={{padding:'0', fontFamily: 'Segoe UI', fontSize:'10px', 
+    paddingBottom: index === sentences.length - 1 ? '30px' : '10px', float: 'left', textAlign: 'left', color: '#000', fontSize: '15px' }}>
+      {sentence}
+    </p>
+  ));
+};
 window.scrollTo({ top: 0, behavior: 'smooth' });
 return (
   <div style={{ marginTop: "20px" }}>
@@ -297,11 +312,8 @@ return (
     <div className="container" style={{ 'paddingTop': '25px' }}>
       <div className="grid-container">
         <div class="item1">
-          <p class="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px' }}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-            Sit ornar mollitia tenetur, aptent.
-          </p>
+        {renderMoreAbout()}
+
           <div className="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px', columnCount: '4', columnGap: '50px' }}>
             {formattedAmenities.map((amenity, index) => (
               <span key={index}>{amenity}<br /></span>
