@@ -11,7 +11,8 @@ import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
-import NetworkError from '../NetworkError.js';
+// eslint-disable-next-line
+import NetworkError from './NetworkError.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
