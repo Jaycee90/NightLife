@@ -11,8 +11,7 @@ import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
-// eslint-disable-next-line
-import NetworkError from './NetworkError.js';
+import { NetworkError } from './NetworkError.js';
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -88,31 +87,43 @@ function Data(props) {
     moreabout:"",
   });
 
+  const [error, setError] = useState(false); // Unconditionally call useState
+
   const params = useParams();
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(`http://localhost:5050/record/${params.id}`);
+      try {
+        const response = await fetch(`http://localhost:5050/record/${params.id}`);
 
-      if (!response.ok) {
-        const message = `An error has occurred: ${response.statusText}`;
-        window.alert(message);
-        return;
+        if (!response.ok) {
+          const message = `An error has occurred: ${response.statusText}`;
+          window.alert(message);
+          setError(true); // Set error state to true
+          return;
+        }
+
+        const venue = await response.json();
+        if (!venue) {
+          window.alert(`Venue with id ${params.id} not found`);
+          setError(true); // Set error state to true
+          return;
+        }
+
+        setVenueData(venue);
+      } catch (error) {
+        console.error('Network error:', error);
+        setError(true); // Set error state to true
       }
-
-      const venue = await response.json();
-      if (!venue) {
-        window.alert(`Venue with id ${params.id} not found`);
-        return;
-      }
-
-      setVenueData(venue);
     }
 
     fetchData();
+  }, [params.id]); // Only dependencies, not including setError
 
-  }, [params.id]);
-
+  if (error) {
+    // Render the NetworkError component when an error occurs
+    return <NetworkError />;
+  }
 
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
