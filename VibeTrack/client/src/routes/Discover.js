@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import '../css/discover.css';
 import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
+import { FaStar } from "react-icons/fa";
+
+const colors = {
+  orange: "#FFBA5A",
+  grey: "#a9a9a9"
+};
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
@@ -128,6 +134,8 @@ const Discover = () => {
 
   const categorizedTags = categorizeTags(uniqueTags);
 
+  const stars = Array(5).fill(0);    
+
   return (
     <div className="discover-component" style={{marginBottom:'40px'}}>
       <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
@@ -248,11 +256,19 @@ const Discover = () => {
                     </figure>
                     <div className="card-content">
                       <div className="card-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
+                      {stars.map((value, index) => {
+                        const decimalPart = venueData.rating - Math.floor(venueData.rating);
+                        const roundUpThreshold = 0.5;
+                        const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(venueData.rating) : Math.floor(venueData.rating);
+
+                        return (
+                            <FaStar
+                                key={index}
+                                size={15}
+                                color={index < roundedRating ? colors.orange : colors.grey}
+                            />
+                        );
+                    })}
                       </div>
                       <p className="card-subtitle">{venueData.address}</p>
                       <h3 className="h3 card-title">
