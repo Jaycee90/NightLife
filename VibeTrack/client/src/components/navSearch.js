@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import Fuse from 'fuse.js';
+import "../css/navbar.css";
 
 const NavSearch = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -71,22 +72,26 @@ const NavSearch = () => {
   };
 
   return (
-    <div>
-      {/* Add a form to input search query */}
-      <form onSubmit={(e) => { e.preventDefault(); searchVenue(); }} style={{ position: 'relative', paddingRight:'30px', }}>
+    <div >
+      <div className ="grid-navsearch" width="30vw">
+      <div class="item">
+      <form onSubmit={(e) => { e.preventDefault(); searchVenue(); }} style={{ position: 'relative' }}>
         <input
           type="text"
           placeholder="Search for venues..."
           value={searchQuery}
           onChange={handleSearch}
-          style={{ backgroundColor:"#fff" , color:'#747474', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px', paddingRight: '30px'}}
+          style={{ backgroundColor:"#fff" , color:'#747474', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px'}}
           inputProps={{ style: { backgroundColor: "#fff", color:'#747474'} }}
         />
-        
       </form>
-        <button type="submit" onClick={searchVenue} style={{ height:'10px', position:'absolute', left: '50%', padding:'10px',  top: '10px',background: 'transparent', border: 'none' }}>          
-        <FaSearch style={{ color:'#fff' }} />
-          </button>
+      </div>
+      <div class="item">
+        <button type="submit" onClick={searchVenue} className="search-icon" style={{background:'none', height:'10px', width:'40px', padding:'0px'}}>          
+          <FaSearch style={{ color:'#fff', paddingBottom:'5px', }}  size="1.25em"  />
+            </button>
+      </div>
+      </div>
     </div>
   );
 };
