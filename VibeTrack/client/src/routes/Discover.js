@@ -154,34 +154,31 @@ const Discover = () => {
             <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
   
             {/* Display selected tags */}
-            
-            {/* Display unique tags as buttons */}
-            
-            <div className='unique-tags'>
               {categorizedTags.venueType.map((tag) => (
-                <button
-                  key={`unique-tag-${id}-${tag}`}
-                  type='button'
-                  onClick={addTag(tag)}
-                  style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
-                >
-                  {tag}
-                </button>
+                <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
+                <div className="unique-tags">
+                  <div className="item">
+                    <input type="checkbox" 
+                            onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }}/>
+                  </div>
+                  <div className="item">{tag}</div>
+                </div>
+                </label>
               ))}
-            </div>
   
-            <div className='unique-tags' style={{marginTop:'20px'}}>
+  <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
+
               {categorizedTags.venueFeatures.map((tag) => (
-                <button
-                  key={`unique-tag-${id}-${tag}`}
-                  type='button'
-                  onClick={addTag(tag)}
-                  style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
-                >
-                  {tag}
-                </button>
+                <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
+                <div className="unique-tags">
+                <div className="item">
+                  <input type="checkbox" 
+                          onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }} />
+                          </div>
+                          <div className="item"> {tag}</div>
+                </div>
+                </label>
               ))}
-            </div>
           </div>
         </div>
   
@@ -193,7 +190,7 @@ const Discover = () => {
                     key={`close-button-${id}-${tag}`}
                     className='close'
                     onClick={deleteTag(tag)}
-                    style={{ width: '100px', marginBottom: '12px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
+                    style={{ width: `${tag.length * 10 + 50}px`, marginBottom: '12px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
                   >
                     {tag} &nbsp; x
                   </button>
