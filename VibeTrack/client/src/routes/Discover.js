@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/discover.css';
 import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaAngleDown } from "react-icons/fa";
 
 const colors = {
   orange: "#FFBA5A",
@@ -134,7 +134,19 @@ const Discover = () => {
 
   const categorizedTags = categorizeTags(uniqueTags);
 
-  const stars = Array(5).fill(0);    
+  const stars = Array(5).fill(0);   
+
+  const [isVisibleType, setIsVisibleType] = useState(false);
+
+  const toggleVisibilityType = () => {
+    setIsVisibleType(!isVisibleType);
+  };
+
+  const [isVisibleFeature, setIsVisibleFeature] = useState(false);
+
+  const toggleVisibilityFeature = () => {
+    setIsVisibleFeature(!isVisibleFeature);
+  };
 
   return (
     <div className="discover-component" style={{marginBottom:'40px'}}>
@@ -150,25 +162,42 @@ const Discover = () => {
               placeholder="Search by venue name"
               style={{ borderRadius: "10px", height: "40px", fontSize:'15px', background: '#fff', color: '#747474' }}
             />
-            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Find venues</button>
-            <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
-  
-            {/* Display selected tags */}
-              {categorizedTags.venueType.map((tag) => (
-                <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
-                <div className="unique-tags">
-                  <div className="item">
-                    <input type="checkbox" 
-                            onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }}/>
-                            <span></span>
-                  </div>
-                  <div className="item" style={{color:'#b3b3b3', fontSize:'15px',fontFamily:'Segoe UI' }}>{tag}</div>
-                </div>
-                </label>
-              ))}
-  
-              <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
+            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", marginBottom:'20px', borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Search by Name</button>
 
+            <hr style={{color:'#fff', marginBottom:'20px', marginTop:'10px', opacity:'0.5'}}/>
+  
+            <button style={{ backgroundColor: "#e24e99", borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Filter by Tags</button>
+            {/* Display selected tags */}
+            <button onClick={toggleVisibilityType} style={{ textAlign: 'left', background:'none', borderRadius:'10px', fontWeight: 'bold',fontSize:'15px', marginTop:'10px'}}>Venue Types  <FaAngleDown size="1.5em" style={{float:'right'}} /></button>
+              {isVisibleType && (
+                <div>
+                  {categorizedTags.venueType.map((tag) => (
+                    <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
+                      <div className="unique-tags">
+                        <div className="item">
+                          <input
+                            type="checkbox"
+                            onChange={() => {
+                              matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)();
+                            }}
+                          />
+                          <span></span>
+                        </div>
+                        <div
+                          className="item"
+                          style={{ color: "#b3b3b3", fontSize: "15px", fontFamily: "Segoe UI" }}
+                        >
+                          {tag}
+                        </div>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              )}
+              
+              <button onClick={toggleVisibilityFeature} style={{ textAlign: 'left', background:'none', borderRadius:'10px', fontWeight: 'bold',fontSize:'15px', marginTop:'10px'}}>Venue Features  <FaAngleDown size="1.5em" style={{float:'right'}} /></button>
+              {isVisibleFeature && (
+              <div>
               {categorizedTags.venueFeatures.map((tag) => (
                 <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
                 <div className="unique-tags">
@@ -181,6 +210,8 @@ const Discover = () => {
                 </div>
                 </label>
               ))}
+              </div>
+              )}
           </div>
         </div>
   
