@@ -183,100 +183,93 @@ function Search() {
     }
 
     return (
-            <div>
-              <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
-              <h2 className="h2 section-title">Discover venues near you</h2>
-          
-              <div className="search-container">
-                <div className="grid-button">
-                  <div class="item">{/* prompt a user to search */}
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={handleSearch}
-                      placeholder="Search by venue name"
-                      style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474' }}
-                    />
-                  </div>
-                  <div class="item">
-                    <button onClick={getUserLocation} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
-                  </div>
-                  <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
-                </div>
-              </div>
-              <div>
-          
-                <div className="grid-map" style={{ padding: '10px' }}>
-                  <div class="item">
-                    {/* Display the top 10 closest clubs in San Marcos area */}
-                    {locationCoord && (
-                      <div>
-                        <h2 style={{ color: '#000000' }}>Take a dip at these venues that are closest to you</h2>
-          
-                        {/* Display search result message */}
-                        <p id="locationResult" style={{ color: '#000', opacity: '0' }}>{locationResult}</p>
-                        {searchQuery && (
-                          <p style={{ color: '#000', opacity: '0' }}>
-                            {venueFound
-                              ? `${searchQuery}`
-                              : `Venue "${searchQuery}" not found`}
-                          </p>
-                        )}
-                        <table style={{ color: '#000000' }}>
-                          <thead>
-                            <tr>
-                              <th className="nameColumn">Name</th>
-                              <th className="addressColumn">Address</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
-                              <Record
-                                record={record}
-                                key={record._id}
-                              />
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    )}
-          
-                  </div>
-                  <div class="item">
-                    {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
-                    {mapReady && (
-                      <MapContainer
-                        style={{ height: "71vh", width: "100%" }}
-          
-                        // Find center between user's coordinates and top 10 closest clubs' coordinates
-                        center={calculateMedianCoordinates(locationCoord[0], locationCoord[1], findNearestClubs(locationCoord[0], locationCoord[1], 10))}
-                        zoom={13}
-                      >
-                        <TileLayer
-                          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        {defaultMarker}
-                        {foundVenueLocation && (
-                          <Marker position={foundVenueLocation} icon={icon}>
-                            <Popup>{searchQuery}</Popup>
-                          </Marker>
-                        )}
-                        {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
-                      </MapContainer>
-                    )}
-          
-                  </div>
-                </div>
-          
-              </div>
-              {/* Link to the TripFinder component */}
-              {venueFound && (
-                // ???
-                <></>
-              )}
+    <div>
+        <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
+        <h2 className="h2 section-title">Discover venues near you</h2>
+    
+        <div className="search-container">
+        <div className="grid-button">
+            <div class="item">
+            <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Search by venue name"
+                style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474' }}
+            />
             </div>
-          );
+            <div class="item">
+            <button onClick={getUserLocation} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
+            </div>
+            <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
+        </div>
+        </div>
+        <div>
+    
+        <div className="grid-map" style={{ padding: '10px' }}>
+            <div class="item">
+            {locationCoord && (
+                <div>
+                <h2 style={{ color: '#000000' }}>Take a dip at these venues that are closest to you</h2>
+    
+                <p id="locationResult" style={{ color: '#000', opacity: '0' }}>{locationResult}</p>
+                {searchQuery && (
+                    <p style={{ color: '#000', opacity: '0' }}>
+                    {venueFound
+                        ? `${searchQuery}`
+                        : `Venue "${searchQuery}" not found`}
+                    </p>
+                )}
+                <table style={{ color: '#000000' }}>
+                    <thead>
+                    <tr>
+                        <th className="nameColumn">Name</th>
+                        <th className="addressColumn">Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {findNearestClubs(locationCoord[0], locationCoord[1]).map((record) => (
+                        <Record record={record} key={record._id}
+                        />
+                    ))}
+                    </tbody>
+                </table>
+                </div>
+            )}
+    
+            </div>
+            <div class="item">
+            {/* Render the map with markers for the found venue, user's location, and top 10 closest clubs */}
+            {mapReady && (
+                <MapContainer style={{ height: "71vh", width: "100%" }}
+                // Find center between user's coordinates and top 10 closest clubs' coordinates
+                center={calculateMedianCoordinates(locationCoord[0], locationCoord[1], findNearestClubs(locationCoord[0], locationCoord[1], 10))}
+                zoom={13}
+                >
+                <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                {defaultMarker}
+                {foundVenueLocation && (
+                    <Marker position={foundVenueLocation} icon={icon}>
+                    <Popup>{searchQuery}</Popup>
+                    </Marker>
+                )}
+                {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
+                </MapContainer>
+            )}
+    
+            </div>
+        </div>
+        {/* Link to the TripFinder component */}
+        {venueFound && (
+        // ???
+        <></>
+        )}
+        </div>
+    </div>
+    );
           
 }
 export default Search;
