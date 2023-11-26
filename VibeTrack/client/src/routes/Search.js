@@ -1,12 +1,17 @@
+
 // Import React and useState hook from the 'react' library.
 import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet"; // Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
-import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line
+import {TileLayer, MapContainer, LayersControl, Marker, Popup} from "react-leaflet";
+import RoutingControl from './RoutingControl';
+import { useParams } from "react-router-dom";
 
+const maps = {
+  base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+};
+  
 const Record = (props) => {
   function trimAddress(address) {
     const trimmedAddress = address.replace(/^(.*?)\s\w{2}\s\d{5}$/, '$1').replace(/,\s*$/, '');
@@ -24,21 +29,22 @@ const Record = (props) => {
 };
 
 function Search() {
+  // State to track the current view
+  const [currentView, setCurrentView] = useState("nearMe");
   // Initialize state variables.
   const [locationResult, setLocationResult] = useState('');
   const [locationCoord, setLocationCoord] = useState(null);
   const [mapReady, setMapReady] = useState(false);
   const [records, setRecords] = useState([]);
   // eslint-disable-next-line
-  const [searchQuery, setSearchQuery] = useState(''); // state variable to hold the search query.
+  const [searchQueryLocation, setSearchQueryLocation] = useState(''); // state variable to hold the search query.
   // eslint-disable-next-line
-  const [venueFound, setVenueFound] = useState(false);
+  const [venueFoundLocation, setVenueFoundLocation] = useState(false);
   // eslint-disable-next-line
   const [foundVenueLocation, setFoundVenueLocation] = useState(null);
 
   // Use the useHistory hook from React Router to access the history object
   // eslint-disable-next-line
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function getRecords() {
@@ -123,7 +129,7 @@ function Search() {
   });
 
   // Display the user's location marker by default or when no search is performed
-  const defaultMarker = locationCoord && !venueFound && !searchQuery && (
+  const defaultMarker = locationCoord && !venueFoundLocation && !searchQueryLocation && (
     <Marker position={locationCoord} icon={userMarker}>
       <Popup>Your Location</Popup>
     </Marker>
@@ -167,20 +173,146 @@ function Search() {
     return [medianLatitude, medianLongitude];
     }
 
-    return (
+    //TRIP FINDER
+    const { venueName } = useParams();
+
+  useEffect(() => {
+    // Fetch data based on venueName
+    console.log("Fetching data for venue:", venueName);
+  }, [venueName]);
+  
+  // State variables
+  const [tripRecords, setTripRecords] = useState([]);
+  const [markers, setMarkers] = useState([]);
+  const [start, setStartLocation] = useState(null); // User's location
+  const [foundVenueLocationName, setFoundVenueName] = useState(null);
+  const [searchQueryName, setSearchQueryName] = useState('');//state variable to hold the search query
+  const [shouldRenderMap, setShouldRenderMap] = useState(true); //keeps track of whether the map should re-render
+
+  // Fetch trip records from the server
+  const fetchTripRecords = async () => {
+    try {
+      const response = await fetch(`http://localhost:5050/record/`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const tripData = await response.json();
+      setTripRecords(tripData);
+  
+      // Create markers for each venue
+      const venueMarkers = tripData.map((trip) => ({
+        position: [trip.latitude, trip.longitude],
+        popupContent: (
+          <div>
+            {/* Display the first image in the popup */}
+            {trip.image.length > 0 && <img src={trip.image[0]} alt={trip.name} style={{ width: "100%" }} />}
+            <p><strong>{trip.name}</strong><br />
+            {trip.address}<br/>
+            {trip.website && (
+              <a href={trip.website} target="_blank" rel="noopener noreferrer">
+                Visit our Website
+              </a>
+            )}
+            </p>
+          </div>
+        ),
+      }));
+      setMarkers(venueMarkers);
+  
+    } catch (error) {
+      console.error("Error fetching trip records:", error.message);
+    }
+  };
+
+  // Extract the user's coordinates and set then to start point
+  const setStartLocationToUser = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setStartLocation([latitude, longitude]);// Set user's location as the start location
+          setFoundVenueName([latitude, longitude]);
+        },
+        (error) => {
+          console.error("Error getting user location:", error.message);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+  
+  useEffect(() => {
+    setStartLocationToUser(); // Call the function to set start location to user's current position
+    fetchTripRecords(); // Call the function to fetch trip records
+  }, []);
+
+  // Function to update the search query
+  const handleSearchName = (event) => {
+    setSearchQueryName(event.target.value);
+  };
+
+  // Function to search for a specific venue by name
+  const searchVenue = () => {
+    const foundVenue = tripRecords.find(record =>
+      record.name.toLowerCase() === searchQueryName.toLowerCase()
+    );
+  
+    if (foundVenue) {
+      setFoundVenueName([foundVenue.latitude, foundVenue.longitude]);
+      setShouldRenderMap(!shouldRenderMap); 
+    }
+  };
+  
+  const venueMarker = new L.Icon({
+    iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41],
+  });
+  return (
     <div>
-        <div className="grid-map" style={{ padding: '10px' }}>
+      <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
+      <h2 className="h2 section-title">Discover venues near you</h2>
+
+      <div className="search-container">
+        <div className="grid-button">
+          <div class="item">
+          <input
+              type="text"
+              value={searchQueryName}
+              onChange={handleSearchName}
+              placeholder="Search by venue name"
+              style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
+            />
+          </div>
+          <div class="item">
+            {/* Set the current view state when "Find venues near me" is clicked */}
+            <button onClick={() => setCurrentView("nearMe")} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
+          </div>
+          <div class="item">
+            {/* Set the current view state when "Search by name" is clicked */}
+            <button onClick={() => { setCurrentView("searchName"); searchVenue();  }} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        {/* Conditionally render CONTAINER 1 or CONTAINER 2 based on the current view state */}
+        {currentView === "nearMe" && (
+          <div className="grid-map" style={{ padding: '10px' }}>
             <div class="item">
             {locationCoord && (
                 <div>
                 <h2 style={{ color: '#000000' }}>Take a dip at these venues that are closest to you</h2>
     
                 <p id="locationResult" style={{ color: '#000', opacity: '0' }}>{locationResult}</p>
-                {searchQuery && (
+                {searchQueryLocation && (
                     <p style={{ color: '#000', opacity: '0' }}>
-                    {venueFound
-                        ? `${searchQuery}`
-                        : `Venue "${searchQuery}" not found`}
+                    {venueFoundLocation
+                        ? `${searchQueryLocation}`
+                        : `Venue "${searchQueryLocation}" not found`}
                     </p>
                 )}
                 <table style={{ color: '#000000' }}>
@@ -216,17 +348,64 @@ function Search() {
                 {defaultMarker}
                 {foundVenueLocation && (
                     <Marker position={foundVenueLocation} icon={icon}>
-                    <Popup>{searchQuery}</Popup>
+                    <Popup>{searchQueryLocation}</Popup>
                     </Marker>
                 )}
-                {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
+                {locationCoord && !venueFoundLocation && !searchQueryLocation && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
     
             </div>
         </div>
+        )}
+
+        {currentView === "searchName" && (
+          <div>
+            <MapContainer
+        key={shouldRenderMap} // Add a key to trigger a re-render when the key changes
+        center={[29.8833, -97.9414]}
+        zoom={13}
+        zoomControl={false}
+        style={{ height: "100vh", width: "100%", padding: 0 }}
+        
+        whenCreated={map => {
+          console.log("Map created:", map);
+        }}
+      >
+        {/* *************** */}
+        {/* Pass in our custom control layer here, inside of the map container */}
+        {/* *************** */}
+
+        {/* Render venue markers on the map */}
+        {markers.map((marker, index) => (
+          <Marker key={index} position={marker.position} icon={venueMarker}>
+            <Popup>{marker.popupContent}</Popup>
+          </Marker>
+        ))}
+
+        <LayersControl position="topright">
+          <LayersControl.BaseLayer checked name="Map">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url={maps.base}
+            />
+          </LayersControl.BaseLayer>
+        </LayersControl>
+        {/* Conditional rendering of RoutingControl */}
+        {start && foundVenueLocationName && (
+          <RoutingControl 
+            position={'topleft'} 
+            start={start} 
+            end={foundVenueLocationName} 
+            color={'#757de8'}
+          />
+        )}
+      </MapContainer>
+          </div>
+        )}
+      </div>
     </div>
-    );
-          
+  );
 }
+
 export default Search;
