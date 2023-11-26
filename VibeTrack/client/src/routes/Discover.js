@@ -5,10 +5,6 @@ import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
 import { FaStar, FaAngleDown } from "react-icons/fa";
 
-const colors = {
-  orange: "#FFBA5A",
-  grey: "#a9a9a9"
-};
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
@@ -248,11 +244,19 @@ const Discover = () => {
                                 </figure>
                                 <div className="card-content">
                                   <div className="card-rating">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
+                                  {stars.map((value, index) => {
+                                    const decimalPart = foundVenue.rating - Math.floor(foundVenue.rating);
+                                    const roundUpThreshold = 0.5;
+                                    const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(foundVenue.rating) : Math.floor(foundVenue.rating);
+
+                                    return (
+                                        <FaStar
+                                            key={index}
+                                            size={15}
+                                            color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                                        />
+                                    );
+                                })}
                                   </div>
                                   <p className="card-subtitle">{foundVenue.address}</p>
                                   <h3 className="h3 card-title">
@@ -298,7 +302,7 @@ const Discover = () => {
                             <FaStar
                                 key={index}
                                 size={15}
-                                color={index < roundedRating ? colors.orange : colors.grey}
+                                color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
                             />
                         );
                     })}
