@@ -83,6 +83,7 @@ function Data(props) {
     instagram: "",
     yelp: "",
     amenities: "",
+    moreabout:"",
   });
 
   const params = useParams();
