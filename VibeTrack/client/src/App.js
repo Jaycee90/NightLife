@@ -29,11 +29,11 @@ import Search from './routes/Search';
 import TripFinder from './routes/Trip';
 import SpecialEvent from './routes/Special';
 import NotFound from './routes/NotFound';
-
 // eslint-disable-next-line
 import Test from './routes/Test';
-
+import Feedback from './routes/Feedback';
 function App() {
+  
  return (
    <BrowserRouter>
      <UserProvider>
@@ -54,6 +54,7 @@ function App() {
             <Route exact path='/invitation' element={<Invitation />} />
             <Route exact path='/rating/:id' element={<StarRating />} />  
             <Route exact path='*' element={<NotFound />} />  
+            <Route exact path='/feedback' element={<Feedback />} />
             {/*<Route exact path='/test' element={<Test />} /> */}
 
             <Route exact path="/signup" element={<Signup />} />

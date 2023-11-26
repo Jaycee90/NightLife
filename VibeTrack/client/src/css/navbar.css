@@ -59,3 +59,18 @@
   }
   
 }
+
+.search-icon{
+  float:right;
+}
+
+.search-box{
+  float:right;
+}
+
+.grid-navsearch{
+  display: grid;
+  grid-template-columns: 80% 20%;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
