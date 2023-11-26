@@ -5,7 +5,6 @@ import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
 import { FaStar, FaAngleDown } from "react-icons/fa";
 
-
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
   const [records, setRecords] = useState([]);
@@ -131,19 +130,18 @@ const Discover = () => {
   const categorizedTags = categorizeTags(uniqueTags);
 
   const stars = Array(5).fill(0);   
-
-  const [isVisibleType, setIsVisibleType] = useState(false);
-
-  const toggleVisibilityType = () => {
-    setIsVisibleType(!isVisibleType);
+  const useToggleVisibility = (initialState = false) => {
+    const [isVisible, setIsVisible] = useState(initialState);
+    const toggleVisibility = () => {
+      setIsVisible(!isVisible);
+    };
+    return [isVisible, toggleVisibility];
   };
-
-  const [isVisibleFeature, setIsVisibleFeature] = useState(false);
-
-  const toggleVisibilityFeature = () => {
-    setIsVisibleFeature(!isVisibleFeature);
-  };
-
+  
+  const [isVisibleType, toggleVisibilityType] = useToggleVisibility(false);
+  const [isVisibleFeature, toggleVisibilityFeature] = useToggleVisibility(false);
+  const [isVisiblePrice, toggleVisibilityPrice] = useToggleVisibility(false);
+  
   const [selectedPriceTags, setSelectedPriceTags] = useState([]);
   const handlePriceTagChange = (priceTag) => {
     setSelectedPriceTags((prevTags) =>
@@ -230,9 +228,10 @@ const Discover = () => {
               </div>
               )}
 
-              <div>
-              <button style={{ textAlign: 'left', background: 'none', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', marginTop: '10px' }}> Price Range <FaAngleDown size="1.5em" style={{ float: 'right' }} />
+              <button onClick={toggleVisibilityPrice} style={{ textAlign: 'left', background: 'none', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', marginTop: '10px' }}> Price Range <FaAngleDown size="1.5em" style={{ float: 'right' }} />
               </button>
+              {isVisiblePrice && (
+              <div>
               {['$', '$$', '$$$'].map((priceTag) => (
                 <label key={priceTag} className="tag-checkbox">
                   <div className="unique-tags">
@@ -254,6 +253,7 @@ const Discover = () => {
                 </label>
               ))}
             </div>
+              )}
           </div>
         </div>
   
@@ -290,17 +290,17 @@ const Discover = () => {
                                 </figure>
                                 <div className="card-content">
                                   <div className="card-rating">
+                                  <p style={{color:'#747474'}}>{foundVenue.price}</p>
                                   {stars.map((value, index) => {
                                     const decimalPart = foundVenue.rating - Math.floor(foundVenue.rating);
                                     const roundUpThreshold = 0.5;
                                     const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(foundVenue.rating) : Math.floor(foundVenue.rating);
-
                                     return (
-                                        <FaStar
-                                            key={index}
-                                            size={15}
-                                            color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
-                                        />
+                                      <FaStar
+                                          key={index}
+                                          size={15}
+                                          color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                                      />
                                     );
                                 })}
                                   </div>
@@ -361,7 +361,6 @@ const Discover = () => {
                 </div>
               ))}
             </ul></div>
-
           </div>
         </div>
       </div>
