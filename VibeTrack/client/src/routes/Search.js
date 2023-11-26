@@ -27,7 +27,7 @@ const Record = (props) => {
     </tr>
   );
 };
-
+// FUZY SEARCH FOR TRIP FINDER
 function Search() {
   // State to track the current view
   const [currentView, setCurrentView] = useState("nearMe");
