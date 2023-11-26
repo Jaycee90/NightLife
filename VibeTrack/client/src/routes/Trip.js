@@ -2,12 +2,21 @@ import React, { useState, useEffect } from "react";
 import {TileLayer, MapContainer, LayersControl, Marker, Popup} from "react-leaflet";
 import RoutingControl from './RoutingControl';
 import L from "leaflet";
+import { useParams } from "react-router-dom";
+
 
 const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 };
 
 const TripFinder = () => {
+  const { venueName } = useParams();
+
+  useEffect(() => {
+    // Fetch data based on venueName
+    console.log("Fetching data for venue:", venueName);
+  }, [venueName]);
+  
   // State variables
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);

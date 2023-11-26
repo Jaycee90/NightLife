@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";// Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
-import TripFinder from "./Trip"; // Import the TripFinder component
+//import TripFinder from "./Trip"; // Import the TripFinder component
 import '../css/search.css';
+import { useNavigate   } from "react-router-dom";
 
 const Record = (props) => {
     function trimAddress(address) {  
@@ -31,8 +32,10 @@ function Search() {
     const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query.
     const [venueFound, setVenueFound] = useState(false);
     const [foundVenueLocation, setFoundVenueLocation] = useState(null);
-    const [showTripFinder, setShowTripFinder] = useState(false);
+    //const [showTripFinder, setShowTripFinder] = useState(false);
 
+    // Use the useHistory hook from React Router to access the history object
+    const navigate = useNavigate();
 
     useEffect(() => { 
       async function getRecords() { // Define an function to fetch data
@@ -119,7 +122,9 @@ function Search() {
         if (foundVenue) {
             setVenueFound(true);
             setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
-            setShowTripFinder(true); // Show TripFinder component when a venue is found
+            //setShowTripFinder(true); // Show TripFinder component when a venue is found
+            // Redirect to the TripFinder component with the venue name as a parameter
+            navigate(`/tripfinder/${foundVenue.name}`);
         } else {
             setVenueFound(false);
         }
@@ -270,7 +275,13 @@ function Search() {
 
         </div>
         {/* Render the TripFinder component conditionally */}
-        {showTripFinder && <TripFinder />}
+        {/* {showTripFinder && <TripFinder />} */}
+        {/* Link to the TripFinder component */}
+        {venueFound && (
+            <button onClick={searchVenue}>
+                View Route to TripFinder
+            </button>
+        )}
         </div>
     );
 }
