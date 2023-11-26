@@ -335,13 +335,35 @@ export default function Edit() {
         </div>
         */}
         <div className="form-group">
+          <label htmlFor="about">About: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="about"
+            value={form.about}
+            onChange={(e) => updateForm({ about: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="website">Website: </label>
+          <input
+            type="text"
+            className="form-control"
+            id="website"
+            value={form.website}
+            onChange={(e) => updateForm({ website: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="moreabout">More About: </label>
           <input
             type="text"
             className="form-control"
             id="moreabout"
             value={form.moreabout}
-            onChange={(e) => updateForm({ moreabout: e.target.value })}
+            onChange={(e) => updateForm({ moreabout: e.target.value })}              
+            style={{ borderRadius: "10px", minHeight: "100px", width: "100%", resize: "vertical", marginTop: '10px'}}
+
           />
         </div>
         <div className="form-group">
