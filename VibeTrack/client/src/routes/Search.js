@@ -6,7 +6,6 @@ import "leaflet/dist/leaflet.css";
 import '../css/search.css';
 import { useNavigate } from "react-router-dom";
 // eslint-disable-next-line
-import TripFinder from './Trip.js';
 
 const Record = (props) => {
   function trimAddress(address) {
@@ -30,6 +29,7 @@ function Search() {
   const [locationCoord, setLocationCoord] = useState(null);
   const [mapReady, setMapReady] = useState(false);
   const [records, setRecords] = useState([]);
+  // eslint-disable-next-line
   const [searchQuery, setSearchQuery] = useState(''); // state variable to hold the search query.
   // eslint-disable-next-line
   const [venueFound, setVenueFound] = useState(false);
@@ -113,21 +113,6 @@ function Search() {
     return sortedRecords.map((entry) => entry.record);
   }
 
-  // Function to update the search query
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  // Function to search for a specific venue by name
-  const searchVenue = () => {
-    const foundVenue = records.find(record =>
-      record.name.toLowerCase() === searchQuery.toLowerCase()
-    );
-
-    if (foundVenue) {
-        console.log("Found");
-    }
-  };
 
   const userMarker = new L.Icon({
     iconUrl: 'https://i.imgur.com/wOs7nJb.png', // URL to the custom marker image
@@ -184,28 +169,6 @@ function Search() {
 
     return (
     <div>
-        <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
-        <h2 className="h2 section-title">Discover venues near you</h2>
-    
-        <div className="search-container">
-        <div className="grid-button">
-            <div class="item">
-            <input
-                type="text"
-                value={searchQuery}
-                onChange={handleSearch}
-                placeholder="Search by venue name"
-                style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474' }}
-            />
-            </div>
-            <div class="item">
-            <button onClick={getUserLocation} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
-            </div>
-            <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
-        </div>
-        </div>
-        <div>
-    
         <div className="grid-map" style={{ padding: '10px' }}>
             <div class="item">
             {locationCoord && (
@@ -261,12 +224,6 @@ function Search() {
             )}
     
             </div>
-        </div>
-        {/* Link to the TripFinder component */}
-        {venueFound && (
-        // ???
-        <></>
-        )}
         </div>
     </div>
     );
