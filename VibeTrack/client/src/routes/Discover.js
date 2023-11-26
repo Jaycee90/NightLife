@@ -160,13 +160,14 @@ const Discover = () => {
                   <div className="item">
                     <input type="checkbox" 
                             onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }}/>
+                            <span></span>
                   </div>
-                  <div className="item">{tag}</div>
+                  <div className="item" style={{color:'#b3b3b3', fontSize:'15px',fontFamily:'Segoe UI' }}>{tag}</div>
                 </div>
                 </label>
               ))}
   
-  <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
+              <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
 
               {categorizedTags.venueFeatures.map((tag) => (
                 <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
@@ -174,8 +175,9 @@ const Discover = () => {
                 <div className="item">
                   <input type="checkbox" 
                           onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }} />
-                          </div>
-                          <div className="item"> {tag}</div>
+                  <span></span>
+                  </div>
+                  <div className="item" style={{color:'#b3b3b3', fontSize:'15px',fontFamily:'Segoe UI' }}>{tag}</div>
                 </div>
                 </label>
               ))}
@@ -184,18 +186,21 @@ const Discover = () => {
   
         <div class="item">
           <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
+            <div className="selected-tags" style={{paddingBottom:'10px'}}>
             {tags.length > 0
               ? tags.map((tag) => (
                   <button
                     key={`close-button-${id}-${tag}`}
                     className='close'
                     onClick={deleteTag(tag)}
-                    style={{ width: `${tag.length * 10 + 50}px`, marginBottom: '12px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
+                    style={{ width: '120px',  paddingRight:'10px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
                   >
                     {tag} &nbsp; x
                   </button>
                 ))
               : null}
+              
+            </div>
             <div>
               {searchQuery && (
                 <div>
