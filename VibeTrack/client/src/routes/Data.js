@@ -245,12 +245,7 @@ function Data(props) {
           </div> 
           <button onClick={() => openModal(venueData)} style={{ marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%'}} className="btn btn-primary">LEAVE A RATING</button>
           <button onClick={handleAlertButtonClick} style={{
-        backgroundColor: 'blue',
-        color: 'white',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-      }}
+        marginTop:'0px', float: 'left', 'textAlign': 'center', 'color': '#000', 'fontSize':'15px', 'backgroundColor':'#e24e99', 'marginBottom':'20px', width:'35%', cursor: 'pointer'}} className="btn btn-primary"
     >
       Alert
     </button>
