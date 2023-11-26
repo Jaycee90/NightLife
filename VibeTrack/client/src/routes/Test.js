@@ -5,9 +5,9 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet"; // Leaflet library for creating a custom icon
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
-import { useNavigate } from "react-router-dom";
-
 // eslint-disable-next-line
+
+  
 const Record = (props) => {
   function trimAddress(address) {
     const trimmedAddress = address.replace(/^(.*?)\s\w{2}\s\d{5}$/, '$1').replace(/,\s*$/, '');
@@ -33,15 +33,14 @@ function Test() {
   const [mapReady, setMapReady] = useState(false);
   const [records, setRecords] = useState([]);
   // eslint-disable-next-line
-  const [searchQuery, setSearchQuery] = useState(''); // state variable to hold the search query.
+  const [searchQueryLocation, setSearchQueryLocation] = useState(''); // state variable to hold the search query.
   // eslint-disable-next-line
-  const [venueFound, setVenueFound] = useState(false);
+  const [venueFoundLocation, setVenueFoundLocation] = useState(false);
   // eslint-disable-next-line
   const [foundVenueLocation, setFoundVenueLocation] = useState(null);
 
   // Use the useHistory hook from React Router to access the history object
   // eslint-disable-next-line
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function getRecords() {
@@ -126,7 +125,7 @@ function Test() {
   });
 
   // Display the user's location marker by default or when no search is performed
-  const defaultMarker = locationCoord && !venueFound && !searchQuery && (
+  const defaultMarker = locationCoord && !venueFoundLocation && !searchQueryLocation && (
     <Marker position={locationCoord} icon={userMarker}>
       <Popup>Your Location</Popup>
     </Marker>
@@ -169,6 +168,9 @@ function Test() {
 
     return [medianLatitude, medianLongitude];
     }
+
+    //TRIP FINDER
+    
   return (
     <div>
       <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
@@ -204,11 +206,11 @@ function Test() {
                 <h2 style={{ color: '#000000' }}>Take a dip at these venues that are closest to you</h2>
     
                 <p id="locationResult" style={{ color: '#000', opacity: '0' }}>{locationResult}</p>
-                {searchQuery && (
+                {searchQueryLocation && (
                     <p style={{ color: '#000', opacity: '0' }}>
-                    {venueFound
-                        ? `${searchQuery}`
-                        : `Venue "${searchQuery}" not found`}
+                    {venueFoundLocation
+                        ? `${searchQueryLocation}`
+                        : `Venue "${searchQueryLocation}" not found`}
                     </p>
                 )}
                 <table style={{ color: '#000000' }}>
@@ -244,10 +246,10 @@ function Test() {
                 {defaultMarker}
                 {foundVenueLocation && (
                     <Marker position={foundVenueLocation} icon={icon}>
-                    <Popup>{searchQuery}</Popup>
+                    <Popup>{searchQueryLocation}</Popup>
                     </Marker>
                 )}
-                {locationCoord && !venueFound && !searchQuery && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
+                {locationCoord && !venueFoundLocation && !searchQueryLocation && getTopClubsMarkers(locationCoord[0], locationCoord[1])}
                 </MapContainer>
             )}
     
