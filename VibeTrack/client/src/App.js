@@ -58,7 +58,7 @@ function App() {
             <Route exact path='*' element={<NotFound />} />    
             <Route exact path='/error' element={<NetworkError />} />  
             <Route exact path='/feedback' element={<Feedback />} />
-            {/*<Route exact path='/test' element={<Test />} /> */}
+            <Route exact path='/test' element={<Test />} /> 
 
             <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/login" element={<Login />} />
