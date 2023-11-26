@@ -4,7 +4,6 @@ import RoutingControl from './RoutingControl';
 import L from "leaflet";
 import { useParams } from "react-router-dom";
 
-
 const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 };
@@ -21,8 +20,8 @@ const TripFinder = () => {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [start, setStartLocation] = useState(null); // User's location
-  const [foundVenueLocation, setFoundVenueLocation] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');//state variable to hold the search query
+  const [foundVenueLocation, setFoundVenueName] = useState(null);
+  const [searchQueryName, setSearchQueryName] = useState('');//state variable to hold the search query
   const [shouldRenderMap, setShouldRenderMap] = useState(true); //keeps track of whether the map should re-render
 
   // Fetch trip records from the server
@@ -67,7 +66,7 @@ const TripFinder = () => {
         (position) => {
           const { latitude, longitude } = position.coords;
           setStartLocation([latitude, longitude]);// Set user's location as the start location
-          setFoundVenueLocation([latitude, longitude]);
+          setFoundVenueName([latitude, longitude]);
         },
         (error) => {
           console.error("Error getting user location:", error.message);
@@ -84,17 +83,17 @@ const TripFinder = () => {
   }, []);
 
   // Function to update the search query
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
+  const handleSearchName = (event) => {
+    setSearchQueryName(event.target.value);
   };
   // Function to search for a specific venue by name
   const searchVenue = () => {
     const foundVenue = tripRecords.find(record =>
-      record.name.toLowerCase() === searchQuery.toLowerCase()
+      record.name.toLowerCase() === searchQueryName.toLowerCase()
     );
   
     if (foundVenue) {
-      setFoundVenueLocation([foundVenue.latitude, foundVenue.longitude]);
+      setFoundVenueName([foundVenue.latitude, foundVenue.longitude]);
       setShouldRenderMap(!shouldRenderMap); 
     }
   };
@@ -118,8 +117,8 @@ const TripFinder = () => {
           <div class="item">{/**prompt a user to search */}
             <input
               type="text"
-              value={searchQuery}
-              onChange={handleSearch}
+              value={searchQueryName}
+              onChange={handleSearchName}
               placeholder="Search by venue name"
               style={{borderRadius:"10px", height:"40px", background:'#fff', color:'#747474'}}
             />
