@@ -10,6 +10,7 @@ const Discover = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [venueFound, setVenueFound] = useState(false);
   const [foundVenues, setFoundVenueDetails] = useState(null);
+  const [selectedPriceTags, setSelectedPriceTags] = useState([]);
 
   useEffect(() => {
     async function getVenues() {
@@ -96,11 +97,30 @@ const Discover = () => {
     setSearchQuery(event.target.value);
   };
 
+  const handlePriceTagChange = (priceTag) => {
+    setSelectedPriceTags((prevTags) =>
+      prevTags.includes(priceTag)
+        ? prevTags.filter((tag) => tag !== priceTag)
+        : [...prevTags, priceTag]
+    );
+  };
 
-  const stars = Array(5).fill(0);   
+  const filterVenuesByPrice = () => {
+    if (selectedPriceTags.length === 0) {
+      // If no price tags are selected, return all venues
+      return venueData;
+    } else {
+      // Filter venues based on selected price tags
+      return venueData.filter((venue) =>
+        selectedPriceTags.includes(venue.price)
+      );
+    }
+  };
+
+  const stars = Array(5).fill(0);
 
   return (
-    <div className="discover-component" style={{marginBottom:'40px'}}>
+    <div className="discover-component" style={{ marginBottom: '40px' }}>
       <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
       <h2 className="h2 section-title">Discover venues</h2>
       <div className="grid-discover-search">
@@ -111,42 +131,46 @@ const Discover = () => {
               value={searchQuery}
               onChange={handleSearch}
               placeholder="Search by venue name"
-              style={{ borderRadius: "10px", height: "40px", fontSize:'15px', background: '#fff', color: '#747474' }}
+              style={{ borderRadius: "10px", height: "40px", fontSize: '15px', background: '#fff', color: '#747474' }}
             />
-            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", marginBottom:'20px', borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Search by Name</button>
+            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", marginBottom: '20px', borderRadius: '10px', fontSize: '15px', marginTop: '10px' }}>Search by Name</button>
 
-            <hr style={{color:'#fff', marginBottom:'20px', marginTop:'10px', opacity:'0.5'}}/>
-  
+            <hr style={{ color: '#fff', marginBottom: '20px', marginTop: '10px', opacity: '0.5' }} />
+
             <div>
-            <button style={{ textAlign: 'left', background: 'none', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', marginTop: '10px' }}> Price Range <FaAngleDown size="1.5em" style={{ float: 'right' }} />
-            </button>
-            {['$', '$$', '$$$'].map((priceTag) => (
-                <label className="tag-checkbox">
-                <div className="unique-tags">
+              <button style={{ textAlign: 'left', background: 'none', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', marginTop: '10px' }}> Price Range <FaAngleDown size="1.5em" style={{ float: 'right' }} />
+              </button>
+              {['$', '$$', '$$$'].map((priceTag) => (
+                <label key={priceTag} className="tag-checkbox">
+                  <div className="unique-tags">
                     <div className="item">
-                    <input type="checkbox"/>
-                    <span></span>
+                      <input
+                        type="checkbox"
+                        checked={selectedPriceTags.includes(priceTag)}
+                        onChange={() => handlePriceTagChange(priceTag)}
+                      />
+                      <span></span>
                     </div>
                     <div
-                    className="item"
-                    style={{ color: "#b3b3b3", fontSize: "15px", fontFamily: "Segoe UI" }}
+                      className="item"
+                      style={{ color: "#b3b3b3", fontSize: "15px", fontFamily: "Segoe UI" }}
                     >
-                    {priceTag}
+                      {priceTag}
                     </div>
-                </div>
+                  </div>
                 </label>
-            ))}
+              ))}
             </div>
 
           </div>
         </div>
-  
+
         <div class="item">
-          <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
+          <div class="container" style={{ paddingTop: '20px', paddingLeft: '20px' }}>
             <div>
               {searchQuery && (
                 <div>
-                  <h2 className="h2 result-title" style={{color:'#fff', fontSize:'25px', paddingBottom:'20px'}}>Search Results</h2>
+                  <h2 className="h2 result-title" style={{ color: '#fff', fontSize: '25px', paddingBottom: '20px' }}>Search Results</h2>
                   {venueFound ? (
                     <div>
                       {foundVenues && foundVenues.length > 0 ? (
@@ -159,19 +183,19 @@ const Discover = () => {
                                 </figure>
                                 <div className="card-content">
                                   <div className="card-rating">
-                                  {stars.map((value, index) => {
-                                    const decimalPart = foundVenue.rating - Math.floor(foundVenue.rating);
-                                    const roundUpThreshold = 0.5;
-                                    const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(foundVenue.rating) : Math.floor(foundVenue.rating);
+                                    {stars.map((value, index) => {
+                                      const decimalPart = foundVenue.rating - Math.floor(foundVenue.rating);
+                                      const roundUpThreshold = 0.5;
+                                      const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(foundVenue.rating) : Math.floor(foundVenue.rating);
 
-                                    return (
+                                      return (
                                         <FaStar
-                                            key={index}
-                                            size={15}
-                                            color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                                          key={index}
+                                          size={15}
+                                          color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
                                         />
-                                    );
-                                })}
+                                      );
+                                    })}
                                   </div>
                                   <p className="card-subtitle">{foundVenue.address}</p>
                                   <h3 className="h3 card-title">
@@ -190,45 +214,44 @@ const Discover = () => {
                       )}
                     </div>
                   ) : (
-                    <p style={{ color: '#fff', paddingBottom: '20px', fontSize:'15px' }}>{`Searching for "${searchQuery}"...`}</p>
+                    <p style={{ color: '#fff', paddingBottom: '20px', fontSize: '15px' }}>{`Searching for "${searchQuery}"...`}</p>
                   )}
-                  <hr style={{color:'#fff', marginBottom:'30px', marginRight:'20px', opacity:'0.5'}}/>
+                  <hr style={{ color: '#fff', marginBottom: '30px', marginRight: '20px', opacity: '0.5' }} />
                 </div>
               )}
             </div>
-  
-            <ul className="discover-list" style={{marginRight:'10px'}}>
-              
-              {venueData
-                .map((venueData) => (
-                  <div className="discover-card">
-                    <figure className="card-img">
-                      <img src={venueData.image} alt={venueData.name} loading="lazy" />
-                    </figure>
-                    <div className="card-content">
-                      <div className="card-rating">
+
+            <ul className="discover-list" style={{ marginRight: '10px' }}>
+              {filterVenuesByPrice().map((venue) => (
+                <div className="discover-card" key={venue._id}>
+                  <figure className="card-img">
+                    <img src={venue.image} alt={venue.name} loading="lazy" />
+                  </figure>
+                  <div className="card-content">
+                    <div className="card-rating">
+                        <p style={{color:'#747474'}}>{venue.price}</p>
                       {stars.map((value, index) => {
-                        const decimalPart = venueData.rating - Math.floor(venueData.rating);
+                        const decimalPart = venue.rating - Math.floor(venue.rating);
                         const roundUpThreshold = 0.5;
-                        const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(venueData.rating) : Math.floor(venueData.rating);
+                        const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(venue.rating) : Math.floor(venue.rating);
 
                         return (
-                            <FaStar
-                                key={index}
-                                size={15}
-                                color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
-                            />
+                          <FaStar
+                            key={index}
+                            size={15}
+                            color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                          />
                         );
-                    })}
-                      </div>
-                      <p className="card-subtitle">{venueData.address}</p>
-                      <h3 className="h3 card-title">
-                        <Link to={`/data/${venueData._id}`}>{venueData.name}</Link>
-                      </h3>
-                      <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
+                      })}
                     </div>
+                    <p className="card-subtitle">{venue.address}</p>
+                    <h3 className="h3 card-title">
+                      <Link to={`/data/${venue._id}`}>{venue.name}</Link>
+                    </h3>
+                    <p className="card-text">{venue.about.length > 80 ? venue.about.slice(0, 80) + "..." : venue.about}</p>
                   </div>
-                ))}
+                </div>
+              ))}
             </ul>
           </div>
         </div>
