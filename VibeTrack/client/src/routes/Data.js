@@ -185,7 +185,6 @@ const handleAlertButtonClick = async () => {
 
     console.log("User Location:", location);
     setUserLocation(location);
-    openModalAlert();
   } catch (error) {
     console.error("Error getting user location:", error.message);
     // Handle error, show a message to the user, or provide an alternative method.
@@ -194,7 +193,7 @@ const handleAlertButtonClick = async () => {
 
 const sendEmail = () => {
   const locationString = JSON.stringify(userLocation);
-  const message = `Location of the user is ${locationString}`;
+  const message = `My current location is: ${venueData.name}, ${venueData.address}. My current coordinates: ${locationString}`;
 
   setEmailData((prevData) => ({
     ...prevData,
@@ -238,8 +237,7 @@ const renderMoreAbout = () => {
   const sentences = venueData.moreabout.split(/(?<=\.)\s+/);
   // Render each sentence in a separate <p> tag
   return sentences.map((sentence, index) => (
-    <p key={index} style={{padding:'0', fontFamily: 'Segoe UI', fontSize:'10px', 
-    paddingBottom: index === sentences.length - 1 ? '30px' : '10px', float: 'left', textAlign: 'left', color: '#000', fontSize: '15px' }}>
+    <p key={index} style={{padding:'0', fontFamily: 'Segoe UI', paddingBottom: index === sentences.length - 1 ? '30px' : '10px', float: 'left', textAlign: 'left', color: '#000', fontSize: '15px' }}>
       {sentence}
     </p>
   ));
@@ -263,7 +261,7 @@ return (
           <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
         </div>
         <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} className="btn btn-primary">LEAVE A RATING</button>
-        <button onClick={handleAlertButtonClick} style={{
+        <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{
           marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '10px'
         }} className="btn btn-primary">
           Alert
@@ -287,6 +285,7 @@ return (
         </div>
       </div>
     )}
+
     {showModalAlert && (
       <div className="modal">
         <div className="modal-content">
@@ -301,7 +300,6 @@ return (
             style={{ marginBottom: "1rem", backgroundColor: "#fff", color: '#747474' }}
             inputProps={{ style: { backgroundColor: "#fff", color: '#747474' } }}
           />
-
           <button
             onClick={sendEmail} style={{ backgroundColor: '#e24e99', color: '#fff', borderRadius: '10px', width: '50%', marginLeft: '150px' }}>
             Submit
