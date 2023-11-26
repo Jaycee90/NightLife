@@ -158,12 +158,11 @@ function Data(props) {
   // eslint-disable-next-line
   const [selectedVenue, setSelectedVenue] = useState(null);
 
-  // Open the pop up
   const openModal = (venueData) => {
     setSelectedVenue(venueData);
     setShowModal(true);
   }
-  // Close the pop up
+  
   const closeModal = () => {
     setShowModal(false);
   }
@@ -227,6 +226,7 @@ function Data(props) {
   }
 
   window.scrollTo({ top: 0, behavior: 'smooth' }); 
+
   return (
     <div  style={{marginTop:"20px"}}>
       <div className="about-section">
@@ -267,13 +267,14 @@ function Data(props) {
         </div>
       )}
       {showModalAlert && (
-        <>
-          <input
-  placeholder="Enter email"
-  type="email"
-  name="to"
-  onChange={(e) => setEmailData((prevData) => ({ ...prevData, to: e.target.value }))}
-/>
+         
+        <div className="modal">
+        <div className="modal-content"><input
+          placeholder="Enter email"
+          type="email"
+          name="to"
+          onChange={(e) => setEmailData((prevData) => ({ ...prevData, to: e.target.value }))}
+        />
 
 <button
       onClick={sendEmail}
@@ -290,12 +291,11 @@ function Data(props) {
     >
       Submit
     </button>
-        </>
+    </div></div>
       )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
         <div className="grid-container">
         <div class="item1">
-          <Rating/>
           <p class="section-text" style={{'float':'left','text-align':'left', 'color':'#000', 'font-size': '15px'}}>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
           A quos, voluptatum illum mollitia dolores libero placeat nesciunt quasi adipisci impedit! Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
