@@ -257,7 +257,9 @@ function Data(props) {
       </div>
       {showModal && (
         <div className="modal">
-          <div className="modal-content">
+          <div className="modal-content">            
+          <span className="close" onClick={closeModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+
             <h2 style={{ color: '#747474' }}>Submit a rating</h2>
             <div style={{ marginTop: '20px' }}>
             <StarRating/>
@@ -269,28 +271,22 @@ function Data(props) {
          
         <div className="modal">
         <div className="modal-content">
+        <span className="close" onClick={closeAlertModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
+
+        <h2 style={{ color: '#747474' }}>Send an alert to your emergency contacts</h2>
           <input
           placeholder="Enter email"
           type="email"
           name="to"
           onChange={(e) => setEmailData((prevData) => ({ ...prevData, to: e.target.value }))}
+          style={{ marginBottom: "1rem", backgroundColor: "#fff", color: '#747474' }}
+          inputProps={{ style: { backgroundColor: "#fff", color: '#747474' } }}
         />
 
-<button
-      onClick={sendEmail}
-      style={{
-        backgroundColor: '#4CAF50', // Green background color
-        color: 'white',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        border: 'none', // Remove button border
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Add a subtle box shadow
-        fontSize: '16px', // Adjust font size
-      }}
-    >
-      Submit
-    </button>
+      <button
+            onClick={sendEmail} style={{ backgroundColor: '#e24e99', color: '#fff', borderRadius: '10px', width: '50%', marginLeft: '150px' }}>
+            Submit
+          </button>
     </div></div>
       )}
       <div className="container" style={{ 'paddingTop': '25px' }}>
