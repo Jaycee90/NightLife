@@ -1,12 +1,9 @@
 // Import React and useState hook from the 'react' library.
-import React, { useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet"; // Leaflet library for creating a custom icon
+import React from "react";
 import "leaflet/dist/leaflet.css";
 import '../css/search.css';
-import { useNavigate } from "react-router-dom";
-// eslint-disable-next-line
 
+// eslint-disable-next-line
 const Record = (props) => {
   function trimAddress(address) {
     const trimmedAddress = address.replace(/^(.*?)\s\w{2}\s\d{5}$/, '$1').replace(/,\s*$/, '');
@@ -34,21 +31,24 @@ function Test() {
             <div class="item">
             <input
                 type="text"
-                value={searchQuery}
-                onChange={handleSearch}
                 placeholder="Search by venue name"
                 style={{ borderRadius: "10px", height: "40px", background: '#fff', color: '#747474' }}
             />
             </div>
             <div class="item">
-            <button onClick={getUserLocation} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
+            <button style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Find venues near me</button>
             </div>
-            <div class="item"><button onClick={searchVenue} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
+            <div class="item"><button style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button></div>
         </div>
         </div>
         <div>
     
         <div className="grid-map" style={{ padding: '10px' }}>
+            <p style={{color:'#000'}}>CONTAINER 1 </p>
+        </div>
+
+        <div className="grid-map" style={{ padding: '10px' }}>
+            <p style={{color:'#000'}}>CONTAINER 2 </p>
         </div>
         </div>
     </div>
