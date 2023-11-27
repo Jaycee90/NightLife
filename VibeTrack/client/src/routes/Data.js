@@ -12,7 +12,7 @@ import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
 
-// Merge conflict
+
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
