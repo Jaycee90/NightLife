@@ -85,10 +85,10 @@ const Login = () => {
     </div>
 </div>
 
-          <div class="col-lg-6 col-md-12"  style={{width:'50vw'}} >
-            <div class="padding">
+          <div class="col-lg-6 col-md-12"  style={{ width: '50vw', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'80vh'}} >
+            <div class="padding" style={{width:'100%', height: '100%', padding:'40px'}}>
               <h2>Login</h2>
-              <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
+              <p class="lead"style={{ fontSize: '14px', lineHeight: '24px', marginBottom: '30px', color: '#747474', fontWeight: 400}}>Before you get started, you must login or register if you don't already have an account.</p>
               <form style={{ display: "flex", flexDirection: "column", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
                       <TextField
@@ -99,11 +99,11 @@ const Login = () => {
                           value={form.email}
                           onChange={onFormInputChange}
                           tabindex="1"
-                          style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                          style={{ marginBottom: "1rem", backgroundColor:"#fff",  width:'300px'}}
                           inputProps={{ style: { backgroundColor: "#fff" } }}
                       />
                 </div>
-                <div class="form-group">
+                <div class="form-group" style={{marginBottom:'30px'}}>
                     <TextField
                         label="Password"
                         type="password"
@@ -111,12 +111,12 @@ const Login = () => {
                         name="password"
                         value={form.password}
                         onChange={onFormInputChange}
-                        style={{ marginBottom: "1rem", backgroundColor:"#fff" }}
+                        style={{ marginBottom: "1rem", backgroundColor:"#fff", width:'300px'}}
                         inputProps={{ style: { backgroundColor: "#fff" } }}
                         tabindex="2"
                     />
-                    <div class="float-left"><a href="/signup">Create an account?</a></div>
-                    <div class="float-right"><a href="/security">Forgot Password?</a>
+                    <div class="float-left" style={{float:'left'}}><a href="/signup">Create an account?</a></div>
+                    <div class="float-right" style={{float:'right'}}><a href="/security">Forgot Password?</a>
                     </div>
                 </div>
                 <Button variant="contained" color="primary" onClick={onSubmit}  tabindex="3" style={{ backgroundColor: "#e24e99 ", borderRadius:'5px' }}>Login</Button>
