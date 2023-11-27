@@ -89,7 +89,7 @@ const Login = () => {
           <div class="col-lg-6 col-md-12"  style={{ width: '50vw', display: 'flex', justifyContent: 'center', alignItems: 'center', height:'80vh'}} >
             <div class="padding" style={{width:'100%', height: '100%', padding:'40px'}}>
               <h2>Login</h2>
-              <p class="lead"style={{ fontSize: '14px', lineHeight: '24px', marginBottom: '30px', color: '#747474', fontWeight: 400}}>Before you get started, you must login or register if you don't already have an account.</p>
+              <p class="lead" style={{ fontSize: '14px', lineHeight: '24px', marginBottom: '30px', color: '#747474', fontWeight: 400}}>Before you get started, you must login or register if you don't already have an account.</p>
               <form style={{ display: "flex", flexDirection: "column", margin: "auto",  color:'#000', backgroundColor:"#fff"}}>
                 <div class="form-group">
                       <TextField

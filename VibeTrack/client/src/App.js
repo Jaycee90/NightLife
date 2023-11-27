@@ -63,7 +63,7 @@ function App() {
 
             <Route exact path="/signup" element={<><Signup />  <Disclaimer/></>} />
             <Route exact path="/login" element={<><Login />  <Disclaimer/></>} />
-            <Route element={<><PrivateRoute />  <Disclaimer/></>}>
+            <Route element={<><PrivateRoute /></>}>
                 <Route exact path='/profile/' element={<><Profile />  <Disclaimer/></>} />
                 <Route exact path='/contact/' element={<><Contact />  <Disclaimer/></>} />
                 <Route exact path='/userList' element={<><UserList />  <Disclaimer/></>} />

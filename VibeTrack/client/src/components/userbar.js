@@ -7,7 +7,7 @@ import "../css/userbar.css";
 
 const UserBar = ({ logOut }) => {
   return (
-    <div id="header">
+    <div id="header" style={{position: 'absolute', width: '220px'}}>
       <ProSidebar>
         <SidebarContent>
           <Menu iconShape="square">
