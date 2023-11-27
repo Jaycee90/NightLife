@@ -5,9 +5,8 @@
 html { height: 100%; overflow:auto; }
 .section-subtitle {
   color: black;
-  font-size: var(--fs-5);
-  text-transform: uppercase;
-  font-family: var(--ff-montserrat);
+  font-size: 15px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .section-title { margin-bottom: 15px; color:black; }
