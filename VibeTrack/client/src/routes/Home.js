@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
 import '../css/home.css';
 import { Link } from "react-router-dom";
+import Navbar from '../components/navbar';
 
 export default function Home() {
   const [randomVenues, setRandomVenues] = useState([]);
