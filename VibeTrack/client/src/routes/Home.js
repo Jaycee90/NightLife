@@ -162,7 +162,7 @@ export default function Home() {
                 <li style={{ marginBottom: '10px' }}>✦ Set it off and make it a night to remember</li>
               </ul>
               
-              <Link to="/special">
+              <Link to="/specialevent">
               <Button  style={{ backgroundColor: "#e24e99", color:'#fff', fontFamily:'Segoe UI' }}>Special Event</Button>
               </Link>
               </div>
