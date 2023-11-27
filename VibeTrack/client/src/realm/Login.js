@@ -60,31 +60,32 @@ const Login = () => {
  
  return (
   <div class="login-component"  style={{marginTop:"20px", marginBottom:'30px'}}>
-    <div class="card card-login">
-      <div class="card-body">
-        <div class="row justify-content-center"  style={{color:'#000'}}>
-          <div class="col-lg-6 col-md-12" >
-            <div class="padding bg-primary text-center align-items-center d-flex" style={{  background:  'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)'}}>
-              <div class="w-100">
-                <div class="logo mb-4">
-                  <img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid"/>
-                </div>
-                <h4 class="text-light mb-2">Don't waste your time</h4>
-                <p class="lead text-light">Login quickly with Google one-tap sign-in.</p>
-                <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{color:'#000'}}>
-                  Login with Google
-                </button>
-              </div>
-
-              <div class="help-links" >
-                <ul>
-                  <li><a href="/test">Terms of Service &nbsp; </a></li>
-                  <li><a href="/test">Privacy Policy</a></li>
-                </ul>
-              </div>
+    <div class="card card-login" style={{ fontSize: '14px', padding: '0', border: 'none', boxShadow: '0 4px 30px rgba(0,0,0,.05)', borderRadius: '0', fontFamily: 'Segoe UI', width: '800px', margin: '0 auto', position: 'relative' }}>
+      <div class="card-body" style={{ padding: '0'}}>
+        <div class="row justify-content-center"  style={{color:'#000', display:'flex', gridTemplateColumns: '1fr 1fr', height:'80vh'}}>
+        <div class="col-lg-6 col-md-12" style={{ width: '50vw', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div class="padding bg-primary text-center align-items-center d-flex" style={{display:'flex', background: 'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)', width:'100%', height: '100%', alignItems:'center', textAlign:'center', justifyContent:'center', padding:'20px' }}>
+        <div class="w-100" >
+            <div class="logo mb-4" style={{ marginBottom:'20px', display: 'inline-block', padding: '5px', borderRadius: '50%', backgroundColor: '#fff', width: '60px', height: '60px', overflow: 'hidden'}}>
+                <img src="https://i.imgur.com/vyOLo4O.png" alt="kodinger logo" class="img-fluid" style={{ width: '50px', maxWidth:'100%', height:'auto'}} />
             </div>
-          </div>
-          <div class="col-lg-6 col-md-12" >
+            <h4 class="text-light mb-2" style={{ marginBottom:'20px', color: '#fff', fontSize: '20px', fontFamily: 'Segoe UI' }}>Don't waste your time</h4>
+            <p class="lead text-light" style={{ marginBottom:'20px', color: '#fff', fontFamily: 'Segoe UI' }}>Login quickly with Google one-tap signin.</p>
+            <button class="btn btn-block btn-icon btn-icon-google mb-3" style={{ color: '#000', backgroundColor: '#fff', borderRadius:'5px' }}>
+                Login with Google
+            </button>
+        </div>
+
+        <div class="help-links" style={{ textAlign: 'center', padding: '0', margin: '0', position: 'absolute', left: '0', bottom: '25px', width: '100%' }}>
+            <ul style={{ display: 'inline-block', padding: '0', margin: '0' }}>
+                <li style={{ float: 'left', listStyle: 'none', color: '#000' }}><a href="/test" style={{ fontSize: '12px', fontWeight: 400, color: '#fff' }}>Terms of Service &nbsp; </a></li>
+                <li style={{ float: 'left', listStyle: 'none', color: '#000' }}><a href="/test" style={{ fontSize: '12px', fontWeight: 400, color: '#fff' }}>Privacy Policy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+          <div class="col-lg-6 col-md-12"  style={{width:'50vw'}} >
             <div class="padding">
               <h2>Login</h2>
               <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
