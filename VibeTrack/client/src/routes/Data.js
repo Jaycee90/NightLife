@@ -11,6 +11,9 @@ import '../css/template.css';
 import StarRating from '../components/starRating.js';
 import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
+import { UserContext } from '../realm/UserContext';
+import { useContext } from 'react';
+import { useNavigate } from "react-router";
 
 function formatPhoneNumber(phone) {
   // Format retrieved phone number from XXXXXXXXXX to (XXX)-XXX-XXXX
@@ -65,6 +68,7 @@ function formatAmenities(amenitiesString) {
 }
 
 function Data(props) {
+  // User emergency contacts
   const [venueData, setVenueData] = useState({
     name: "",
     address: "",
@@ -85,7 +89,26 @@ function Data(props) {
     amenities: "",
   });
 
+  const [userInfo, setUserInfo] = useState({
+    _id: "",
+    code: "",
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    birthdate: "",
+    gender: "",
+    emergencyName1: "", 
+    emergencyEmail1: "", 
+    emergencyName2: "", 
+    emergencyEmail2: "", 
+    favorite: "",
+  });
+
+  const navigate = useNavigate();
+
   const params = useParams();
+  const { fetchUser: fetchUserContext } = useContext(UserContext); // Fetch user from database
 
   useEffect(() => {
     async function fetchData() {
@@ -106,10 +129,38 @@ function Data(props) {
       setVenueData(venue);
     }
 
+    const fetchUser = async () => {
+      try {
+        const currentUser = await fetchUserContext();
+        if (currentUser) {
+          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+    
+          if (!response.ok) {
+            const message = `An error has occurred: ${response.statusText}`;
+            window.alert(message);
+            return;
+          }
+    
+          const user = await response.json();
+          if (!user) {
+            window.alert(`User with code ${currentUser.id} not found`);
+            navigate("/");
+            return;
+          }
+          setUserInfo(user);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    }
+
     fetchData();
+    fetchUser(); // Fetch the user
 
-  }, [params.id]);
+  }, [params.id, navigate]);
 
+  
 
   const icon = L.icon({ iconUrl: "https://i.imgur.com/yyb78tO.png" });
   const formattedPhoneNumber = formatPhoneNumber(venueData.phone);
@@ -146,7 +197,7 @@ const [showModalAlert, setShowModalAlert] = useState(false);
 
 const [emailData, setEmailData] = useState({
   to: '',
-  subject: "I'm visiting these clubs tonight, please keep an eye out for me!",
+  subject: "Here is my location!",
   text: "",
 });
 
@@ -221,6 +272,17 @@ const closeAlertModal = () => {
   setShowModalAlert(false);
 }
 
+const selectEmergencyContact = (contactName) => {
+  const selectedEmail = contactName === userInfo.emergencyName1
+    ? userInfo.emergencyEmail1
+    : userInfo.emergencyEmail2;
+
+  setEmailData((prevData) => ({
+    ...prevData,
+    to: selectedEmail,
+  }));
+};
+
 window.scrollTo({ top: 0, behavior: 'smooth' });
 return (
   <div style={{ marginTop: "20px" }}>
@@ -270,6 +332,14 @@ return (
           <span className="close" onClick={closeAlertModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
 
           <h2 style={{ color: '#747474' }}>Send an alert to your emergency contacts</h2>
+            <div>
+            <div onClick={() => selectEmergencyContact(userInfo.emergencyName1)}>
+                {userInfo.emergencyName1}
+              </div>
+              <div onClick={() => selectEmergencyContact(userInfo.emergencyName2)}>
+                {userInfo.emergencyName2}
+              </div>
+            </div>
           <input
             placeholder="Enter email"
             type="email"
