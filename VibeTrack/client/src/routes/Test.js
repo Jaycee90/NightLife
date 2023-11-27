@@ -142,11 +142,13 @@ function SpecialEvent() {
               return (
                 <li key={index}>
                   <div class="event">
-                    <div class="event-left">
+                  <div class="event-left" style={{ backgroundImage: 'url(https://i.imgur.com/zuKZzqG.jpg)', }}>
+                  <div class="overlay"  style={{ position: 'absolute', background: 'rgba(0, 0, 0, 0.75)', width:'116px', height:'120px', borderRadius: '5px 0 0 5px'}}>
                       <div class="event-date">
                         <div class="date">{date}</div>
                         <div class="month">{month}</div>
                         <div class="event-timing"><FontAwesomeIcon icon={faClock} style={{ marginBottom: '5px', paddingRight: '5px' }} /> {time}</div>
+                      </div>
                       </div>
                     </div>
 
