@@ -216,7 +216,9 @@ export default function Profile() {
               type="submit"
               value="Update Information"
               className="btn btn-primary"
-              style={{width:'50%', marginLeft:'30%'}}
+
+              style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a', width:'50%', marginLeft:'30%'}}
+
             />
           </div>
         </form>
