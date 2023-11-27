@@ -144,20 +144,20 @@ function SpecialEvent() {
                   <div class="event">
                     <div class="event-left">
                       <div class="event-date">
-                        <div class="date">{date}</div>
-                        <div class="month">{month}</div>
-                        <div class="event-timing"><FontAwesomeIcon icon={faClock} style={{ marginBottom: '5px', paddingRight: '5px' }} /> {time}</div>
+                        <div class="date" style={{fontFamily:'Segoe UI'}}>{date}</div>
+                        <div class="month" style={{fontFamily:'Segoe UI'}}>{month}</div>
+                        <div class="event-timing" style={{fontFamily:'Segoe UI'}}><FontAwesomeIcon icon={faClock} style={{ marginBottom: '5px', paddingRight: '5px' }} /> {time}</div>
                       </div>
                     </div>
 
                     <div class="event-right">
                       <div className="grid-event">
-                        <div class="item"><h3 class="event-title">{venue} </h3></div>
-                        <div class="item" style={{ paddingLeft: '20px' }}>
-                          <div> <button style={{ marginTop: '25px', height: '33px', backgroundColor: '#e24e99', color: '#fff' }} onClick={() => openModal(venue, { eventName, date, time, month })}><FontAwesomeIcon icon={faLink} /> Share this Event!</button></div>
+                        <div class="item"><h3 class="event-title" style={{fontFamily:'Segoe UI' }}>{venue} </h3></div>
+                        <div class="item" style={{ paddingLeft: '20px',fontFamily:'Segoe UI' }}>
+                          <div> <button style={{ marginTop: '25px', height: '33px', backgroundColor: '#e24e99', color: '#fff',fontFamily:'Segoe UI' }} onClick={() => openModal(venue, { eventName, date, time, month })}><FontAwesomeIcon icon={faLink} /> Share this Event!</button></div>
                         </div>
                       </div>
-                      <div class="event-description" style={{ paddingBottom: '20px' }}>{day}: {eventName} </div>
+                      <div class="event-description" style={{ paddingBottom: '20px', fontFamily:'Segoe UI' }}>{eventName} </div>
                     </div>
                   </div>
                 </li>
@@ -170,10 +170,10 @@ function SpecialEvent() {
         <div className="modal">
           <div className="modal-content">
             <span className="close" onClick={closeModal} style={{ float: 'right', width: '10px', backgroundColor: '#fff', marginTop: '5px', top: '5px' }}>&times;</span>
-            <h2 style={{ color: '#747474' }}>Invite a Friend</h2>
-            <div style={{ marginTop: '20px' }}>
+            <h2 style={{ color: '#747474', fontFamily:'Segoe UI' }}>Invite a Friend</h2>
+            <div style={{ marginTop: '20px', fontFamily:'Segoe UI' }}>
               {values.map((item, index) => (
-                <Chip size="small" onDelete={() => handleEmailDelete(item, index)} label={item} style={{ backgroundColor: '#e24e99', color: '#fff', marginRight: '10px' }} />
+                <Chip size="small" onDelete={() => handleEmailDelete(item, index)} label={item} style={{ fontFamily:'Segoe UI', backgroundColor: '#e24e99', color: '#fff', marginRight: '10px' }} />
               ))}
             </div>
             <input
@@ -187,7 +187,7 @@ function SpecialEvent() {
               style={{ marginBottom: "1rem", backgroundColor: "#fff", color: '#747474' }}
               inputProps={{ style: { backgroundColor: "#fff", color: '#747474' } }}
             />
-            <button style={{ backgroundColor: '#e24e99', color: '#fff', borderRadius: '10px', width: '50%', marginLeft: '150px' }} onClick={() => sendEmail(selectedVenue)}>Submit</button>
+            <button style={{fontFamily:'Segoe UI', backgroundColor: '#e24e99', color: '#fff', borderRadius: '10px', width: '50%', marginLeft: '150px' }} onClick={() => sendEmail(selectedVenue)}>Submit</button>
           </div>
         </div>
       )}

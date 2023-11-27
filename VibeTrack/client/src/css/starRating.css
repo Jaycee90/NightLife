@@ -41,6 +41,7 @@
   }
 
 .grid-rating > div {
+	display:flex;
 	border-color: black;
 	text-align: center;
   }

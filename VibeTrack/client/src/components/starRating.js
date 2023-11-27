@@ -124,9 +124,8 @@ export default function StarRating(props) {
     const stars = Array(5).fill(0);    
 
      return (
-        <div className="rating-component">
-            <div className="grid-rating">
-                <div className="item">
+        <div className="rating-component" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <div className="grid-rating" >
                     <div className="stars">
                         {stars.map((value, index) => (
                             <FaStar
@@ -143,19 +142,17 @@ export default function StarRating(props) {
                             />
                         ))}
                     </div>
-                </div>
 
-                <div className="item">
                     <form onSubmit={onSubmit} style={{ color: '#000000', paddingTop:'10px' }}>
                         <div className="form-group">
                             <input
                                 type="submit"
                                 value="Submit rating"
                                 className="btn btn-primary"
+                                style={{ backgroundColor: '#e24e99', color: '#000',  }}
                             />
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     );

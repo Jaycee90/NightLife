@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/discover.css';
 import { categorizeTags } from '../components/tag.js';
 import Fuse from 'fuse.js';
+import { FaStar, FaAngleDown } from "react-icons/fa";
 
 const Discover = () => {
   const [venueData, setVenueData] = useState([]);
@@ -128,6 +129,40 @@ const Discover = () => {
 
   const categorizedTags = categorizeTags(uniqueTags);
 
+  const stars = Array(5).fill(0);   
+  const useToggleVisibility = (initialState = false) => {
+    const [isVisible, setIsVisible] = useState(initialState);
+    const toggleVisibility = () => {
+      setIsVisible(!isVisible);
+    };
+    return [isVisible, toggleVisibility];
+  };
+  
+  const [isVisibleType, toggleVisibilityType] = useToggleVisibility(false);
+  const [isVisibleFeature, toggleVisibilityFeature] = useToggleVisibility(false);
+  const [isVisiblePrice, toggleVisibilityPrice] = useToggleVisibility(false);
+  
+  const [selectedPriceTags, setSelectedPriceTags] = useState([]);
+  const handlePriceTagChange = (priceTag) => {
+    setSelectedPriceTags((prevTags) =>
+      prevTags.includes(priceTag)
+        ? prevTags.filter((tag) => tag !== priceTag)
+        : [...prevTags, priceTag]
+    );
+  };
+
+  const filterVenuesByPrice = () => {
+    if (selectedPriceTags.length === 0) {
+      // If no price tags are selected, return all venues
+      return venueData;
+    } else {
+      // Filter venues based on selected price tags
+      return venueData.filter((venue) =>
+        selectedPriceTags.includes(venue.price)
+      );
+    }
+  };
+
   return (
     <div className="discover-component" style={{marginBottom:'40px'}}>
       <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
@@ -142,55 +177,103 @@ const Discover = () => {
               placeholder="Search by venue name"
               style={{ borderRadius: "10px", height: "40px", fontSize:'15px', background: '#fff', color: '#747474' }}
             />
-            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Find venues</button>
-            <hr style={{color:'#fff', marginBottom:'30px', marginTop:'20px', opacity:'0.5'}}/>
+            <button onClick={searchVenue} style={{ backgroundColor: "#e24e99", marginBottom:'20px', borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Search by Name</button>
+
+            <hr style={{color:'#fff', marginBottom:'20px', marginTop:'10px', opacity:'0.5'}}/>
   
+            <button style={{ backgroundColor: "#e24e99", borderRadius:'10px', fontSize:'15px', marginTop:'10px' }}>Filter by Tags</button>
             {/* Display selected tags */}
-            
-            {/* Display unique tags as buttons */}
-            
-            <div className='unique-tags'>
-              {categorizedTags.venueType.map((tag) => (
-                <button
-                  key={`unique-tag-${id}-${tag}`}
-                  type='button'
-                  onClick={addTag(tag)}
-                  style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-  
-            <div className='unique-tags' style={{marginTop:'20px'}}>
+            <button onClick={toggleVisibilityType} style={{ textAlign: 'left', background:'none', borderRadius:'10px', fontWeight: 'bold',fontSize:'15px', marginTop:'10px'}}>Venue Types  <FaAngleDown size="1.5em" style={{float:'right'}} /></button>
+              {isVisibleType && (
+                <div>
+                  {categorizedTags.venueType.map((tag) => (
+                    <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
+                      <div className="unique-tags">
+                        <div className="item">
+                          <input
+                            type="checkbox"
+                            onChange={() => {
+                              matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)();
+                            }}
+                          />
+                          <span></span>
+                        </div>
+                        <div
+                          className="item"
+                          style={{ color: "#b3b3b3", fontSize: "15px", fontFamily: "Segoe UI" }}
+                        >
+                          {tag}
+                        </div>
+                      </div>
+                    </label>
+                  ))}
+                </div>
+              )}
+              
+              <button onClick={toggleVisibilityFeature} style={{ textAlign: 'left', background:'none', borderRadius:'10px', fontWeight: 'bold',fontSize:'15px', marginTop:'10px'}}>Venue Features  <FaAngleDown size="1.5em" style={{float:'right'}} /></button>
+              {isVisibleFeature && (
+              <div>
               {categorizedTags.venueFeatures.map((tag) => (
-                <button
-                  key={`unique-tag-${id}-${tag}`}
-                  type='button'
-                  onClick={addTag(tag)}
-                  style={{ width: '110px', fontSize:'12px',  backgroundColor: "#e24e99", borderRadius:'10px'}}
-                >
-                  {tag}
-                </button>
+                <label key={`unique-tag-${id}-${tag}`} className="tag-checkbox">
+                <div className="unique-tags">
+                <div className="item">
+                  <input type="checkbox" 
+                          onChange={() => { matchTags(tags, [tag]) ? deleteTag(tag)() : addTag(tag)(); }} />
+                  <span></span>
+                  </div>
+                  <div className="item" style={{color:'#b3b3b3', fontSize:'15px',fontFamily:'Segoe UI' }}>{tag}</div>
+                </div>
+                </label>
+              ))}
+              </div>
+              )}
+
+              <button onClick={toggleVisibilityPrice} style={{ textAlign: 'left', background: 'none', borderRadius: '10px', fontWeight: 'bold', fontSize: '15px', marginTop: '10px' }}> Price Range <FaAngleDown size="1.5em" style={{ float: 'right' }} />
+              </button>
+              {isVisiblePrice && (
+              <div>
+              {['$', '$$', '$$$'].map((priceTag) => (
+                <label key={priceTag} className="tag-checkbox">
+                  <div className="unique-tags">
+                    <div className="item">
+                      <input
+                        type="checkbox"
+                        checked={selectedPriceTags.includes(priceTag)}
+                        onChange={() => handlePriceTagChange(priceTag)}
+                      />
+                      <span></span>
+                    </div>
+                    <div
+                      className="item"
+                      style={{ color: "#b3b3b3", fontSize: "15px", fontFamily: "Segoe UI" }}
+                    >
+                      {priceTag}
+                    </div>
+                  </div>
+                </label>
               ))}
             </div>
+              )}
           </div>
         </div>
   
         <div class="item">
           <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
+            <div className="selected-tags" style={{paddingBottom:'10px'}}>
             {tags.length > 0
               ? tags.map((tag) => (
                   <button
                     key={`close-button-${id}-${tag}`}
                     className='close'
                     onClick={deleteTag(tag)}
-                    style={{ width: '100px', marginBottom: '12px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
+                    style={{ width: '120px',  paddingRight:'10px', fontSize:'12px', backgroundColor: "#e24e99", color:"#fff",  borderRadius:'10px'}}
                   >
                     {tag} &nbsp; x
                   </button>
                 ))
               : null}
+              
+            </div>
             <div>
               {searchQuery && (
                 <div>
@@ -207,11 +290,19 @@ const Discover = () => {
                                 </figure>
                                 <div className="card-content">
                                   <div className="card-rating">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
+                                  <p style={{color:'#747474'}}>{foundVenue.price}</p>
+                                  {stars.map((value, index) => {
+                                    const decimalPart = foundVenue.rating - Math.floor(foundVenue.rating);
+                                    const roundUpThreshold = 0.5;
+                                    const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(foundVenue.rating) : Math.floor(foundVenue.rating);
+                                    return (
+                                      <FaStar
+                                          key={index}
+                                          size={15}
+                                          color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                                      />
+                                    );
+                                })}
                                   </div>
                                   <p className="card-subtitle">{foundVenue.address}</p>
                                   <h3 className="h3 card-title">
@@ -236,33 +327,40 @@ const Discover = () => {
                 </div>
               )}
             </div>
-  
-            <ul className="discover-list" style={{marginRight:'10px'}}>
-              {/* Display venues without tags */}
-              {venueData
+            <div><ul className="discover-list" style={{ marginRight: '10px' }}>
+              {filterVenuesByPrice()
                 .filter((venueData) => matchTags(venueData.tags, tags))
-                .map((venueData) => (
-                  <div className="discover-card" key={`card-${id}`}>
-                    <figure className="card-img">
-                      <img src={venueData.image} alt={venueData.name} loading="lazy" />
-                    </figure>
-                    <div className="card-content">
-                      <div className="card-rating">
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                        <ion-icon name="star"></ion-icon>
-                      </div>
-                      <p className="card-subtitle">{venueData.address}</p>
-                      <h3 className="h3 card-title">
-                        <Link to={`/data/${venueData._id}`}>{venueData.name}</Link>
-                      </h3>
-                      <p className="card-text">{venueData.about.length > 80 ? venueData.about.slice(0, 80) + "..." : venueData.about}</p>
+                .map((venue) => (
+                <div className="discover-card" key={venue._id}>
+                  <figure className="card-img">
+                    <img src={venue.image} alt={venue.name} loading="lazy" />
+                  </figure>
+                  <div className="card-content">
+                    <div className="card-rating">
+                        <p style={{color:'#747474'}}>{venue.price}</p>
+                      {stars.map((value, index) => {
+                        const decimalPart = venue.rating - Math.floor(venue.rating);
+                        const roundUpThreshold = 0.5;
+                        const roundedRating = decimalPart > roundUpThreshold ? Math.ceil(venue.rating) : Math.floor(venue.rating);
+
+                        return (
+                          <FaStar
+                            key={index}
+                            size={15}
+                            color={index < roundedRating ? '#FFBA5A' : '#a9a9a9'}
+                          />
+                        );
+                      })}
                     </div>
+                    <p className="card-subtitle">{venue.address}</p>
+                    <h3 className="h3 card-title">
+                      <Link to={`/data/${venue._id}`}>{venue.name}</Link>
+                    </h3>
+                    <p className="card-text">{venue.about.length > 80 ? venue.about.slice(0, 80) + "..." : venue.about}</p>
                   </div>
-                ))}
-            </ul>
+                </div>
+              ))}
+            </ul></div>
           </div>
         </div>
       </div>

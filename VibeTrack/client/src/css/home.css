@@ -101,7 +101,8 @@ body{
 
 .section-subtitle {
   color: black;
-  font-size: var(--fs-5);
+  font-size: 10px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 8px;
@@ -295,6 +296,21 @@ body{
   sans-serif;
 }
 
+.about-something {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+}
+
 .hr-style{
   display: flex;
   align-items: center;
@@ -422,4 +438,30 @@ input[type=text], input[type=email]{
   margin: 4px 2px;
   font-size: 18px;
   border-radius:15px;
+}
+@keyframes imageAnimation {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
