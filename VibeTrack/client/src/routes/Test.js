@@ -127,6 +127,33 @@ function SpecialEvent() {
     return { day, month: monthName, date: dayOfMonth };
   };
 
+  const [searchQuery, setSearchQuery] = useState('');
+  // eslint-disable-next-line
+  const [venueData, setVenueData] = useState(null);
+
+  useEffect(() => {
+    async function getVenues() {
+      try {
+        const response = await fetch(`http://localhost:5050/record/`);
+
+        if (!response.ok) {
+          throw new Error(`An error occurred: ${response.statusText}`);
+        }
+
+        const venueData = await response.json();
+        setVenueData(venueData);
+      } catch (error) {
+        window.alert(error.message);
+      }
+    }
+
+    getVenues();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    return;
+  }, []);
+  
+
   return (
     <div style={{ marginBottom: '20px' }}>
       <p className="section-subtitle">Discover all nightclubs and venues in the San Marcos area </p>
@@ -161,8 +188,15 @@ function SpecialEvent() {
                           <div> <button style={{ marginTop: '25px', height: '33px', backgroundColor: '#e24e99', color: '#fff' }} onClick={() => openModal(venue, { eventName, date, time, month })}><FontAwesomeIcon icon={faLink} /> Share this Event!</button></div>
                         </div>
                       </div>
-                      <div class="event-description" style={{ paddingBottom: '20px' }}>{day}: {eventName} </div>
-                    </div>
+ <div class="event-description" style={{ paddingBottom: '20px' }}>
+      {day}: {eventName} 
+
+{/* Perform the search for the current venue */}
+{venue && searchVenue(venue)}
+
+{/* Display the most matched venue's address */}
+{mostMatchedVenue && mostMatchedVenue.address}
+    </div>                    </div>
                   </div>
                 </li>
               );
