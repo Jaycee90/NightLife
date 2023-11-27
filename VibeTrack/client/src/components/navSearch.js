@@ -81,13 +81,13 @@ const NavSearch = () => {
           placeholder="Search for venues..."
           value={searchQuery}
           onChange={handleSearch}
-          style={{ backgroundColor:"#fff" , color:'#747474', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px'}}
-          inputProps={{ style: { backgroundColor: "#fff", color:'#747474'} }}
+          style={{ backgroundColor:"#fff" , color:'#747474', fontSize:'15px', paddingBottom:'10px', marginTop:'0px', borderRadius:'10px'}}
+          inputProps={{ style: { backgroundColor: "#fff", fontSize:'15px', color:'#747474'} }}
         />
       </form>
       </div>
       <div class="item">
-        <button type="submit" onClick={searchVenue} className="search-icon" style={{background:'none', height:'10px', width:'40px', padding:'0px'}}>          
+        <button type="submit" onClick={searchVenue} className="search-icon" style={{float:'right',background:'none', height:'10px', width:'40px', padding:'0px'}}>          
           <FaSearch style={{ color:'#fff', paddingBottom:'5px', }}  size="1.25em"  />
             </button>
       </div>
