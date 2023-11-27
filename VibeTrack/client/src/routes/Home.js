@@ -44,7 +44,8 @@ export default function Home() {
   return (
     <div  style={{marginTop:"20px"}}>
       <div className="section-intro" style={{backgroundImage:'url(https://i.imgur.com/bQfI5Uz.png)', backgroundSize:'cover'}}>
-        <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" style={{ height:"125px"}} />
+        <img src="https://i.imgur.com/SoHE2tO.png" alt="Logo" loading="lazy" 
+            style={{ height:"125px", borderRadius:'30px', boxShadow: '0 4px 8px rgba(255, 255, 255, 0.1)', animation: 'imageAnimation 2s infinite alternate'}} />
         <p className="section-subtitle" style={{color:'#fff'}}>Uncover places, discover world</p>
         <h2 className="h2 section-title" style={{color:'#fff'}}>VibeTrack</h2>
 
@@ -135,10 +136,14 @@ export default function Home() {
                 <li style={{ marginBottom: '10px' }}>✦ Filter by venue type, features and price range</li>
                 <li style={{ marginBottom: '10px' }}>✦ Invite your friends to come and join the fun</li>
               </ul>
+              
+              <Link to="/discover">
+              <Button  style={{ backgroundColor: "#e24e99", color:'#fff', fontFamily:'Segoe UI' }}>Discover</Button>
+              </Link>
               </div>
             
             <div class="item">
-            <img src="https://i.imgur.com/L04j96J.png" alt="Discover" loading="lazy" style={{width:'50vw'}}/>
+            <img src="https://i.imgur.com/L04j96J.png" alt="Discover" loading="lazy" style={{width:'50vw',animation: 'slideFromRight 2s ease-in-out forwards',}}/>
           </div>
           </div>
       </div>
@@ -147,7 +152,7 @@ export default function Home() {
           
           <div className="about-something">
             <div class="item">
-              <img src="https://i.imgur.com/avz8PKE.png" alt="Special Event" loading="lazy" style={{width:'50vw'}}/>
+              <img src="https://i.imgur.com/uEFSurf.png" alt="Special Event" loading="lazy" style={{width:'50vw',animation: 'slideFromLeft 2s ease-in-out forwards',}}/>
             </div>
             <div class="item">
             <h2 className="h2 section-title">Search for Special Event</h2>
@@ -156,6 +161,10 @@ export default function Home() {
                 <li style={{ marginBottom: '10px' }}>✦ Checkout what's happening around San Marcos this weekend</li>
                 <li style={{ marginBottom: '10px' }}>✦ Set it off and make it a night to remember</li>
               </ul>
+              
+              <Link to="/special">
+              <Button  style={{ backgroundColor: "#e24e99", color:'#fff', fontFamily:'Segoe UI' }}>Special Event</Button>
+              </Link>
               </div>
           </div>
       </div>
@@ -171,10 +180,14 @@ export default function Home() {
                 <li style={{ marginBottom: '10px' }}>✦ Search for clubs and venues that are closest to you</li>
                 <li style={{ marginBottom: '10px' }}>✦ Find the shortest trip to your destination</li>
               </ul>
+              
+              <Link to="/search">
+              <Button  style={{ backgroundColor: "#e24e99", color:'#fff', fontFamily:'Segoe UI' }}>Trip Finder</Button>
+              </Link>
               </div>
             
             <div class="item">
-            <img src="https://i.imgur.com/fcSjozN.png" alt="TripFinder" loading="lazy" style={{width:'50vw'}}/>
+            <img src="https://i.imgur.com/fcSjozN.png" alt="TripFinder" loading="lazy" style={{width:'50vw',animation: 'slideFromRight 2s ease-in-out forwards',}}/>
           </div>
           </div>
       </div>
