@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faLink } from '@fortawesome/free-solid-svg-icons';
 import { Chip } from "@material-ui/core";
 
+import Fuse from 'fuse.js';
+
 function SpecialEvent() {
   const [eventData, setEventData] = useState([]); // Hold events while live scrapping
   const [showModal, setShowModal] = useState(false);
