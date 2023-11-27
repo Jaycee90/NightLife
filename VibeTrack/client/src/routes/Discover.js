@@ -327,11 +327,11 @@ const Discover = () => {
                 </div>
               )}
             </div>
-            <div><ul className="discover-list" style={{ marginRight: '10px' }}>
+            <div class="container"><ul className="popular-list" style={{ marginRight: '10px' }}>
               {filterVenuesByPrice()
                 .filter((venueData) => matchTags(venueData.tags, tags))
                 .map((venue) => (
-                <div className="discover-card" key={venue._id}>
+                <div className="popular-card" key={venue._id}>
                   <figure className="card-img">
                     <img src={venue.image} alt={venue.name} loading="lazy" />
                   </figure>
