@@ -60,6 +60,7 @@ const Login = () => {
  
  return (
   <div class="login-component"  style={{marginTop:"20px", marginBottom:'30px'}}>
+    <div class="container-fluid">
     <div class="card card-login" style={{ fontSize: '14px', padding: '0', border: 'none', boxShadow: '0 4px 30px rgba(0,0,0,.05)', borderRadius: '0', fontFamily: 'Segoe UI', width: '800px', margin: '0 auto', position: 'relative' }}>
       <div class="card-body" style={{ padding: '0'}}>
         <div class="row justify-content-center"  style={{color:'#000', display:'flex', gridTemplateColumns: '1fr 1fr', height:'80vh'}}>
@@ -126,6 +127,7 @@ const Login = () => {
         </div>
       </div>
       </div>
+    </div>
     </div>
  );
 }
