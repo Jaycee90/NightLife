@@ -449,6 +449,7 @@ return (
         </div>
         <div class="item5">
           <h4 style={{ color: '#000', fontSize: '20px', paddingBottom: '10px' }}>Upcoming Events</h4>
+          {/*move maybe */}
           <EventCalendar />
         </div>
       </div>
