@@ -86,6 +86,9 @@ function Data(props) {
     yelp: "",
     amenities: "",
     moreabout:"",
+    tags:"",
+    website:"",
+    price:"",
   });
 
 
@@ -390,7 +393,11 @@ return (
         <div class="item1">
         
         {renderMoreAbout()}
-          <p></p>
+        <div className="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px', columnCount: '4', columnGap: '50px' }}>
+            {formattedAmenities.map((amenity, index) => (
+              <span key={index} style={{lineHeight:'1.5em'}}>{amenity}<br /></span>
+            ))}
+          </div>
         </div>
         <div className="item2">
         <div style={{ display: "flex" }}>
@@ -453,13 +460,29 @@ return (
           <span style={{ color: '#000', fontSize: '15px' }}>Or call us at {formattedPhoneNumber} <br />during our open hours.</span>
         </div>
         <div class="item5">
-        <h4 style={{ color: 'black', fontSize: '20px', paddingBottom: '10px', paddingRight:'50px'}}> Amenties</h4>
-        <div className="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px', columnCount: '2', columnGap: '50px' }}>
-            {formattedAmenities.map((amenity, index) => (
-              <span key={index} style={{lineHeight:'1.5em'}}>{amenity}<br /></span>
-            ))}
+        <h4 style={{ color: 'black', fontSize: '20px', paddingBottom: '10px', paddingRight:'30px'}}> More Informations</h4>
+        <div style={{textAlign: 'left', color: 'black', fontSize: '15px' }}>
+
+        <div style={{ 'padding-bottom': '10px' }}>
+              <span style={{ 'display': 'inline-block', 'width': '100px' }}>Price Range:</span>{venueData.price}
+        </div>
+        <div style={{ 'padding-bottom': '10px', display:'grid', gridTemplateColumns:'20% 80%'}}>
+          <div class="item"><span style={{ 'display': 'inline-block', 'width': '100px' }}>Tags:</span></div>
+          <div  class="item">
+            <ul style={{textAlign:'left', columnCount: 2,}}>
+            {Array.isArray(venueData.tags)
+              ? venueData.tags.map((tag, index) => (
+                <li key={index} style={{fontSize:'15px', color:'#747474', fontFamily:'Segoe UI', }}>&nbsp; #{tag} &nbsp; </li>
+                ))
+              : <li  style={{fontSize:'15px', color:'#747474', fontFamily:'Segoe UI', }}>No tags available</li>}
+            </ul>
           </div>
-          
+        </div>
+
+        <button  style={{ marginTop: '20px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '10px', cursor: 'pointer', }} 
+                className="btn btn-primary"> Wrong information displayed?</button>
+        <span style={{ color: '#000', fontSize: '15px' }}>Let the team know so we can adjust it accordingly!</span>
+        </div>
         </div>
       </div>
     </div>
