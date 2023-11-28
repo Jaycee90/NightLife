@@ -188,6 +188,7 @@ function Search() {
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [start, setStartLocation] = useState(null); // User's location
+  // eslint-disable-next-line
   const [foundVenueLocationName, setFoundVenueName] = useState(null);
   const [searchQueryName, setSearchQueryName] = useState('');//state variable to hold the search query
   const [shouldRenderMap, setShouldRenderMap] = useState(true); //keeps track of whether the map should re-render
@@ -318,7 +319,7 @@ function Search() {
           </div>
           <div class="item">
             {/* Set the current view state when "Search by name" is clicked */}
-            <button onClick={() => { setCurrentView("searchName"); searchVenue();  setStartLocationToUser();}} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button>
+            <button onClick={() => { setCurrentView("searchName"); searchVenue(); }} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button>
           </div>
         </div>
       </div>
@@ -384,14 +385,14 @@ function Search() {
         </div>
         )}
 
-        {currentView === "searchName" && (
-          <div>
+        {currentView === "searchName" && locationCoord && (
+          <div style={{paddingBottom:'20px'}}>
             <MapContainer
         key={shouldRenderMap} // Add a key to trigger a re-render when the key changes
         center={[29.8833, -97.9414]}
         zoom={13}
         zoomControl={false}
-        style={{ height: "100vh", width: "100%", padding: 0 }}
+        style={{ height: "500px", width: "100%", padding: '20px' }}
         
         whenCreated={map => {
           console.log("Map created:", map);
@@ -404,9 +405,11 @@ function Search() {
             <Popup>{marker.popupContent}</Popup>
           </Marker>
         ))}
-        {destination && (
-        <div style={{ position: 'absolute', top: '10%', right: '20%', backgroundColor: '#fff', color: '#747474', fontFamily: 'Segoe UI', fontSize: '15px', padding: '10px', borderRadius: '10px', zIndex: 1000 }}>
-          Heading to {destination.name}
+        {foundVenueLocationName && (
+        <div style={{position:'absolute', top: '5%', left: '10px', width:'320px', backgroundColor: '#fff', color: '#747474', fontFamily: 'Segoe UI', fontSize: '15px', padding: '10px', borderRadius: '10px', zIndex: 1000 }}>
+         <p style={{paddingBottom:'10px'}}><b>Heading to {destination.name}</b></p>
+         <hr style={{width:'90%', color:'#747474', opacity:'0.5', border:'1px #7474747'}}/>
+         <p style={{marginTop:'10px'}}>{destination.address}</p>
         </div>
       )}
 
@@ -418,13 +421,15 @@ function Search() {
             />
           </LayersControl.BaseLayer>
         </LayersControl>
+        
         {/* Conditional rendering of RoutingControl */}
         {start && foundVenueLocationName && (
           <RoutingControl 
-            position={'topleft'} 
+            position={'bottomleft'} 
             start={start} 
             end={foundVenueLocationName} 
             color={'#757de8'}
+            
           />
         )}
       </MapContainer>
