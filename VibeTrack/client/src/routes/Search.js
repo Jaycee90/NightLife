@@ -260,7 +260,7 @@ function Search() {
       if (!response.ok) {
         throw new Error(`An error occurred: ${response.statusText}`);
       }
-
+      
       const records = await response.json();
 
       const fuse = new Fuse(records, {
