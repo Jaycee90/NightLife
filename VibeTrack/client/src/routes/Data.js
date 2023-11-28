@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -325,7 +326,7 @@ return (
         <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.about}</p>
         
         <div>
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '60%' }}><FontAwesomeIcon icon={faLink} /> {venueData.website}</p>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '60%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 40 ? venueData.website.slice(0, 40) + "..." : venueData.website}</Link></p>
         <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '40%' }}><FontAwesomeIcon icon={faPhone} /> {formattedPhoneNumber}</p>
         </div>
         <div>
