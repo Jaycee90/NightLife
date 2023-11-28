@@ -7,6 +7,7 @@ import '../css/search.css';
 import {TileLayer, MapContainer, LayersControl, Marker, Popup} from "react-leaflet";
 import RoutingControl from './RoutingControl';
 import { useParams } from "react-router-dom";
+import Fuse from 'fuse.js';
 
 const maps = {
   base: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -182,6 +183,7 @@ function Search() {
   }, [venueName]);
   
   // State variables
+  // eslint-disable-next-line
   const [tripRecords, setTripRecords] = useState([]);
   const [markers, setMarkers] = useState([]);
   const [start, setStartLocation] = useState(null); // User's location
@@ -252,15 +254,38 @@ function Search() {
     setSearchQueryName(event.target.value);
   };
 
-  // Function to search for a specific venue by name
-  const searchVenue = () => {
-    const foundVenue = tripRecords.find(record =>
-      record.name.toLowerCase() === searchQueryName.toLowerCase()
-    );
-  
-    if (foundVenue) {
-      setFoundVenueName([foundVenue.latitude, foundVenue.longitude]);
-      setShouldRenderMap(!shouldRenderMap); 
+  const searchVenue = async () => {
+    try {
+      const response = await fetch(`http://localhost:5050/record/`);
+
+      if (!response.ok) {
+        throw new Error(`An error occurred: ${response.statusText}`);
+      }
+
+      const records = await response.json();
+
+      const fuse = new Fuse(records, {
+        keys: ['name'],
+        includeScore: true,
+        threshold: 0.3,
+      });
+
+      const searchResults = fuse.search(searchQueryName);
+
+      if (searchResults.length > 0) {
+        // Find the result with the lowest score (most matched)
+        const mostMatchedVenue = searchResults.reduce((prev, current) => {
+          return prev.score < current.score ? prev : current;
+        }).item;
+
+          setFoundVenueName([mostMatchedVenue.latitude, mostMatchedVenue.longitude]);
+          setShouldRenderMap(!shouldRenderMap); 
+      } else {
+        // Handle the case where no results are found
+        window.alert('No results found.');
+      }
+    } catch (error) {
+      window.alert(error.message);
     }
   };
   
