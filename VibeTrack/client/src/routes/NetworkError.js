@@ -1,6 +1,6 @@
 import React from 'react';
+import './notfound.css'; 
 import { Link } from 'react-router-dom';
-import '../css/notfound.css'; 
 
 const NetworkError = () => {
   return (

@@ -181,7 +181,7 @@ export default function Home() {
                 <li style={{ marginBottom: '10px' }}>✦ Find the shortest trip to your destination</li>
               </ul>
               
-              <Link to="/search">
+              <Link to="/tripfinder">
               <Button  style={{ backgroundColor: "#e24e99", color:'#fff', fontFamily:'Segoe UI' }}>Trip Finder</Button>
               </Link>
               </div>
