@@ -253,6 +253,7 @@ function Search() {
     setSearchQueryName(event.target.value);
   };
 
+  const [destination, setDestination] = useState([]);
   const searchVenue = async () => {
     try {
       const response = await fetch(`http://localhost:5050/record/`);
@@ -260,7 +261,7 @@ function Search() {
       if (!response.ok) {
         throw new Error(`An error occurred: ${response.statusText}`);
       }
-      
+
       const records = await response.json();
 
       const fuse = new Fuse(records, {
@@ -276,7 +277,7 @@ function Search() {
         const mostMatchedVenue = searchResults.reduce((prev, current) => {
           return prev.score < current.score ? prev : current;
         }).item;
-
+          setDestination(mostMatchedVenue);
           setFoundVenueName([mostMatchedVenue.latitude, mostMatchedVenue.longitude]);
           setShouldRenderMap(!shouldRenderMap); 
       } else {
@@ -317,11 +318,11 @@ function Search() {
           </div>
           <div class="item">
             {/* Set the current view state when "Search by name" is clicked */}
-            <button onClick={() => { setCurrentView("searchName"); searchVenue();  }} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button>
+            <button onClick={() => { setCurrentView("searchName"); searchVenue();  setStartLocationToUser();}} style={{ borderRadius: "10px", height: "40px", marginTop: '4px' }}>Search by name</button>
           </div>
         </div>
       </div>
-
+        
       <div>
         {/* Conditionally render CONTAINER 1 or CONTAINER 2 based on the current view state */}
         {currentView === "nearMe" && (
@@ -396,9 +397,6 @@ function Search() {
           console.log("Map created:", map);
         }}
       >
-        {/* *************** */}
-        {/* Pass in our custom control layer here, inside of the map container */}
-        {/* *************** */}
 
         {/* Render venue markers on the map */}
         {markers.map((marker, index) => (
@@ -406,6 +404,11 @@ function Search() {
             <Popup>{marker.popupContent}</Popup>
           </Marker>
         ))}
+        {destination && (
+        <div style={{ position: 'absolute', top: '10%', right: '20%', backgroundColor: '#fff', color: '#747474', fontFamily: 'Segoe UI', fontSize: '15px', padding: '10px', borderRadius: '10px', zIndex: 1000 }}>
+          Heading to {destination.name}
+        </div>
+      )}
 
         <LayersControl position="topright">
           <LayersControl.BaseLayer checked name="Map">
