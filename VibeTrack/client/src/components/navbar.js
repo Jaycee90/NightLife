@@ -20,10 +20,6 @@ export default function Navbar() {
         <a href="specialevent"
             style={{float: 'right', color: '#f2f2f2', textAlign: 'center', padding: '14px 16px', fontFamily: 'Big Shoulders Text', fontSize: '1.5em', textTransform: 'uppercase', fontWeight: '300', justifyContent: 'right',}}>
           Special Event</a>
-        <a href="search"
-            style={{float: 'right', color: '#f2f2f2', textAlign: 'center', padding: '14px 16px', fontFamily: 'Big Shoulders Text', fontSize: '1.5em', textTransform: 'uppercase', fontWeight: '300', justifyContent: 'right',}}>
-          Search
-        </a>
         <a href="tripfinder"
             style={{float: 'right', color: '#f2f2f2', textAlign: 'center', padding: '14px 16px', fontFamily: 'Big Shoulders Text', fontSize: '1.5em', textTransform: 'uppercase', fontWeight: '300', justifyContent: 'right',}}>
           Trip Finder</a>
