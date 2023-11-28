@@ -9,7 +9,6 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/template.css';
 import StarRating from '../components/starRating.js';
-import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
 import { UserContext } from '../realm/UserContext';
 import { useContext } from 'react';
@@ -317,12 +316,7 @@ return (
           <Rating />
           <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
         </div>
-        <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} className="btn btn-primary">LEAVE A RATING</button>
-        <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{
-          marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '10px'
-        }} className="btn btn-primary">
-          Alert Me
-        </button>
+        
       </div>
       <div className="item" >
         <ImageGallery items={images}
@@ -390,27 +384,12 @@ return (
           <p></p>
         </div>
         <div className="item2">
-          <div style={{ display: "flex" }}>
-            <MapContainer
-              style={{
-                height: "50vh",
-                width: "100%",
-                borderRadius: "10px"
-              }}
-              center={[29.8833, -97.9414]} //  {[{venueData.latitude}, {venueData.longitude}]} center somewhere else??
-              zoom={16}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={[venueData.latitude, venueData.longitude]} icon={icon}>
-                <Popup>
-                  {venueData.name} <br /> Coordinates: {venueData.latitude}, {venueData.longitude}
-                </Popup>
-              </Marker>
-            </MapContainer>
-          </div>
+        <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} className="btn btn-primary">LEAVE A RATING</button>
+        <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{
+          marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '10px'
+        }} className="btn btn-primary">
+          Alert Me
+        </button>
         </div>
         <div class="item3">
           <h4 style={{ color: 'black', fontSize: '20px', paddingBottom: '10px' }}> Opening Hours</h4>
@@ -448,9 +427,28 @@ return (
           <span style={{ color: '#000', fontSize: '15px' }}>Or call us at {formattedPhoneNumber} <br />during our open hours.</span>
         </div>
         <div class="item5">
-          <h4 style={{ color: '#000', fontSize: '20px', paddingBottom: '10px' }}>Upcoming Events</h4>
-          {/*move maybe */}
-          <EventCalendar />
+          <div style={{ display: "flex" }}>
+            
+            <MapContainer
+              style={{
+                height: "50vh",
+                width: "100%",
+                borderRadius: "10px"
+              }}
+              center={[29.8833, -97.9414]} //  {[{venueData.latitude}, {venueData.longitude}]} center somewhere else??
+              zoom={16}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[venueData.latitude, venueData.longitude]} icon={icon}>
+                <Popup>
+                  {venueData.name} <br /> Coordinates: {venueData.latitude}, {venueData.longitude}
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
         </div>
       </div>
     </div>
