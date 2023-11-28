@@ -38,7 +38,7 @@ export default function StarRating(props) {
     useEffect(() => {
       async function fetchData() {
         const id = params.id.toString();
-        const response = await fetch(`http://localhost:5050/record/${params.id}`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/${params.id}`);
   
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;

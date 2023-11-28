@@ -21,7 +21,7 @@ export default function RecordList() {
   useEffect(() => { 
     async function getRecords() { // Define an function to fetch data
       // Send a GET request to the server 
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
       if (!response.ok) { // Check if the response is successful
         const message = `An error occurred: ${response.statusText}`;
@@ -40,7 +40,7 @@ export default function RecordList() {
   }, [records.length]);
 
   async function deleteRecord(id) { // Deletes a record by its ID
-    await fetch(`http://localhost:5050/record/${id}`, {
+    await fetch(`https://vibetrack-api.vercel.app/record/${id}`, {
       method: "DELETE"
     });
 
