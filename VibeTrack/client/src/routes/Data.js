@@ -331,7 +331,7 @@ return (
         </div>
         <div>
         <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} 
-                className="btn btn-primary">LEAVE A RATING</button>
+                className="btn btn-primary">Leave a Rating</button>
           <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '50px'}} 
                 className="btn btn-primary"> Alert Me </button>
         </div>
