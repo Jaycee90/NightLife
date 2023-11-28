@@ -326,8 +326,8 @@ return (
         <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.about}</p>
         
         <div>
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '60%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 40 ? venueData.website.slice(0, 40) + "..." : venueData.website}</Link></p>
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '40%' }}><FontAwesomeIcon icon={faPhone} /> {formattedPhoneNumber}</p>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '45%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 40 ? venueData.website.slice(0, 40) + "..." : venueData.website}</Link></p>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '45%' }}><FontAwesomeIcon icon={faPhone} /> {formattedPhoneNumber}</p>
         </div>
         <div>
         <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} 
