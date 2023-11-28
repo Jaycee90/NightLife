@@ -15,7 +15,7 @@ const Discover = () => {
   useEffect(() => {
     async function getVenues() {
       try {
-        const response = await fetch(`http://localhost:5050/record/`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
         if (!response.ok) {
           throw new Error(`An error occurred: ${response.statusText}`);
@@ -37,7 +37,7 @@ const Discover = () => {
   useEffect(() => { 
     async function getRecords() {
       try {
-        const response = await fetch(`http://localhost:5050/record/`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
         if (!response.ok) {
           throw new Error(`An error occurred: ${response.statusText}`);
@@ -58,7 +58,7 @@ const Discover = () => {
   useEffect(() => {
     async function getRecords() {
       try {
-        const response = await fetch(`http://localhost:5050/record/`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
         if (!response.ok) {
           throw new Error(`An error occurred: ${response.statusText}`);
@@ -258,7 +258,9 @@ const Discover = () => {
         </div>
   
         <div class="item">
-          <div class="container" style={{paddingTop:'20px', paddingLeft:'20px',}}>
+          <div class="container" 
+                style={{paddingTop:'20px', paddingLeft:'20px',
+                background:'linear-gradient(42deg, rgba(2,0,36,1) 0%, rgba(42,42,103,1) 53%, rgba(226,100,172,1) 100%)', borderRadius:'0px'}}>
             <div className="selected-tags" style={{paddingBottom:'10px'}}>
             {tags.length > 0
               ? tags.map((tag) => (
@@ -282,9 +284,9 @@ const Discover = () => {
                     <div>
                       {foundVenues && foundVenues.length > 0 ? (
                         <div>
-                          <ul className="discover-list">
+                          <ul className="popular-list">
                             {foundVenues.map((foundVenue) => (
-                              <div className="discover-card" key={foundVenue._id}>
+                              <div className="popular-card" key={foundVenue._id}>
                                 <figure className="card-img">
                                   <img src={foundVenue.image} alt={foundVenue.name} loading="lazy" />
                                 </figure>
@@ -327,11 +329,11 @@ const Discover = () => {
                 </div>
               )}
             </div>
-            <div><ul className="discover-list" style={{ marginRight: '10px' }}>
+            <div><ul className="popular-list" style={{ marginRight: '10px' }}>
               {filterVenuesByPrice()
                 .filter((venueData) => matchTags(venueData.tags, tags))
                 .map((venue) => (
-                <div className="discover-card" key={venue._id}>
+                <div className="popular-card" key={venue._id}>
                   <figure className="card-img">
                     <img src={venue.image} alt={venue.name} loading="lazy" />
                   </figure>

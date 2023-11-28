@@ -34,7 +34,7 @@ export default function Edit() {
     async function fetchData() {
       // Send a GET request to the server with the 'id' parameter
       const id = params.id.toString(); 
-      const response = await fetch(`http://localhost:5050/record/${params.id.toString()}`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/${params.id.toString()}`);
 
       if (!response.ok) { // Check if the response is successful
         const message = `An error has occurred: ${response.statusText}`;
@@ -94,7 +94,7 @@ export default function Edit() {
     };
     
     // Send a PATCH request to update the venue
-    await fetch(`http://localhost:5050/record/${params.id}`, {
+    await fetch(`https://vibetrack-api.vercel.app/record/${params.id}`, {
       method: "PATCH",
       body: JSON.stringify(editedVenue),
       headers: {

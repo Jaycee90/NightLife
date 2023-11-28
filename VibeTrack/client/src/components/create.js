@@ -27,7 +27,7 @@ export default function Create() {
 
     const newVenue = { ...form }; // Create a new object with form data
 
-    await fetch("http://localhost:5050/record/", { // Send a POST request to the server
+    await fetch("https://vibetrack-api.vercel.app/record/", { // Send a POST request to the server
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
 import '../css/home.css';
 import { Link } from "react-router-dom";
-import Navbar from '../components/navbar';
 
 export default function Home() {
   const [randomVenues, setRandomVenues] = useState([]);
@@ -13,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     const getVenues = async () => {
       try {
-        const response = await fetch('http://localhost:5050/record/');
+        const response = await fetch('https://vibetrack-api.vercel.app/record/');
 
         if (!response.ok) {
           const message = `An error occurred: ${response.statusText}`;

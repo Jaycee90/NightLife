@@ -22,7 +22,7 @@ export default function UserList() {
   useEffect(() => { 
     async function getUsers() { // Define an function to fetch data
       // Send a GET request to the server 
-      const response = await fetch(`http://localhost:5050/user/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/user/`);
 
       if (!response.ok) { // Check if the response is successful
         const message = `An error occurred: ${response.statusText}`;
@@ -41,7 +41,7 @@ export default function UserList() {
   }, [users.length]);
 
   async function deleteUser(code) { // Deletes a record by its ID
-    await fetch(`http://localhost:5050/user/${code}`, {
+    await fetch(`https://vibetrack-api.vercel.app/user/${code}`, {
       method: "DELETE"
     });
 

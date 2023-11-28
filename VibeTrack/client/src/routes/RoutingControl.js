@@ -50,7 +50,7 @@ const createRoutineMachineLayer = ({ position, start, end, color }) => {
 
       // Update the popup content for the end marker with coordinates
       if (i === nWps - 1) {
-        marker.bindPopup(`You've arrived!`);
+        marker.bindPopup(`You've arrived.`);
       }
 
 

@@ -31,7 +31,7 @@ export default function Contact() {
       try {
         const currentUser = await fetchUser();
         if (currentUser) {
-          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+          const response = await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`);
     
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -83,7 +83,7 @@ export default function Contact() {
     };
   
     const currentUser = await fetchUser();
-    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
+    await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
@@ -109,14 +109,14 @@ export default function Contact() {
   
   return (
     <div className="profile-component">
-      <div class="grid-settings">
-        <div class="grid-settings-left">
+    <div className="grid-settings" style={{ display: 'grid', gridTemplateColumns: '20% 80%', gap: '10px', paddingRight: '50px', margin: '0', fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", fontSize: '15px', height: '100vh' }}>
+    <div className="grid-settings-left" style={{color: '#fff',  fontFamily:'Segoe UI',}}>
           <UserBar  logOut={logOut}/>
         </div>
-        <div class="grid-settings-right"  style={{marginTop:'20px'}}>
+        <div className="grid-settings-right" style={{backgroundColor:'#fff', marginTop:'20px'}}>
           <h3 style={{ color: '#000000', paddingBottom: '10px' }}>Emergency Contacts</h3>
           <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-          <div className="grid-about">
+          <div className="grid-about" style={{ display: 'grid', gridTemplateColumns: '50% 50%', gap: '10px', padding: '10px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderColor: '#e8e8e8', textAlign: 'left', paddingTop: '20px', paddingBottom: '20px' }}>
             <div className="item">
               <div className="form-group">
                 <label htmlFor="emergencyName1">Contact Name #1</label>
@@ -125,6 +125,8 @@ export default function Contact() {
                   className="form-control"
                   id="emergencyName1"
                   placeholder="Name for emergency contact #1"
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
+
                   value={form.emergencyName1}
                   onChange={(e) => updateForm({ emergencyName1: e.target.value })}
                 />
@@ -138,6 +140,8 @@ export default function Contact() {
                   className="form-control"
                   id="emergencyEmail1"
                   placeholder="Email for emergency contact #1"
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
+
                   value={form.emergencyEmail1}
                   onChange={(e) => updateForm({ emergencyEmail1: e.target.value })}
                 />
@@ -151,6 +155,8 @@ export default function Contact() {
                   className="form-control"
                   id="emergencyName2"
                   placeholder=" Name for emergency contact #2"
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
+
                   value={form.emergencyName2}
                   onChange={(e) => updateForm({ emergencyName2: e.target.value })}
                 />
@@ -164,6 +170,8 @@ export default function Contact() {
                   className="form-control"
                   id="emergencyEmail2"
                   placeholder="Email for emergency contact #2"
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
+
                   value={form.emergencyEmail2}
                   onChange={(e) => updateForm({ emergencyEmail2: e.target.value })}
                 />
@@ -175,7 +183,8 @@ export default function Contact() {
                 type="submit"
                 value="Update Contacts"
                 className="btn btn-primary"
-                style={{width:'50%', marginLeft:'30%'}}
+                style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a', width:'50%', marginLeft:'30%'}}
+
               />
             </div>
           </form>

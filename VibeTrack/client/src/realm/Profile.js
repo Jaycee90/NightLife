@@ -31,7 +31,7 @@ export default function Profile() {
       try {
         const currentUser = await fetchUser();
         if (currentUser) {
-          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+          const response = await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`);
     
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -83,7 +83,7 @@ export default function Profile() {
     };
   
     const currentUser = await fetchUser();
-    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
+    await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
@@ -108,14 +108,14 @@ export default function Profile() {
 
   return (
     <div className="profile-component">
-    <div className="grid-settings">
-      <div className="grid-settings-left">
+    <div className="grid-settings" style={{ display: 'grid', gridTemplateColumns: '20% 80%', gap: '10px', paddingRight: '50px', margin: '0', fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif", fontSize: '15px', height: '100vh' }}>
+      <div className="grid-settings-left" style={{color: '#fff',  fontFamily:'Segoe UI',}}>
         <UserBar  logOut={logOut}/>
       </div>
-      <div className="grid-settings-right" style={{marginTop:'20px'}}>
+      <div className="grid-settings-right" style={{backgroundColor:'#fff', marginTop:'20px'}}>
         <h3 style={{ color: '#000000', paddingBottom: '10px' }}>General Information</h3>
         <form onSubmit={onSubmit} style={{ color: '#000000' }}>
-          <div className="grid-about">
+          <div className="grid-about" style={{ display: 'grid', gridTemplateColumns: '50% 50%', gap: '10px', padding: '10px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderColor: '#e8e8e8', textAlign: 'left', paddingTop: '20px', paddingBottom: '20px' }}>
             <div className="item">
               <div className="form-group">
                 <label htmlFor="name">First Name</label>
@@ -123,6 +123,7 @@ export default function Profile() {
                   type="text"
                   className="form-control"
                   id="name"
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
                   value={form.name}
                   onChange={(e) => updateForm({ name: e.target.value })}
                 />
@@ -136,6 +137,7 @@ export default function Profile() {
                   className="form-control"
                   id="lastName"
                   value={form.lastName}
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
                   onChange={(e) => updateForm({ lastName: e.target.value })}
                 />
               </div>
@@ -148,8 +150,7 @@ export default function Profile() {
                   id="gender"
                   value={form.gender}
                   onChange={(e) => updateForm({ gender: e.target.value })}
-                  style={{ backgroundColor: '#fff', borderRadius: '10px', borderWidth:'thin', borderColor:'#7a7a7a', marginTop:'4px', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px', color:'#7a7a7a' }}
-                >
+                  style={{backgroundColor: '#fff', borderRadius: '10px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a',   marginTop:'4px', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px', color:'#7a7a7a' }}                >
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                   <option value="Rather not disclose">Rather not disclose</option>
@@ -164,7 +165,7 @@ export default function Profile() {
                   className="form-control"
                   id="phone"
                   value={form.phone}
-                  onChange={(e) => updateForm({ phone: e.target.value })}
+                  style={{ backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', border: 'thin solid #7a7a7a' }}                  onChange={(e) => updateForm({ phone: e.target.value })}
                 />
               </div>
             </div>
@@ -177,7 +178,7 @@ export default function Profile() {
                   id="birthdate"
                   value={form.birthdate}
                   onChange={(e) => updateForm({ birthdate: e.target.value })}
-                  style={{ backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', padding: '10px', marginTop:'4px', paddingLeft: '30px', width: '100%', fontSize: '15px' }}
+                  style={{backgroundColor: '#fff', borderRadius: '10px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a',   marginTop:'4px', height: '40px', padding: '10px', paddingLeft: '30px', width: '100%', fontSize: '15px', color:'#7a7a7a' }}
                 />
               </div>
             </div>
@@ -190,6 +191,7 @@ export default function Profile() {
                   id="_id"
                   value={form._id}
                   readOnly
+                  style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a'}}
                 />
               </div>
             </div>
@@ -203,7 +205,8 @@ export default function Profile() {
               id="email"
               value={form.email}
               onChange={(e) => updateForm({ email: e.target.value })}
-              style={{marginLeft:'12px', width:'99%'}}
+              style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a', marginLeft:'12px', width:'99%'}}
+
               readOnly
             />
           </div>
@@ -213,7 +216,9 @@ export default function Profile() {
               type="submit"
               value="Update Information"
               className="btn btn-primary"
-              style={{width:'50%', marginLeft:'30%'}}
+
+              style={{backgroundColor: '#fff', borderRadius: '10px', color: '#7a7a7a', height: '40px', fontSize: '15px', borderStyle: 'solid', borderWidth: 'thin', borderColor: '#7a7a7a', width:'50%', marginLeft:'30%'}}
+
             />
           </div>
         </form>

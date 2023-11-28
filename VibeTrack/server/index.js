@@ -10,8 +10,15 @@ const PORT = 5050;
 
 const app = express();
 
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+  {
+    origin: ["https://vibetrack.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
+}
+));
 
 app.get('/scrape', async (req, res) => {
   try {

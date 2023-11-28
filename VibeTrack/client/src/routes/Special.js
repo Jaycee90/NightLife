@@ -71,7 +71,7 @@ function SpecialEvent() {
       text: messageWithSelectedVenues,
     };
 
-    fetch('http://localhost:5050/send-email', {
+    fetch('https://vibetrack-api.vercel.app/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ function SpecialEvent() {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5050/scrape')
+    axios.get('https://vibetrack-api.vercel.app/scrape')
       .then((response) => {
         setEventData(response.data);
       })

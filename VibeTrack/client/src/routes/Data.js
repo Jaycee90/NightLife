@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram, faYelp } from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faLink } from '@fortawesome/free-solid-svg-icons';
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import '../css/template.css';
 import StarRating from '../components/starRating.js';
-import EventCalendar from '../components/calendar.js';
 import Rating from '../components/rating.js';
 import { UserContext } from '../realm/UserContext';
 import { useContext } from 'react';
@@ -19,7 +20,7 @@ function formatPhoneNumber(phone) {
   const cleaned = ('' + phone).replace(/\D/g, '');
   const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
   if (match) {
-    return '(' + match[1] + ')-' + match[2] + '-' + match[3];
+    return '(' + match[1] + ') - ' + match[2] + ' - ' + match[3];
   }
   return null;
 }
@@ -86,6 +87,9 @@ function Data(props) {
     yelp: "",
     amenities: "",
     moreabout:"",
+    tags:"",
+    website:"",
+    price:"",
   });
 
 
@@ -112,7 +116,7 @@ function Data(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:5050/record/${params.id}`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/${params.id}`);
 
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -139,7 +143,7 @@ function Data(props) {
       try {
         const currentUser = await fetchUserContext();
         if (currentUser) {
-          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+          const response = await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`);
     
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -247,7 +251,7 @@ const sendEmail = () => {
 
   console.log("After state update:", emailData);
 
-  fetch('http://localhost:5050/send-email', {
+  fetch('https://vibetrack-api.vercel.app/send-email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -304,25 +308,33 @@ return (
   <div style={{ marginTop: "20px" }}>
     <div className="about-section">
       <div className="item">
-        <h2 className="h2 section-title" style={{ float: 'left', textAlign: 'left', color: '#fff' }}>{venueData.name}</h2>
-        {isOpen ? (
-          <button style={{ marginLeft: '10px', marginTop: '15px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#65e0ab', marginBottom: '20px', width: '25%' }} className="btn btn-primary">OPEN NOW</button>
-        ) : (
-          <button style={{ marginLeft: '10px', marginTop: '15px', float: 'left', textAlign: 'center', color: '#fff', fontSize: '15px', width: '30%', marginBottom: '40px' }} className="btn btn-primary">CLOSED</button>
-        )}
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.address}</p>
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.about}</p>
+        <h2 className="h2 section-title" style={{ float: 'left', textAlign: 'left', color: '#fff',  width: '90%' }}>{venueData.name}</h2>
 
-        <div style={{ display: 'block', float: 'left', textAlign: 'left', width: '90%' }}>
-          <Rating />
+        <div style={{ display: 'block', float: 'left', textAlign: 'left', width: '25%' }}>
+        {isOpen ? (
+          <button style={{ marginTop:'12px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#65e0ab', marginBottom: '20px',  }} className="btn btn-primary">OPEN NOW</button>
+        ) : (
+          <button style={{ marginTop:'12px',float: 'left', textAlign: 'center', color: '#fff', fontSize: '15px', marginBottom: '40px' }} className="btn btn-primary">CLOSED</button>
+        )}
+        </div>
+        <div style={{ paddingLeft:'30px', top:'0', display: 'block', float: 'left', textAlign: 'left', width: '45%' }}>
+          <Rating/>
           <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.rating} ({venueData.review} reviews)</p>
         </div>
-        <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} className="btn btn-primary">LEAVE A RATING</button>
-        <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{
-          marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '10px'
-        }} className="btn btn-primary">
-          Alert Me
-        </button>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.address}</p>
+
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.about}</p>
+        
+        <div>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '60%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 40 ? venueData.website.slice(0, 40) + "..." : venueData.website}</Link></p>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '40%' }}><FontAwesomeIcon icon={faPhone} /> {formattedPhoneNumber}</p>
+        </div>
+        <div>
+        <button onClick={() => openModal(venueData)} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%' }} 
+                className="btn btn-primary">LEAVE A RATING</button>
+          <button onClick={() => { handleAlertButtonClick(); openModalAlert(); }} style={{ marginTop: '0px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '20px', width: '35%', cursor: 'pointer', marginLeft: '50px'}} 
+                className="btn btn-primary"> Alert Me </button>
+        </div>
       </div>
       <div className="item" >
         <ImageGallery items={images}
@@ -380,17 +392,17 @@ return (
     <div className="container" style={{ 'paddingTop': '25px' }}>
       <div className="grid-container">
         <div class="item1">
+        
         {renderMoreAbout()}
-
-          <div className="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px', columnCount: '4', columnGap: '50px' }}>
+        <div className="section-text" style={{ float: 'left', textAlign: 'left', color: '#000', fontSize: '15px', columnCount: '4', columnGap: '50px' }}>
             {formattedAmenities.map((amenity, index) => (
-              <span key={index}>{amenity}<br /></span>
+              <span key={index} style={{lineHeight:'1.5em'}}>{amenity}<br /></span>
             ))}
           </div>
-          <p></p>
         </div>
         <div className="item2">
-          <div style={{ display: "flex" }}>
+        <div style={{ display: "flex" }}>
+            
             <MapContainer
               style={{
                 height: "50vh",
@@ -411,6 +423,7 @@ return (
               </Marker>
             </MapContainer>
           </div>
+        
         </div>
         <div class="item3">
           <h4 style={{ color: 'black', fontSize: '20px', paddingBottom: '10px' }}> Opening Hours</h4>
@@ -448,8 +461,29 @@ return (
           <span style={{ color: '#000', fontSize: '15px' }}>Or call us at {formattedPhoneNumber} <br />during our open hours.</span>
         </div>
         <div class="item5">
-          <h4 style={{ color: '#000', fontSize: '20px', paddingBottom: '10px' }}>Upcoming Events</h4>
-          <EventCalendar />
+        <h4 style={{ color: 'black', fontSize: '20px', paddingBottom: '10px', paddingRight:'30px'}}> More Informations</h4>
+        <div style={{textAlign: 'left', color: 'black', fontSize: '15px' }}>
+
+        <div style={{ 'padding-bottom': '10px' }}>
+              <span style={{ 'display': 'inline-block', 'width': '100px' }}>Price Range:</span>{venueData.price}
+        </div>
+        <div style={{ 'padding-bottom': '10px', display:'grid', gridTemplateColumns:'20% 80%'}}>
+          <div class="item"><span style={{ 'display': 'inline-block', 'width': '100px' }}>Tags:</span></div>
+          <div  class="item">
+            <ul style={{textAlign:'left', columnCount: 2,}}>
+            {Array.isArray(venueData.tags)
+              ? venueData.tags.map((tag, index) => (
+                <li key={index} style={{fontSize:'15px', color:'#747474', fontFamily:'Segoe UI', }}>&nbsp; #{tag} &nbsp; </li>
+                ))
+              : <li  style={{fontSize:'15px', color:'#747474', fontFamily:'Segoe UI', }}>No tags available</li>}
+            </ul>
+          </div>
+        </div>
+
+        <button  style={{ marginTop: '20px', float: 'left', textAlign: 'center', color: '#000', fontSize: '15px', backgroundColor: '#e24e99', marginBottom: '10px', cursor: 'pointer', }} 
+                className="btn btn-primary"> Wrong information displayed?</button>
+        <span style={{ color: '#000', fontSize: '15px' }}>Let the team know so we can adjust it accordingly!</span>
+        </div>
         </div>
       </div>
     </div>
