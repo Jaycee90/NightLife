@@ -7,6 +7,7 @@ import '../css/search.css';
 import {TileLayer, MapContainer, LayersControl, Marker, Popup} from "react-leaflet";
 import RoutingControl from './RoutingControl';
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Fuse from 'fuse.js';
 
 const maps = {
@@ -154,7 +155,7 @@ function Search() {
           {club.image.length > 0 && <img src={club.image[0]} alt={club.name} style={{ width: "100%" }} />}
           <p><strong>{club.name}</strong><br />
             {club.address}<br />
-            {club.website && (<a href={club.website} target="_blank" rel="noopener noreferrer">Visit our Website</a>)}
+            {club.website && (<Link to={`/data/${club._id}`}>Visit {club.name}'s page</Link>)}
           </p>
         </Popup>
       </Marker>
@@ -207,13 +208,11 @@ function Search() {
         popupContent: (
           <div>
             {/* Display the first image in the popup */}
-            {trip.image.length > 0 && <img src={trip.image[0]} alt={trip.name} style={{ width: "100%" }} />}
+            {trip.image.length > 0 && <img src={trip.image[0]} alt={trip.name} style={{ width: "80%" }} />}
             <p><strong>{trip.name}</strong><br />
             {trip.address}<br/>
             {trip.website && (
-              <a href={trip.website} target="_blank" rel="noopener noreferrer">
-                Visit our Website
-              </a>
+              <Link to={`/data/${trip._id}`}>Visit {trip.name}'s page</Link>
             )}
             </p>
           </div>
