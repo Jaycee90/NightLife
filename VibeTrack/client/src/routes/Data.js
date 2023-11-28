@@ -116,7 +116,7 @@ function Data(props) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`http://localhost:5050/record/${params.id}`);
+        const response = await fetch(`https://vibetrack-api.vercel.app/record/${params.id}`);
 
         if (!response.ok) {
           const message = `An error has occurred: ${response.statusText}`;
@@ -143,7 +143,7 @@ function Data(props) {
       try {
         const currentUser = await fetchUserContext();
         if (currentUser) {
-          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+          const response = await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`);
     
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -251,7 +251,7 @@ const sendEmail = () => {
 
   console.log("After state update:", emailData);
 
-  fetch('http://localhost:5050/send-email', {
+  fetch('https://vibetrack-api.vercel.app/send-email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

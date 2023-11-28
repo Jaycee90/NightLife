@@ -27,7 +27,7 @@ const TripFinder = () => {
   // Fetch trip records from the server
   const fetchTripRecords = async () => {
     try {
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

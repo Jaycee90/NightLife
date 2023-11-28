@@ -56,7 +56,7 @@ function Feedback() {
     const emailTextWithUserInfo = `${emailData.text}\n\nName: ${userName}\nSatisfaction Rating: ${satisfactionRating}`;
 
     // Removed the part related to selected venues
-    fetch('http://localhost:5050/send-email', {
+    fetch('https://vibetrack-api.vercel.app/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

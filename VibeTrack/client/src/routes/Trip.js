@@ -52,7 +52,7 @@ function Search() {
     async function getRecords() {
       // Define an function to fetch data
       // Send a GET request to the server
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
       if (!response.ok) {
         // Check if the response is successful
@@ -196,7 +196,7 @@ function Search() {
   // Fetch trip records from the server
   const fetchTripRecords = async () => {
     try {
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -257,7 +257,7 @@ function Search() {
   const [destination, setDestination] = useState(null);
   const searchVenue = async () => {
     try {
-      const response = await fetch(`http://localhost:5050/record/`);
+      const response = await fetch(`https://vibetrack-api.vercel.app/record/`);
 
       if (!response.ok) {
         throw new Error(`An error occurred: ${response.statusText}`);

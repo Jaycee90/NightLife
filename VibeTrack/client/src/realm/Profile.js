@@ -31,7 +31,7 @@ export default function Profile() {
       try {
         const currentUser = await fetchUser();
         if (currentUser) {
-          const response = await fetch(`http://localhost:5050/user/${currentUser.id}`);
+          const response = await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`);
     
           if (!response.ok) {
             const message = `An error has occurred: ${response.statusText}`;
@@ -83,7 +83,7 @@ export default function Profile() {
     };
   
     const currentUser = await fetchUser();
-    await fetch(`http://localhost:5050/user/${currentUser.id}`, { // Use currentUser directly
+    await fetch(`https://vibetrack-api.vercel.app/user/${currentUser.id}`, { // Use currentUser directly
       method: "PATCH",
       body: JSON.stringify(editedUser),
       headers: {
