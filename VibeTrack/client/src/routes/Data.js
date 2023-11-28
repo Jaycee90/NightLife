@@ -326,7 +326,7 @@ return (
         <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '90%' }}>{venueData.about}</p>
         
         <div>
-        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '45%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 40 ? venueData.website.slice(0, 40) + "..." : venueData.website}</Link></p>
+        <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '45%' }}><Link to={venueData.website} style={{color:'#fff'}}><FontAwesomeIcon icon={faLink} /> {venueData.website.length > 30 ? venueData.website.slice(0, 30) + "..." : venueData.website}</Link></p>
         <p style={{ float: 'left', textAlign: 'left', color: '#fff', fontSize: '15px', width: '45%' }}><FontAwesomeIcon icon={faPhone} /> {formattedPhoneNumber}</p>
         </div>
         <div>
