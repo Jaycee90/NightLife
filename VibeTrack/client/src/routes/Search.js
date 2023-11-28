@@ -254,7 +254,7 @@ function Search() {
     setSearchQueryName(event.target.value);
   };
 
-  const [destination, setDestination] = useState([]);
+  const [destination, setDestination] = useState(null);
   const searchVenue = async () => {
     try {
       const response = await fetch(`http://localhost:5050/record/`);
@@ -297,6 +297,8 @@ function Search() {
     popupAnchor: [1, -34],
     shadowSize: [41, 41],
   });
+
+  
   return (
     <div>
       <p className="section-subtitle">Ready to make the dance floor jealous? Let's vibe!</p>
@@ -392,7 +394,7 @@ function Search() {
         center={[29.8833, -97.9414]}
         zoom={13}
         zoomControl={false}
-        style={{ height: "500px", width: "100%", padding: '20px' }}
+        style={{ height: "350px", width: "100%", padding: '20px' }}
         
         whenCreated={map => {
           console.log("Map created:", map);
@@ -405,11 +407,14 @@ function Search() {
             <Popup>{marker.popupContent}</Popup>
           </Marker>
         ))}
-        {foundVenueLocationName && (
-        <div style={{position:'absolute', top: '5%', left: '10px', width:'320px', backgroundColor: '#fff', color: '#747474', fontFamily: 'Segoe UI', fontSize: '15px', padding: '10px', borderRadius: '10px', zIndex: 1000 }}>
-         <p style={{paddingBottom:'10px'}}><b>Heading to {destination.name}</b></p>
+        {foundVenueLocationName && destination && (
+        <div style={{position:'absolute', top: '5%', right: '10px', width:'320px', backgroundColor: '#fff', color: '#747474', fontFamily: 'Segoe UI', fontSize: '12px', padding: '10px', borderRadius: '10px', zIndex: 1000 }}>
+         <p style={{paddingBottom:'10px', fontSize: '12px',}}><b>Heading to</b>: {destination.name}</p>
          <hr style={{width:'90%', color:'#747474', opacity:'0.5', border:'1px #7474747'}}/>
-         <p style={{marginTop:'10px'}}>{destination.address}</p>
+         <img src={destination.image[0]} alt={destination.name} width="300px"/>
+         <p style={{marginTop:'10px'}}>Address: {destination.address}</p>
+         <p style={{marginTop:'10px'}}>Today Hours: {destination.monday}</p>
+         <p style={{marginTop:'10px'}}><Link to={`/data/${destination._id}`}>Visit venue's page entry</Link></p>
         </div>
       )}
 
@@ -425,7 +430,7 @@ function Search() {
         {/* Conditional rendering of RoutingControl */}
         {start && foundVenueLocationName && (
           <RoutingControl 
-            position={'bottomleft'} 
+            position={'topleft'} 
             start={start} 
             end={foundVenueLocationName} 
             color={'#757de8'}
