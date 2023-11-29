@@ -1,6 +1,6 @@
 # VibeTrack 
 > A nightclub tracker web app that aims to provide an enhanced experience for customers, helping them discover nearby clubs that cater to their preferences and interests.
- <!-- > Live demo [_here_](https://www.example.com). <!-- If you have the project hosted somewhere, include the link here. -->
+ > Live demo [here] https://vibetrack.vercel.app/ 
 
 ## Table of Contents
 * [General Info](#general-information)
